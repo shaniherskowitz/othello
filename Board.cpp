@@ -143,3 +143,11 @@ char Board::getTile(int i, int j) {
   if (board[i][j] == Tile(O)) return 'O';
   return ' ';
 }
+
+char Board::getWinnerSymbol() {
+  if (xTiles >= oTiles) return 'X';
+  if (xTiles < oTiles) return 'O';
+  return ' ';
+}
+
+bool Board::isTie() { return xTiles == oTiles; }

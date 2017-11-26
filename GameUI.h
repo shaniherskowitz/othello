@@ -8,6 +8,8 @@
 #include <vector>
 #include "Move.h"
 #include "Score.h"
+#include "GameStatus.h"
+
 class GameUI {
  public:
   /**
@@ -50,7 +52,7 @@ class GameUI {
    * @param score to check who won.
    * declares the winner of the game.
    */
-  virtual void declareWinner(char player1, char player2, Score const &score, Tile one, Tile two) const = 0;
+  virtual void declareWinner(Board& board, GameStatus gameStatus) const = 0;
 
   virtual void showMenu() const = 0;
 

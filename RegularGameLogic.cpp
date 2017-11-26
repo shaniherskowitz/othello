@@ -10,15 +10,11 @@ RegularGameLogic::RegularGameLogic() {
 GameStatus RegularGameLogic::turn(Player &player, Board &board, GameUI *gameUI) {
   vector<Move> movesList = getMovesList(player.getSymbol(), board);
   Move move = player.getTurnsMove(movesList, gameUI, board);
-  if (move.getPoint() == Point(-1, -1)) return GameStatus(HAS_NO_MOVES);
+  if (move.getPoint() == Point(-1, -1)) return HAS_NO_MOVES;
   flipTiles(board, player.getSymbol(), move.getPoint());
-  if (board.boardFull()) return GameStatus(FULL_BOARD);
-  return GameStatus(IN_PROGRESS);
+  if (board.boardFull()) return FULL_BOARD;
+  return IN_PROGRESS;
 }
-
-/*void RegularGameLogic::playMove(Move &move) {
-
-}*/
 
 vector<Move> RegularGameLogic::getMovesList(Tile playerSymbol, Board &board) {
   vector<Move> movesList;
@@ -93,6 +89,7 @@ void RegularGameLogic::traverseBoard(Board &gameBoard, Point point, int dir1, in
   int row = point.getX();
   int col = point.getY();
   int size = gameBoard.getSize();
+
   if (!inBound(size, row, col) || !inBound(size, row + dir1, col + dir2)) return;
   if (board[row + dir1][col + dir2] == Tile(EMPTY)) return;
   if (gameBoard.isSameSymbol(tile, row + dir1, col + dir2)) return;
@@ -120,11 +117,9 @@ void RegularGameLogic::flipTiles(Board &board, Tile tile, Point location) const 
       traverseBoard(board, Point(location.getX(), location.getY()), i, j, tile);
     }
   }
-//updateBoardCounters(board, tile);
 }
 
 void RegularGameLogic::updateBoardCounters(Board &board, Tile tile) const {
-  if (tile == Tile (X))
-    board.flipXTiles();
+  if (tile == Tile (X)) board.flipXTiles();
   if (tile == Tile (O)) board.flipOTiles();
 }

@@ -26,4 +26,6 @@ Point Move::getPoint() const{
 void Move::mergeMove(Move other) {
   this->scoreCounter += other.scoreCounter;
 }
-
+ bool Move::operator==(const Move &move) const {
+   return (this->move == move.move && this->scoreCounter == move.scoreCounter);
+ }

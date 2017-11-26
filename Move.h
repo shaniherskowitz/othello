@@ -16,6 +16,7 @@ class Move {
   Point getPoint() const;
   void mergeMove(Move other);
   int getScoreCounter() const;
+    bool operator==(const Move& move) const;
 
 };
 

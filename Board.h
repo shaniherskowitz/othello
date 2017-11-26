@@ -65,6 +65,8 @@ class Board {
 
   int getXTiles() const;
   int getOTiles() const;
+    char getWinnerSymbol();
+    bool isTie();
 
 };
 

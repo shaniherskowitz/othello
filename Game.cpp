@@ -18,27 +18,33 @@ Game::~Game() {
 
 
 void Game::run() {
-  GameLogic *logic = new RegularGameLogic();
-  Board board(size);
-  GameUI *print = new ConsolUI();
-  Tile tile1 = player1->getSymbol();
-  Tile tile2 = player2->getSymbol();
-  vector<Move> moves1 = logic->getMovesList(tile1, board);
-  vector<Move> moves2 = logic->getMovesList(tile2, board);
-  GameStatus gameStatus = GameStatus(IN_PROGRESS);
-  bool noMovesFlag = false;
+    GameLogic *logic = new RegularGameLogic();
+    Board board(size);
+    GameUI *print = new ConsolUI();
+    GameStatus gameStatus = IN_PROGRESS;
+    GameStatus player1TurnStatus = GameStatus(NOT_STARTED) , player2TurnStatus = GameStatus (NOT_STARTED);
 
-  while (gameStatus == GameStatus(IN_PROGRESS) || gameStatus == GameStatus(HAS_NO_MOVES) || noMovesFlag) {
-    gameStatus = logic->turn(*player1, board, print);
-    if (gameStatus == GameStatus(HAS_NO_MOVES)) noMovesFlag = true;
-    gameStatus = logic->turn(*player2, board, print);
-    if(moves1.empty() && moves2.empty()) break;
-  }
-  print->printBoard(board, board.getSize());
-  Score *s = new Score(board);
-  print->declareWinner(player1->getSymbolMeaning(), player2->getSymbolMeaning(), *s, tile1, tile2);
-
-  delete print;
-  delete s;
+    while (gameStatus == IN_PROGRESS) {
+        player1TurnStatus = logic->turn(*player1, board, print);
+        if (player1TurnStatus == HAS_NO_MOVES && player2TurnStatus == HAS_NO_MOVES) {
+            gameStatus = HAS_NO_MOVES;
+            break;
+        }
+        if (player1TurnStatus == FULL_BOARD) {
+            gameStatus = FULL_BOARD;
+            break;
+        }
+        player2TurnStatus = logic->turn(*player2, board, print);
+        if (player1TurnStatus == HAS_NO_MOVES && player2TurnStatus == HAS_NO_MOVES) {
+            gameStatus = HAS_NO_MOVES;
+            break;
+        }
+        if (player2TurnStatus == FULL_BOARD) {
+            gameStatus = FULL_BOARD;
+            break;
+        }
+    }
+    print->printBoard(board, board.getSize());
+    print->declareWinner(board, gameStatus);
 
 }

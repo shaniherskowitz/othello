@@ -4,6 +4,8 @@
 
 #include "ConsolUI.h"
 #include "Player.h"
+#include "GameStatus.h"
+
 ConsolUI::ConsolUI() {
 
 }
@@ -49,22 +51,16 @@ void ConsolUI::printBoard(Board &board, int size) const {
   }
 }
 
-void ConsolUI::declareWinner(char player1, char player2, Score const &score, Tile one, Tile two) const {
-  Point *p = score.checkScore(one, two);
-
-  cout << "GAME OVER!";
-
-  if (p->getX() > p->getY()) {
-    cout << endl << "Player " << player1 << " is the winner!!";
-  } else if (p->getY() > p->getX()) {
-    cout << endl << "Player " << player2 << " is the winner!!";
-  } else {
-    cout << endl << "Its a tie!!!";
+void ConsolUI::declareWinner(Board& board, GameStatus gameStatus) const {
+  if (gameStatus == HAS_NO_MOVES) {
+    cout << "GAME OVER" << endl << "NO MOVES LEFT FOR BOTH PLAYERS..." << endl;
+    return;
   }
-  cout << endl << "Final Score: Player "
-       << player1 << ": " << p->getX() << " Player " << player2 << ": " << p->getY();
-
-  delete p;
+  if (board.isTie()) {
+    cout << "It's a tie!!!" << endl;
+    return;
+  }
+  cout << "Player " << board.getWinnerSymbol() << " is the winner!!!";
 
 }
 

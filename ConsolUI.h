@@ -8,6 +8,7 @@
 
 #include "Score.h"
 #include "GameUI.h"
+#include "GameStatus.h"
 #include <vector>
 class ConsolUI: public GameUI {
  public:
@@ -21,7 +22,7 @@ class ConsolUI: public GameUI {
   virtual void printBoard(Board &board, int size) const;
   virtual void repeatUserInput() const;
   virtual void printMoves(char symbol, vector<Move> &movesList) const;
-  virtual void declareWinner(char player1, char player2, Score const &score, Tile one, Tile two) const;
+  virtual void declareWinner(Board& board, GameStatus gameStatus) const;
   virtual void showMenu() const ;
   virtual void gameStart(int choice) const;
   virtual void movesListIsEmpty() const;
