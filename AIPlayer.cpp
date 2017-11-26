@@ -49,6 +49,7 @@ int AIPlayer::simulateMove(Board *board, Move move) {
     }
   }
   currentScore = (currentScore + humanScore + 1) - (computerScore - currentScore);
+  delete copyBoard;
 
   return currentScore;
 

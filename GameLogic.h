@@ -9,6 +9,15 @@
 #include "GameStatus.h"
 class GameLogic {
  public:
+  /**
+  * create object for printing in the game, for GUI or console.
+  */
+  GameLogic() {
+
+  }
+  virtual ~GameLogic() {
+
+  }
   virtual GameStatus turn(Player &player, Board &board, GameUI *print) = 0;
   virtual vector<Move> getMovesList(Tile player, Board &board) = 0;
   virtual void flipTiles(Board& board, Tile tile, Point location) const = 0;

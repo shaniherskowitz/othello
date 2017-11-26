@@ -8,8 +8,8 @@
 
 class Game {
  private:
-  Player *one;
-  Player *two;
+  Player *player1;
+  Player *player2;
   GameUI *print;
   int size;
 

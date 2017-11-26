@@ -34,4 +34,7 @@ void Menu::showMenu() {
   print->gameStart(choice);
 
   game->run();
+
+  delete game;
+
 }

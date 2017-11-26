@@ -14,6 +14,8 @@ TEST_F (AIPlayerTest, AITest) {
   vector<Move> moves = logic->getMovesList(player1.getSymbol(), *board);
 
   EXPECT_EQ(moves[0].getPoint(), player1.getTurnsMove(moves, print , *board).getPoint());
+  delete board;
+  delete print;
 
 }
 TEST_F (AIPlayerTest, AITest2) {
@@ -26,6 +28,8 @@ TEST_F (AIPlayerTest, AITest2) {
   vector<Move> moves = logic->getMovesList(player1.getSymbol(), *board);
 
   EXPECT_NE(Move(Point(2, 4)).getPoint() , player1.getTurnsMove(moves, print , *board).getPoint());
+  delete board;
+  delete print;
 
 }
 TEST_F (AIPlayerTest, AITest3) {
@@ -41,6 +45,8 @@ TEST_F (AIPlayerTest, AITest3) {
   Point player = player1.getTurnsMove(moves, print , *board).getPoint();
 
   EXPECT_NE(move, player);
+  delete board;
+  delete print;
 
 }
 TEST_F (AIPlayerTest, AITest4) {
@@ -53,6 +59,8 @@ TEST_F (AIPlayerTest, AITest4) {
   vector<Move> moves = logic->getMovesList(player1.getSymbol(), *board);
 
   EXPECT_EQ(Move(Point(7, 5)).getPoint() , player1.getTurnsMove(moves, print , *board).getPoint());
+  delete board;
+  delete print;
 
 }
 TEST_F (AIPlayerTest, AITest5) {
@@ -65,6 +73,8 @@ TEST_F (AIPlayerTest, AITest5) {
   vector<Move> moves = logic->getMovesList(player1.getSymbol(), *board);
 
   EXPECT_EQ(Move(Point(1, 4)).getPoint() , player1.getTurnsMove(moves, print , *board).getPoint());
+  delete board;
+  delete print;
 
 }
 TEST_F (AIPlayerTest, AITest6) {
@@ -77,6 +87,8 @@ TEST_F (AIPlayerTest, AITest6) {
   vector<Move> moves = logic->getMovesList(player1.getSymbol(), *board);
 
   EXPECT_EQ(Move(Point(5, 0)).getPoint() , player1.getTurnsMove(moves, print , *board).getPoint());
+  delete board;
+  delete print;
 
 }
 
