@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/liora/CLionProjects/clion-2017.2.3/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
+RM = /home/liora/CLionProjects/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/shaniherskowitz/CLionProjects/othello
+CMAKE_SOURCE_DIR = /home/liora/CLionProjects/othello
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug
+CMAKE_BINARY_DIR = /home/liora/CLionProjects/othello/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/othello.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/othello.dir/flags.make
 
 CMakeFiles/othello.dir/main.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/othello.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/main.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/othello.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/main.cpp.o -c /home/liora/CLionProjects/othello/main.cpp
 
 CMakeFiles/othello.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/main.cpp > CMakeFiles/othello.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/main.cpp > CMakeFiles/othello.dir/main.cpp.i
 
 CMakeFiles/othello.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/main.cpp -o CMakeFiles/othello.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/main.cpp -o CMakeFiles/othello.dir/main.cpp.s
 
 CMakeFiles/othello.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/othello.dir/main.cpp.o.provides.build: CMakeFiles/othello.dir/main.cp
 
 CMakeFiles/othello.dir/Board.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/Board.cpp.o: ../Board.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/othello.dir/Board.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Board.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/Board.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/othello.dir/Board.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Board.cpp.o -c /home/liora/CLionProjects/othello/Board.cpp
 
 CMakeFiles/othello.dir/Board.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/Board.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/Board.cpp > CMakeFiles/othello.dir/Board.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/Board.cpp > CMakeFiles/othello.dir/Board.cpp.i
 
 CMakeFiles/othello.dir/Board.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/Board.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/Board.cpp -o CMakeFiles/othello.dir/Board.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/Board.cpp -o CMakeFiles/othello.dir/Board.cpp.s
 
 CMakeFiles/othello.dir/Board.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/othello.dir/Board.cpp.o.provides.build: CMakeFiles/othello.dir/Board.
 
 CMakeFiles/othello.dir/Tile.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/Tile.cpp.o: ../Tile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/othello.dir/Tile.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Tile.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/Tile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/othello.dir/Tile.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Tile.cpp.o -c /home/liora/CLionProjects/othello/Tile.cpp
 
 CMakeFiles/othello.dir/Tile.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/Tile.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/Tile.cpp > CMakeFiles/othello.dir/Tile.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/Tile.cpp > CMakeFiles/othello.dir/Tile.cpp.i
 
 CMakeFiles/othello.dir/Tile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/Tile.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/Tile.cpp -o CMakeFiles/othello.dir/Tile.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/Tile.cpp -o CMakeFiles/othello.dir/Tile.cpp.s
 
 CMakeFiles/othello.dir/Tile.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/othello.dir/Tile.cpp.o.provides.build: CMakeFiles/othello.dir/Tile.cp
 
 CMakeFiles/othello.dir/Point.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/Point.cpp.o: ../Point.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/othello.dir/Point.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Point.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/Point.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/othello.dir/Point.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Point.cpp.o -c /home/liora/CLionProjects/othello/Point.cpp
 
 CMakeFiles/othello.dir/Point.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/Point.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/Point.cpp > CMakeFiles/othello.dir/Point.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/Point.cpp > CMakeFiles/othello.dir/Point.cpp.i
 
 CMakeFiles/othello.dir/Point.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/Point.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/Point.cpp -o CMakeFiles/othello.dir/Point.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/Point.cpp -o CMakeFiles/othello.dir/Point.cpp.s
 
 CMakeFiles/othello.dir/Point.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/othello.dir/Point.cpp.o.provides.build: CMakeFiles/othello.dir/Point.
 
 CMakeFiles/othello.dir/Game.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/Game.cpp.o: ../Game.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/othello.dir/Game.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Game.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/Game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/othello.dir/Game.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Game.cpp.o -c /home/liora/CLionProjects/othello/Game.cpp
 
 CMakeFiles/othello.dir/Game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/Game.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/Game.cpp > CMakeFiles/othello.dir/Game.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/Game.cpp > CMakeFiles/othello.dir/Game.cpp.i
 
 CMakeFiles/othello.dir/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/Game.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/Game.cpp -o CMakeFiles/othello.dir/Game.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/Game.cpp -o CMakeFiles/othello.dir/Game.cpp.s
 
 CMakeFiles/othello.dir/Game.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/othello.dir/Game.cpp.o.provides.build: CMakeFiles/othello.dir/Game.cp
 
 CMakeFiles/othello.dir/Player.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/Player.cpp.o: ../Player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/othello.dir/Player.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Player.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/othello.dir/Player.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Player.cpp.o -c /home/liora/CLionProjects/othello/Player.cpp
 
 CMakeFiles/othello.dir/Player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/Player.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/Player.cpp > CMakeFiles/othello.dir/Player.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/Player.cpp > CMakeFiles/othello.dir/Player.cpp.i
 
 CMakeFiles/othello.dir/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/Player.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/Player.cpp -o CMakeFiles/othello.dir/Player.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/Player.cpp -o CMakeFiles/othello.dir/Player.cpp.s
 
 CMakeFiles/othello.dir/Player.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/othello.dir/Player.cpp.o.provides.build: CMakeFiles/othello.dir/Playe
 
 CMakeFiles/othello.dir/Move.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/Move.cpp.o: ../Move.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/othello.dir/Move.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Move.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/Move.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/othello.dir/Move.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Move.cpp.o -c /home/liora/CLionProjects/othello/Move.cpp
 
 CMakeFiles/othello.dir/Move.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/Move.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/Move.cpp > CMakeFiles/othello.dir/Move.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/Move.cpp > CMakeFiles/othello.dir/Move.cpp.i
 
 CMakeFiles/othello.dir/Move.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/Move.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/Move.cpp -o CMakeFiles/othello.dir/Move.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/Move.cpp -o CMakeFiles/othello.dir/Move.cpp.s
 
 CMakeFiles/othello.dir/Move.cpp.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/othello.dir/Move.cpp.o.provides.build: CMakeFiles/othello.dir/Move.cp
 
 CMakeFiles/othello.dir/GameLogic.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/GameLogic.cpp.o: ../GameLogic.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/othello.dir/GameLogic.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/GameLogic.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/GameLogic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/othello.dir/GameLogic.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/GameLogic.cpp.o -c /home/liora/CLionProjects/othello/GameLogic.cpp
 
 CMakeFiles/othello.dir/GameLogic.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/GameLogic.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/GameLogic.cpp > CMakeFiles/othello.dir/GameLogic.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/GameLogic.cpp > CMakeFiles/othello.dir/GameLogic.cpp.i
 
 CMakeFiles/othello.dir/GameLogic.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/GameLogic.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/GameLogic.cpp -o CMakeFiles/othello.dir/GameLogic.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/GameLogic.cpp -o CMakeFiles/othello.dir/GameLogic.cpp.s
 
 CMakeFiles/othello.dir/GameLogic.cpp.o.requires:
 
@@ -251,16 +251,16 @@ CMakeFiles/othello.dir/GameLogic.cpp.o.provides.build: CMakeFiles/othello.dir/Ga
 
 CMakeFiles/othello.dir/RegularGameLogic.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/RegularGameLogic.cpp.o: ../RegularGameLogic.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/othello.dir/RegularGameLogic.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/RegularGameLogic.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/RegularGameLogic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/othello.dir/RegularGameLogic.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/RegularGameLogic.cpp.o -c /home/liora/CLionProjects/othello/RegularGameLogic.cpp
 
 CMakeFiles/othello.dir/RegularGameLogic.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/RegularGameLogic.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/RegularGameLogic.cpp > CMakeFiles/othello.dir/RegularGameLogic.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/RegularGameLogic.cpp > CMakeFiles/othello.dir/RegularGameLogic.cpp.i
 
 CMakeFiles/othello.dir/RegularGameLogic.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/RegularGameLogic.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/RegularGameLogic.cpp -o CMakeFiles/othello.dir/RegularGameLogic.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/RegularGameLogic.cpp -o CMakeFiles/othello.dir/RegularGameLogic.cpp.s
 
 CMakeFiles/othello.dir/RegularGameLogic.cpp.o.requires:
 
@@ -275,16 +275,16 @@ CMakeFiles/othello.dir/RegularGameLogic.cpp.o.provides.build: CMakeFiles/othello
 
 CMakeFiles/othello.dir/GameStatus.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/GameStatus.cpp.o: ../GameStatus.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/othello.dir/GameStatus.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/GameStatus.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/GameStatus.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/othello.dir/GameStatus.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/GameStatus.cpp.o -c /home/liora/CLionProjects/othello/GameStatus.cpp
 
 CMakeFiles/othello.dir/GameStatus.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/GameStatus.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/GameStatus.cpp > CMakeFiles/othello.dir/GameStatus.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/GameStatus.cpp > CMakeFiles/othello.dir/GameStatus.cpp.i
 
 CMakeFiles/othello.dir/GameStatus.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/GameStatus.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/GameStatus.cpp -o CMakeFiles/othello.dir/GameStatus.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/GameStatus.cpp -o CMakeFiles/othello.dir/GameStatus.cpp.s
 
 CMakeFiles/othello.dir/GameStatus.cpp.o.requires:
 
@@ -299,16 +299,16 @@ CMakeFiles/othello.dir/GameStatus.cpp.o.provides.build: CMakeFiles/othello.dir/G
 
 CMakeFiles/othello.dir/Score.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/Score.cpp.o: ../Score.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/othello.dir/Score.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Score.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/Score.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/othello.dir/Score.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Score.cpp.o -c /home/liora/CLionProjects/othello/Score.cpp
 
 CMakeFiles/othello.dir/Score.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/Score.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/Score.cpp > CMakeFiles/othello.dir/Score.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/Score.cpp > CMakeFiles/othello.dir/Score.cpp.i
 
 CMakeFiles/othello.dir/Score.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/Score.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/Score.cpp -o CMakeFiles/othello.dir/Score.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/Score.cpp -o CMakeFiles/othello.dir/Score.cpp.s
 
 CMakeFiles/othello.dir/Score.cpp.o.requires:
 
@@ -323,16 +323,16 @@ CMakeFiles/othello.dir/Score.cpp.o.provides.build: CMakeFiles/othello.dir/Score.
 
 CMakeFiles/othello.dir/GameUI.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/GameUI.cpp.o: ../GameUI.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/othello.dir/GameUI.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/GameUI.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/GameUI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/othello.dir/GameUI.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/GameUI.cpp.o -c /home/liora/CLionProjects/othello/GameUI.cpp
 
 CMakeFiles/othello.dir/GameUI.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/GameUI.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/GameUI.cpp > CMakeFiles/othello.dir/GameUI.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/GameUI.cpp > CMakeFiles/othello.dir/GameUI.cpp.i
 
 CMakeFiles/othello.dir/GameUI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/GameUI.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/GameUI.cpp -o CMakeFiles/othello.dir/GameUI.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/GameUI.cpp -o CMakeFiles/othello.dir/GameUI.cpp.s
 
 CMakeFiles/othello.dir/GameUI.cpp.o.requires:
 
@@ -347,16 +347,16 @@ CMakeFiles/othello.dir/GameUI.cpp.o.provides.build: CMakeFiles/othello.dir/GameU
 
 CMakeFiles/othello.dir/ConsolUI.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/ConsolUI.cpp.o: ../ConsolUI.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/othello.dir/ConsolUI.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/ConsolUI.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/ConsolUI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/othello.dir/ConsolUI.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/ConsolUI.cpp.o -c /home/liora/CLionProjects/othello/ConsolUI.cpp
 
 CMakeFiles/othello.dir/ConsolUI.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/ConsolUI.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/ConsolUI.cpp > CMakeFiles/othello.dir/ConsolUI.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/ConsolUI.cpp > CMakeFiles/othello.dir/ConsolUI.cpp.i
 
 CMakeFiles/othello.dir/ConsolUI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/ConsolUI.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/ConsolUI.cpp -o CMakeFiles/othello.dir/ConsolUI.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/ConsolUI.cpp -o CMakeFiles/othello.dir/ConsolUI.cpp.s
 
 CMakeFiles/othello.dir/ConsolUI.cpp.o.requires:
 
@@ -371,16 +371,16 @@ CMakeFiles/othello.dir/ConsolUI.cpp.o.provides.build: CMakeFiles/othello.dir/Con
 
 CMakeFiles/othello.dir/HumanPlayer.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/HumanPlayer.cpp.o: ../HumanPlayer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/othello.dir/HumanPlayer.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/HumanPlayer.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/HumanPlayer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/othello.dir/HumanPlayer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/HumanPlayer.cpp.o -c /home/liora/CLionProjects/othello/HumanPlayer.cpp
 
 CMakeFiles/othello.dir/HumanPlayer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/HumanPlayer.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/HumanPlayer.cpp > CMakeFiles/othello.dir/HumanPlayer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/HumanPlayer.cpp > CMakeFiles/othello.dir/HumanPlayer.cpp.i
 
 CMakeFiles/othello.dir/HumanPlayer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/HumanPlayer.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/HumanPlayer.cpp -o CMakeFiles/othello.dir/HumanPlayer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/HumanPlayer.cpp -o CMakeFiles/othello.dir/HumanPlayer.cpp.s
 
 CMakeFiles/othello.dir/HumanPlayer.cpp.o.requires:
 
@@ -395,16 +395,16 @@ CMakeFiles/othello.dir/HumanPlayer.cpp.o.provides.build: CMakeFiles/othello.dir/
 
 CMakeFiles/othello.dir/Menu.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/Menu.cpp.o: ../Menu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/othello.dir/Menu.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Menu.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/Menu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/othello.dir/Menu.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/Menu.cpp.o -c /home/liora/CLionProjects/othello/Menu.cpp
 
 CMakeFiles/othello.dir/Menu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/Menu.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/Menu.cpp > CMakeFiles/othello.dir/Menu.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/Menu.cpp > CMakeFiles/othello.dir/Menu.cpp.i
 
 CMakeFiles/othello.dir/Menu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/Menu.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/Menu.cpp -o CMakeFiles/othello.dir/Menu.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/Menu.cpp -o CMakeFiles/othello.dir/Menu.cpp.s
 
 CMakeFiles/othello.dir/Menu.cpp.o.requires:
 
@@ -419,16 +419,16 @@ CMakeFiles/othello.dir/Menu.cpp.o.provides.build: CMakeFiles/othello.dir/Menu.cp
 
 CMakeFiles/othello.dir/AIPlayer.cpp.o: CMakeFiles/othello.dir/flags.make
 CMakeFiles/othello.dir/AIPlayer.cpp.o: ../AIPlayer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/othello.dir/AIPlayer.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/AIPlayer.cpp.o -c /Users/shaniherskowitz/CLionProjects/othello/AIPlayer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/othello.dir/AIPlayer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/othello.dir/AIPlayer.cpp.o -c /home/liora/CLionProjects/othello/AIPlayer.cpp
 
 CMakeFiles/othello.dir/AIPlayer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/AIPlayer.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/AIPlayer.cpp > CMakeFiles/othello.dir/AIPlayer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/AIPlayer.cpp > CMakeFiles/othello.dir/AIPlayer.cpp.i
 
 CMakeFiles/othello.dir/AIPlayer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/AIPlayer.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/AIPlayer.cpp -o CMakeFiles/othello.dir/AIPlayer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/AIPlayer.cpp -o CMakeFiles/othello.dir/AIPlayer.cpp.s
 
 CMakeFiles/othello.dir/AIPlayer.cpp.o.requires:
 
@@ -481,7 +481,7 @@ othello: CMakeFiles/othello.dir/Menu.cpp.o
 othello: CMakeFiles/othello.dir/AIPlayer.cpp.o
 othello: CMakeFiles/othello.dir/build.make
 othello: CMakeFiles/othello.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable othello"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable othello"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/othello.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -513,6 +513,6 @@ CMakeFiles/othello.dir/clean:
 .PHONY : CMakeFiles/othello.dir/clean
 
 CMakeFiles/othello.dir/depend:
-	cd /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/shaniherskowitz/CLionProjects/othello /Users/shaniherskowitz/CLionProjects/othello /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles/othello.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/liora/CLionProjects/othello/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/liora/CLionProjects/othello /home/liora/CLionProjects/othello /home/liora/CLionProjects/othello/cmake-build-debug /home/liora/CLionProjects/othello/cmake-build-debug /home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles/othello.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/othello.dir/depend
 

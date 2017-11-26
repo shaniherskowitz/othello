@@ -34,7 +34,7 @@ googletest-release-1.8.0/googlemock/CMakeFiles/gmock_main.dir/__/googletest/src/
  ../googletest-release-1.8.0/googletest/src/gtest-test-part.cc
  ../googletest-release-1.8.0/googletest/src/gtest-typed-test.cc
  ../googletest-release-1.8.0/googletest/src/gtest.cc
- /Users/shaniherskowitz/CLionProjects/othello/googletest-release-1.8.0/googletest/src/gtest-all.cc
+ /home/liora/CLionProjects/othello/googletest-release-1.8.0/googletest/src/gtest-all.cc
 googletest-release-1.8.0/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o
  ../googletest-release-1.8.0/googlemock/include/gmock/gmock-actions.h
  ../googletest-release-1.8.0/googlemock/include/gmock/gmock-cardinalities.h
@@ -80,7 +80,7 @@ googletest-release-1.8.0/googlemock/CMakeFiles/gmock_main.dir/src/gmock-all.cc.o
  ../googletest-release-1.8.0/googletest/include/gtest/internal/gtest-string.h
  ../googletest-release-1.8.0/googletest/include/gtest/internal/gtest-tuple.h
  ../googletest-release-1.8.0/googletest/include/gtest/internal/gtest-type-util.h
- /Users/shaniherskowitz/CLionProjects/othello/googletest-release-1.8.0/googlemock/src/gmock-all.cc
+ /home/liora/CLionProjects/othello/googletest-release-1.8.0/googlemock/src/gmock-all.cc
 googletest-release-1.8.0/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
  ../googletest-release-1.8.0/googlemock/include/gmock/gmock-actions.h
  ../googletest-release-1.8.0/googlemock/include/gmock/gmock-cardinalities.h
@@ -121,4 +121,4 @@ googletest-release-1.8.0/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.
  ../googletest-release-1.8.0/googletest/include/gtest/internal/gtest-string.h
  ../googletest-release-1.8.0/googletest/include/gtest/internal/gtest-tuple.h
  ../googletest-release-1.8.0/googletest/include/gtest/internal/gtest-type-util.h
- /Users/shaniherskowitz/CLionProjects/othello/googletest-release-1.8.0/googlemock/src/gmock_main.cc
+ /home/liora/CLionProjects/othello/googletest-release-1.8.0/googlemock/src/gmock_main.cc

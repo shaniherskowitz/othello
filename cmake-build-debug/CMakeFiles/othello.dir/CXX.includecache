@@ -6,159 +6,167 @@
 
 #IncludeRegexTransform: 
 
-/Users/shaniherskowitz/CLionProjects/othello/AIPlayer.cpp
+/home/liora/CLionProjects/othello/AIPlayer.cpp
 AIPlayer.h
-/Users/shaniherskowitz/CLionProjects/othello/AIPlayer.h
+/home/liora/CLionProjects/othello/AIPlayer.h
 RegularGameLogic.h
-/Users/shaniherskowitz/CLionProjects/othello/RegularGameLogic.h
+/home/liora/CLionProjects/othello/RegularGameLogic.h
 
-/Users/shaniherskowitz/CLionProjects/othello/AIPlayer.h
+/home/liora/CLionProjects/othello/AIPlayer.h
 Player.h
-/Users/shaniherskowitz/CLionProjects/othello/Player.h
+/home/liora/CLionProjects/othello/Player.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Board.cpp
+/home/liora/CLionProjects/othello/Board.cpp
+cstdlib
+-
 Board.h
-/Users/shaniherskowitz/CLionProjects/othello/Board.h
+/home/liora/CLionProjects/othello/Board.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Board.h
+/home/liora/CLionProjects/othello/Board.h
 iostream
 -
 Tile.h
-/Users/shaniherskowitz/CLionProjects/othello/Tile.h
+/home/liora/CLionProjects/othello/Tile.h
 Point.h
-/Users/shaniherskowitz/CLionProjects/othello/Point.h
+/home/liora/CLionProjects/othello/Point.h
 fstream
 -
 
-/Users/shaniherskowitz/CLionProjects/othello/ConsolUI.cpp
+/home/liora/CLionProjects/othello/ConsolUI.cpp
 ConsolUI.h
-/Users/shaniherskowitz/CLionProjects/othello/ConsolUI.h
+/home/liora/CLionProjects/othello/ConsolUI.h
 Player.h
-/Users/shaniherskowitz/CLionProjects/othello/Player.h
+/home/liora/CLionProjects/othello/Player.h
 
-/Users/shaniherskowitz/CLionProjects/othello/ConsolUI.h
+/home/liora/CLionProjects/othello/ConsolUI.h
 Score.h
-/Users/shaniherskowitz/CLionProjects/othello/Score.h
+/home/liora/CLionProjects/othello/Score.h
 GameUI.h
-/Users/shaniherskowitz/CLionProjects/othello/GameUI.h
+/home/liora/CLionProjects/othello/GameUI.h
 vector
 -
 
-/Users/shaniherskowitz/CLionProjects/othello/Game.cpp
+/home/liora/CLionProjects/othello/Game.cpp
 Game.h
-/Users/shaniherskowitz/CLionProjects/othello/Game.h
+/home/liora/CLionProjects/othello/Game.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Game.h
+/home/liora/CLionProjects/othello/Game.h
 RegularGameLogic.h
-/Users/shaniherskowitz/CLionProjects/othello/RegularGameLogic.h
+/home/liora/CLionProjects/othello/RegularGameLogic.h
 
-/Users/shaniherskowitz/CLionProjects/othello/GameLogic.cpp
+/home/liora/CLionProjects/othello/GameLogic.cpp
 GameLogic.h
-/Users/shaniherskowitz/CLionProjects/othello/GameLogic.h
+/home/liora/CLionProjects/othello/GameLogic.h
 
-/Users/shaniherskowitz/CLionProjects/othello/GameLogic.h
+/home/liora/CLionProjects/othello/GameLogic.h
 Player.h
-/Users/shaniherskowitz/CLionProjects/othello/Player.h
+/home/liora/CLionProjects/othello/Player.h
 Move.h
-/Users/shaniherskowitz/CLionProjects/othello/Move.h
+/home/liora/CLionProjects/othello/Move.h
 GameStatus.h
-/Users/shaniherskowitz/CLionProjects/othello/GameStatus.h
+/home/liora/CLionProjects/othello/GameStatus.h
 
-/Users/shaniherskowitz/CLionProjects/othello/GameStatus.cpp
+/home/liora/CLionProjects/othello/GameStatus.cpp
 GameStatus.h
-/Users/shaniherskowitz/CLionProjects/othello/GameStatus.h
+/home/liora/CLionProjects/othello/GameStatus.h
 
-/Users/shaniherskowitz/CLionProjects/othello/GameStatus.h
+/home/liora/CLionProjects/othello/GameStatus.h
 
-/Users/shaniherskowitz/CLionProjects/othello/GameUI.cpp
+/home/liora/CLionProjects/othello/GameUI.cpp
 GameUI.h
-/Users/shaniherskowitz/CLionProjects/othello/GameUI.h
+/home/liora/CLionProjects/othello/GameUI.h
 
-/Users/shaniherskowitz/CLionProjects/othello/GameUI.h
+/home/liora/CLionProjects/othello/GameUI.h
+vector
+-
 Move.h
-/Users/shaniherskowitz/CLionProjects/othello/Move.h
+/home/liora/CLionProjects/othello/Move.h
 Score.h
-/Users/shaniherskowitz/CLionProjects/othello/Score.h
+/home/liora/CLionProjects/othello/Score.h
 
-/Users/shaniherskowitz/CLionProjects/othello/HumanPlayer.cpp
+/home/liora/CLionProjects/othello/HumanPlayer.cpp
+limits
+-
 HumanPlayer.h
-/Users/shaniherskowitz/CLionProjects/othello/HumanPlayer.h
+/home/liora/CLionProjects/othello/HumanPlayer.h
 
-/Users/shaniherskowitz/CLionProjects/othello/HumanPlayer.h
+/home/liora/CLionProjects/othello/HumanPlayer.h
 Player.h
-/Users/shaniherskowitz/CLionProjects/othello/Player.h
+/home/liora/CLionProjects/othello/Player.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Menu.cpp
+/home/liora/CLionProjects/othello/Menu.cpp
+limits
+-
 Menu.h
-/Users/shaniherskowitz/CLionProjects/othello/Menu.h
+/home/liora/CLionProjects/othello/Menu.h
 Game.h
-/Users/shaniherskowitz/CLionProjects/othello/Game.h
+/home/liora/CLionProjects/othello/Game.h
 HumanPlayer.h
-/Users/shaniherskowitz/CLionProjects/othello/HumanPlayer.h
+/home/liora/CLionProjects/othello/HumanPlayer.h
 AIPlayer.h
-/Users/shaniherskowitz/CLionProjects/othello/AIPlayer.h
+/home/liora/CLionProjects/othello/AIPlayer.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Menu.h
+/home/liora/CLionProjects/othello/Menu.h
 GameUI.h
-/Users/shaniherskowitz/CLionProjects/othello/GameUI.h
+/home/liora/CLionProjects/othello/GameUI.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Move.cpp
+/home/liora/CLionProjects/othello/Move.cpp
 Move.h
-/Users/shaniherskowitz/CLionProjects/othello/Move.h
+/home/liora/CLionProjects/othello/Move.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Move.h
+/home/liora/CLionProjects/othello/Move.h
 Point.h
-/Users/shaniherskowitz/CLionProjects/othello/Point.h
+/home/liora/CLionProjects/othello/Point.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Player.cpp
+/home/liora/CLionProjects/othello/Player.cpp
 Player.h
-/Users/shaniherskowitz/CLionProjects/othello/Player.h
+/home/liora/CLionProjects/othello/Player.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Player.h
+/home/liora/CLionProjects/othello/Player.h
 vector
 -
 Point.h
-/Users/shaniherskowitz/CLionProjects/othello/Point.h
+/home/liora/CLionProjects/othello/Point.h
 Move.h
-/Users/shaniherskowitz/CLionProjects/othello/Move.h
+/home/liora/CLionProjects/othello/Move.h
 ConsolUI.h
-/Users/shaniherskowitz/CLionProjects/othello/ConsolUI.h
+/home/liora/CLionProjects/othello/ConsolUI.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Point.cpp
+/home/liora/CLionProjects/othello/Point.cpp
 iostream
 -
 Point.h
-/Users/shaniherskowitz/CLionProjects/othello/Point.h
+/home/liora/CLionProjects/othello/Point.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Point.h
+/home/liora/CLionProjects/othello/Point.h
 ostream
 -
 
-/Users/shaniherskowitz/CLionProjects/othello/RegularGameLogic.cpp
+/home/liora/CLionProjects/othello/RegularGameLogic.cpp
 RegularGameLogic.h
-/Users/shaniherskowitz/CLionProjects/othello/RegularGameLogic.h
+/home/liora/CLionProjects/othello/RegularGameLogic.h
 vector
 -
 
-/Users/shaniherskowitz/CLionProjects/othello/RegularGameLogic.h
+/home/liora/CLionProjects/othello/RegularGameLogic.h
 GameLogic.h
-/Users/shaniherskowitz/CLionProjects/othello/GameLogic.h
+/home/liora/CLionProjects/othello/GameLogic.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Score.cpp
+/home/liora/CLionProjects/othello/Score.cpp
 Score.h
-/Users/shaniherskowitz/CLionProjects/othello/Score.h
+/home/liora/CLionProjects/othello/Score.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Score.h
+/home/liora/CLionProjects/othello/Score.h
 Board.h
-/Users/shaniherskowitz/CLionProjects/othello/Board.h
+/home/liora/CLionProjects/othello/Board.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Tile.cpp
+/home/liora/CLionProjects/othello/Tile.cpp
 Tile.h
-/Users/shaniherskowitz/CLionProjects/othello/Tile.h
+/home/liora/CLionProjects/othello/Tile.h
 
-/Users/shaniherskowitz/CLionProjects/othello/Tile.h
+/home/liora/CLionProjects/othello/Tile.h
 
-/Users/shaniherskowitz/CLionProjects/othello/main.cpp
+/home/liora/CLionProjects/othello/main.cpp
 Menu.h
-/Users/shaniherskowitz/CLionProjects/othello/Menu.h
+/home/liora/CLionProjects/othello/Menu.h
 

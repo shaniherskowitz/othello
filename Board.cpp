@@ -2,6 +2,7 @@
 // Shani Herskowitz
 
 
+#include <cstdlib>
 #include "Board.h"
 using namespace std;
 Board::Board(int size1) {
@@ -53,7 +54,7 @@ Board::Board(string &filePath) {
     board[i] = new Tile[size];
   }
   ifstream inFile;
-  inFile.open(filePath);
+  //inFile.open();
   char x;
   if (!inFile) {
     cerr << "Unable to open file";

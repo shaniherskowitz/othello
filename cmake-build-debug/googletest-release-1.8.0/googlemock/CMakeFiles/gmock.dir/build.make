@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/liora/CLionProjects/clion-2017.2.3/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
+RM = /home/liora/CLionProjects/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/shaniherskowitz/CLionProjects/othello
+CMAKE_SOURCE_DIR = /home/liora/CLionProjects/othello
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug
+CMAKE_BINARY_DIR = /home/liora/CLionProjects/othello/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/depend.make
@@ -59,16 +59,16 @@ include googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/flags.make
 
 googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o: googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/flags.make
 googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o: ../googletest-release-1.8.0/googletest/src/gtest-all.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o"
-	cd /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o -c /Users/shaniherskowitz/CLionProjects/othello/googletest-release-1.8.0/googletest/src/gtest-all.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o"
+	cd /home/liora/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o -c /home/liora/CLionProjects/othello/googletest-release-1.8.0/googletest/src/gtest-all.cc
 
 googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.i"
-	cd /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/googletest-release-1.8.0/googletest/src/gtest-all.cc > CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.i
+	cd /home/liora/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/googletest-release-1.8.0/googletest/src/gtest-all.cc > CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.i
 
 googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.s"
-	cd /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/googletest-release-1.8.0/googletest/src/gtest-all.cc -o CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.s
+	cd /home/liora/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/googletest-release-1.8.0/googletest/src/gtest-all.cc -o CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.s
 
 googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o.requires:
 
@@ -83,16 +83,16 @@ googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest
 
 googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/flags.make
 googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: ../googletest-release-1.8.0/googlemock/src/gmock-all.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
-	cd /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /Users/shaniherskowitz/CLionProjects/othello/googletest-release-1.8.0/googlemock/src/gmock-all.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+	cd /home/liora/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/liora/CLionProjects/othello/googletest-release-1.8.0/googlemock/src/gmock-all.cc
 
 googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gmock.dir/src/gmock-all.cc.i"
-	cd /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/shaniherskowitz/CLionProjects/othello/googletest-release-1.8.0/googlemock/src/gmock-all.cc > CMakeFiles/gmock.dir/src/gmock-all.cc.i
+	cd /home/liora/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/liora/CLionProjects/othello/googletest-release-1.8.0/googlemock/src/gmock-all.cc > CMakeFiles/gmock.dir/src/gmock-all.cc.i
 
 googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gmock.dir/src/gmock-all.cc.s"
-	cd /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/shaniherskowitz/CLionProjects/othello/googletest-release-1.8.0/googlemock/src/gmock-all.cc -o CMakeFiles/gmock.dir/src/gmock-all.cc.s
+	cd /home/liora/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/liora/CLionProjects/othello/googletest-release-1.8.0/googlemock/src/gmock-all.cc -o CMakeFiles/gmock.dir/src/gmock-all.cc.s
 
 googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o.requires:
 
@@ -113,16 +113,16 @@ gmock_OBJECTS = \
 # External object files for target gmock
 gmock_EXTERNAL_OBJECTS =
 
-googletest-release-1.8.0/googlemock/libgmockd.a: googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o
-googletest-release-1.8.0/googlemock/libgmockd.a: googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
-googletest-release-1.8.0/googlemock/libgmockd.a: googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/build.make
-googletest-release-1.8.0/googlemock/libgmockd.a: googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libgmockd.a"
-	cd /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock.dir/cmake_clean_target.cmake
-	cd /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gmock.dir/link.txt --verbose=$(VERBOSE)
+googletest-release-1.8.0/googlemock/libgmock.a: googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.o
+googletest-release-1.8.0/googlemock/libgmock.a: googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+googletest-release-1.8.0/googlemock/libgmock.a: googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/build.make
+googletest-release-1.8.0/googlemock/libgmock.a: googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/liora/CLionProjects/othello/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libgmock.a"
+	cd /home/liora/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock.dir/cmake_clean_target.cmake
+	cd /home/liora/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gmock.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/build: googletest-release-1.8.0/googlemock/libgmockd.a
+googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/build: googletest-release-1.8.0/googlemock/libgmock.a
 
 .PHONY : googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/build
 
@@ -132,10 +132,10 @@ googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/requires: googletest-re
 .PHONY : googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/requires
 
 googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/clean:
-	cd /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock.dir/cmake_clean.cmake
+	cd /home/liora/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock.dir/cmake_clean.cmake
 .PHONY : googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/clean
 
 googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/depend:
-	cd /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/shaniherskowitz/CLionProjects/othello /Users/shaniherskowitz/CLionProjects/othello/googletest-release-1.8.0/googlemock /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock /Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/liora/CLionProjects/othello/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/liora/CLionProjects/othello /home/liora/CLionProjects/othello/googletest-release-1.8.0/googlemock /home/liora/CLionProjects/othello/cmake-build-debug /home/liora/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock /home/liora/CLionProjects/othello/cmake-build-debug/googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : googletest-release-1.8.0/googlemock/CMakeFiles/gmock.dir/depend
 
