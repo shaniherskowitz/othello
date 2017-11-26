@@ -289,6 +289,8 @@ Player.h
 /Users/shaniherskowitz/CLionProjects/othello/Player.h
 
 /Users/shaniherskowitz/CLionProjects/othello/Board.cpp
+cstdlib
+-
 Board.h
 /Users/shaniherskowitz/CLionProjects/othello/Board.h
 
@@ -347,12 +349,16 @@ GameUI.h
 /Users/shaniherskowitz/CLionProjects/othello/GameUI.h
 
 /Users/shaniherskowitz/CLionProjects/othello/GameUI.h
+vector
+-
 Move.h
 /Users/shaniherskowitz/CLionProjects/othello/Move.h
 Score.h
 /Users/shaniherskowitz/CLionProjects/othello/Score.h
 
 /Users/shaniherskowitz/CLionProjects/othello/HumanPlayer.cpp
+limits
+-
 HumanPlayer.h
 /Users/shaniherskowitz/CLionProjects/othello/HumanPlayer.h
 
@@ -361,6 +367,8 @@ Player.h
 /Users/shaniherskowitz/CLionProjects/othello/Player.h
 
 /Users/shaniherskowitz/CLionProjects/othello/Menu.cpp
+limits
+-
 Menu.h
 /Users/shaniherskowitz/CLionProjects/othello/Menu.h
 Game.h

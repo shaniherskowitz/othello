@@ -2,6 +2,7 @@
 // Created by shani herskowitz on 11/20/17.
 //
 
+#include <limits>
 #include "HumanPlayer.h"
 HumanPlayer::HumanPlayer(Tile symbol) : Player(symbol) {
 

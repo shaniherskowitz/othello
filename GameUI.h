@@ -5,6 +5,7 @@
 #ifndef OTHELLO_GAMEUI_H
 #define OTHELLO_GAMEUI_H
 
+#include <vector>
 #include "Move.h"
 #include "Score.h"
 class GameUI {

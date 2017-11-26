@@ -2,6 +2,7 @@
 // Created by shani herskowitz on 11/22/17.
 //
 
+#include <limits>
 #include "Menu.h"
 #include "Game.h"
 #include "HumanPlayer.h"
