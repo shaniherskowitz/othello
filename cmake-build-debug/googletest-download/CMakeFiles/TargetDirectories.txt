@@ -1,3 +1,0 @@
-/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/googletest-download/CMakeFiles/rebuild_cache.dir
-/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/googletest-download/CMakeFiles/edit_cache.dir
-/Users/shaniherskowitz/CLionProjects/othello/cmake-build-debug/googletest-download/CMakeFiles/googletest-download.dir
