@@ -433,9 +433,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1511032238875</updated>
+<<<<<<< HEAD
       <workItem from="1511032240529" duration="90803000" />
       <workItem from="1511699944540" duration="964000" />
       <workItem from="1511701034765" duration="13000" />
+=======
+      <workItem from="1511032240529" duration="91081000" />
+>>>>>>> c1a52523a519310525882240aeb3abc58de508f7
     </task>
     <servers />
   </component>
@@ -472,6 +476,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="91780000" />
   </component>
   <component name="TodoView">
@@ -482,6 +487,9 @@
       <are-packages-shown value="true" />
       <is-autoscroll-to-source value="true" />
     </todo-panel>
+=======
+    <option name="totallyTimeSpent" value="91081000" />
+>>>>>>> c1a52523a519310525882240aeb3abc58de508f7
   </component>
   <component name="ToolWindowManager">
     <frame x="75" y="24" width="1840" height="951" extended-state="4" />
