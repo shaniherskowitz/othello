@@ -29,7 +29,7 @@ class Board {
 
   explicit Board (Board *board);
 
-  explicit Board(string &filePath);
+  explicit Board(char filePath[]);
 
   ~Board();
 /**

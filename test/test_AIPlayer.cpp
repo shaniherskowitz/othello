@@ -19,7 +19,7 @@ TEST_F (AIPlayerTest, AITest) {
 TEST_F (AIPlayerTest, AITest2) {
   GameLogic *logic = new RegularGameLogic();
 
-  string path = "/Users/shaniherskowitz/CLionProjects/othello/boardFiles/board1";
+  char path[] = "../boardFiles/board1";
   Board *board = new Board(path);
 
   GameUI *print = new ConsolUI();
@@ -31,7 +31,7 @@ TEST_F (AIPlayerTest, AITest2) {
 TEST_F (AIPlayerTest, AITest3) {
   GameLogic *logic = new RegularGameLogic();
 
-  string path = "/Users/shaniherskowitz/CLionProjects/othello/boardFiles/board2";
+  char path[] = "../boardFiles/board2";
   Board *board = new Board(path);
 
   GameUI *print = new ConsolUI();
@@ -46,7 +46,7 @@ TEST_F (AIPlayerTest, AITest3) {
 TEST_F (AIPlayerTest, AITest4) {
   GameLogic *logic = new RegularGameLogic();
 
-  string path = "/Users/shaniherskowitz/CLionProjects/othello/boardFiles/board4";
+  char path[] = "../boardFiles/board4";
   Board *board = new Board(path);
 
   GameUI *print = new ConsolUI();
@@ -58,7 +58,7 @@ TEST_F (AIPlayerTest, AITest4) {
 TEST_F (AIPlayerTest, AITest5) {
   GameLogic *logic = new RegularGameLogic();
 
-  string path = "/Users/shaniherskowitz/CLionProjects/othello/boardFiles/board5";
+  char path[] = "../boardFiles/board5";
   Board *board = new Board(path);
 
   GameUI *print = new ConsolUI();
@@ -70,7 +70,7 @@ TEST_F (AIPlayerTest, AITest5) {
 TEST_F (AIPlayerTest, AITest6) {
   GameLogic *logic = new RegularGameLogic();
 
-  string path = "/Users/shaniherskowitz/CLionProjects/othello/boardFiles/board6";
+  char path[] = "../boardFiles/board6";
   Board *board = new Board(path);
 
   GameUI *print = new ConsolUI();

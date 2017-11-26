@@ -46,7 +46,7 @@ Board::Board(Board *board) {
   oTiles = board->oTiles;
 }
 
-Board::Board(string &filePath) {
+Board::Board(char filePath[]) {
   size = 8;
   xTiles = 0, oTiles = 0;
   this->board = new Tile *[size];
@@ -54,7 +54,7 @@ Board::Board(string &filePath) {
     board[i] = new Tile[size];
   }
   ifstream inFile;
-  //inFile.open();
+  inFile.open(filePath);
   char x;
   if (!inFile) {
     cerr << "Unable to open file";

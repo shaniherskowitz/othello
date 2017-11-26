@@ -7,17 +7,17 @@
 #include "../Board.h"
 TEST (tileAmountTest, TileCount) {
 
-  string path = "../boardFiles/board4";
+  char path[] = "../boardFiles/board4";
   Board *board = new Board(path);
   EXPECT_EQ(10, board->getXTiles());
   EXPECT_EQ(19, board->getOTiles());
 
-  string path2 = "..boardFiles/board5";
+  char path2[] = "../boardFiles/board5";
   Board *board2 = new Board(path2);
   EXPECT_EQ(5, board2->getXTiles());
   EXPECT_EQ(4, board2->getOTiles());
 
-  string path3 = "..boardFiles/board6";
+  char path3[] = "../boardFiles/board6";
   Board *board3 = new Board(path3);
   EXPECT_EQ(8, board3->getXTiles());
   EXPECT_EQ(27, board3->getOTiles());
@@ -28,7 +28,7 @@ TEST (tileAmountTest, TileCount) {
 }
 
 TEST(charAtTileTest, charTest) {
-  string path = "../boardFiles/board3";
+  char path[] = "../boardFiles/board3";
   Board *board = new Board(path);
   EXPECT_EQ('O', board->getTile(1, 1));
   EXPECT_EQ('X', board->getTile(2, 2));
@@ -40,7 +40,7 @@ TEST(charAtTileTest, charTest) {
 }
 
 TEST (ifFullTest, FullBoard) {
-  string path = "../boardFiles/fullboard";
+  char path[] = "../boardFiles/fullboard";
   Board *board = new Board(path);
   EXPECT_EQ(true, board->boardFull());
 
