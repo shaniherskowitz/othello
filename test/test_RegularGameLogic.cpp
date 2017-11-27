@@ -36,7 +36,22 @@ TEST(GetMovesListTest, PlayerHasMoves) {
     EXPECT_EQ(regularGameLogic.getMovesList(Tile(X), board2), movesListX2);
 
 }
-TEST_F(RegularGameLogicTest, testLogic) {
+TEST(GetMovesListTest, FullBoard) {
 
+    RegularGameLogic regularGameLogic = RegularGameLogic();
+    char path[] = "../boardFiles/fullboard";
+    Board board(path);
+    vector<Move> movesList;
+    EXPECT_EQ(regularGameLogic.getMovesList(Tile(O), board), movesList);
+    EXPECT_EQ(regularGameLogic.getMovesList(Tile(X), board), movesList);
+}
 
+TEST(GetMovesListTest, EmptyMovesList) {
+
+    RegularGameLogic regularGameLogic = RegularGameLogic();
+    char path[] = "../boardFiles/nomoves";
+    Board board(path);
+    vector<Move> movesList;
+    EXPECT_EQ(regularGameLogic.getMovesList(Tile(O), board), movesList);
+    EXPECT_EQ(regularGameLogic.getMovesList(Tile(X), board), movesList);
 }
