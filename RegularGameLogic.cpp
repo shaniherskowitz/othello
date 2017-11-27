@@ -121,6 +121,6 @@ void RegularGameLogic::flipTiles(Board &board, Tile tile, Point location) const 
 }
 
 void RegularGameLogic::updateBoardCounters(Board &board, Tile tile) const {
-  if (tile == Tile (X)) board.flipXTiles();
-  if (tile == Tile (O)) board.flipOTiles();
+  if (tile == Tile(X)) board.flipXTiles();
+  if (tile == Tile(O)) board.flipOTiles();
 }

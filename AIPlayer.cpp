@@ -4,11 +4,11 @@
 
 #include "AIPlayer.h"
 #include "RegularGameLogic.h"
-AIPlayer::AIPlayer(Tile symbol) : Player(symbol){}
+AIPlayer::AIPlayer(Tile symbol) : Player(symbol) {}
 
 AIPlayer::~AIPlayer() {}
 
-Move AIPlayer::getTurnsMove(vector<Move> movesList, GameUI *print,Board &board) {
+Move AIPlayer::getTurnsMove(vector<Move> movesList, GameUI *print, Board &board) {
   print->printBoard(board);
   if (movesList.empty()) {
     print->movesListIsEmpty();
@@ -20,7 +20,7 @@ Move AIPlayer::getTurnsMove(vector<Move> movesList, GameUI *print,Board &board) 
 
   for (int i = 0; i < movesList.size(); i++) {
     check = simulateMove(&board, movesList[i]);
-    if(minScore > check) {
+    if (minScore > check) {
       minScore = check;
       index = i;
     }

@@ -24,12 +24,11 @@ void Menu::showMenu() {
     if (!cin.fail() && (choice == 2 || choice == 1)) break;
     print->problemWithInput();
     cin.clear();
-    cin.ignore(std::numeric_limits<int>::max(),'\n');
+    cin.ignore(std::numeric_limits<int>::max(), '\n');
   }
 
-
-  if (choice == 1) game = new Game(new HumanPlayer(Tile(X)), new HumanPlayer(Tile(O)), print, 3);
-  else if (choice == 2) game = new Game(new HumanPlayer(Tile(X)), new AIPlayer(Tile(O)), print, 3);
+  if (choice == 1) game = new Game(new HumanPlayer(Tile(X)), new HumanPlayer(Tile(O)), print, 8);
+  else if (choice == 2) game = new Game(new HumanPlayer(Tile(X)), new AIPlayer(Tile(O)), print, 8);
 
   print->gameStart(choice);
 

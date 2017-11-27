@@ -29,9 +29,9 @@ class Point {
     */
   Point();
 
-    /**
-     * The Point's destructor.
-     */
+  /**
+   * The Point's destructor.
+   */
   ~Point();
 
   /**
@@ -47,9 +47,9 @@ class Point {
   const int getY() const;
 
   /**
-   * the point.
+   * print the point.
    */
-  //friend ostream& operator<<(ostream& os, Point const & point);
+  friend ostream &operator<<(ostream &os, Point const &point);
   /**
    * The method overloads the equals operator.
    * @param point The other point that is compared.
@@ -62,16 +62,8 @@ class Point {
    * @param point The other point that is compared.
    * @return True if the points aren't equal and else false.
    */
-  bool operator!=(const Point &point)  const;
+  bool operator!=(const Point &point) const;
 
-  //void add(int num);
-
-    /**
-     * The methods prints the point.
-     */
-  void print() const;
-
-  //void update(int x1, int y1);
 };
 
 #endif //OTHELLO_POINT_H

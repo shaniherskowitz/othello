@@ -19,7 +19,6 @@ Game::~Game() {
 void Game::run() {
   GameLogic *logic = new RegularGameLogic();
   Board board(size);
-  //GameUI *print = new ConsolUI();
   GameStatus gameStatus = IN_PROGRESS;
   GameStatus player1TurnStatus = GameStatus(NOT_STARTED), player2TurnStatus = GameStatus(NOT_STARTED);
 

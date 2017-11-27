@@ -13,7 +13,7 @@ TEST_F (AIPlayerTest, AITest) {
   GameUI *print = new ConsolUI();
   vector<Move> moves = logic->getMovesList(player1.getSymbol(), *board);
 
-  EXPECT_EQ(moves[0].getPoint(), player1.getTurnsMove(moves, print , *board).getPoint());
+  EXPECT_EQ(moves[0].getPoint(), player1.getTurnsMove(moves, print, *board).getPoint());
   delete board;
   delete print;
 
@@ -27,7 +27,7 @@ TEST_F (AIPlayerTest, AITest2) {
   GameUI *print = new ConsolUI();
   vector<Move> moves = logic->getMovesList(player1.getSymbol(), *board);
 
-  EXPECT_NE(Move(Point(2, 4)).getPoint() , player1.getTurnsMove(moves, print , *board).getPoint());
+  EXPECT_NE(Move(Point(2, 4)).getPoint(), player1.getTurnsMove(moves, print, *board).getPoint());
   delete board;
   delete print;
 
@@ -42,7 +42,7 @@ TEST_F (AIPlayerTest, AITest3) {
   vector<Move> moves = logic->getMovesList(player1.getSymbol(), *board);
 
   Point move = Move(Point(7, 5)).getPoint();
-  Point player = player1.getTurnsMove(moves, print , *board).getPoint();
+  Point player = player1.getTurnsMove(moves, print, *board).getPoint();
 
   EXPECT_NE(move, player);
   delete board;
@@ -58,7 +58,7 @@ TEST_F (AIPlayerTest, AITest4) {
   GameUI *print = new ConsolUI();
   vector<Move> moves = logic->getMovesList(player1.getSymbol(), *board);
 
-  EXPECT_EQ(Move(Point(7, 5)).getPoint() , player1.getTurnsMove(moves, print , *board).getPoint());
+  EXPECT_EQ(Move(Point(7, 5)).getPoint(), player1.getTurnsMove(moves, print, *board).getPoint());
   delete board;
   delete print;
 
@@ -72,7 +72,7 @@ TEST_F (AIPlayerTest, AITest5) {
   GameUI *print = new ConsolUI();
   vector<Move> moves = logic->getMovesList(player1.getSymbol(), *board);
 
-  EXPECT_EQ(Move(Point(1, 4)).getPoint() , player1.getTurnsMove(moves, print , *board).getPoint());
+  EXPECT_EQ(Move(Point(1, 4)).getPoint(), player1.getTurnsMove(moves, print, *board).getPoint());
   delete board;
   delete print;
 
@@ -86,7 +86,7 @@ TEST_F (AIPlayerTest, AITest6) {
   GameUI *print = new ConsolUI();
   vector<Move> moves = logic->getMovesList(player1.getSymbol(), *board);
 
-  EXPECT_EQ(Move(Point(5, 0)).getPoint() , player1.getTurnsMove(moves, print , *board).getPoint());
+  EXPECT_EQ(Move(Point(5, 0)).getPoint(), player1.getTurnsMove(moves, print, *board).getPoint());
   delete board;
   delete print;
 

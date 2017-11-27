@@ -8,6 +8,6 @@
 /**
  * Defining an enum for the Tile symbols.
  */
-enum Tile {X , O , EMPTY};
+enum Tile { X, O, EMPTY };
 
 #endif //OTHELLO_TILE_H

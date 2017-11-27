@@ -10,7 +10,7 @@ HumanPlayer::HumanPlayer(Tile symbol) : Player(symbol) {
 HumanPlayer::~HumanPlayer() {
 
 }
-Move HumanPlayer::getTurnsMove(vector<Move> movesList, GameUI *print, Board& board) {
+Move HumanPlayer::getTurnsMove(vector<Move> movesList, GameUI *print, Board &board) {
   print->printBoard(board);
   if (movesList.empty()) {
     print->movesListIsEmpty();
@@ -26,15 +26,15 @@ Move HumanPlayer::getTurnsMove(vector<Move> movesList, GameUI *print, Board& boa
   return move;
 }
 
-Move HumanPlayer::getUserInput(GameUI* print) const {
+Move HumanPlayer::getUserInput(GameUI *print) const {
   print->userInput();
   int i, j;
   while (true) {
-    cin >> i  >> j;
+    cin >> i >> j;
     if (!cin.fail()) break;
     print->problemWithInput();
     cin.clear();
-    cin.ignore(std::numeric_limits<int>::max(),'\n');
+    cin.ignore(std::numeric_limits<int>::max(), '\n');
   }
   return Move(Point(i - 1, j - 1));
 }
@@ -42,7 +42,7 @@ Move HumanPlayer::getUserInput(GameUI* print) const {
 bool HumanPlayer::inMoves(Move move, vector<Move> movesList) const {
   vector<Move>::iterator it = movesList.begin();
   while (it != movesList.end()) {
-    if (it->getPoint() == move.getPoint()) { return true;}
+    if (it->getPoint() == move.getPoint()) { return true; }
     it++;
   }
   return false;

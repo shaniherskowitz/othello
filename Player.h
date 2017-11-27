@@ -16,15 +16,15 @@ class Player {
  protected:
   Tile symbol;
  public:
-    /**
-     * The Player's construcotr.
-     * @param name The player's symbol.
-     */
+  /**
+   * The Player's construcotr.
+   * @param name The player's symbol.
+   */
   explicit Player(Tile name);
 
-    /**
-     * The Player's destructor.
-     */
+  /**
+   * The Player's destructor.
+   */
   virtual ~Player();
 
   /**
@@ -40,12 +40,12 @@ class Player {
    * @param board The game's board.
    * @return The player's chosen move.
    */
-  virtual Move getTurnsMove(std::vector<Move> movesList, GameUI *print ,Board &board) = 0;
+  virtual Move getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board) = 0;
 
-    /**
-     * The method returns the player's symbol in char.
-     * @return The player's symbol.
-     */
+  /**
+   * The method returns the player's symbol in char.
+   * @return The player's symbol.
+   */
   char getSymbolMeaning() const;
 
 };

@@ -9,9 +9,9 @@
 #include "../Player.h"
 #include <iostream>
 using namespace std;
-class AIPlayerTest: public testing::Test {
+class AIPlayerTest : public testing::Test {
  public:
-  AIPlayerTest(): player1(Tile(O)) {}
+  AIPlayerTest() : player1(Tile(O)) {}
 
  protected:
   AIPlayer player1;

@@ -15,6 +15,6 @@ Tile Player::getSymbol() const {
 }
 
 char Player::getSymbolMeaning() const {
-  if(symbol == Tile(O)) return 'O';
+  if (symbol == Tile(O)) return 'O';
   else return 'X';
 }

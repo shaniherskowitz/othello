@@ -8,9 +8,9 @@
 #include "gtest/gtest.h"
 #include "../RegularGameLogic.h"
 using namespace std;
-class test_RegularGameLogic: public testing::Test {
+class test_RegularGameLogic : public testing::Test {
  public:
-  test_RegularGameLogic(): logic() {}
+  test_RegularGameLogic() : logic() {}
 
  protected:
   RegularGameLogic logic;

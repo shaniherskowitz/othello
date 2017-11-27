@@ -17,8 +17,8 @@ void ConsolUI::printMoves(char symbol, vector<Move> &movesList) const {
   if (!movesList.empty()) {
     vector<Move>::iterator it = movesList.begin();
     while (it != movesList.end()) {
-      Point p = Point(it->getPoint().getX() +  1, it ->getPoint().getY() + 1);
-      p.print();
+      Point p = Point(it->getPoint().getX() + 1, it->getPoint().getY() + 1);
+      cout << p;
       it++;
     }
     cout << endl;
@@ -50,7 +50,7 @@ void ConsolUI::printBoard(Board &board) const {
   }
 }
 
-void ConsolUI::declareWinner(Board& board, GameStatus gameStatus) const {
+void ConsolUI::declareWinner(Board &board, GameStatus gameStatus) const {
   if (gameStatus == HAS_NO_MOVES) {
     cout << "GAME OVER" << endl << "NO MOVES LEFT FOR BOTH PLAYERS..." << endl;
     return;
@@ -65,11 +65,11 @@ void ConsolUI::declareWinner(Board& board, GameStatus gameStatus) const {
 }
 
 void ConsolUI::problemWithInput() const {
-  cout <<  "Value entered not compatible! Please enter again:" << endl;
+  cout << "Value entered not compatible! Please enter again:" << endl;
 }
 
 void ConsolUI::repeatUserInput() const {
-  cout <<  "Cant make move! Please enter one of your possible moves - row col:" << endl;
+  cout << "Cant make move! Please enter one of your possible moves - row col:" << endl;
 }
 
 void ConsolUI::userInput() const {
@@ -81,14 +81,13 @@ void ConsolUI::showMenu() const {
   cout << "Option 1 - Human Player" << endl;
   cout << "Option 2 - Computer Player" << endl;
 
-
 }
 
-void ConsolUI::gameStart(int choice) const{
+void ConsolUI::gameStart(int choice) const {
   cout << endl;
   cout << "You have selected to play vs ";
   if (choice == 1) cout << "Human Player!" << endl;
-  else if(choice == 2) cout << "Computer Player!" << endl;
+  else if (choice == 2) cout << "Computer Player!" << endl;
 
   cout << "Your game will begin now!" << endl << endl;
 }

@@ -20,9 +20,9 @@ class GameUI {
    */
   GameUI() {}
 
-    /**
-     * GameUI default destructor.
-     */
+  /**
+   * GameUI default destructor.
+   */
   virtual ~GameUI() {}
 
   /**
@@ -58,22 +58,22 @@ class GameUI {
    * @param board The game's board.
    * @param gameStatus The game status.
    */
-  virtual void declareWinner(Board& board, GameStatus gameStatus) const = 0;
+  virtual void declareWinner(Board &board, GameStatus gameStatus) const = 0;
 
-    /**
-     * The menu prints the menu.
-     */
+  /**
+   * The menu prints the menu.
+   */
   virtual void showMenu() const = 0;
 
-    /**
-     * The method prints the user's choice for menu option.
-     * @param choice The user's choice of type of game.
-     */
+  /**
+   * The method prints the user's choice for menu option.
+   * @param choice The user's choice of type of game.
+   */
   virtual void gameStart(int choice) const = 0;
 
-    /**
-     * The method prints if the moves list is empty.
-     */
+  /**
+   * The method prints if the moves list is empty.
+   */
   virtual void movesListIsEmpty() const = 0;
 
 /**

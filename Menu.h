@@ -12,19 +12,19 @@
  */
 class Menu {
  public:
-    /**
-     * The Menu's default constructor.
-     */
+  /**
+   * The Menu's default constructor.
+   */
   Menu();
 
-    /**
-     * The Menu's destructor.
-     */
+  /**
+   * The Menu's destructor.
+   */
   ~Menu();
 
-    /**
-     * The method starts a game according to the user's choice.
-     */
+  /**
+   * The method starts a game according to the user's choice.
+   */
   void showMenu();
 
 };

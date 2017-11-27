@@ -63,22 +63,21 @@ Board::Board(char filePath[]) {
   int k = 0, l = 0;
   while (inFile >> x && l < size && k < size) {
 
-    if(x == 'X') {
+    if (x == 'X') {
       board[k][l] = Tile(X);
       xTiles++;
-    }
-    else if(x == 'O') {
+    } else if (x == 'O') {
       board[k][l] = Tile(O);
       oTiles++;
     }
-    if(x == '-') board[k][l] = Tile(EMPTY);
+    if (x == '-') board[k][l] = Tile(EMPTY);
     l++;
-    if(l == size) {
+    if (l == size) {
       l = 0;
       k++;
     }
 
-    }
+  }
 
   inFile.close();
 }
@@ -134,7 +133,7 @@ void Board::flipOTiles() {
 
 void Board::flipTile(int row, int col) {
   if (board[row][col] == Tile(O)) board[row][col] = Tile(X);
-  else if(board[row][col] == Tile(X)) board[row][col] = Tile(O);
+  else if (board[row][col] == Tile(X)) board[row][col] = Tile(O);
 
 }
 
