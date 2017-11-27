@@ -13,7 +13,7 @@ ConsolUI::~ConsolUI() {
 
 void ConsolUI::printMoves(char symbol, vector<Move> &movesList) const {
   cout << symbol << ": It's your move" << endl;
-  cout << "your possible moves: ";
+  cout << "Your possible moves: ";
   if (!movesList.empty()) {
     vector<Move>::iterator it = movesList.begin();
     while (it != movesList.end()) {
@@ -25,11 +25,12 @@ void ConsolUI::printMoves(char symbol, vector<Move> &movesList) const {
   }
 }
 void ConsolUI::movesListIsEmpty() const {
-  cout << "No possible moves. Play passes back to the other player. Press any key to continue (followed by enter)" << endl;
+  cout << "No possible moves. Play passes back to the other player." << endl;
 }
 
-void ConsolUI::printBoard(Board &board, int size) const {
-  cout << " | ";
+void ConsolUI::printBoard(Board &board) const {
+  int size = board.getSize();
+  cout << endl << " | ";
   int i;
   for (i = 1; i <= size; i++) {
     cout << i << " | ";
@@ -93,5 +94,5 @@ void ConsolUI::gameStart(int choice) const{
 }
 
 void ConsolUI::computerMove(Point p) const {
-  cout << "computer has chosen move: " << p.getX() + 1 << " " << p.getY() + 1 << endl;
+  cout << "Computer has chosen move: " << p.getX() + 1 << "," << p.getY() + 1 << endl;
 }

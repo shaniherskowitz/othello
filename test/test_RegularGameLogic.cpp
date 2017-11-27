@@ -1,9 +1,9 @@
 //
 // Created by shani herskowitz on 11/23/17.
 //
-#include "RegularGameLogicTest.h"
+#include "test_RegularGameLogic.h"
 
-TEST(GetMovesListTest, PlayerHasMoves) {
+TEST(GetMovesListTest, PlayerHasMoves_Test) {
 
     RegularGameLogic regularGameLogic = RegularGameLogic();
 
@@ -36,7 +36,7 @@ TEST(GetMovesListTest, PlayerHasMoves) {
     EXPECT_EQ(regularGameLogic.getMovesList(Tile(X), board2), movesListX2);
 
 }
-TEST(GetMovesListTest, FullBoard) {
+TEST(GetMovesListTest, FullBoard_Test) {
 
     RegularGameLogic regularGameLogic = RegularGameLogic();
     char path[] = "../boardFiles/fullboard";
@@ -46,7 +46,7 @@ TEST(GetMovesListTest, FullBoard) {
     EXPECT_EQ(regularGameLogic.getMovesList(Tile(X), board), movesList);
 }
 
-TEST(GetMovesListTest, EmptyMovesList) {
+TEST(GetMovesListTest, EmptyMovesList_Test) {
 
     RegularGameLogic regularGameLogic = RegularGameLogic();
     char path[] = "../boardFiles/nomoves";
@@ -54,4 +54,13 @@ TEST(GetMovesListTest, EmptyMovesList) {
     vector<Move> movesList;
     EXPECT_EQ(regularGameLogic.getMovesList(Tile(O), board), movesList);
     EXPECT_EQ(regularGameLogic.getMovesList(Tile(X), board), movesList);
+}
+
+TEST(FindMoveTest, MoveExists_Test) {
+
+    /*char path[] = "../boardFiles/board3";
+    Board board(path);
+    vector<Move> movesList;
+    EXPECT_EQ(.findMoves(3, 4, Tile(O), board), movesList);
+    EXPECT_EQ(regularGameLogic.getMovesList(Tile(X), board), movesList);*/
 }

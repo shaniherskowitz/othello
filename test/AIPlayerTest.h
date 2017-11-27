@@ -2,8 +2,8 @@
 // Created by shani herskowitz on 11/24/17.
 //
 
-#ifndef OTHELLO_PLAYERTEST_H
-#define OTHELLO_PLAYERTEST_H
+#ifndef OTHELLO_AIPLAYERTEST_H
+#define OTHELLO_AIPLAYERTEST_H
 
 #include "gtest/gtest.h"
 #include "../Player.h"
@@ -17,4 +17,4 @@ class AIPlayerTest: public testing::Test {
   AIPlayer player1;
 };
 
-#endif //OTHELLO_PLAYERTEST_H
+#endif //OTHELLO_AIPLAYERTEST_H

@@ -27,7 +27,7 @@ set(SOURCE_FILES2 Board.cpp Board.h Tile.cpp Tile.h Point.cpp Point.h Game.cpp G
         Player.h Move.cpp Move.h GameLogic.cpp GameLogic.h RegularGameLogic.cpp RegularGameLogic.h GameStatus.cpp
         GameStatus.h Score.cpp Score.h GameUI.cpp GameUI.h ConsolUI.cpp ConsolUI.h HumanPlayer.cpp HumanPlayer.h
         Menu.cpp Menu.h AIPlayer.cpp AIPlayer.h test/test_main.cpp test/test_RegularGameLogic.cpp
-        test/test_Board.cpp test/test_AIPlayer.cpp test/AIPlayerTest.h test/RegularGameLogicTest.h)
+        test/test_Board.cpp test/AIPlayerTest.cpp test/AIPlayerTest.h test/test_RegularGameLogic.h)
 
 
 add_executable(test_main.cpp ${SOURCE_FILES2})

@@ -6,13 +6,26 @@
 #define OTHELLO_MENU_H
 
 #include "GameUI.h"
+
+/**
+ * Defining a Menu class.
+ */
 class Menu {
  public:
-  explicit Menu();
+    /**
+     * The Menu's default constructor.
+     */
+  Menu();
+
+    /**
+     * The Menu's destructor.
+     */
   ~Menu();
+
+    /**
+     * The method starts a game according to the user's choice.
+     */
   void showMenu();
-
-
 
 };
 

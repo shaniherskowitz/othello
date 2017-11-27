@@ -11,7 +11,7 @@ HumanPlayer::~HumanPlayer() {
 
 }
 Move HumanPlayer::getTurnsMove(vector<Move> movesList, GameUI *print, Board& board) {
-  print->printBoard(board, board.getSize());
+  print->printBoard(board);
   if (movesList.empty()) {
     print->movesListIsEmpty();
     return Move(Point(-1, -1));

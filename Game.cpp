@@ -43,7 +43,7 @@ void Game::run() {
       break;
     }
   }
-  print->printBoard(board, board.getSize());
+  print->printBoard(board);
   print->declareWinner(board, gameStatus);
 
   delete logic;

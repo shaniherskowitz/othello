@@ -19,7 +19,7 @@ class ConsolUI: public GameUI {
   virtual ~ConsolUI();
   virtual void userInput() const;
   virtual void problemWithInput() const;
-  virtual void printBoard(Board &board, int size) const;
+  virtual void printBoard(Board &board) const;
   virtual void repeatUserInput() const;
   virtual void printMoves(char symbol, vector<Move> &movesList) const;
   virtual void declareWinner(Board& board, GameStatus gameStatus) const;
