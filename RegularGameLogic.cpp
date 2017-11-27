@@ -7,6 +7,7 @@
 RegularGameLogic::RegularGameLogic() {
 
 }
+RegularGameLogic::~RegularGameLogic() {}
 GameStatus RegularGameLogic::turn(Player &player, Board &board, GameUI *gameUI) {
   vector<Move> movesList = getMovesList(player.getSymbol(), board);
   Move move = player.getTurnsMove(movesList, gameUI, board);

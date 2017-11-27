@@ -30,18 +30,22 @@ Move AIPlayer::getTurnsMove(vector<Move> movesList, GameUI *print,Board &board) 
 }
 
 int AIPlayer::simulateMove(Board *board, Move move) {
-  Board *copyBoard = new Board(board);
+  Board copyBoard(board);
+
   GameLogic *logic = new RegularGameLogic();
   int computerScore = 0, humanScore = 0, currentScore = 0;
 
-  logic->flipTiles(*copyBoard, symbol, move.getPoint());
+  logic->flipTiles(copyBoard, symbol, move.getPoint());
 
-  computerScore = copyBoard->getOTiles();
-  humanScore = copyBoard->getXTiles();
+  computerScore = copyBoard.getOTiles();
+  humanScore = copyBoard.getXTiles();
 
-  vector<Move> otherPlayerMoves = logic->getMovesList(Tile(X), *copyBoard);
+  vector<Move> otherPlayerMoves = logic->getMovesList(Tile(X), copyBoard);
 
-  if (otherPlayerMoves.empty()) return 100;
+  if (otherPlayerMoves.empty()) {
+    delete logic;
+    return 100;
+  }
 
   for (int i = 0; i < otherPlayerMoves.size(); i++) {
     if (currentScore < otherPlayerMoves[i].getScoreCounter()) {
@@ -49,7 +53,7 @@ int AIPlayer::simulateMove(Board *board, Move move) {
     }
   }
   currentScore = (currentScore + humanScore + 1) - (computerScore - currentScore);
-  delete copyBoard;
+  delete logic;
 
   return currentScore;
 

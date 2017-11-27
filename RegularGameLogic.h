@@ -15,6 +15,7 @@ class RegularGameLogic: public GameLogic {
     void updateBoardCounters(Board &board, Tile tile) const;
  public:
   RegularGameLogic();
+  ~RegularGameLogic();
   GameStatus turn(Player &player, Board &board, GameUI *print);
   vector<Move> getMovesList(Tile player, Board &board);
   void flipTiles(Board& board, Tile tile, Point location) const;

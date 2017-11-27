@@ -16,35 +16,36 @@ Game::~Game() {
 
 }
 
-
 void Game::run() {
-    GameLogic *logic = new RegularGameLogic();
-    Board board(size);
-    GameUI *print = new ConsolUI();
-    GameStatus gameStatus = IN_PROGRESS;
-    GameStatus player1TurnStatus = GameStatus(NOT_STARTED) , player2TurnStatus = GameStatus (NOT_STARTED);
+  GameLogic *logic = new RegularGameLogic();
+  Board board(size);
+  //GameUI *print = new ConsolUI();
+  GameStatus gameStatus = IN_PROGRESS;
+  GameStatus player1TurnStatus = GameStatus(NOT_STARTED), player2TurnStatus = GameStatus(NOT_STARTED);
 
-    while (gameStatus == IN_PROGRESS) {
-        player1TurnStatus = logic->turn(*player1, board, print);
-        if (player1TurnStatus == HAS_NO_MOVES && player2TurnStatus == HAS_NO_MOVES) {
-            gameStatus = HAS_NO_MOVES;
-            break;
-        }
-        if (player1TurnStatus == FULL_BOARD) {
-            gameStatus = FULL_BOARD;
-            break;
-        }
-        player2TurnStatus = logic->turn(*player2, board, print);
-        if (player1TurnStatus == HAS_NO_MOVES && player2TurnStatus == HAS_NO_MOVES) {
-            gameStatus = HAS_NO_MOVES;
-            break;
-        }
-        if (player2TurnStatus == FULL_BOARD) {
-            gameStatus = FULL_BOARD;
-            break;
-        }
+  while (gameStatus == IN_PROGRESS) {
+    player1TurnStatus = logic->turn(*player1, board, print);
+    if (player1TurnStatus == HAS_NO_MOVES && player2TurnStatus == HAS_NO_MOVES) {
+      gameStatus = HAS_NO_MOVES;
+      break;
     }
-    print->printBoard(board, board.getSize());
-    print->declareWinner(board, gameStatus);
+    if (player1TurnStatus == FULL_BOARD) {
+      gameStatus = FULL_BOARD;
+      break;
+    }
+    player2TurnStatus = logic->turn(*player2, board, print);
+    if (player1TurnStatus == HAS_NO_MOVES && player2TurnStatus == HAS_NO_MOVES) {
+      gameStatus = HAS_NO_MOVES;
+      break;
+    }
+    if (player2TurnStatus == FULL_BOARD) {
+      gameStatus = FULL_BOARD;
+      break;
+    }
+  }
+  print->printBoard(board, board.getSize());
+  print->declareWinner(board, gameStatus);
+
+  delete logic;
 
 }
