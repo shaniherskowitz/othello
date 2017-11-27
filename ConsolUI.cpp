@@ -3,8 +3,6 @@
 //
 
 #include "ConsolUI.h"
-#include "Player.h"
-#include "GameStatus.h"
 
 ConsolUI::ConsolUI() {
 
@@ -61,6 +59,7 @@ void ConsolUI::declareWinner(Board& board, GameStatus gameStatus) const {
     return;
   }
   cout << "Player " << board.getWinnerSymbol() << " is the winner!!!";
+  //cout << "Your score is: " << board.getXTiles();// not sure is needed bc score will be only full board.
 
 }
 
