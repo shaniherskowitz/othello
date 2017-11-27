@@ -1,5 +1,6 @@
 //
-// Created by shani herskowitz on 11/22/17.
+// Shani Herskowitz: 321659387
+// Liora Zaidner: 323742775
 //
 
 #include "AIPlayer.h"

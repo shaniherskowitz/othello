@@ -1,5 +1,6 @@
 //
-// Created by shani herskowitz on 11/22/17.
+// Shani Herskowitz: 321659387
+// Liora Zaidner: 323742775
 //
 
 #include <limits>
@@ -7,12 +8,10 @@
 #include "Game.h"
 #include "HumanPlayer.h"
 #include "AIPlayer.h"
-Menu::Menu() {
+Menu::Menu() {}
 
-}
-Menu::~Menu() {
+Menu::~Menu() {}
 
-}
 void Menu::showMenu() {
   int choice = 0;
   Game *game;
