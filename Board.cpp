@@ -145,7 +145,7 @@ char Board::getTile(int i, int j) {
 }
 
 char Board::getWinnerSymbol() {
-  if (xTiles >= oTiles) return 'X';
+  if (xTiles > oTiles) return 'X';
   if (xTiles < oTiles) return 'O';
   return ' ';
 }
