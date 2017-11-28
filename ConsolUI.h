@@ -27,6 +27,7 @@ class ConsolUI : public GameUI {
   virtual void gameStart(int choice) const;
   virtual void movesListIsEmpty() const;
   virtual void computerMove(Point p) const;
+  virtual void played(Point p, char player) const;
 
 };
 

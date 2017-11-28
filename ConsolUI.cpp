@@ -93,3 +93,7 @@ void ConsolUI::gameStart(int choice) const {
 void ConsolUI::computerMove(Point p) const {
   cout << "Computer has chosen move: " << p.getX() + 1 << "," << p.getY() + 1 << endl;
 }
+
+void ConsolUI::played(Point p, char player) const {
+  cout << player << " played: (" << p.getX() + 1 << "," << p.getY() + 1 << ")" << endl;
+}

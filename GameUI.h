@@ -77,11 +77,17 @@ class GameUI {
    */
   virtual void movesListIsEmpty() const = 0;
 
-/**
- * The method prints the move the computer chose.
- * @param p The moves point.
- */
+  /**
+   * The method prints the move the computer chose.
+   * @param p The moves point.
+   */
   virtual void computerMove(Point p) const = 0;
+  /**
+   * The method prints the move the player chose.
+   * @param p point player played
+   * @param player that played
+   */
+  virtual void played(Point p, char player) const = 0;
 
 };
 
