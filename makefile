@@ -1,5 +1,7 @@
-#shani herskowitz
+# Shani Herskowitz
 # 321658387
+# Liora Zaidner
+# 323742775
 
 a.out: compileAll
 	g++ *.o 
