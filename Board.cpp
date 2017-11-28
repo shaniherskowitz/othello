@@ -1,6 +1,7 @@
-// 321658387
-// Shani Herskowitz
-
+//
+// Shani Herskowitz: 321659387
+// Liora Zaidner: 323742775
+//
 
 #include <cstdlib>
 #include "Board.h"

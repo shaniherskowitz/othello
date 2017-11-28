@@ -1,5 +1,6 @@
 //
-// Created by shani herskowitz on 11/19/17.
+// Shani Herskowitz: 321659387
+// Liora Zaidner: 323742775
 //
 
 #include "GameStatus.h"

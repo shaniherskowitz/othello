@@ -1,5 +1,6 @@
 //
-// Created by shani herskowitz on 11/23/17.
+// Shani Herskowitz: 321659387
+// Liora Zaidner: 323742775
 //
 #include "test_RegularGameLogic.h"
 
@@ -58,9 +59,10 @@ TEST(GetMovesListTest, EmptyMovesList_Test) {
 
 TEST(FindMoveTest, MoveExists_Test) {
 
-  /*char path[] = "../boardFiles/board3";
+  RegularGameLogic regularGameLogic = RegularGameLogic();
+  char path[] = "../boardFiles/board3";
   Board board(path);
   vector<Move> movesList;
-  EXPECT_EQ(.findMoves(3, 4, Tile(O), board), movesList);
+  EXPECT_EQ(regularGameLogic.findMoves(3, 4, Tile(O), board), movesList);
   EXPECT_EQ(regularGameLogic.getMovesList(Tile(X), board), movesList);*/
 }

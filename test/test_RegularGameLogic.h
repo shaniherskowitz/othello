@@ -1,5 +1,6 @@
 //
-// Created by shani herskowitz on 11/24/17.
+// Shani Herskowitz: 321659387
+// Liora Zaidner: 323742775
 //
 
 #ifndef OTHELLO_TEST_REGULARGAMELOGIC_H
