@@ -25,7 +25,7 @@ const int Point::getY() const {
 }
 
 ostream &operator<<(ostream &os, Point const &point) {
-  cout << "(" << point.x << "," << point.y << ") ";
+  return cout << "(" << point.x << "," << point.y << ") ";
 }
 
 bool Point::operator==(const Point &point) const {
