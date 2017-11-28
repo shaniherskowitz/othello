@@ -14,6 +14,7 @@ GameStatus RegularGameLogic::turn(Player &player, Board &board, GameUI *gameUI) 
   Move move = player.getTurnsMove(movesList, gameUI, board);
   if (move.getPoint() == Point(-1, -1)) return HAS_NO_MOVES;
   flipTiles(board, player.getSymbol(), move.getPoint());
+  gameUI->played(move.getPoint(), player.getSymbolMeaning());
   if (board.boardFull()) return FULL_BOARD;
   return IN_PROGRESS;
 }
