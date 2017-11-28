@@ -9,7 +9,6 @@
 #include "GameLogic.h"
 class RegularGameLogic : public GameLogic {
 
-
   vector<Move> findMoves(int i, int j, Tile symbol, Board &board);
   vector<Move> mergeMovesList(vector<Move> movesList, vector<Move> currentMovesList);
   bool inBound(int boardSize, int row, int col) const;
@@ -18,7 +17,6 @@ class RegularGameLogic : public GameLogic {
   void updateBoardCounters(Board &board, Tile tile) const;
 
  public:
-    friend class test_RegularGameLogic;
   RegularGameLogic();
   ~RegularGameLogic();
   GameStatus turn(Player &player, Board &board, GameUI *print);

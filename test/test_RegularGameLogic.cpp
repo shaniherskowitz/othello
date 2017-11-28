@@ -3,6 +3,7 @@
 // Liora Zaidner: 323742775
 //
 #include "test_RegularGameLogic.h"
+#include "../AIPlayer.h"
 
 TEST(GetMovesListTest, PlayerHasMoves_Test) {
 
@@ -57,12 +58,68 @@ TEST(GetMovesListTest, EmptyMovesList_Test) {
   EXPECT_EQ(regularGameLogic.getMovesList(Tile(X), board), movesList);
 }
 
-TEST(FindMoveTest, MoveExists_Test) {
+TEST(TurnTest, InProgress_Test) {
 
   RegularGameLogic regularGameLogic = RegularGameLogic();
-  char path[] = "../boardFiles/board3";
+  ConsolUI print;
+  char path2[] = "../boardFiles/board2";
+  Board board2(path2);
+  Board board;
+
+  Player* player = new AIPlayer(Tile(O));
+  regularGameLogic.flipTiles(board2, Tile(O), Point(5,3));
+  regularGameLogic.flipTiles(board, Tile(O), Point(2,4));
+  EXPECT_EQ(regularGameLogic.turn(*player, board2, &print), IN_PROGRESS);
+  EXPECT_EQ(regularGameLogic.turn(*player, board, &print), IN_PROGRESS);
+
+  delete(player);
+}
+
+TEST(TurnTest, FullBoardTest) {
+
+  RegularGameLogic regularGameLogic = RegularGameLogic();
+  ConsolUI print;
+  char path[] = "../boardFiles/almostfullboard";
   Board board(path);
-  vector<Move> movesList;
-  EXPECT_EQ(regularGameLogic.findMoves(3, 4, Tile(O), board), movesList);
-  EXPECT_EQ(regularGameLogic.getMovesList(Tile(X), board), movesList);*/
+  Player* player = new AIPlayer(Tile(O));
+  EXPECT_EQ(regularGameLogic.turn(*player, board, &print), FULL_BOARD);
+  EXPECT_EQ(regularGameLogic.turn(*player, board, &print), HAS_NO_MOVES);
+
+  delete(player);
+}
+
+TEST(TurnTest, HasNoMovesTest) {
+
+  RegularGameLogic regularGameLogic = RegularGameLogic();
+  ConsolUI print;
+  char path[] = "../boardFiles/nomoves";
+  Board board(path);
+  Player* player = new AIPlayer(Tile(O));
+  EXPECT_EQ(regularGameLogic.turn(*player, board, &print), HAS_NO_MOVES);
+
+  delete(player);
+}
+
+TEST(FlipTilesTest, TileIsLegal) {
+  RegularGameLogic regularGameLogic = RegularGameLogic();
+  ConsolUI print;
+  char path[] = "../boardFiles/board1";
+  Board board(path);
+  Player* player = new AIPlayer(Tile(O));
+  regularGameLogic.flipTiles(board, Tile(O), Point(2, 2));
+  EXPECT_EQ(board.getXTiles(), 3);
+  EXPECT_EQ(board.getOTiles(), 3);
+
+  delete(player);
+}
+
+TEST(FlipTilesTest, TileNotLegal) {
+  RegularGameLogic regularGameLogic = RegularGameLogic();
+  ConsolUI print;
+  char path[] = "../boardFiles/board1";
+  Board board(path);
+  Player* player = new AIPlayer(Tile(O));
+  EXPECT_THROW(regularGameLogic.flipTiles(board, Tile(O), Point(-1, -1)), std::out_of_range);
+
+  delete(player);
 }
