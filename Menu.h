@@ -5,7 +5,7 @@
 
 #ifndef OTHELLO_MENU_H
 #define OTHELLO_MENU_H
-
+#define DEF_SIZE 8
 #include "GameUI.h"
 
 /**

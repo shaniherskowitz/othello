@@ -7,6 +7,9 @@
 #define OTHELLO_AIPLAYER_H
 
 #include "Player.h"
+#define LARGE_NUM 1000
+#define TURN_FLIP 1
+#define NOT_INDEX -1
 
 /**
  * Defining an AIPLayer class which implements Player interface.

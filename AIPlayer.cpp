@@ -13,11 +13,11 @@ Move AIPlayer::getTurnsMove(vector<Move> movesList, GameUI *print, Board &board)
   print->printBoard(board);
   if (movesList.empty()) {
     print->movesListIsEmpty();
-    return Move(Point(-1, -1));
+    return Move(Point(NOT_INDEX, NOT_INDEX));
   }
   print->printMoves(getSymbolMeaning(), movesList);
 
-  int minScore = 1000, check = 0, index = -1;
+  int minScore = LARGE_NUM, check = 0, index = NOT_INDEX;
 
   for (int i = 0; i < movesList.size(); i++) {
     check = simulateMove(&board, movesList[i]);
@@ -45,7 +45,7 @@ int AIPlayer::simulateMove(Board *board, Move move) {
 
   if (otherPlayerMoves.empty()) {
     delete logic;
-    return 100;
+    return 0;
   }
 
   for (int i = 0; i < otherPlayerMoves.size(); i++) {
@@ -53,7 +53,7 @@ int AIPlayer::simulateMove(Board *board, Move move) {
       currentScore = otherPlayerMoves[i].getScoreCounter();
     }
   }
-  currentScore = (currentScore + humanScore + 1) - (computerScore - currentScore);
+  currentScore = (currentScore + humanScore + TURN_FLIP) - (computerScore - currentScore);
   delete logic;
 
   return currentScore;

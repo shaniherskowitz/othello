@@ -9,6 +9,7 @@
 #include "Tile.h"
 #include "Point.h"
 #include <fstream>
+#define DEF_SIZE 8
 
 using namespace std;
 
@@ -27,7 +28,7 @@ class Board {
    * The Board's constructor with a default size of 8.
    * @param size The board's size.
    */
-  explicit Board(int size = 8);
+  explicit Board(int size = DEF_SIZE);
 
   /**
    * The Board's copy constructor.

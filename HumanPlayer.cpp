@@ -3,7 +3,6 @@
 // Liora Zaidner: 323742775
 //
 
-#include <limits>
 #include "HumanPlayer.h"
 HumanPlayer::HumanPlayer(Tile symbol) : Player(symbol) {
 
@@ -15,7 +14,7 @@ Move HumanPlayer::getTurnsMove(vector<Move> movesList, GameUI *print, Board &boa
   print->printBoard(board);
   if (movesList.empty()) {
     print->movesListIsEmpty();
-    return Move(Point(-1, -1));
+    return Move(Point(NOT_INDEX, NOT_INDEX));
   }
   print->printMoves(getSymbolMeaning(), movesList);
   Move move = getUserInput(print);

@@ -48,7 +48,7 @@ Board::Board(Board *board) {
 }
 
 Board::Board(char filePath[]) {
-  size = 8;
+  size = DEF_SIZE;
   xTiles = 0, oTiles = 0;
   this->board = new Tile *[size];
   for (unsigned int i = 0; i < size; i++) {

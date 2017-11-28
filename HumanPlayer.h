@@ -7,6 +7,8 @@
 #define OTHELLO_HUMANPLAYER_H
 
 #include "Player.h"
+#define NOT_INDEX -1
+#include <limits>
 
 /**
  * Defining a HumanPlayer class which implements the player interface.
