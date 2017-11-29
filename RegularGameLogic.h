@@ -7,6 +7,7 @@
 #define OTHELLO_REGULARGAMELOGICTEST_H
 
 #include "GameLogic.h"
+#include <stdexcept>
 class RegularGameLogic : public GameLogic {
 
   vector<Move> findMoves(int i, int j, Tile symbol, Board &board);
