@@ -45,7 +45,9 @@ void ConsolUI::printBoard(Board &board) const {
       cout << board.getTile(i, j) << " | ";
     }
     cout << endl;
+
   }
+
 }
 
 void ConsolUI::declareWinner(Board &board, GameStatus gameStatus) const {

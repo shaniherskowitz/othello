@@ -1,193 +1,157 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
-{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Bold;}
-{\colortbl;\red255\green255\blue255;\red135\green137\blue4;\red26\green204\blue202;\red26\green199\blue4;
-\red234\green0\blue13;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cssrgb\c59841\c59850\c0;\cssrgb\c0\c83008\c83127;\cssrgb\c0\c80160\c0;
-\cssrgb\c94579\c11675\c4073;\cssrgb\c0\c0\c0;}
-\margl1440\margr1440\vieww10800\viewh8400\viewkind0
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f0\fs22 \cf2 \CocoaLigature0 commit a1eba9258c62cdcf794c07746bea2e1969cf60a6 (
-\f1\b \cf3 HEAD -> \cf4 master
-\f0\b0 \cf2 , 
-\f1\b \cf5 origin/master
-\f0\b0 \cf2 )\cf6 \
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Tue Nov 28 12:15:21 2017 +0200\
 \
     fixed magic numbers\
 \
-\cf2 commit e7127f0c6caa6c297d1043bb6d19daeb6e4a3cec\cf6 \
 Merge: 2b2d258 c780c7d\
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Tue Nov 28 11:46:17 2017 +0200\
 \
     minor change in point\
 \
-\cf2 commit 2b2d258e6bc88b742b8e1eedab97ee8c73aef017\cf6 \
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Tue Nov 28 11:44:46 2017 +0200\
 \
     minor change in point\
 \
-\cf2 commit c780c7df62ba7571698d83ae7f7b42b81553a7dd\cf6 \
 Author: LioraZ <liorazr@gmail.com>\
 Date:   Tue Nov 28 00:02:49 2017 +0200\
 \
     added names and tz to all the headers\
 \
-\cf2 commit 51551d4a1a1f3b940825690bea11c8b9996df717\cf6 \
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Mon Nov 27 22:25:58 2017 +0200\
 \
     reformated all lines\
 \
-\cf2 commit 642df4f503fa323a48493ffba9a07d5e65829211\cf6 \
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Mon Nov 27 22:06:26 2017 +0200\
 \
     git commands file\
 \
-\cf2 commit 3fe7d0a392a50501de046be4e5077af41004100c\cf6 \
 Author: LioraZ <liorazr@gmail.com>\
 Date:   Mon Nov 27 21:56:40 2017 +0200\
 \
     all files commentedgit add .Wooooooohooogit add .!\
 \
-\cf2 commit 66423ec395936c629cac5bc5ebcffeb0fe393064\cf6 \
 Author: LioraZ <liorazr@gmail.com>\
 Date:   Mon Nov 27 21:00:25 2017 +0200\
 \
     commented these files\
 \
-\cf2 commit b388a45146b7ea931d26f1215accfce4c8e382e3\cf6 \
 Author: LioraZ <liorazr@gmail.com>\
 Date:   Mon Nov 27 19:53:17 2017 +0200\
 \
     tested getMovesListFunction in RegularGameLogic class.\
 \
-\cf2 commit 97d3bf35fec83840356f5431a7aab7a027224b36\cf6 \
 Author: LioraZ <liorazr@gmail.com>\
 Date:   Mon Nov 27 19:43:11 2017 +0200\
 \
     Made first test for RegularGameLogic to test the get move method in cases of standard game boards\
 \
-\cf2 commit ac7279f320b9494b09a1d87aceee4c87b873ea57\cf6 \
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Mon Nov 27 14:58:14 2017 +0200\
 \
     no more leaks\
 \
-\cf2 commit a0a7d7f030d5988a092051caf3dd721dea7e7689\cf6 \
 Author: LioraZ <liorazr@gmail.com>\
 Date:   Mon Nov 27 00:43:44 2017 +0200\
 \
-    changed game class to support game status enum, added two function to the board class so it can help me declare the winner, which was also slighty changed in ConsolUI. we shouldnt forget to print score there which needs to be done, and rename the class t get rid of the typo.\
+    changed game class to support game status enum, added two function to the board class so it can help
+     me declare the winner, which was also slighty changed in ConsolUI. we shouldnt forget to print score
+     there which needs to be done, and rename the class t get rid of the typo.\
 \
-\cf2 commit 05a392a8aefa317583312775789e4bf122e89b30\cf6 \
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Sun Nov 26 20:51:03 2017 +0200\
 \
     added deletes\
 \
-\cf2 commit 1a18f68a7e7505bf8ba1f6a17bdb5385e1ec01d2\cf6 \
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Sun Nov 26 15:46:06 2017 +0200\
 \
     file change\
 \
-\cf2 commit 1b09263db09dda3623a2d7798dcd0f3220cfa4fe\cf6 \
 Merge: 8f721cd f8b974d\
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Sun Nov 26 15:30:37 2017 +0200\
 \
     checking commit\
 \
-:\
-ard class so it can help me declare the winner, which was also slighty changed in ConsolUI. we shouldnt forget to print score there which needs to be done, and rename the class t get rid of the typo.\
+Author: LioraZ <liorazr@gmail.com>\
+Date:   Sun Nov 26 22:54:05 2017 +0200\
+ard class so it can help me declare the winner, which was also slighty changed in ConsolUI.
+we shouldnt forget to print score there which needs to be done, and rename the class t get rid of the typo.\
 \
-\cf2 commit 05a392a8aefa317583312775789e4bf122e89b30\cf6 \
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Sun Nov 26 20:51:03 2017 +0200\
 \
     added deletes\
 \
-\cf2 commit 1a18f68a7e7505bf8ba1f6a17bdb5385e1ec01d2\cf6 \
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Sun Nov 26 15:46:06 2017 +0200\
 \
     file change\
 \
-\cf2 commit 1b09263db09dda3623a2d7798dcd0f3220cfa4fe\cf6 \
 Merge: 8f721cd f8b974d\
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Sun Nov 26 15:30:37 2017 +0200\
 \
     checking commit\
 \
-\cf2 commit 8f721cd6f623b9f34c97ca0abcc479272e1e9262\cf6 \
 Merge: 17eae04 e624ca2\
 Author: Shani Herskowitz <shanizoe@gmail.com>\
-ard class so it can help me declare the winner, which was also slighty changed in ConsolUI. we shouldnt forget to print score there which needs to be done, and rename the class t get rid of the typo.\
+ard class so it can help me declare the winner, which was also slighty changed in ConsolUI.
+we shouldnt forget to print score there which needs to be done, and rename the class t get rid of the typo.\
 \
-\cf2 commit 05a392a8aefa317583312775789e4bf122e89b30\cf6 \
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Sun Nov 26 20:51:03 2017 +0200\
 \
     added deletes\
 \
-\cf2 commit 1a18f68a7e7505bf8ba1f6a17bdb5385e1ec01d2\cf6 \
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Sun Nov 26 15:46:06 2017 +0200\
 \
     file change\
 \
-\cf2 commit 1b09263db09dda3623a2d7798dcd0f3220cfa4fe\cf6 \
 Merge: 8f721cd f8b974d\
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Sun Nov 26 15:30:37 2017 +0200\
 \
     checking commit\
 \
-\cf2 commit 8f721cd6f623b9f34c97ca0abcc479272e1e9262\cf6 \
 Merge: 17eae04 e624ca2\
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Sun Nov 26 15:25:24 2017 +0200\
 \
     no change\
 \
-\cf2 commit f8b974d371ee0755a56c5c4c758ca138f49119b6\cf6 \
 Author: LioraZ <liorazr@gmail.com>\
 Date:   Sun Nov 26 15:23:41 2017 +0200\
 \
     removed cmake build debug\
 \
-\cf2 commit 17eae042fe4ccb2612aa28ab1fe963454a456b9d\cf6 \
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Sun Nov 26 15:14:04 2017 +0200\
 \
     ignore\
 \
-\cf2 commit e624ca2449ac633c933f4215384bb80b16e17b3a\cf6 \
 Merge: 62f1340 c1a5252\
 Author: LioraZ <liorazr@gmail.com>\
 Date:   Sun Nov 26 15:09:53 2017 +0200\
 \
     Merge branch 'master' of https://github.com/shaniherskowitz/othello\
 \
-\cf2 commit 62f1340172249a2bd3625b167a0dceb794c34521\cf6 \
 Author: LioraZ <liorazr@gmail.com>\
 Date:   Sun Nov 26 15:02:30 2017 +0200\
 \
     Change board test path\
 \
-\cf2 commit c1a52523a519310525882240aeb3abc58de508f7\cf6 \
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Sun Nov 26 14:47:48 2017 +0200\
 \
     ignore cmake\
 \
-\cf2 commit 30c24a928d52193fadeedbcd3832be559b694f52\cf6 \
 Author: Shani Herskowitz <shanizoe@gmail.com>\
 Date:   Sun Nov 26 14:31:06 2017 +0200\
 \
