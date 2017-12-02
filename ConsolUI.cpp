@@ -5,12 +5,9 @@
 
 #include "ConsolUI.h"
 
-ConsolUI::ConsolUI() {
+ConsolUI::ConsolUI() {}
 
-}
-ConsolUI::~ConsolUI() {
-
-}
+ConsolUI::~ConsolUI() {}
 
 void ConsolUI::printMoves(char symbol, vector<Move> &movesList) const {
   cout << symbol << ": It's your move" << endl;
