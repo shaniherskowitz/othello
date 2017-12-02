@@ -23,7 +23,7 @@ int main() {
     cout << "Sending exercise: " << num1 << op
          << num2 << endl;
     try {
-      int result = client.sendExercise(num1, op, num2);
+      string result = client.sendMove();
       cout << "Result: " << result << endl;
     } catch (const char *msg) {
       cout << "Failed to send exercise to server. Reason: " << msg << endl;

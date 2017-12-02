@@ -3,20 +3,25 @@
 //
 
 #include <limits>
+<<<<<<< HEAD
 #include <unistd.h>
 #include <string>
+=======
+>>>>>>> 6827f6e40d561698bb276118d76b284ee064494f
 #include "RemotePlayer.h"
-#include "AIPlayer.h"
 
 RemotePlayer::RemotePlayer(Tile symbol, int socket) : Player(symbol), socket(socket) {}
 
 RemotePlayer::~RemotePlayer() {}
 
 Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board) {
+<<<<<<< HEAD
     if (movesList.empty()) {
         //print no moves
         return Move(Point());
     }
+=======
+>>>>>>> 6827f6e40d561698bb276118d76b284ee064494f
     int w = write(socket, &movesList, sizeof(movesList));
     if (w == -1) throw "Error writing moves list to socket";
     string move;

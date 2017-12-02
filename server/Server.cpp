@@ -39,14 +39,14 @@ void Server::start() {
         // Accept a new client connection
         int playerSocket1 = accept(serverSocket, (struct sockaddr *) &playerAddress1, &playerAddressLen1);
         if (playerSocket1 == -1) throw "Error on accept";
-        Player* player1 = new RemotePlayer(Tile(X));
+        Player* player1 = new RemotePlayer(Tile(X), playerSocket1);
         cout << "Player X connected. Waiting for player O to connect..." << endl;
 
         // Accept a new client connection
         int playerSocket2 = accept(serverSocket, (struct sockaddr *) &playerAddress2, &playerAddressLen2);
         if (playerSocket2 == -1) throw "Error on accept";
         cout << "Player O connected." << endl;
-        Player* player2 = new RemotePlayer(Tile(O));
+        Player* player2 = new RemotePlayer(Tile(O), playerSocket2);
         GameUI* print = new ConsolUI();
         Game game = Game(player1, player2, print, 8);
         game.run();
