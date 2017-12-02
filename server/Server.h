@@ -14,7 +14,7 @@
 class Server {
     int port;
     int serverSocket; // the socket's file descriptor
-    void handleClient();
+    void handleClient(int something);
     int calc(int arg1, const char op, int arg2) const;
 
 public:

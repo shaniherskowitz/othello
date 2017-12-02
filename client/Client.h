@@ -12,9 +12,11 @@
 #include <string.h>
 #include <unistd.h>
 #include "../server/Server.h"
+
 using namespace std;
 
 class Client {
+public:
   Client(const char *serverIP, int serverPort);
   void connectToServer();
   int sendExercise(int arg1, char op, int arg2);

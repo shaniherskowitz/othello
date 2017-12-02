@@ -50,7 +50,7 @@ void Server::start() {
         GameUI* print = new ConsolUI();
         Game game = Game(player1, player2, print, 8);
         //game.run();
-        handleClient(clientSocket);
+        //handleClient(clientSocket);
         // Close communication with the client
         close(playerSocket1);
         close(playerSocket2);

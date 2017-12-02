@@ -13,18 +13,12 @@ Client::Client(const char *serverIP, int serverPort):
 void Client::connectToServer() {
   // Create a socket point
   clientSocket = socket(AF_INET, SOCK_STREAM, 0);
-<<<<<<< HEAD
   if (clientSocket == -1) throw "Error opening socket";
-=======
-  if (clientSocket == -1) {
-    throw "Error opening socket";
-  }
   // Convert the ip string to a network address
   struct in_addr address;
   if (!inet_aton(serverIP, &address)) {
     throw "Can't parse IP address";
   }
->>>>>>> 08a5240238bc915dcc54653b2679a3aa65003bc2
   // Get a hostent structure for the given host address
   struct hostent *server;
   server = gethostbyaddr((const void *)&address, sizeof(address), AF_INET);
@@ -42,4 +36,27 @@ void Client::connectToServer() {
     throw "Error connecting to server";
   }
   cout << "Connected to server" << endl;
+}
+
+int Client::sendExercise(int arg1, char op, int arg2) {
+  // Write the exercise arguments to the socket
+  int n = write(clientSocket, &arg1, sizeof(arg1));
+  if (n == -1) {
+    throw "Error writing arg1 to socket";
+  }
+  n = write(clientSocket, &op, sizeof(op));
+  if (n == -1) {
+    throw "Error writing op to socket";
+  }
+  n = write(clientSocket, &arg2, sizeof(arg2));
+  if (n == -1) {
+    throw "Error writing arg2 to socket";
+  }
+  // Read the result from the server
+  int result;
+  n = read(clientSocket, &result, sizeof(result));
+  if (n == -1) {
+    throw "Error reading result from socket";
+  }
+  return result;
 }
