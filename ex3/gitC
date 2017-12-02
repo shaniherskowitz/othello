@@ -1,0 +1,51 @@
+Git commands:
+
+Help: 
+ git add -h
+
+Configure:
+git config —global  user.name/email
+ 
+See configuration:
+git config —list
+
+Add git repository:
+ git init (in correct cd place)
+
+Remove git repository:
+rm –rf .git
+
+Clone existing repository:
+git clone <url> (like git)
+
+Modified – you’ve changed the file but have not committed it to your database yet 
+
+Staged – you’ve marked a modified file in its current version to go into your next commit 
+git add
+
+Committed – the data is safely stored in your local database
+git commit
+git commit -m “description"
+ 
+Find out what files are in what stage:
+git status
+
+See what you changed:
+git diff
+git diff —staged (see what you changed that will go into next commit)
+
+View commit history:
+git log
+
+Such commits back to the server:
+git push  <remote> <branch>
+
+
+
+processes:
+in othello
+git add .
+git commit -m “blaaaa”
+git pull
+git push
+
