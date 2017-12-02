@@ -3,10 +3,10 @@
 // Liora Zaidner: 323742775
 //
 
-#include "../AIPlayer.h"
+#include "../server/AIPlayer.h"
 #include "gtest/gtest.h"
 #include "AIPlayerTest.h"
-#include "../RegularGameLogic.h"
+#include "../server/RegularGameLogic.h"
 TEST_F (AIPlayerTest, AITest) {
   GameLogic *logic = new RegularGameLogic();
 

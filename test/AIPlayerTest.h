@@ -7,7 +7,7 @@
 #define OTHELLO_AIPLAYERTEST_H
 
 #include "gtest/gtest.h"
-#include "../Player.h"
+#include "../server/Player.h"
 #include <iostream>
 using namespace std;
 class AIPlayerTest : public testing::Test {
