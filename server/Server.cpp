@@ -54,8 +54,6 @@ void Server::start() {
         // Close communication with the client
         close(playerSocket1);
         close(playerSocket2);
-        delete(player1), delete (player2);
-        delete(print);
     }
 }
 
