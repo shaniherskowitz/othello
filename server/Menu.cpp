@@ -30,8 +30,20 @@ void Menu::showMenu() {
     cin.ignore(std::numeric_limits<int>::max(), '\n');
   }
 
-  if (choice == 1) game = new Game(new HumanPlayer(Tile(X)), new HumanPlayer(Tile(O)), print, DEF_SIZE);
-  else if (choice == 2) game = new Game(new HumanPlayer(Tile(X)), new AIPlayer(Tile(O)), print, DEF_SIZE);
+  if (choice == 1) {
+    game = new Game(new HumanPlayer(Tile(X)), new HumanPlayer(Tile(O)), print, DEF_SIZE);
+    print->gameStart(choice);
+    game->run();
+    delete game;
+    return;
+  }
+  else if (choice == 2) {
+    game = new Game(new HumanPlayer(Tile(X)), new AIPlayer(Tile(O)), print, DEF_SIZE);
+    print->gameStart(choice);
+    game->run();
+    delete game;
+    return;
+  }
   else if (choice == 3) {
     Server server(8000);
     try {
@@ -45,12 +57,4 @@ void Menu::showMenu() {
     server.stop();
     //game = new Game(new HumanPlayer(Tile(X)), new RemotePlayer(Tile(O)), print, DEF_SIZE);
   }
-  else return;
-
-  print->gameStart(choice);
-
-  game->run();
-
-  delete game;
-
 }
