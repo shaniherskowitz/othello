@@ -54,5 +54,3 @@ fabric.properties
 *.idea
 
 .idea/workspace.xml
-#CMakeLists.txt
-CMakeLists.txt
