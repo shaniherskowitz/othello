@@ -12,12 +12,10 @@ Client::Client(const char *serverIP, int serverPort):
 void Client::connectToServer() {
   // Create a socket point
   clientSocket = socket(AF_INET, SOCK_STREAM, 0);
-  if (clientSocket == -1) {
-    throw "Error opening socket";
-  }
+  if (clientSocket == -1) throw "Error opening socket";
   // Get a hostent structure for the given host address
   struct hostent *server;
-  server = gethostbyaddr((const void *)&address, sizeof address, AF_INET);
+  server = gethostbyaddr((const void *)&address, sizeof(address), AF_INET);
   if (server == NULL) throw "Host is unreachable";
 
   // Create a structure for the server address
@@ -28,8 +26,7 @@ void Client::connectToServer() {
   // htons converts values between host and network byte orders
   serverAddress.sin_port = htons(serverPort);
   // Establish a connection with the TCP server
-  if (connect(clientSocket, (struct sockaddr
-  *)&serverAddress, sizeof(serverAddress)) == -1) {
+  if (connect(clientSocket, (struct sockaddr *)&serverAddress, sizeof(serverAddress)) == -1) {
     throw "Error connecting to server";
   }
   cout << "Connected to server" << endl;
