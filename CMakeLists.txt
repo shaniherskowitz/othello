@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 98)
 set(SOURCE_FILES main.cpp Board.cpp Board.h Tile.cpp Tile.h Point.cpp Point.h Game.cpp
         Game.h Player.cpp Player.h Move.cpp Move.h GameLogic.cpp GameLogic.h RegularGameLogic.cpp
         RegularGameLogic.h GameStatus.cpp GameStatus.h Score.cpp Score.h GameUI.cpp GameUI.h ConsolUI.cpp
-        ConsolUI.h HumanPlayer.cpp HumanPlayer.h Menu.cpp Menu.h AIPlayer.cpp AIPlayer.h)
+        ConsolUI.h HumanPlayer.cpp HumanPlayer.h Menu.cpp Menu.h AIPlayer.cpp AIPlayer.h Server.cpp Server.h)
 
 add_executable(othello ${SOURCE_FILES})
 
