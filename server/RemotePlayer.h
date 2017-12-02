@@ -6,6 +6,10 @@
 #define OTHELLO_REMOTEPLAYER_H
 
 #include "Player.h"
+#include <iostream>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <unistd.h>
 class RemotePlayer : public Player  {
     int socket;
     Move getUserInput(GameUI *print) const ;
