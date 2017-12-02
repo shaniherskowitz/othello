@@ -4,6 +4,8 @@
 //
 
 #include <iostream>
+#include <cstring>
+#include <cstdio>
 #include "Point.h"
 
 Point::Point(int xVal, int yVal) {
@@ -31,3 +33,16 @@ bool Point::operator!=(const Point &point) const {
   return !(point.x == this->x && point.y == this->y);
 }
 
+char* Point::toString() {
+  char* xString, *yString, *ch;
+  sprintf(xString, "%d", x);
+  sprintf(yString, "%d", y);
+  strcat(ch, ")");
+  strcat(ch, xString);
+  strcat(ch, ",");
+  strcat(ch, yString);
+  strcat(ch, ") ");
+  return  ch;
+  //return xString + yString;
+  //return "(" + xString + "," + yString + ") ";
+}

@@ -3,11 +3,8 @@
 //
 
 #include <limits>
-<<<<<<< HEAD
 #include <unistd.h>
 #include <string>
-=======
->>>>>>> 6827f6e40d561698bb276118d76b284ee064494f
 #include "RemotePlayer.h"
 
 RemotePlayer::RemotePlayer(Tile symbol, int socket) : Player(symbol), socket(socket) {}
@@ -15,13 +12,11 @@ RemotePlayer::RemotePlayer(Tile symbol, int socket) : Player(symbol), socket(soc
 RemotePlayer::~RemotePlayer() {}
 
 Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board) {
-<<<<<<< HEAD
+    sendMovesList(movesList);
     if (movesList.empty()) {
         //print no moves
         return Move(Point());
     }
-=======
->>>>>>> 6827f6e40d561698bb276118d76b284ee064494f
     int w = write(socket, &movesList, sizeof(movesList));
     if (w == -1) throw "Error writing moves list to socket";
     string move;
@@ -29,19 +24,16 @@ Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Boar
     if (r == -1) throw "Error reading move from socket";
 
 
-    /*print->printBoard(board);
-    if (movesList.empty()) {
-        print->movesListIsEmpty();
-        return Move(Point(NOT_INDEX, NOT_INDEX));
+}
+
+void RemotePlayer::sendMovesList(vector<Move> movesList) const {
+    vector<Move>::iterator it = movesList.begin();
+    while (it != movesList.end()) {
+        char *move = it->getPoint().toString();
+        int w = write(socket, move, sizeof(move));
+        if (w == -1) throw "Error writing move to socket";
+        it++;
     }
-    print->printMoves(getSymbolMeaning(), movesList);
-    Move move = getUserInput(print);
-    while (!inMoves(move, movesList)) {
-        print->repeatUserInput();
-        print->printMoves(getSymbolMeaning(), movesList);
-        move = getUserInput(print);
-    }
-    return move;*/
 }
 
 Move RemotePlayer::parseMove(string s) {
@@ -52,7 +44,7 @@ Move RemotePlayer::parseMove(string s) {
         num[counter] = s[i];
         counter++;
     }
-    int x = stoi(num[0], 1);
+    //int x = stoi(num[0], 1);
 }
 
 Move RemotePlayer::getUserInput(GameUI *print) const {
