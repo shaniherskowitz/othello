@@ -1,15 +1,12 @@
-//
-// Created by liora on 02/12/17.
-//
-
 #include "Server.h"
+#include "Player.h"
+#include "RemotePlayer.h"
 
 using namespace std;
 #define MAX_CONNECTED_CLIENTS 2
 
-Server::Server(int port): port(port), serverSocket(0) {
-    cout << "Server" << endl;
-}
+Server::Server(int port): port(port), serverSocket(0) {}
+
 void Server::start() {
     // Create a socket point
     serverSocket = socket(AF_INET, SOCK_STREAM, 0);
@@ -21,24 +18,32 @@ void Server::start() {
     serverAddress.sin_family = AF_INET;
     serverAddress.sin_addr.s_addr = INADDR_ANY;
     serverAddress.sin_port = htons(port);
-    if (bind(serverSocket, (struct sockaddr *) &serverAddress, sizeof(serverAddress)) == -1) throw "Error on binding";
+    if (bind(serverSocket, (struct sockaddr *) &serverAddress, sizeof(serverAddress)) == -1) {
+        throw "Error on binding";
+    }
 
     // Start listening to incoming connections
     listen(serverSocket, MAX_CONNECTED_CLIENTS);
     // Define the client socket's structures
-    struct sockaddr_in clientAddress;
-    socklen_t clientAddressLen;
+    struct sockaddr_in playerAddress1;
+    struct sockaddr_in playerAddress2;
+    socklen_t playerAddressLen1;
+    socklen_t playerAddressLen2;
     while (true) {
-        cout << "Waiting for client connections..." << endl;
+        cout << "Waiting for player X to connect..." << endl;
         // Accept a new client connection
-        int clientSocket = accept(serverSocket, (struct
-                sockaddr *) &clientAddress, &clientAddressLen);
-        cout << "Client connected" << endl;
-        if (clientSocket == -1)
-            throw "Error on accept";
-        handleClient(clientSocket);
+        int playerSocket1 = accept(serverSocket, (struct sockaddr *) &playerAddress1, &playerAddressLen1);
+        if (playerSocket1 == -1) throw "Error on accept";
+        Player* player1 = new RemotePlayer(Tile(X));
+        cout << "Player X connected. Waiting for player O to connect..." << endl;
+
+        // Accept a new client connection
+        int playerSocket2 = accept(serverSocket, (struct sockaddr *) &playerAddress2, &playerAddressLen2);
+        if (playerSocket2 == -1) throw "Error on accept";
+        cout << "Player O connected." << endl;
+        //handleClient(clientSocket);
         // Close communication with the client
-        close(clientSocket);
+        close(playerSocket1);
     }
 }
 
@@ -67,8 +72,7 @@ void Server::handleClient(int clientSocket) {
             cout << "Error reading arg2" << endl;
             return;
         }
-        cout << "Got exercise: " << arg1 << op << arg2 <<
-             endl;
+        cout << "Got exercise: " << arg1 << op << arg2 << endl;
         int result = calc(arg1, op, arg2);
         // Write the result back to the client
         n = write(clientSocket, &result, sizeof(result));
@@ -91,7 +95,7 @@ int Server::calc(int arg1, const char op, int arg2) const {
             return arg1 / arg2;
         default:
             cout << "Invalid operator" << endl;
-            return 0;
+        return 0;
     }
 }
 void Server::stop() {
