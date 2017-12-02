@@ -6,8 +6,7 @@
 #include "Client.h"
 
 Client::Client(const char *serverIP, int serverPort):
-    serverIP(serverIP), serverPort(serverPort),
-    clientSocket(0) {
+    serverIP(serverIP), serverPort(serverPort), clientSocket(0) {
   cout << "Client" << endl;
 }
 void Client::connectToServer() {
