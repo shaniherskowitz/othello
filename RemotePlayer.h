@@ -7,8 +7,10 @@
 
 #include "Player.h"
 class RemotePlayer : public Player  {
+ public:
 explicit RemotePlayer(Tile tile);
   ~RemotePlayer();
+   Move getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board);
 };
 
 #endif //OTHELLO_REMOTEPLAYER_H

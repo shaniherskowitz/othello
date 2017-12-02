@@ -80,6 +80,8 @@ void ConsolUI::showMenu() const {
   cout << "Please select opponent:" << endl;
   cout << "Option 1 - Human Player" << endl;
   cout << "Option 2 - Computer Player" << endl;
+  cout << "Option 3 - Remote Player" << endl;
+
 
 }
 

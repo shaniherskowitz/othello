@@ -5,7 +5,7 @@
 #include "Server.h"
 
 using namespace std;
-#define MAX_CONNECTED_CLIENTS 10
+#define MAX_CONNECTED_CLIENTS 2
 
 Server::Server(int port): port(port), serverSocket(0) {
     cout << "Server" << endl;
@@ -13,20 +13,16 @@ Server::Server(int port): port(port), serverSocket(0) {
 void Server::start() {
     // Create a socket point
     serverSocket = socket(AF_INET, SOCK_STREAM, 0);
-    if (serverSocket == -1) {
-        throw "Error opening socket";
-    }
+    if (serverSocket == -1) throw "Error opening socket";
+
     // Assign a local address to the socket
     struct sockaddr_in serverAddress;
-    bzero((void *) &serverAddress,
-          sizeof(serverAddress));
+    bzero((void *) &serverAddress, sizeof(serverAddress));
     serverAddress.sin_family = AF_INET;
     serverAddress.sin_addr.s_addr = INADDR_ANY;
     serverAddress.sin_port = htons(port);
-    if (bind(serverSocket, (struct sockaddr
-    *) &serverAddress, sizeof(serverAddress)) == -1) {
-        throw "Error on binding";
-    }
+    if (bind(serverSocket, (struct sockaddr *) &serverAddress, sizeof(serverAddress)) == -1) throw "Error on binding";
+
     // Start listening to incoming connections
     listen(serverSocket, MAX_CONNECTED_CLIENTS);
     // Define the client socket's structures
