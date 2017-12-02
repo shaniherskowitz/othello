@@ -65,6 +65,8 @@ class Point {
    */
   bool operator!=(const Point &point) const;
 
+    char* toString() ;
+
 };
 
 #endif //OTHELLO_POINT_H

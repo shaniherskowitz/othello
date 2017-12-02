@@ -12,6 +12,10 @@ RemotePlayer::RemotePlayer(Tile symbol, int socket) : Player(symbol), socket(soc
 RemotePlayer::~RemotePlayer() {}
 
 Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board) {
+<<<<<<< HEAD
+=======
+    sendMovesList(movesList);
+>>>>>>> f189785d0fb588eb3a1c63ca382baef4b517764b
     if (movesList.empty()) {
         //print no moves
         return Move(Point());
@@ -23,6 +27,19 @@ Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Boar
     if (r == -1) throw "Error reading move from socket";
 
 
+<<<<<<< HEAD
+=======
+}
+
+void RemotePlayer::sendMovesList(vector<Move> movesList) const {
+    vector<Move>::iterator it = movesList.begin();
+    while (it != movesList.end()) {
+        char *move = it->getPoint().toString();
+        int w = write(socket, move, sizeof(move));
+        if (w == -1) throw "Error writing move to socket";
+        it++;
+    }
+>>>>>>> f189785d0fb588eb3a1c63ca382baef4b517764b
 }
 
 Move RemotePlayer::parseMove(string s) {

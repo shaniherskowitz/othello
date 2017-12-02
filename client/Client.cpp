@@ -38,6 +38,8 @@ void Client::connectToServer() {
 }
 
 string Client::sendMove() {
+  char buffer[20];
+  int r = read(clientSocket, buffer, sizeof(buffer));
   // Write the exercise arguments to the socket
   /*int n = write(clientSocket, &arg1, sizeof(arg1));
   if (n == -1) {

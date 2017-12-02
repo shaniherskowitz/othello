@@ -8,7 +8,7 @@
 #include "Game.h"
 
 using namespace std;
-#define MAX_CONNECTED_CLIENTS 5
+#define MAX_CONNECTED_CLIENTS 2
 
 Server::Server(int port): port(port), serverSocket(0) {}
 
@@ -49,8 +49,10 @@ void Server::start() {
         Player* player2 = new RemotePlayer(Tile(O), playerSocket2);
         GameUI* print = new ConsolUI();
         Game game = Game(player1, player2, print, 8);
-        game.run();
-        //handleClient(clientSocket);
+        try { game.run(); }
+        catch {
+            "error";
+        }//handleClient(clientSocket);
         // Close communication with the client
         close(playerSocket1);
         close(playerSocket2);
