@@ -2,6 +2,7 @@
 // Created by shani herskowitz on 12/2/17.
 //
 
+
 #include "Client.h"
 
 Client::Client(const char *serverIP, int serverPort):
@@ -14,6 +15,11 @@ void Client::connectToServer() {
   clientSocket = socket(AF_INET, SOCK_STREAM, 0);
   if (clientSocket == -1) {
     throw "Error opening socket";
+  }
+  // Convert the ip string to a network address
+  struct in_addr address;
+  if (!inet_aton(serverIP, &address)) {
+    throw "Can't parse IP address";
   }
   // Get a hostent structure for the given host address
   struct hostent *server;
