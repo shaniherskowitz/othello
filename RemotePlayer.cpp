@@ -3,12 +3,10 @@
 //
 
 #include "RemotePlayer.h"
-RemotePlayer::RemotePlayer(Tile symbol) : Player(symbol) {
+RemotePlayer::RemotePlayer(Tile symbol) : Player(symbol) {}
 
-}
-RemotePlayer::~RemotePlayer() {
+RemotePlayer::~RemotePlayer() {}
 
-}
 Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board) {
 
 }

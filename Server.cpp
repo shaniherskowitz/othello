@@ -5,6 +5,7 @@
 #include "Server.h"
 #include "Player.h"
 #include "RemotePlayer.h"
+#include "Game.h"
 
 using namespace std;
 #define MAX_CONNECTED_CLIENTS 2
@@ -45,9 +46,16 @@ void Server::start() {
         int playerSocket2 = accept(serverSocket, (struct sockaddr *) &playerAddress2, &playerAddressLen2);
         if (playerSocket2 == -1) throw "Error on accept";
         cout << "Player O connected." << endl;
-        //handleClient(clientSocket);
+        Player* player2 = new RemotePlayer(Tile(O));
+        GameUI* print = new ConsolUI();
+        Game game = Game(player1, player2, print, 8);
+        //game.run();
+        handleClient(clientSocket);
         // Close communication with the client
         close(playerSocket1);
+        close(playerSocket2);
+        delete(player1), delete (player2);
+        delete(print);
     }
 }
 
