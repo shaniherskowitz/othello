@@ -37,9 +37,9 @@ void Client::connectToServer() {
   cout << "Connected to server" << endl;
 }
 
-int Client::sendExercise(int arg1, char op, int arg2) {
+string Client::sendMove() {
   // Write the exercise arguments to the socket
-  int n = write(clientSocket, &arg1, sizeof(arg1));
+  /*int n = write(clientSocket, &arg1, sizeof(arg1));
   if (n == -1) {
     throw "Error writing arg1 to socket";
   }
@@ -57,5 +57,5 @@ int Client::sendExercise(int arg1, char op, int arg2) {
   if (n == -1) {
     throw "Error reading result from socket";
   }
-  return result;
+  return result;*/
 }

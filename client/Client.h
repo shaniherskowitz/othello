@@ -19,7 +19,7 @@ class Client {
 public:
   Client(const char *serverIP, int serverPort);
   void connectToServer();
-  int sendExercise(int arg1, char op, int arg2);
+  string sendMove();
  private:
   const char *serverIP;
   int serverPort;
