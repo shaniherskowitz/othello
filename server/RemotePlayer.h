@@ -8,6 +8,7 @@
 #include "Player.h"
 class RemotePlayer : public Player  {
     int socket;
+    Move parseMove(string s);
     Move getUserInput(GameUI *print) const ;
     bool inMoves(Move move, vector<Move> movesList) const;
  public:

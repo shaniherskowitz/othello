@@ -4,6 +4,7 @@
 
 #include <limits>
 #include <unistd.h>
+#include <string>
 #include "RemotePlayer.h"
 #include "AIPlayer.h"
 
@@ -12,11 +13,15 @@ RemotePlayer::RemotePlayer(Tile symbol, int socket) : Player(symbol), socket(soc
 RemotePlayer::~RemotePlayer() {}
 
 Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board) {
-    int write = write(socket, &movesList, sizeof(movesList));
-    if (write == -1) throw "Error writing moves list to socket";
+    if (movesList.empty()) {
+        //print no moves
+        return Move(Point());
+    }
+    int w = write(socket, &movesList, sizeof(movesList));
+    if (w == -1) throw "Error writing moves list to socket";
     string move;
-    int read = read(socket, &move, sizeof(move));
-    if (read == -1) throw "Error reading move from socket";
+    int r = read(socket, &move, sizeof(move));
+    if (r == -1) throw "Error reading move from socket";
 
 
     /*print->printBoard(board);
@@ -32,6 +37,17 @@ Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Boar
         move = getUserInput(print);
     }
     return move;*/
+}
+
+Move RemotePlayer::parseMove(string s) {
+    int counter = 0;
+    char num[10];
+    for (int i = 0; i < s.length(); i++) {
+        if(s[i] == ' ') continue;
+        num[counter] = s[i];
+        counter++;
+    }
+    int x = stoi(num[0], 1);
 }
 
 Move RemotePlayer::getUserInput(GameUI *print) const {
