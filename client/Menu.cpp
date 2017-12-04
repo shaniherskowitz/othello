@@ -61,8 +61,8 @@ void Menu::showMenu() {
       cout << "Error reading from socket" << endl;
       return;
     }
-    game = new Game(new RemotePlayer(Tile(player), client.getClientSocket()),
-                                     new RemotePlayer(Tile(oppositeSymbol(Tile(player)))), print, DEF_SIZE);
+    game = new Game(new RemotePlayer(Tile(player), client.getClientSocket(), true),
+                                     new RemotePlayer(Tile(oppositeSymbol(Tile(player)), 0, false)), print, DEF_SIZE);
 
     print->gameStart(choice);
     game->run();
