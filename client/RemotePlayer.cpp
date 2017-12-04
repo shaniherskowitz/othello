@@ -5,6 +5,7 @@
 #include <limits>
 #include <unistd.h>
 #include <string>
+#include <cstdlib>
 #include "RemotePlayer.h"
 
 RemotePlayer::RemotePlayer(Tile symbol, int socket, bool localTurn1) :

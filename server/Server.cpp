@@ -3,6 +3,7 @@
 //
 
 #include <cstdlib>
+#include <strings.h>
 #include "Server.h"
 #define END_GAME -1
 #define IN_PROGRESS 0

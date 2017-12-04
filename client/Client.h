@@ -19,7 +19,7 @@ class Client {
 public:
   Client(const char *serverIP, int serverPort);
   void connectToServer();
-  string sendMove();
+  //string sendMove();
   int getClientSocket() const;
  private:
   const char *serverIP;

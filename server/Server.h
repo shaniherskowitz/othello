@@ -7,9 +7,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>
-#include <string.h>
 #include <iostream>
-#include <stdio.h>
 
 class Server {
     int port;
