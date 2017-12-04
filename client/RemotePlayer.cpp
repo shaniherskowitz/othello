@@ -10,7 +10,7 @@
 RemotePlayer::RemotePlayer(Tile symbol, int socket, bool localTurn1) :
     HumanPlayer(symbol), socket(socket), localTurn(localTurn1) {}
 
-RemotePlayer::RemotePlayer(Tile symbol) : HumanPlayer(symbol) {}
+RemotePlayer::RemotePlayer(Tile symbol, bool localTurn1) : HumanPlayer(symbol), localTurn(localTurn1) {}
 RemotePlayer::~RemotePlayer() {}
 
 Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board) {
@@ -30,12 +30,12 @@ Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Boar
 Move RemotePlayer::readMove() {
   ssize_t n;
   int x, y;
-  n = read(socket, &x, sizeof(move));
+  n = read(socket, &x, sizeof(int));
   if (n == -1) {
     cout << "Error reading from socket" << endl;
     exit(1);
   }
-  n = read(socket, &y, sizeof(move));
+  n = read(socket, &y, sizeof(int));
   if (n == -1) {
     cout << "Error reading from socket" << endl;
     exit(1);
@@ -53,12 +53,12 @@ Move RemotePlayer::writeMove(GameUI* print, vector<Move> movesList) {
   }
   ssize_t n;
   int x = move.getPoint().getX(), y = move.getPoint().getY();
-  n = write(socket, &x, sizeof(move));
+  n = write(socket, &x, sizeof(int));
     if (n == -1) {
     cout << "Error writing from socket" << endl;
     exit(1);
   }
-  n = write(socket, &y, sizeof(move));
+  n = write(socket, &y, sizeof(int));
   if (n == -1) {
     cout << "Error writing from socket" << endl;
     exit(1);

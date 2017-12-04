@@ -19,7 +19,7 @@ class RemotePlayer : public HumanPlayer {
   Move readMove();
  public:
   RemotePlayer(Tile tile, int socket, bool localTurn1);
-  RemotePlayer(Tile tile);
+  RemotePlayer(Tile tile, bool localTurn1);
   ~RemotePlayer();
   Move getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board);
 };

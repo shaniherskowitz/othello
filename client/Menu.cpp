@@ -62,7 +62,7 @@ void Menu::showMenu() {
       return;
     }
     game = new Game(new RemotePlayer(Tile(player), client.getClientSocket(), true),
-                                     new RemotePlayer(Tile(oppositeSymbol(Tile(player)), 0, false)), print, DEF_SIZE);
+                                     new RemotePlayer(oppositeSymbol(Tile(player)), false), print, DEF_SIZE);
 
     print->gameStart(choice);
     game->run();
