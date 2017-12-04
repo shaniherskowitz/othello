@@ -53,9 +53,9 @@ void Server::start() {
 
     int gameStatus = IN_PROGRESS;
     while (gameStatus != END_GAME) {
-      gameStatus = handleClient(playerSocket1, playerSocket2);
-      if (gameStatus == END_GAME) break;
       gameStatus = handleClient(playerSocket2, playerSocket1);
+      if (gameStatus == END_GAME) break;
+      gameStatus = handleClient(playerSocket1, playerSocket2);
     }
     close(playerSocket1);
     close(playerSocket2);
@@ -94,7 +94,7 @@ int Server::readMove(int readSocket, int *buffer, size_t sizeBuffer) {
     cout << "Player disconnected" << endl;
     exit(1);
   }
-  if (buffer[0] == END_GAME) return END_GAME;
+  //if (buffer == END_GAME) return END_GAME;
   return (int)r;
 }
 
@@ -108,7 +108,7 @@ int Server::writeMove(int writeSocket, int *buffer, size_t sizeBuffer) {
     cout << "Player disconnected" << endl;
     exit(1);
   }
-  if (buffer[0] == END_GAME) return END_GAME;
+  //if (buffer[0] == END_GAME) return END_GAME;
   return (int)w;
 }
 
