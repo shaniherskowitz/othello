@@ -14,8 +14,12 @@
 class Server {
     int port;
     int serverSocket; // the socket's file descriptor
-    void handleClient(int something);
+    int handleClient(int srcSocket, int dstSocket);
     int calc(int arg1, const char op, int arg2) const;
+    int readMove(int readSocket, int* buffer, size_t sizeBuffer);
+    int writeMove(int writeSocket, int* buffer, size_t sizeBuffer);
+    int transferMessage(int readSocket, int writeSocket, int * buffer);
+    void initializingPlayer(int playerSocket, int playerNum);
 
 public:
     Server(int port);

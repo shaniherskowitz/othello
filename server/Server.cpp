@@ -2,7 +2,10 @@
 // Created by liora on 02/12/17.
 //
 
+#include <cstdlib>
 #include "Server.h"
+#define END_GAME -1
+#define IN_PROGRESS 0
 
 using namespace std;
 #define MAX_CONNECTED_CLIENTS 2
@@ -43,64 +46,72 @@ void Server::start() {
     int playerSocket2 = accept(serverSocket, (struct sockaddr *) &playerAddress2, &playerAddressLen2);
     if (playerSocket2 == -1) throw "Error on accept";
     cout << "Player O connected." << endl;
-    int one = 1;
-    int x = write(playerSocket1, &one, sizeof(int));
-    if (x == -1) {
-      cout << "Error writing to socket" << endl;
-      return;
+
+    initializingPlayer(playerSocket1, 1);
+    initializingPlayer(playerSocket2, 2);
+
+    int gameStatus = IN_PROGRESS;
+    while (gameStatus != END_GAME) {
+      gameStatus = handleClient(playerSocket1, playerSocket2);
+      if (gameStatus == END_GAME) break;
+      gameStatus = handleClient(playerSocket2, playerSocket1);
     }
-    int two = 2;
-    int o = write(playerSocket2, &two, sizeof(int));
-    if (o == -1) {
-      cout << "Error writing to socket" << endl;
-      return;
-    }
-    /*Player* player2 = new RemotePlayer(Tile(O), playerSocket2);
-    GameUI* print = new ConsolUI();
-    Game game = Game(player1, player2, print, 8);
-    game.run();
-    handleClient(clientSocket);
-    Close communication with the client*/
     close(playerSocket1);
     close(playerSocket2);
   }
 }
 
-// Handle requests from a specific client
-void Server::handleClient(int clientSocket) {
-  int arg1, arg2;
-  char op;
-  while (true) {
-    // Read new exercise arguments
-    int n = read(clientSocket, &arg1, sizeof(arg1));
-    if (n == -1) {
-      cout << "Error reading arg1" << endl;
-      return;
-    }
-    if (n == 0) {
-      cout << "Client disconnected" << endl;
-      return;
-    }
-    n = read(clientSocket, &op, sizeof(op));
-    if (n == -1) {
-      cout << "Error reading operator" << endl;
-      return;
-    }
-    n = read(clientSocket, &arg2, sizeof(arg2));
-    if (n == -1) {
-      cout << "Error reading arg2" << endl;
-      return;
-    }
-    cout << "Got exercise: " << arg1 << op << arg2 << endl;
-    int result = calc(arg1, op, arg2);
-    // Write the result back to the client
-    n = write(clientSocket, &result, sizeof(result));
-    if (n == -1) {
-      cout << "Error writing to socket" << endl;
-      return;
-    }
+void Server::initializingPlayer(int playerSocket, int playerNum) {
+  ssize_t x = write(playerSocket, &playerNum, sizeof(playerNum));
+  if (x == -1) {
+    cout << "Error writing to socket" << endl;
+    exit(1);
   }
 }
+
+// Handle requests from a specific client
+int Server::handleClient(int readSocket, int writeSocket) {
+    int moveVal;
+  //gets x and y value of move and transfer it from onr player to the other.
+    moveVal = transferMessage(readSocket, writeSocket, &moveVal);
+    if (moveVal == END_GAME) return END_GAME;
+    return transferMessage(readSocket, writeSocket, &moveVal);
+
+}
+
+int Server::transferMessage(int readSocket, int writeSocket, int *buffer) {
+    readMove(readSocket, buffer, sizeof(buffer));
+    return writeMove(writeSocket, buffer, sizeof(buffer));
+}
+
+int Server::readMove(int readSocket, int *buffer, size_t sizeBuffer) {
+  ssize_t r = read(readSocket, &buffer, sizeof(buffer));
+  if (r == -1) {
+    cout << "Error getting move from player." << endl;
+    exit(1);
+  }
+  if (r == 0) {
+    cout << "Player disconnected" << endl;
+    exit(1);
+  }
+  if (buffer[0] == END_GAME) return END_GAME;
+  return (int)r;
+}
+
+int Server::writeMove(int writeSocket, int *buffer, size_t sizeBuffer) {
+  ssize_t w = write(writeSocket, &buffer, sizeBuffer);
+  if (w == -1) {
+    cout << "Error getting move from player." << endl;
+    exit(1);
+  }
+  if (w == 0) {
+    cout << "Player disconnected" << endl;
+    exit(1);
+  }
+  if (buffer[0] == END_GAME) return END_GAME;
+  return (int)w;
+}
+
 
 int Server::calc(int arg1, const char op, int arg2) const {
   switch (op) {
