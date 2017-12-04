@@ -3,6 +3,8 @@
 // Liora Zaidner: 323742775
 //
 using namespace std;
+
+#include <cstdlib>
 #include "Server.h"
 int main() {
   Server server(8000);
