@@ -20,6 +20,7 @@ public:
   Client(const char *serverIP, int serverPort);
   void connectToServer();
   string sendMove();
+  int getClientSocket() const;
  private:
   const char *serverIP;
   int serverPort;

@@ -2,32 +2,11 @@
 // Created by shani herskowitz on 12/2/17.
 //
 
-#include "../server/Server.h"
 #include "Client.h"
-#include <iostream>
-#include <stdlib.h>
+#include "Menu.h"
 using namespace std;
 int main() {
-  Client client("127.0.0.1", 8000);
-  try {
-    client.connectToServer();
-  } catch (const char *msg) {
-    cout << "Failed to connect to server. Reason:" << msg << endl;
-    exit(-1);
-  }
-  int num1, num2;
-  char op;
-  while (true) {
-    cout << "Enter an exercise (e.g., 15*19):" ;
-    cin >> num1 >> op >> num2;
-    cout << "Sending exercise: " << num1 << op
-         << num2 << endl;
-    try {
-      string result = client.sendMove();
-      cout << "Result: " << result << endl;
-    } catch (const char *msg) {
-      cout << "Failed to send exercise to server. Reason: " << msg << endl;
-      break;
-    }
-  }
+  Menu *menu = new Menu();
+  menu->showMenu();
+  delete menu;
 }

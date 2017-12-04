@@ -36,10 +36,19 @@ void Client::connectToServer() {
   }
   cout << "Connected to server" << endl;
 }
-
+int Client::getClientSocket() const {
+  return clientSocket;
+}
 string Client::sendMove() {
-  char buffer[20];
-  int r = read(clientSocket, buffer, sizeof(buffer));
+  char buffer[100];
+  bzero(&buffer,sizeof(buffer));
+
+  ssize_t r = read(clientSocket, buffer, 5 *sizeof(char));
+  if (r == -1 || buffer == nullptr) {
+    throw "Error reading result from socket";
+  }
+
+  cout << buffer;
   // Write the exercise arguments to the socket
   /*int n = write(clientSocket, &arg1, sizeof(arg1));
   if (n == -1) {

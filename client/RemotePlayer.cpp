@@ -9,38 +9,33 @@
 
 RemotePlayer::RemotePlayer(Tile symbol, int socket) : Player(symbol), socket(socket) {}
 
+RemotePlayer::RemotePlayer(Tile symbol) : Player(symbol) {}
 RemotePlayer::~RemotePlayer() {}
 
 Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board) {
-<<<<<<< HEAD
-=======
+
     sendMovesList(movesList);
->>>>>>> f189785d0fb588eb3a1c63ca382baef4b517764b
     if (movesList.empty()) {
         //print no moves
         return Move(Point());
     }
-    int w = write(socket, &movesList, sizeof(movesList));
+   /* int w = write(socket, &movesList, sizeof(movesList));
     if (w == -1) throw "Error writing moves list to socket";
     string move;
     int r = read(socket, &move, sizeof(move));
-    if (r == -1) throw "Error reading move from socket";
+    if (r == -1) throw "Error reading move from socket";*/
 
-
-<<<<<<< HEAD
-=======
 }
 
-void RemotePlayer::sendMovesList(vector<Move> movesList) const {
+/*void RemotePlayer::sendMovesList(vector<Move> movesList) const {
     vector<Move>::iterator it = movesList.begin();
     while (it != movesList.end()) {
         char *move = it->getPoint().toString();
-        int w = write(socket, move, sizeof(move));
+        ssize_t w = write(socket, move, strlen(move) + 1);
         if (w == -1) throw "Error writing move to socket";
         it++;
     }
->>>>>>> f189785d0fb588eb3a1c63ca382baef4b517764b
-}
+}*/
 
 Move RemotePlayer::parseMove(string s) {
     int counter = 0;
@@ -53,24 +48,11 @@ Move RemotePlayer::parseMove(string s) {
     //int x = stoi(num[0], 1);
 }
 
-Move RemotePlayer::getUserInput(GameUI *print) const {
-    print->userInput();
-    int i, j;
-    while (true) {
-        cin >> i >> j;
-        if (!cin.fail()) break;
-        print->problemWithInput();
-        cin.clear();
-        cin.ignore(std::numeric_limits<int>::max(), '\n');
-    }
-    return Move(Point(i - 1, j - 1));
+Move RemotePlayer::readMove() {
+
 }
 
-bool RemotePlayer::inMoves(Move move, vector<Move> movesList) const {
-    vector<Move>::iterator it = movesList.begin();
-    while (it != movesList.end()) {
-        if (it->getPoint() == move.getPoint()) { return true; }
-        it++;
-    }
-    return false;
+Move RemotePlayer::writeMove() {
+
 }
+

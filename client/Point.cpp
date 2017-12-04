@@ -34,15 +34,10 @@ bool Point::operator!=(const Point &point) const {
 }
 
 char* Point::toString() {
-  char* xString, *yString, *ch;
-  sprintf(xString, "%d", x);
-  sprintf(yString, "%d", y);
-  strcat(ch, ")");
-  strcat(ch, xString);
-  strcat(ch, ",");
-  strcat(ch, yString);
-  strcat(ch, ") ");
-  return  ch;
+  char *pointString;
+  sprintf(pointString, "(%d, %d)", x, y);
+ 
+  return pointString;
   //return xString + yString;
   //return "(" + xString + "," + yString + ") ";
 }

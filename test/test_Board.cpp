@@ -5,7 +5,7 @@
 
 
 #include <gtest/gtest.h>
-#include "../server/Board.h"
+#include "../client/Board.h"
 TEST (tileAmountTest, TileCount) {
 
   char path[] = "../boardFiles/board4";

@@ -65,7 +65,7 @@ class Point {
    */
   bool operator!=(const Point &point) const;
 
-    char* toString() ;
+  char* toString();
 
 };
 
