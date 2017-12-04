@@ -14,6 +14,7 @@
  * Defining a HumanPlayer class which implements the player interface.
  */
 class HumanPlayer : public Player {
+ protected:
   /**
   * The method gets the move from the user.
   * @param gameUI The game gameUI.
@@ -28,6 +29,7 @@ class HumanPlayer : public Player {
 * @return True if the move is in the moves list and else false.
 */
   bool inMoves(Move move, vector<Move> moves) const;
+
  public:
   /**
    * The HumnPlayer constructor.
