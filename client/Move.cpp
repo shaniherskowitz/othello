@@ -9,6 +9,9 @@ Move::Move(Point move) {
   this->move = Point(move);
   this->scoreCounter = 0;
 }
+Move::Move() {
+  Move(Point);
+}
 
 Move::Move(Point move, int counter) {
   this->move = Point(move);

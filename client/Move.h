@@ -20,6 +20,10 @@ class Move {
    * @param move The moves location.
    */
   explicit Move(Point move);
+  /**
+   * The Move's default constructor
+   */
+  Move();
 
   /**
    * The Move's constructor.
