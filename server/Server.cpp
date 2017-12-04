@@ -76,7 +76,6 @@ int Server::handleClient(int readSocket, int writeSocket) {
     moveVal = transferMessage(readSocket, writeSocket, &moveVal);
     if (moveVal == END_GAME) return END_GAME;
     return transferMessage(readSocket, writeSocket, &moveVal);
-
 }
 
 int Server::transferMessage(int readSocket, int writeSocket, int *buffer) {
@@ -112,17 +111,6 @@ int Server::writeMove(int writeSocket, int *buffer, size_t sizeBuffer) {
   return (int)w;
 }
 
-
-int Server::calc(int arg1, const char op, int arg2) const {
-  switch (op) {
-    case '+':return arg1 + arg2;
-    case '-':return arg1 - arg2;
-    case '*':return arg1 * arg2;
-    case '/':return arg1 / arg2;
-    default:cout << "Invalid operator" << endl;
-      return 0;
-  }
-}
 void Server::stop() {
   close(serverSocket);
 }
