@@ -15,9 +15,9 @@ class Server {
     int port;
     int serverSocket; // the socket's file descriptor
     int handleClient(int srcSocket, int dstSocket);
-    int readMove(int readSocket, int* buffer, size_t sizeBuffer);
-    int writeMove(int writeSocket, int* buffer, size_t sizeBuffer);
-    int transferMessage(int readSocket, int writeSocket, int * buffer);
+    int readMove(int readSocket, int buffer, size_t sizeBuffer);
+    int writeMove(int writeSocket, int buffer, size_t sizeBuffer);
+    int transferMessage(int readSocket, int writeSocket, int buffer);
     void initializingPlayer(int playerSocket, int playerNum);
 
 public:
