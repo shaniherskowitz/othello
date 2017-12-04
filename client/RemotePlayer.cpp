@@ -15,16 +15,14 @@ RemotePlayer::RemotePlayer(Tile symbol, bool localTurn1) : HumanPlayer(symbol), 
 RemotePlayer::~RemotePlayer() {}
 
 Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board) {
-  Move move;
   print->printBoard(board);
   if (movesList.empty()) {
     print->movesListIsEmpty();
     return Move(Point(NOT_INDEX, NOT_INDEX));
   }
   print->printMoves(getSymbolMeaning(), movesList);
-  if (localTurn) move = writeMove(print, movesList);
-  else move = readMove();
-  return move;
+  if (localTurn) return writeMove(print, movesList);
+  else return readMove();
 
 }
 
