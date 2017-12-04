@@ -11,6 +11,7 @@ Move::Move(Point move) {
 }
 Move::Move() {
   Move(Point);
+  this->scoreCounter = 0;
 }
 
 Move::Move(Point move, int counter) {
