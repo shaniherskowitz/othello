@@ -47,8 +47,8 @@ void Server::start() {
     if (playerSocket2 == -1) throw "Error on accept";
     cout << "Player O connected." << endl;
 
-    initializingPlayer(playerSocket1, 1);
-    initializingPlayer(playerSocket2, 2);
+    initializingPlayer(playerSocket1, 0);
+    initializingPlayer(playerSocket2, 1);
 
     int gameStatus = IN_PROGRESS;
     while (gameStatus != END_GAME) {
