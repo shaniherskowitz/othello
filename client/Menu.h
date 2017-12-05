@@ -12,6 +12,8 @@
 #include "AIPlayer.h"
 #include "RemotePlayer.h"
 #include "Client.h"
+#include <fstream>
+#include <sstream>
 
 /**
  * Defining a Menu class.
@@ -32,8 +34,18 @@ class Menu {
    * The method starts a game according to the user's choice.
    */
   void showMenu();
-
-  int connectToServer(Client clinet, GameUI *print);
+  /**
+   *
+   * @param to print to user what to do
+   * @return game with remote players based on if the client connected first.
+   */
+  Game *getServerGame(GameUI *print);
+  /**
+   *
+   * @param print to user his options
+   * @return the game the user selected
+   */
+  int getUserInput(GameUI *print);
 
 };
 

@@ -36,7 +36,7 @@ endif()
 
 ########################################################################
 #
-# Project-wide settings
+# Project-wide serverSettings
 
 # Name of the project.
 #

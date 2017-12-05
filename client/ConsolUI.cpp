@@ -69,7 +69,7 @@ void ConsolUI::problemWithInput() const {
 }
 
 void ConsolUI::repeatUserInput() const {
-  cout << "Cant make move! Please enter one of your possible moves - row col:" << endl;
+  cout << "Cant make move! Please enter one of your possible moves - row col" << endl;
 }
 
 void ConsolUI::userInput() const {

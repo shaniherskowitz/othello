@@ -1,23 +1,32 @@
-//
-// Shani Herskowitz: 321659387
-// Liora Zaidner: 323742775
-//
 using namespace std;
 
 #include <cstdlib>
 #include "Server.h"
+#include <fstream>
+#include <sstream>
 int main() {
-  Server server(8000);
+  ifstream inFile;
+  inFile.open("../exe/serverFiles/serverSettings");
+  string x;
+  int port = 0;
+  if (!inFile) {
+    cerr << "Unable to open file";
+    exit(1);   // call system to stop
+  }
+  while(inFile >> x) if (x == "serverPort:") inFile >> x;
+
+  stringstream geek(x); //not sure we are allowed to use
+  geek >> port;
+
+  inFile.close();
+  Server server(port);
   try {
     server.start();
   } catch (const char *msg) {
     cout << "Cannot start server. Reason: " << msg << endl;
     exit(-1);
   }
-  //Server server(10000);
-  //server.start();
   server.stop();
-  //game = new Game(new HumanPlayer(Tile(X)), new RemotePlayer(Tile(O)), print, DEF_SIZE);
 
   return 0;
 }

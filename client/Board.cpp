@@ -77,9 +77,7 @@ Board::Board(char filePath[]) {
       l = 0;
       k++;
     }
-
   }
-
   inFile.close();
 }
 
