@@ -89,6 +89,15 @@ class GameUI {
    */
   virtual void played(Point p, char player) const = 0;
 
+  virtual void socketReadError() const = 0;
+  virtual void socketWriteError() const = 0;
+  virtual void playerConnected(char tile) const = 0;
+  virtual void serverConnectError(const char *msg) const = 0;
+  virtual void serverConnected() const = 0;
+  virtual void waitingForPlayer() const = 0;
+  virtual void playerDisconnected() const = 0;
+  virtual void waitingForPlayerMove() const = 0;
+
 };
 
 #endif //OTHELLO_GAMEUI_H

@@ -7,7 +7,6 @@
 
 Client::Client(const char *serverIP, int serverPort):
     serverIP(serverIP), serverPort(serverPort), clientSocket(0) {
-  cout << "Client" << endl;
 }
 void Client::connectToServer() {
   // Create a socket point
@@ -34,7 +33,6 @@ void Client::connectToServer() {
   if (connect(clientSocket, (struct sockaddr *)&serverAddress, sizeof(serverAddress)) == -1) {
     throw "Error connecting to server";
   }
-  cout << "Connected to server" << endl;
 }
 int Client::getClientSocket() const {
   return clientSocket;
@@ -49,24 +47,5 @@ string Client::sendMove() {
   }
 
   cout << buffer;
-  // Write the exercise arguments to the socket
-  /*int n = write(clientSocket, &arg1, sizeof(arg1));
-  if (n == -1) {
-    throw "Error writing arg1 to socket";
-  }
-  n = write(clientSocket, &op, sizeof(op));
-  if (n == -1) {
-    throw "Error writing op to socket";
-  }
-  n = write(clientSocket, &arg2, sizeof(arg2));
-  if (n == -1) {
-    throw "Error writing arg2 to socket";
-  }
-  // Read the result from the server
-  int result;
-  n = read(clientSocket, &result, sizeof(result));
-  if (n == -1) {
-    throw "Error reading result from socket";
-  }
-  return result;*/
+
 }

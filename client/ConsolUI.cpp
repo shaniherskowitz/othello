@@ -90,6 +90,7 @@ void ConsolUI::gameStart(int choice) const {
   cout << "You have selected to play vs ";
   if (choice == 1) cout << "Human Player!" << endl;
   else if (choice == 2) cout << "Computer Player!" << endl;
+  else if (choice == 3) cout << "Remote Player!" << endl;
 
   cout << "Your game will begin now!" << endl << endl;
 }
@@ -100,4 +101,29 @@ void ConsolUI::computerMove(Point p) const {
 
 void ConsolUI::played(Point p, char player) const {
   cout << player << " played: (" << p.getX() + 1 << "," << p.getY() + 1 << ")" << endl;
+}
+
+void ConsolUI::playerConnected(char tile) const {
+  cout << "Player " << tile << " connected." << endl;
+}
+void ConsolUI::playerDisconnected() const {
+  cout << "Player disconnected" << endl;
+}
+void ConsolUI::serverConnected() const {
+  cout << "Connected to server" << endl;
+}
+void ConsolUI::serverConnectError(const char *msg) const {
+  cout << "Failed to connect to server. Reason:" << msg << endl;
+}
+void ConsolUI::socketReadError() const {
+  cout << "Error reading move from player." << endl;
+}
+void ConsolUI::socketWriteError() const {
+  cout << "Error writing to socket" << endl;
+}
+void ConsolUI::waitingForPlayer() const {
+  cout <<"Waiting for other player to connect..." << endl;
+}
+void ConsolUI::waitingForPlayerMove() const {
+  cout <<"Waiting for other player's move..." << endl;
 }

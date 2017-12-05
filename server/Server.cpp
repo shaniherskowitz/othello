@@ -79,14 +79,14 @@ int Server::handleClient(int readSocket, int writeSocket) {
 }
 
 int Server::transferMessage(int readSocket, int writeSocket, int buffer) {
-    readMove(readSocket, buffer, sizeof(buffer));
-    return writeMove(writeSocket, buffer, sizeof(buffer));
+    int result = readMove(readSocket, buffer, sizeof(buffer));
+    return writeMove(writeSocket, result, sizeof(buffer));
 }
 
 int Server::readMove(int readSocket, int buffer, size_t sizeBuffer) {
   ssize_t r = read(readSocket, &buffer, sizeof(buffer));
   if (r == -1) {
-    cout << "Error getting move from player." << endl;
+    cout << "Error reading move from player." << endl;
     exit(1);
   }
   if (r == 0) {
@@ -94,7 +94,7 @@ int Server::readMove(int readSocket, int buffer, size_t sizeBuffer) {
     exit(1);
   }
   //if (buffer[0] == END_GAME) return END_GAME;
-  return (int)r;
+  return buffer;
 }
 
 int Server::writeMove(int writeSocket, int buffer, size_t sizeBuffer) {
