@@ -33,11 +33,6 @@ bool Point::operator!=(const Point &point) const {
   return !(point.x == this->x && point.y == this->y);
 }
 
-char* Point::toString() {
-  char *pointString;
-  sprintf(pointString, "(%d, %d)", x, y);
- 
-  return pointString;
-  //return xString + yString;
-  //return "(" + xString + "," + yString + ") ";
+bool Point::operator<=(const Point &point) const {
+  return !(point.x <= this->x || point.y <= this->y);
 }
