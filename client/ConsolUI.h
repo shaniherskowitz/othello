@@ -28,6 +28,16 @@ class ConsolUI : public GameUI {
   virtual void movesListIsEmpty() const;
   virtual void computerMove(Point p) const;
   virtual void played(Point p, char player) const;
+  virtual void socketReadError() const;
+  virtual void socketWriteError() const;
+  virtual void playerConnected(char tile) const;
+  virtual void serverConnectError(const char *msg) const;
+  virtual void serverConnected() const;
+  virtual void waitingForPlayer() const;
+  virtual void playerDisconnected() const;
+  virtual void waitingForPlayerMove() const;
+
+
 
 };
 

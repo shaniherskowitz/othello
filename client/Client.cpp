@@ -7,7 +7,6 @@
 
 Client::Client(const char *serverIP, int serverPort):
     serverIP(serverIP), serverPort(serverPort), clientSocket(0) {
-  cout << "Client" << endl;
 }
 void Client::connectToServer() {
   // Create a socket point
@@ -34,7 +33,6 @@ void Client::connectToServer() {
   if (connect(clientSocket, (struct sockaddr *)&serverAddress, sizeof(serverAddress)) == -1) {
     throw "Error connecting to server";
   }
-  cout << "Connected to server" << endl;
 }
 int Client::getClientSocket() const {
   return clientSocket;
@@ -49,4 +47,9 @@ int Client::getClientSocket() const {
   }
 
   cout << buffer;
+<<<<<<< HEAD
 }*/
+=======
+
+}
+>>>>>>> e5fcee56e980f3b0f6cc02343ee3eedb7deceaf6
