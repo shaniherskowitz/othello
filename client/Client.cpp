@@ -1,8 +1,3 @@
-//
-// Created by shani herskowitz on 12/2/17.
-//
-
-
 #include "Client.h"
 
 Client::Client(const char *serverIP, int serverPort):

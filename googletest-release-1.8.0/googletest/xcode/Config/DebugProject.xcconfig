@@ -1,7 +1,7 @@
 //
 //  DebugProject.xcconfig
 //
-//  These are Debug Configuration project settings for the gtest framework and
+//  These are Debug Configuration project serverSettings for the gtest framework and
 //  examples. It is set in the "Based On:" dropdown in the "Project" info
 //  dialog.
 //  This file is based on the Xcode Configuration files in:
