@@ -22,7 +22,6 @@ Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Boar
 }
 
 Move RemotePlayer::readMove(GameUI *print) {
-  //ssize_t n;
   int x, y;
   print->waitingForPlayerMove();
     x = readSocket(print);
@@ -43,18 +42,9 @@ Move RemotePlayer::writeMove(GameUI* print, vector<Move> movesList) {
     print->printMoves(getSymbolMeaning(), movesList);
     move = getUserInput(print);
   }
-  ssize_t n;
   int x = move.getPoint().getX(), y = move.getPoint().getY();
-  n = write(socket, &x, sizeof(int));
-    if (n == -1) {
-    print->socketWriteError();
-    exit(1);
-  }
-  n = write(socket, &y, sizeof(int));
-  if (n == -1) {
-    print->socketWriteError();
-    exit(1);
-  }
+    writeSocket(x, sizeof(x), print);
+    writeSocket(y, sizeof(y), print);
   return move;
 
 }
@@ -69,13 +59,10 @@ int RemotePlayer::readSocket(GameUI* print) {
     return value;
 }
 
-/*void RemotePlayer::writeSocket(int *val, size_t valSize, GameUI *print) {
-    //int value;
-    //ssize_t n = write(socket, &val, valSize);
-    ssize_t n = write(socket, &value, sizeof(value));
+void RemotePlayer::writeSocket(int val, size_t valSize, GameUI *print) {
+    ssize_t n = write(socket, &val, valSize);
     if (n == -1) {
         print->socketWriteError();
         exit(1);
     }
-    //return value;
-    }*/
+}

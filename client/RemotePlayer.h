@@ -17,6 +17,8 @@ class RemotePlayer : public HumanPlayer {
 
   Move writeMove(GameUI* print, vector<Move> movesList);
   Move readMove(GameUI* print);
+   int readSocket(GameUI* print);
+    void writeSocket(int val, size_t valSize, GameUI *print);
  public:
   RemotePlayer(Tile tile, int socket, bool localTurn1);
   RemotePlayer(Tile tile, bool localTurn1);
