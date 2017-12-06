@@ -26,6 +26,10 @@ Move RemotePlayer::readMove(GameUI *print) {
   print->waitingForPlayerMove();
     x = readSocket(print);
     y = readSocket(print);
+    /*if (x== -1) {
+        print->movesListIsEmpty();
+        cout << "no possible moves" << endl;
+    }*/
 
   return Move(Point(x, y));
 }

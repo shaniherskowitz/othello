@@ -13,8 +13,7 @@
 #include "Client.h"
 #include <fstream>
 #include <sstream>
-#define DEF_SIZE 4
-
+#define DEF_SIZE 8
 /**
  * Defining a Menu class.
  */
