@@ -16,7 +16,7 @@ RemotePlayer::~RemotePlayer() {}
 Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board) {
   print->printBoard(board);
   if (localTurn) return writeMove(print, movesList);
-  else return readMove(print);
+  return readMove(print);
 
 }
 
