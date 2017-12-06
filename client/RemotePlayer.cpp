@@ -17,11 +17,9 @@ RemotePlayer::~RemotePlayer() {}
 Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board) {
   print->printBoard(board);
   if (localTurn) return writeMove(print, movesList);
-<<<<<<< HEAD
+
   return readMove(print);
-=======
-    return readMove(print);
->>>>>>> 019e7e5578613db16467bf8aab784316c6fc3713
+
 
 }
 
@@ -41,20 +39,28 @@ Move RemotePlayer::readMove(GameUI *print) {
 Move RemotePlayer::writeMove(GameUI* print, vector<Move> movesList) {
   if (movesList.empty()) {
     print->movesListIsEmpty();
-    return Move(Point(NOT_INDEX, NOT_INDEX));
-  }
-  print->printMoves(getSymbolMeaning(), movesList);
-  Move move = getUserInput(print);
-  while (!inMoves(move, movesList)) {
-    print->repeatUserInput();
+    Move move = Move(Point(-1, -1));
+    writeMoveHelper(move, print);
+    return move;
+  } else {
     print->printMoves(getSymbolMeaning(), movesList);
-    move = getUserInput(print);
+    Move move = getUserInput(print);
+    while (!inMoves(move, movesList)) {
+      print->repeatUserInput();
+      print->printMoves(getSymbolMeaning(), movesList);
+      move = getUserInput(print);
+    }
+    writeMoveHelper(move, print);
+    return move;
   }
-  int x = move.getPoint().getX(), y = move.getPoint().getY();
-    writeSocket(x, sizeof(x), print);
-    writeSocket(y, sizeof(y), print);
-  return move;
 
+  }
+
+void RemotePlayer::writeMoveHelper(Move move, GameUI* print) {
+  int x = move.getPoint().getX();
+  int y = move.getPoint().getY();
+  writeSocket(x, sizeof(x), print);
+  writeSocket(y, sizeof(y), print);
 }
 
 int RemotePlayer::readSocket(GameUI* print) {
