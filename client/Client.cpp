@@ -44,7 +44,7 @@ int Client::getClientSocket() const {
   cout << buffer;
 <<<<<<< HEAD
 }*/
-=======
+/*=======
 
 }
->>>>>>> e5fcee56e980f3b0f6cc02343ee3eedb7deceaf6
+>>>>>>> e5fcee56e980f3b0f6cc02343ee3eedb7deceaf6*/
