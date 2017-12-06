@@ -5,7 +5,6 @@
 
 #ifndef OTHELLO_MENU_H
 #define OTHELLO_MENU_H
-#define DEF_SIZE 8
 #include "GameUI.h"
 #include "Game.h"
 #include "HumanPlayer.h"
@@ -14,7 +13,7 @@
 #include "Client.h"
 #include <fstream>
 #include <sstream>
-
+#define DEF_SIZE 8
 /**
  * Defining a Menu class.
  */

@@ -5,6 +5,7 @@
 #include <limits>
 #include <unistd.h>
 #include <string>
+#include <cstdlib>
 #include "RemotePlayer.h"
 
 RemotePlayer::RemotePlayer(Tile symbol, int socket, bool localTurn1) :
@@ -16,24 +17,23 @@ RemotePlayer::~RemotePlayer() {}
 Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board) {
   print->printBoard(board);
   if (localTurn) return writeMove(print, movesList);
+<<<<<<< HEAD
   return readMove(print);
+=======
+    return readMove(print);
+>>>>>>> 019e7e5578613db16467bf8aab784316c6fc3713
 
 }
 
 Move RemotePlayer::readMove(GameUI *print) {
-  ssize_t n;
   int x, y;
   print->waitingForPlayerMove();
-  n = read(socket, &x, sizeof(int));
-  if (n == -1) {
-    print->socketReadError();
-    exit(1);
-  }
-  n = read(socket, &y, sizeof(int));
-  if (n == -1) {
-    print->socketReadError();
-    exit(1);
-  }
+    x = readSocket(print);
+    y = readSocket(print);
+    /*if (x== -1) {
+        print->movesListIsEmpty();
+        cout << "no possible moves" << endl;
+    }*/
 
   return Move(Point(x, y));
 }
@@ -50,19 +50,27 @@ Move RemotePlayer::writeMove(GameUI* print, vector<Move> movesList) {
     print->printMoves(getSymbolMeaning(), movesList);
     move = getUserInput(print);
   }
-  ssize_t n;
   int x = move.getPoint().getX(), y = move.getPoint().getY();
-  n = write(socket, &x, sizeof(int));
-    if (n == -1) {
-    print->socketWriteError();
-    exit(1);
-  }
-  n = write(socket, &y, sizeof(int));
-  if (n == -1) {
-    print->socketWriteError();
-    exit(1);
-  }
+    writeSocket(x, sizeof(x), print);
+    writeSocket(y, sizeof(y), print);
   return move;
 
 }
 
+int RemotePlayer::readSocket(GameUI* print) {
+    int value;
+    ssize_t n = read(socket, &value, sizeof(value));
+    if (n == -1) {
+        print->socketReadError();
+        exit(1);
+    }
+    return value;
+}
+
+void RemotePlayer::writeSocket(int val, size_t valSize, GameUI *print) {
+    ssize_t n = write(socket, &val, valSize);
+    if (n == -1) {
+        print->socketWriteError();
+        exit(1);
+    }
+}
