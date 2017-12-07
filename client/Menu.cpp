@@ -77,10 +77,10 @@ Game *Menu::getServerGame(GameUI *print) {
 
   if (player == 0)
     return new Game(new RemotePlayer(Tile(X), client.getClientSocket(), true),
-                    new RemotePlayer(oppositeSymbol(Tile(X)), client.getClientSocket(), false), print, 3);
+                    new RemotePlayer(oppositeSymbol(Tile(X)), client.getClientSocket(), false), print, 4);
   else
     return new Game(new RemotePlayer(Tile(X), client.getClientSocket(), false),
-                    new RemotePlayer(oppositeSymbol(Tile(X)), client.getClientSocket(), true), print, 3);
+                    new RemotePlayer(oppositeSymbol(Tile(X)), client.getClientSocket(), true), print, 4);
 }
 
 

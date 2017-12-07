@@ -72,16 +72,18 @@ void Server::initializingPlayer(int playerSocket, int playerNum) {
 
 // Handle requests from a specific client
 int Server::handleClient(int readSocket, int writeSocket) {
-    int moveVal;
+  int moveVal;
   //gets x and y value of move and transfer it from onr player to the other.
-    moveVal = transferMessage(readSocket, writeSocket, moveVal);
-    if (moveVal == END_GAME) return END_GAME;
-    return transferMessage(readSocket, writeSocket, moveVal);
+  moveVal = transferMessage(readSocket, writeSocket, moveVal);
+  if (moveVal == END_GAME) return END_GAME;
+  return transferMessage(readSocket, writeSocket, moveVal);
 }
 
 int Server::transferMessage(int readSocket, int writeSocket, int buffer) {
-    int result = readMove(readSocket, buffer, sizeof(buffer));
-    return writeMove(writeSocket, result, sizeof(buffer));
+  int result = readMove(readSocket, buffer, sizeof(buffer));
+  int result2 = writeMove(writeSocket, result, sizeof(buffer));
+  if (result == END_GAME && result2 == END_GAME) return END_GAME;
+  return result2;
 }
 
 int Server::readMove(int readSocket, int buffer, size_t sizeBuffer) {
@@ -92,7 +94,7 @@ int Server::readMove(int readSocket, int buffer, size_t sizeBuffer) {
   }
   if (r == 0) {
     cout << "Player disconnected" << endl;
-    exit(1);
+    return END_GAME;
   }
   //if (buffer[0] == END_GAME) return END_GAME;
   return buffer;
@@ -106,10 +108,10 @@ int Server::writeMove(int writeSocket, int buffer, size_t sizeBuffer) {
   }
   if (w == 0) {
     cout << "Player disconnected" << endl;
-    exit(1);
+    return END_GAME;
   }
   //if (buffer[0] == END_GAME) return END_GAME;
-  return (int)w;
+  return (int) w;
 }
 
 void Server::stop() {
