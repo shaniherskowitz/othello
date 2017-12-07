@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <strings.h>
 #include "Server.h"
-#define END_GAME -1
+#define END_GAME -2
 #define IN_PROGRESS 0
 
 using namespace std;
@@ -33,8 +33,8 @@ void Server::start() {
   // Define the client socket's structures
   struct sockaddr_in playerAddress1;
   struct sockaddr_in playerAddress2;
-  socklen_t playerAddressLen1;
-  socklen_t playerAddressLen2;
+  socklen_t playerAddressLen1 = sizeof((struct sockaddr*) &playerAddress1);
+  socklen_t playerAddressLen2 = sizeof((struct sockaddr*) &playerAddress2);
   while (true) {
     cout << "Waiting for player X to connect..." << endl;
     // Accept a new client connection
@@ -54,8 +54,7 @@ void Server::start() {
     int gameStatus = IN_PROGRESS;
     while (gameStatus != END_GAME) {
       gameStatus = handleClient(playerSocket2, playerSocket1);
-      if (gameStatus == END_GAME)
-        break;
+      if (gameStatus == END_GAME) break;
       gameStatus = handleClient(playerSocket1, playerSocket2);
     }
     //close(playerSocket1);
@@ -81,13 +80,14 @@ int Server::handleClient(int readSocket, int writeSocket) {
 }
 
 int Server::transferMessage(int readSocket, int writeSocket, int buffer) {
-  int result = readMove(readSocket, buffer, sizeof(buffer));
+  int result = readMove(readSocket, buffer);
   int result2 = writeMove(writeSocket, result, sizeof(buffer));
   if (result == END_GAME && result2 == END_GAME) return END_GAME;
   return result2;
 }
 
-int Server::readMove(int readSocket, int buffer, size_t sizeBuffer) {
+int Server::readMove(int readSocket, int buffer) {
+  if (buffer == END_GAME) return END_GAME;
   ssize_t r = read(readSocket, &buffer, sizeof(buffer));
   if (r == -1) {
     cout << "Error reading move from player." << endl;
@@ -102,6 +102,7 @@ int Server::readMove(int readSocket, int buffer, size_t sizeBuffer) {
 }
 
 int Server::writeMove(int writeSocket, int buffer, size_t sizeBuffer) {
+  if (buffer == END_GAME) return END_GAME;
   ssize_t w = write(writeSocket, &buffer, sizeBuffer);
   if (w == -1) {
     cout << "Error getting move from player." << endl;
