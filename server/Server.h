@@ -30,7 +30,7 @@ class Server {
      * @param sizeBuffer The buffer's size.
      * @return The move value, or end game value.
      */
-    int readMove(int readSocket, int buffer, size_t sizeBuffer);
+    int readMove(int readSocket, int buffer);
     /**
      * The method writes the move to the clients.
      * @param writeSocket The client's socket number.
