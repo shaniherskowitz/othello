@@ -1,8 +1,3 @@
-//
-// Shani Herskowitz: 321659387
-// Liora Zaidner: 323742775
-//
-
 #ifndef OTHELLO_GAMELOGIC_H
 #define OTHELLO_GAMELOGIC_H
 #include "Player.h"

@@ -1,8 +1,3 @@
-//
-// Shani Herskowitz: 321659387
-// Liora Zaidner: 323742775
-//
-
 #ifndef OTHELLO_MOVE_H
 #define OTHELLO_MOVE_H
 
