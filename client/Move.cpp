@@ -29,3 +29,10 @@ void Move::mergeMove(Move other) {
 bool Move::operator==(const Move &move) const {
   return (this->move == move.move && this->scoreCounter == move.scoreCounter);
 }
+
+bool Move::operator<(const Move &move) const {
+  if (this->move.getX() == move.move.getX()) {
+    return (this->move.getY() < move.move.getY());
+  }
+  return (this->move.getX() < move.move.getX());
+}

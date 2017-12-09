@@ -38,7 +38,6 @@ void Server::start() {
     if (playerSocket1 == -1) throw "Error on accept";
     //Player* player1 = new RemotePlayer(Tile(X), playerSocket1);
     cout << "Player X connected. Waiting for player O to connect..." << endl;
-
     // Accept a new client connection
     int playerSocket2 = accept(serverSocket, (struct sockaddr *) &playerAddress2, &playerAddressLen2);
     if (playerSocket2 == -1) throw "Error on accept";
@@ -49,14 +48,15 @@ void Server::start() {
 
     int gameStatus = IN_PROGRESS;
     while (gameStatus != END_GAME) {
-      gameStatus = handleClient(playerSocket2, playerSocket1);
-      if (gameStatus == END_GAME) break;
       gameStatus = handleClient(playerSocket1, playerSocket2);
+      if (gameStatus == END_GAME) break;
+      gameStatus = handleClient(playerSocket2, playerSocket1);
     }
     close(playerSocket1);
     close(playerSocket2);
   }
   close(serverSocket);
+
 }
 
 void Server::initializingPlayer(int playerSocket, int playerNum) {

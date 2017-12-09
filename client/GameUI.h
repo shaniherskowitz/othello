@@ -1,5 +1,4 @@
 
-
 #ifndef OTHELLO_GAMEUI_H
 #define OTHELLO_GAMEUI_H
 

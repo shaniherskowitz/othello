@@ -1,8 +1,3 @@
-//
-// Shani Herskowitz: 321659387
-// Liora Zaidner: 323742775
-//
-
 #ifndef OTHELLO_POINT_H
 #define OTHELLO_POINT_H
 #include <ostream>

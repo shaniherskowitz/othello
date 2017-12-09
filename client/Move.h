@@ -1,8 +1,3 @@
-//
-// Shani Herskowitz: 321659387
-// Liora Zaidner: 323742775
-//
-
 #ifndef OTHELLO_MOVE_H
 #define OTHELLO_MOVE_H
 
@@ -63,6 +58,13 @@ class Move {
    * @return True if moves are equal, else false.
    */
   bool operator==(const Move &move) const;
+
+    /**
+     * The method overloads the "smaller than" operator.
+     * @param move The move to be compared with.
+     * @return True if other move is smaller, else false.
+     */
+    bool operator<(const Move &move) const;
 };
 
 #endif //OTHELLO_MOVE_H

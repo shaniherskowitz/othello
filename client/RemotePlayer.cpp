@@ -1,7 +1,3 @@
-//
-// Created by shani herskowitz on 12/2/17.
-//
-
 #include <limits>
 #include <unistd.h>
 #include <string>
@@ -17,9 +13,7 @@ RemotePlayer::~RemotePlayer() {}
 Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board) {
   print->printBoard(board);
   if (localTurn) return writeMove(print, movesList);
-
   return readMove(print);
-
 }
 
 Move RemotePlayer::readMove(GameUI *print) {
@@ -27,10 +21,7 @@ Move RemotePlayer::readMove(GameUI *print) {
   print->waitingForPlayerMove();
   x = readSocket(print);
   y = readSocket(print);
-  /*if (x== -1) {
-      print->movesListIsEmpty();
-      cout << "no possible moves" << endl;
-  }*/
+  if (x == -1) print->movesListIsEmpty();
 
   return Move(Point(x, y));
 }
@@ -41,17 +32,16 @@ Move RemotePlayer::writeMove(GameUI *print, vector<Move> movesList) {
     Move move = Move(Point(-1, -1));
     writeMoveHelper(move, print);
     return move;
-  } else {
-    print->printMoves(getSymbolMeaning(), movesList);
-    Move move = getUserInput(print);
-    while (!inMoves(move, movesList)) {
-      print->repeatUserInput();
-      print->printMoves(getSymbolMeaning(), movesList);
-      move = getUserInput(print);
-    }
-    writeMoveHelper(move, print);
-    return move;
   }
+  print->printMoves(getSymbolMeaning(), movesList);
+  Move move = getUserInput(print);
+  while (!inMoves(move, movesList)) {
+    print->repeatUserInput();
+    print->printMoves(getSymbolMeaning(), movesList);
+    move = getUserInput(print);
+  }
+  writeMoveHelper(move, print);
+  return move;
 
 }
 

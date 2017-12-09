@@ -1,7 +1,3 @@
-//
-// Shani Herskowitz: 321659387
-// Liora Zaidner: 323742775
-//
 #include "Game.h"
 
 Game::Game(Player *one1, Player *two1, GameUI *print1, int size1) {

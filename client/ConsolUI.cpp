@@ -1,8 +1,4 @@
-//
-// Shani Herskowitz: 321659387
-// Liora Zaidner: 323742775
-//
-
+#include <algorithm>
 #include "ConsolUI.h"
 
 ConsolUI::ConsolUI() {}
@@ -13,6 +9,7 @@ void ConsolUI::printMoves(char symbol, vector<Move> &movesList) const {
   cout << symbol << ": It's your move" << endl;
   cout << "Your possible moves: ";
   if (!movesList.empty()) {
+    std::sort(movesList.begin(), movesList.end());
     vector<Move>::iterator it = movesList.begin();
     while (it != movesList.end()) {
       Point p = Point(it->getPoint().getX() + 1, it->getPoint().getY() + 1);
