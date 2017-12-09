@@ -82,7 +82,6 @@ void ConsolUI::showMenu() const {
   cout << "Option 2 - Computer Player" << endl;
   cout << "Option 3 - Remote Player" << endl;
 
-
 }
 
 void ConsolUI::gameStart(int choice) const {
@@ -122,8 +121,8 @@ void ConsolUI::socketWriteError() const {
   cout << "Error writing to socket" << endl;
 }
 void ConsolUI::waitingForPlayer() const {
-  cout <<"Waiting for other player to connect..." << endl;
+  cout << "Waiting for other player to connect..." << endl;
 }
 void ConsolUI::waitingForPlayerMove() const {
-  cout <<"Waiting for other player's move..." << endl;
+  cout << "Waiting for other player's move..." << endl;
 }

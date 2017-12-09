@@ -1,7 +1,3 @@
-//
-// Created by liora on 02/12/17.
-//
-
 #include <cstdlib>
 #include <strings.h>
 #include "Server.h"
@@ -33,8 +29,8 @@ void Server::start() {
   // Define the client socket's structures
   struct sockaddr_in playerAddress1;
   struct sockaddr_in playerAddress2;
-  socklen_t playerAddressLen1 = sizeof((struct sockaddr*) &playerAddress1);
-  socklen_t playerAddressLen2 = sizeof((struct sockaddr*) &playerAddress2);
+  socklen_t playerAddressLen1 = sizeof((struct sockaddr *) &playerAddress1);
+  socklen_t playerAddressLen2 = sizeof((struct sockaddr *) &playerAddress2);
   while (true) {
     cout << "Waiting for player X to connect..." << endl;
     // Accept a new client connection
@@ -57,9 +53,10 @@ void Server::start() {
       if (gameStatus == END_GAME) break;
       gameStatus = handleClient(playerSocket1, playerSocket2);
     }
-    //close(playerSocket1);
-    //close(playerSocket2);
+    close(playerSocket1);
+    close(playerSocket2);
   }
+  close(serverSocket);
 }
 
 void Server::initializingPlayer(int playerSocket, int playerNum) {
@@ -97,7 +94,6 @@ int Server::readMove(int readSocket, int buffer) {
     cout << "Player disconnected" << endl;
     return END_GAME;
   }
-  //if (buffer[0] == END_GAME) return END_GAME;
   return buffer;
 }
 
@@ -112,7 +108,6 @@ int Server::writeMove(int writeSocket, int buffer, size_t sizeBuffer) {
     cout << "Player disconnected" << endl;
     return END_GAME;
   }
-  //if (buffer[0] == END_GAME) return END_GAME;
   return (int) w;
 }
 

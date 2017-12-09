@@ -13,7 +13,7 @@ int main() {
     cerr << "Unable to open file";
     exit(1);   // call system to stop
   }
-  while(inFile >> x) if (x == "serverPort:") inFile >> x;
+  while (inFile >> x) if (x == "serverPort:") inFile >> x;
 
   stringstream geek(x); //not sure we are allowed to use
   geek >> port;

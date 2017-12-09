@@ -1,7 +1,4 @@
-//
-// Shani Herskowitz: 321659387
-// Liora Zaidner: 323742775
-//
+
 
 #ifndef OTHELLO_GAMEUI_H
 #define OTHELLO_GAMEUI_H

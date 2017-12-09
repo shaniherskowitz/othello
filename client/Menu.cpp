@@ -16,7 +16,6 @@ void Menu::showMenu() {
   else if (choice == 2) game = new Game(new HumanPlayer(Tile(X)), new AIPlayer(Tile(O)), print, DEF_SIZE);
   else if (choice == 3) game = getServerGame(print);
 
-
   print->gameStart(choice);
   game->run();
   delete game;
@@ -82,7 +81,6 @@ Game *Menu::getServerGame(GameUI *print) {
     return new Game(new RemotePlayer(Tile(X), client.getClientSocket(), false),
                     new RemotePlayer(oppositeSymbol(Tile(X)), client.getClientSocket(), true), print, 3);
 }
-
 
 Tile oppositeSymbol(Tile tile) {
   if (tile == X) return O;
