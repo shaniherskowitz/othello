@@ -7,7 +7,7 @@
 #define OTHELLO_TEST_REGULARGAMELOGIC_H
 
 #include "gtest/gtest.h"
-#include "../client/RegularGameLogic.h"
+#include "../src/client/RegularGameLogic.h"
 using namespace std;
 class test_RegularGameLogic : public testing::Test {
  public:

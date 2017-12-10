@@ -3,7 +3,7 @@
 // Liora Zaidner: 323742775
 //
 #include "test_RegularGameLogic.h"
-#include "../client/AIPlayer.h"
+#include "../src/client/AIPlayer.h"
 
 TEST(GetMovesListTest, PlayerHasMoves_Test) {
 
