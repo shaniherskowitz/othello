@@ -4,7 +4,7 @@
 # 323742775
 
 a.out: compileAll
-	g++ *.o 
+	g++ *.o
 	rm -f *.o
 
 compileAll: *.h *.cpp
