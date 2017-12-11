@@ -1,158 +1,793 @@
+commit 59a0ab88d6a9437ab381c26f5ee6a9c3f57f0008 (HEAD -> master, origin/master)
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 11 15:37:07 2017 +0200
 
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Tue Nov 28 12:15:21 2017 +0200\
-\
-    fixed magic numbers\
-\
-Merge: 2b2d258 c780c7d\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Tue Nov 28 11:46:17 2017 +0200\
-\
-    minor change in point\
-\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Tue Nov 28 11:44:46 2017 +0200\
-\
-    minor change in point\
-\
-Author: LioraZ <liorazr@gmail.com>\
-Date:   Tue Nov 28 00:02:49 2017 +0200\
-\
-    added names and tz to all the headers\
-\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Mon Nov 27 22:25:58 2017 +0200\
-\
-    reformated all lines\
-\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Mon Nov 27 22:06:26 2017 +0200\
-\
-    git commands file\
-\
-Author: LioraZ <liorazr@gmail.com>\
-Date:   Mon Nov 27 21:56:40 2017 +0200\
-\
-    all files commentedgit add .Wooooooohooogit add .!\
-\
-Author: LioraZ <liorazr@gmail.com>\
-Date:   Mon Nov 27 21:00:25 2017 +0200\
-\
-    commented these files\
-\
-Author: LioraZ <liorazr@gmail.com>\
-Date:   Mon Nov 27 19:53:17 2017 +0200\
-\
-    tested getMovesListFunction in RegularGameLogic class.\
-\
-Author: LioraZ <liorazr@gmail.com>\
-Date:   Mon Nov 27 19:43:11 2017 +0200\
-\
-    Made first test for RegularGameLogic to test the get move method in cases of standard game boards\
-\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Mon Nov 27 14:58:14 2017 +0200\
-\
-    no more leaks\
-\
-Author: LioraZ <liorazr@gmail.com>\
-Date:   Mon Nov 27 00:43:44 2017 +0200\
-\
-    changed game class to support game status enum, added two function to the board class so it can help
-     me declare the winner, which was also slighty changed in ConsolUI. we shouldnt forget to print score
-     there which needs to be done, and rename the class t get rid of the typo.\
-\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Sun Nov 26 20:51:03 2017 +0200\
-\
-    added deletes\
-\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Sun Nov 26 15:46:06 2017 +0200\
-\
-    file change\
-\
-Merge: 8f721cd f8b974d\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Sun Nov 26 15:30:37 2017 +0200\
-\
-    checking commit\
-\
-Author: LioraZ <liorazr@gmail.com>\
-Date:   Sun Nov 26 22:54:05 2017 +0200\
-ard class so it can help me declare the winner, which was also slighty changed in ConsolUI.
-we shouldnt forget to print score there which needs to be done, and rename the class t get rid of the typo.\
-\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Sun Nov 26 20:51:03 2017 +0200\
-\
-    added deletes\
-\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Sun Nov 26 15:46:06 2017 +0200\
-\
-    file change\
-\
-Merge: 8f721cd f8b974d\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Sun Nov 26 15:30:37 2017 +0200\
-\
-    checking commit\
-\
-Merge: 17eae04 e624ca2\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-ard class so it can help me declare the winner, which was also slighty changed in ConsolUI.
-we shouldnt forget to print score there which needs to be done, and rename the class t get rid of the typo.\
-\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Sun Nov 26 20:51:03 2017 +0200\
-\
-    added deletes\
-\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Sun Nov 26 15:46:06 2017 +0200\
-\
-    file change\
-\
-Merge: 8f721cd f8b974d\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Sun Nov 26 15:30:37 2017 +0200\
-\
-    checking commit\
-\
-Merge: 17eae04 e624ca2\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Sun Nov 26 15:25:24 2017 +0200\
-\
-    no change\
-\
-Author: LioraZ <liorazr@gmail.com>\
-Date:   Sun Nov 26 15:23:41 2017 +0200\
-\
-    removed cmake build debug\
-\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Sun Nov 26 15:14:04 2017 +0200\
-\
-    ignore\
-\
-Merge: 62f1340 c1a5252\
-Author: LioraZ <liorazr@gmail.com>\
-Date:   Sun Nov 26 15:09:53 2017 +0200\
-\
-    Merge branch 'master' of https://github.com/shaniherskowitz/othello\
-\
-Author: LioraZ <liorazr@gmail.com>\
-Date:   Sun Nov 26 15:02:30 2017 +0200\
-\
-    Change board test path\
-\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Sun Nov 26 14:47:48 2017 +0200\
-\
-    ignore cmake\
-\
-Author: Shani Herskowitz <shanizoe@gmail.com>\
-Date:   Sun Nov 26 14:31:06 2017 +0200\
-\
-    First commit}
+    made server dissconnect
+
+commit 561ea0c3d87b352b5647efc87602d8c9c3dbfe7c
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 11 13:14:40 2017 +0200
+
+    fixed tests
+
+commit 25fa5f4496b98c6d9fe6a5e4b175c7d4366a0e09
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 11 12:39:10 2017 +0200
+
+    final changes
+
+commit 709f7dbb7d3979ba4c8b978257e306503d722365
+Merge: 60b0a76 bac98be
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 10 23:46:07 2017 +0200
+
+    -
+
+commit 60b0a76f56cc73dd4b4ff597ed0dbec5f60ff446
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 10 23:43:08 2017 +0200
+
+    test change
+
+commit bac98be7aa59b0d9068b51d947bca42b3bb4bbf1
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sun Dec 10 23:39:17 2017 +0200
+
+    changed filing so can be handed in
+
+commit 1a90d13753e2ece8cb4e8f20c3835000fc666d3a
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 10 18:28:17 2017 +0200
+
+    put in src
+
+commit 29785fd10e9e48b522e47ef75a00d7553c3abd80
+Merge: 03484a8 9c0bf99
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 10 01:20:32 2017 +0200
+
+    merged changes
+
+commit 03484a8565dfe04fa12a1ebf59e823ec21518dd8
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 10 01:12:19 2017 +0200
+
+    reformated lines
+
+commit 9c0bf99fa47720b0e429d64cf55e2929d3f95738
+Author: LioraZ <liorazr@gmail.com>
+Date:   Fri Dec 8 13:05:51 2017 +0200
+
+    revoed comments
+
+commit 0986317317309932e637e1650f966163689faa8a
+Merge: ca55d6f 9e895d2
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 7 14:13:04 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit 9e895d238f077bf3879da2b2465d4daab4a14081
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Thu Dec 7 14:12:50 2017 +0200
+
+    working game
+
+commit ca55d6f01e48ca5f46db4749f0713a1ad980fb99
+Merge: 8fcbc1f b82ac2d
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 7 13:44:56 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit b82ac2d89aca604e06ed0b5cd778258679b4c301
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Thu Dec 7 13:44:12 2017 +0200
+
+    -
+
+commit 8fcbc1f0af7e395aa0e3633b6883a69d2ea4da0d
+Merge: c24d8c0 8fc6b0b
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 7 13:28:41 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit 8fc6b0bf9df5ae7a5c6da7e3de09899cf9e6f9dd
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Thu Dec 7 13:27:49 2017 +0200
+
+    trying to end game
+:
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 7 13:44:56 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit b82ac2d89aca604e06ed0b5cd778258679b4c301
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Thu Dec 7 13:44:12 2017 +0200
+
+    -
+
+commit 8fcbc1f0af7e395aa0e3633b6883a69d2ea4da0d
+Merge: c24d8c0 8fc6b0b
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 7 13:28:41 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit 8fc6b0bf9df5ae7a5c6da7e3de09899cf9e6f9dd
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Thu Dec 7 13:27:49 2017 +0200
+
+    trying to end game
+
+commit c24d8c0311af954fed3a54d478951cc7348593ec
+Merge: 902a694 aa6e1a9
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 7 13:44:56 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit b82ac2d89aca604e06ed0b5cd778258679b4c301
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Thu Dec 7 13:44:12 2017 +0200
+
+    -
+
+commit 8fcbc1f0af7e395aa0e3633b6883a69d2ea4da0d
+Merge: c24d8c0 8fc6b0b
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 7 13:28:41 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit 8fc6b0bf9df5ae7a5c6da7e3de09899cf9e6f9dd
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Thu Dec 7 13:27:49 2017 +0200
+
+    trying to end game
+
+commit c24d8c0311af954fed3a54d478951cc7348593ec
+Merge: 902a694 aa6e1a9
+Author: LioraZ <liorazr@gmail.com>
+Date:   Wed Dec 6 21:37:28 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit aa6e1a92178e513ba428f269f3bdddcb681a9cd3
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Wed Dec 6 20:23:59 2017 +0200
+
+    fixed problems
+
+commit 10f9bf44a177c9c8df812eb3d124b930d348176c
+Merge: 1c5106c 019e7e5
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Wed Dec 6 19:10:41 2017 +0200
+
+    -
+
+commit 1c5106c63066180b02940e3dd12f0a52729b8d5a
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Wed Dec 6 19:08:54 2017 +0200
+
+    -
+
+commit 902a6943d72a05e565733e3d8b68d5b8a72b7b19
+Author: LioraZ <liorazr@gmail.com>
+Date:   Wed Dec 6 17:16:55 2017 +0200
+
+    small changes
+
+commit 76a217f9bb49a909278c22f5b040ee20bcac0f15
+Author: LioraZ <liorazr@gmail.com>
+Date:   Wed Dec 6 16:45:42 2017 +0200
+
+    changed the beggining player.
+
+commit 019e7e5578613db16467bf8aab784316c6fc3713
+Author: LioraZ <liorazr@gmail.com>
+Date:   Wed Dec 6 16:23:48 2017 +0200
+
+    added comment to new classes and functions.
+
+commit df80403c2bd1ef2f6780b62ef19ca7f100d15ba9
+Author: LioraZ <liorazr@gmail.com>
+Date:   Wed Dec 6 14:46:13 2017 +0200
+
+    undo define
+
+commit b4872eee4bac39c7183561a888b914da7e7f7ab4
+Author: LioraZ <liorazr@gmail.com>
+Date:   Wed Dec 6 14:37:42 2017 +0200
+
+    changed board size and remved define
+
+commit c00e120c41a769f5c33a11a48cf837d71f5f070f
+Author: LioraZ <liorazr@gmail.com>
+Date:   Wed Dec 6 00:25:00 2017 +0200
+
+    added writesocket function
+
+commit 54bc1ed58b28368be2ab9a02cbffea668859eed8
+Author: LioraZ <liorazr@gmail.com>
+Date:   Wed Dec 6 00:17:28 2017 +0200
+
+    added helper function readSocket
+
+commit 4c30db88f30d3850ea64574ec78355c2dd13d42b
+Merge: 8997d92 26e384d
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Dec 5 23:39:42 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit 8997d92f634289ba64e8f7c265b2a1de2b5006d4
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Dec 5 23:37:33 2017 +0200
+
+    overloaded operator in point and used it in logic
+
+commit 26e384d0790074405afc9284eaefbe301d907b8b
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Tue Dec 5 20:50:13 2017 +0200
+
+    updated to read ports from file
+
+commit e8cbe65bd9581fdf7734f36380469f486b4f7870
+Merge: d59c424 e5fcee5
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Dec 5 16:40:01 2017 +0200
+
+    git issues
+
+commit e5fcee56e980f3b0f6cc02343ee3eedb7deceaf6
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Tue Dec 5 13:17:03 2017 +0200
+
+    added prints from client to consoleUI
+
+commit 849746bf070c5b1de6b35d4d485ae26add348027
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Tue Dec 5 00:28:08 2017 +0200
+
+    transfer between clients and server runs
+
+commit d59c4248317bec2a4b65f47185bbc67537e65438
+Merge: ff3a780 08d8ac0
+Author: LioraZ <liorazr@gmail.com>
+Date:   Mon Dec 4 23:12:07 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit 08d8ac04b82a42b6e882c51fa080057906b6fed0
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 4 23:11:45 2017 +0200
+
+    -
+
+commit ff3a7800285b1666c7e97bbbdc1723d429deb822
+Merge: 00e0c2a 94beb93
+Author: LioraZ <liorazr@gmail.com>
+Date:   Mon Dec 4 22:51:31 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit 00e0c2a152bb0ea56631b78ce6f7cb5f387c9fb4
+Author: LioraZ <liorazr@gmail.com>
+Date:   Mon Dec 4 22:51:26 2017 +0200
+
+    empty
+
+commit 94beb935988d866d3fa0ca0d53170f5112446220
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 4 22:50:55 2017 +0200
+
+    -
+
+commit 5fd8a36c0fc0784745306e22fa27402ce2055571
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 4 22:22:46 2017 +0200
+
+    -
+
+commit 626e1f8168f1943bb8a108a36ff266456e52427e
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 4 22:17:54 2017 +0200
+
+    -
+
+commit e3a53b977befaa31d118a7e94dd0a17cd993fb81
+Merge: 1873eaa 9973a34
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 4 22:16:48 2017 +0200
+
+    -
+
+commit 1873eaac5021e8ec547a8e6540831863ee9770a3
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 4 22:16:09 2017 +0200
+
+    -
+
+commit 9973a34affa924f4d499fbcbd1eb52e5ae48ef3b
+Author: LioraZ <liorazr@gmail.com>
+Date:   Mon Dec 4 22:14:34 2017 +0200
+
+    minor issue
+
+commit 9fbfaec07d88e849db049a419cf8464c8e35315a
+Merge: 02f2ac5 8b64748
+Author: LioraZ <liorazr@gmail.com>
+Date:   Mon Dec 4 22:08:48 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit 02f2ac5e53ab4d89d36e281f4893eeadc380a77f
+Author: LioraZ <liorazr@gmail.com>
+Date:   Mon Dec 4 22:08:41 2017 +0200
+
+    lots of changes on server
+
+commit 8b6474804cab3cc27ee9704b404c9b7e11059065
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 4 21:44:06 2017 +0200
+
+    change constoctor remotePlayer
+
+commit b4ee3f552b425056dc5343463064644351611704
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 4 21:38:15 2017 +0200
+
+    remote player code updated
+
+commit 5b5b2ddd6560acc4d8f9d2140108d6ebe4135a99
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 4 20:40:52 2017 +0200
+
+    made changes to files placement
+
+commit e84bd316911b97df2253238f27bda318171237cf
+Merge: d8a01c1 f189785
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 3 00:32:18 2017 +0200
+
+    -
+
+commit d8a01c1749476c7f85dbe75a991ad6687a8ae5c0
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 3 00:31:12 2017 +0200
+
+    -
+
+commit f189785d0fb588eb3a1c63ca382baef4b517764b
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sun Dec 3 00:26:31 2017 +0200
+
+    committing issues
+
+commit d08e9a81e5cc6dd900ed2c5d7718b7cfd8fbdb72
+Merge: c1a3d8d 6827f6e
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 23:25:15 2017 +0200
+
+    redo
+
+commit 6827f6e40d561698bb276118d76b284ee064494f
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 2 23:28:49 2017 +0200
+
+    makeing it run
+
+commit c1a3d8d7a4e8abc81e5e1bbf64d452096f132682
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 23:24:40 2017 +0200
+
+    changes in remote players
+
+commit 99414517527c7371f0f376f76589ba6cb01f8ae1
+Merge: e71aadc 51a4cd8
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 23:07:25 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit 51a4cd8f322225938035046d4a0b893f330cfaa6
+Merge: 8e8ffbe 621ef4c
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 2 23:11:11 2017 +0200
+
+    -
+
+commit 8e8ffbeb6b4e0df4ed499c338b8ecbfa064de2de
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 2 23:10:29 2017 +0200
+
+    -
+
+commit e71aadcaf6604918e7b2d7a2af8655efd78856f2
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 23:07:19 2017 +0200
+
+    working on remote player classs
+
+commit 621ef4c2fff9d4899d0770fc34681092f72395eb
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 22:17:42 2017 +0200
+
+    connected to server!
+
+commit 3e211e580b8c21008970d603ce732f993691b6fb
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 21:53:10 2017 +0200
+
+    changes in client
+
+commit 7ce0431100a0e9e1e8d79586f906eda8eb7f465f
+Merge: 5b9aa9a 08a5240
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 21:36:51 2017 +0200
+
+    -
+
+commit 08a5240238bc915dcc54653b2679a3aa65003bc2
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 2 21:39:34 2017 +0200
+
+    -
+
+commit 5b9aa9a0dda3aef25b6eeb3197d46dd3e3b7e5d5
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 21:36:13 2017 +0200
+
+    -
+
+commit ea658c1eb732d6936014faf4be40333985411d9b
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 2 21:24:08 2017 +0200
+
+    cmake added
+
+commit f054d3bb1f5d5ddf4bbf9d58e06760069a398585
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 2 21:22:54 2017 +0200
+
+    folder division
+
+commit 10a56e2069f22871fdc0ae0e00879c755eb8e1e0
+Merge: c204817 6fb1c78
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 20:24:11 2017 +0200
+
+    trying
+
+commit 6fb1c781fdc1b02c5492913d5d1ba146c19c2022
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 2 20:16:16 2017 +0200
+
+    make same
+
+commit 7f91bc35402254b6765baff506ca24cb1502d364
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 2 20:13:29 2017 +0200
+
+    menu for remote
+
+commit c20481792b59a5b68ac8d1babc5f863f0c681107
+Merge: 0f6cd92 7f91bc3
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 20:12:23 2017 +0200
+
+    wird git is acting
+
+commit 0f6cd921721f2ef184e888913084690fbe2b8f6b
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 20:09:10 2017 +0200
+
+    changes in server class
+
+commit abbb12c9796596e1ef63cef69b0f4cb346d22a4b
+Merge: 78e47c4 8220d93
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 2 19:30:05 2017 +0200
+
+    not working
+
+commit 78e47c453000c01649640482ded49d1d2f9535a6
+Merge: 8b2fbd5 48963e5
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 2 19:28:32 2017 +0200
+
+    trying to pull
+
+commit 8220d9300e85355f5e31c564207bfa75697713b0
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 19:22:45 2017 +0200
+
+    removedcmakelists from git
+
+commit 8b2fbd5971237df37df2193d71e7e8b1ff787599
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 2 19:20:47 2017 +0200
+
+    added Remote Player
+
+commit 48963e50f28abdc21a1794e887bc5f7bfcc69e6e
+Merge: 6c6a5b7 84b0b8f
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 19:13:19 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit 6c6a5b7241ae9e39826dde24ce4f4e51d83e9c6d
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 19:13:03 2017 +0200
+
+    created server class
+
+commit 84b0b8fd9f53820312b02fad7abdc5633d446e05
+Merge: 49882d6 e752e0e
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 2 19:09:13 2017 +0200
+
+    no zip
+
+commit 49882d66624ff8e44dea208f408eb0e7892c04b7
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 2 19:07:59 2017 +0200
+
+    minor
+
+commit e752e0e6fed0994aa7e0d60f432f30e392d12cd1
+Merge: 91f5d35 7a0e81d
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 18:49:33 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+    
+    just want my project to work
+
+commit 91f5d351928a10d28ac7e220632b2ae369edda28
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 2 18:49:26 2017 +0200
+
+    emp commit
+
+commit 619e8f88e5fd0d21572017bc844882a994d07790
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Nov 30 22:18:26 2017 +0200
+
+    just checking
+
+commit 7a0e81d2864bf368fb990eddf5ff1374d24040b8
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Wed Nov 29 10:33:54 2017 +0200
+
+    added #include <stdexcept>
+
+commit ab02feb1fe522a3848e699ef5ed5c9fbdbd5273d
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Tue Nov 28 23:05:13 2017 +0200
+
+    npthing
+
+commit b6403d03964e4a523b24c70b1867ec41e25e6abe
+Merge: 5d3aef5 44cecc2
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Nov 28 15:43:13 2017 +0200
+
+    Merge remote-tracking branch 'origin/master'
+    
+    aniherskowitz/othello
+    
+    # Please enter a commit message to explain why this merge is necessary,
+    # especially if it merges an updated upstream into a topic branch.
+    #
+    # Lines starting with '#' will be ignored, and an empty message aborts
+    # the commit.
+
+commit 5d3aef5579c00784cc4c3daaf55782f1f0d51c3b
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Nov 28 15:37:42 2017 +0200
+
+    changed tabbing
+
+commit 4e290730aacec1d65c066b71198f0139457ac860
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Nov 28 15:36:50 2017 +0200
+
+    empty commit
+
+commit 44cecc293045c901ad41ac391a874a1bcaec7d71
+Merge: 432340b d01a596
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Tue Nov 28 15:30:04 2017 +0200
+
+    minor change
+
+commit 432340b28841b3ffaad9e6b59f4cba7610f4b7ab
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Tue Nov 28 15:28:29 2017 +0200
+
+    minor changes
+
+commit d01a596893e32dc2d1815e0a75d62189a3cadd11
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Nov 28 15:24:27 2017 +0200
+
+    Added ReglarGame Logic tests, and made flipTiles throw an exception if gets an illegal point
+
+commit a1eba9258c62cdcf794c07746bea2e1969cf60a6
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Tue Nov 28 12:15:21 2017 +0200
+
+    fixed magic numbers
+
+commit e7127f0c6caa6c297d1043bb6d19daeb6e4a3cec
+Merge: 2b2d258 c780c7d
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Tue Nov 28 11:46:17 2017 +0200
+
+    minor change in point
+
+commit 2b2d258e6bc88b742b8e1eedab97ee8c73aef017
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Tue Nov 28 11:44:46 2017 +0200
+
+    minor change in point
+
+commit c780c7df62ba7571698d83ae7f7b42b81553a7dd
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Nov 28 00:02:49 2017 +0200
+
+    added names and tz to all the headers
+
+commit 51551d4a1a1f3b940825690bea11c8b9996df717
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Nov 27 22:25:58 2017 +0200
+
+    reformated all lines
+
+commit 642df4f503fa323a48493ffba9a07d5e65829211
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Nov 27 22:06:26 2017 +0200
+
+    git commands file
+
+commit 3fe7d0a392a50501de046be4e5077af41004100c
+Author: LioraZ <liorazr@gmail.com>
+Date:   Mon Nov 27 21:56:40 2017 +0200
+
+    all files commentedgit add .Wooooooohooogit add .!
+
+commit 66423ec395936c629cac5bc5ebcffeb0fe393064
+Author: LioraZ <liorazr@gmail.com>
+Date:   Mon Nov 27 21:00:25 2017 +0200
+
+    commented these files
+
+commit b388a45146b7ea931d26f1215accfce4c8e382e3
+Author: LioraZ <liorazr@gmail.com>
+Date:   Mon Nov 27 19:53:17 2017 +0200
+
+    tested getMovesListFunction in RegularGameLogic class.
+
+commit 97d3bf35fec83840356f5431a7aab7a027224b36
+Author: LioraZ <liorazr@gmail.com>
+Date:   Mon Nov 27 19:43:11 2017 +0200
+
+    Made first test for RegularGameLogic to test the get move method in cases of standard game boards
+
+commit ac7279f320b9494b09a1d87aceee4c87b873ea57
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Nov 27 14:58:14 2017 +0200
+
+    no more leaks
+
+commit a0a7d7f030d5988a092051caf3dd721dea7e7689
+Author: LioraZ <liorazr@gmail.com>
+Date:   Mon Nov 27 00:43:44 2017 +0200
+
+    changed game class to support game status enum, added two function to the board class so it can help me declare the winner, which was also slighty changed in ConsolUI. we shouldnt forget to print score there which needs to be done, and rename the class t get rid of the typo.
+
+commit 05a392a8aefa317583312775789e4bf122e89b30
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Nov 26 20:51:03 2017 +0200
+
+    added deletes
+
+commit 1a18f68a7e7505bf8ba1f6a17bdb5385e1ec01d2
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Nov 26 15:46:06 2017 +0200
+
+    file change
+
+commit 1b09263db09dda3623a2d7798dcd0f3220cfa4fe
+Merge: 8f721cd f8b974d
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Nov 26 15:30:37 2017 +0200
+
+    checking commit
+
+commit 8f721cd6f623b9f34c97ca0abcc479272e1e9262
+Merge: 17eae04 e624ca2
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Nov 26 15:25:24 2017 +0200
+
+    no change
+
+commit f8b974d371ee0755a56c5c4c758ca138f49119b6
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sun Nov 26 15:23:41 2017 +0200
+
+    removed cmake build debug
+
+commit 17eae042fe4ccb2612aa28ab1fe963454a456b9d
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Nov 26 15:14:04 2017 +0200
+
+    ignore
+
+commit e624ca2449ac633c933f4215384bb80b16e17b3a
+Merge: 62f1340 c1a5252
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sun Nov 26 15:09:53 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit 62f1340172249a2bd3625b167a0dceb794c34521
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sun Nov 26 15:02:30 2017 +0200
+
+    Change board test path
+
+commit c1a52523a519310525882240aeb3abc58de508f7
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Nov 26 14:47:48 2017 +0200
+
+    ignore cmake
+
+commit 30c24a928d52193fadeedbcd3832be559b694f52
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Nov 26 14:31:06 2017 +0200
+
+    First commit
