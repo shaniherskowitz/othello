@@ -8,6 +8,7 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <iostream>
+#include <poll.h>
 
 /**
  * Defining a Server class to transfer information between the Client's.
@@ -54,6 +55,12 @@ class Server {
    * @param playerNum A number to represent the symbol of the player.
    */
   void initializingPlayer(int playerSocket, int playerNum);
+  /**
+   *
+   * @param clientSocket checkes if it closed
+   * @return if closed
+   */
+  bool isClientClosed(int clientSocket);
 
  public:
   /**

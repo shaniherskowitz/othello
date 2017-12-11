@@ -47,9 +47,9 @@ void Server::start() {
     initializingPlayer(playerSocket2, 1);
 
     int gameStatus = IN_PROGRESS;
-    while (gameStatus != END_GAME) {
+    while (gameStatus != END_GAME || !(isClientClosed(playerSocket1)|| isClientClosed(playerSocket2))) {
       gameStatus = handleClient(playerSocket1, playerSocket2);
-      if (gameStatus == END_GAME) break;
+      if (gameStatus == END_GAME || (isClientClosed(playerSocket1)|| isClientClosed(playerSocket2))) break;
       gameStatus = handleClient(playerSocket2, playerSocket1);
     }
     close(playerSocket1);
@@ -105,7 +105,7 @@ int Server::writeMove(int writeSocket, int buffer, size_t sizeBuffer) {
     return END_GAME;
   }
   if (w == 0) {
-    cout << "Player disconnected" << endl;
+    cout << "Both Players disconnected" << endl;
     return END_GAME;
   }
   return (int) w;
@@ -113,4 +113,21 @@ int Server::writeMove(int writeSocket, int buffer, size_t sizeBuffer) {
 
 void Server::stop() {
   close(serverSocket);
+}
+
+
+bool Server::isClientClosed(int clientSocket) {
+  pollfd pfd;
+  pfd.fd = clientSocket;
+  pfd.events = POLLIN | POLLHUP | POLLRDNORM;
+  pfd.revents = 0;
+  while(pfd.revents == 0) {
+    if(poll(&pfd, 1, 100) > 0) {
+      char buffer[32];
+      if(recv(clientSocket, buffer, sizeof(buffer), MSG_PEEK | MSG_DONTWAIT) == 0) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
