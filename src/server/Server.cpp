@@ -47,9 +47,9 @@ void Server::start() {
     initializingPlayer(playerSocket2, 1);
 
     int gameStatus = IN_PROGRESS;
-    while (gameStatus != END_GAME || !(isClientClosed(playerSocket1)|| isClientClosed(playerSocket2))) {
+    while (gameStatus != END_GAME) {
       gameStatus = handleClient(playerSocket1, playerSocket2);
-      if (gameStatus == END_GAME || (isClientClosed(playerSocket1)|| isClientClosed(playerSocket2))) break;
+      if (gameStatus == END_GAME) break;
       gameStatus = handleClient(playerSocket2, playerSocket1);
     }
     close(playerSocket1);
@@ -69,36 +69,33 @@ void Server::initializingPlayer(int playerSocket, int playerNum) {
 
 // Handle requests from a specific client
 int Server::handleClient(int readSocket, int writeSocket) {
-  int moveVal;
-  //gets x and y value of move and transfer it from onr player to the other.
-  moveVal = transferMessage(readSocket, writeSocket, moveVal);
-  if (moveVal == END_GAME) return END_GAME;
+  Point moveVal;
   return transferMessage(readSocket, writeSocket, moveVal);
 }
 
-int Server::transferMessage(int readSocket, int writeSocket, int buffer) {
-  int result = readMove(readSocket, buffer);
-  int result2 = writeMove(writeSocket, result, sizeof(buffer));
-  if (result == END_GAME && result2 == END_GAME) return END_GAME;
+int Server::transferMessage(int readSocket, int writeSocket, Point buffer) {
+  Point result = readMove(readSocket, buffer);
+  int result2 = writeMove(writeSocket, result, sizeof(result));
+  if (result.getX() == END_GAME && result2 == END_GAME) return END_GAME;
   return result2;
 }
 
-int Server::readMove(int readSocket, int buffer) {
-  if (buffer == END_GAME) return END_GAME;
+Point Server::readMove(int readSocket, Point buffer) {
+  if (buffer.getX() == END_GAME) return Point(END_GAME, END_GAME);
   ssize_t r = read(readSocket, &buffer, sizeof(buffer));
   if (r == -1) {
     cout << "Error reading move from player." << endl;
-    return END_GAME;
+    return Point(END_GAME, END_GAME);
   }
   if (r == 0) {
     cout << "Both players disconnected" << endl;
-    return END_GAME;
+    return Point(END_GAME, END_GAME);
   }
   return buffer;
 }
 
-int Server::writeMove(int writeSocket, int buffer, size_t sizeBuffer) {
-  if (buffer == END_GAME) return END_GAME;
+int Server::writeMove(int writeSocket, Point buffer, size_t sizeBuffer) {
+  if (buffer.getX() == END_GAME) return END_GAME;
   ssize_t w = write(writeSocket, &buffer, sizeBuffer);
   if (w == -1) {
     cout << "Error getting move from player." << endl;
@@ -113,21 +110,4 @@ int Server::writeMove(int writeSocket, int buffer, size_t sizeBuffer) {
 
 void Server::stop() {
   close(serverSocket);
-}
-
-
-bool Server::isClientClosed(int clientSocket) {
-  pollfd pfd;
-  pfd.fd = clientSocket;
-  pfd.events = POLLIN | POLLHUP | POLLRDNORM;
-  pfd.revents = 0;
-  while(pfd.revents == 0) {
-    if(poll(&pfd, 1, 100) > 0) {
-      char buffer[32];
-      if(recv(clientSocket, buffer, sizeof(buffer), MSG_PEEK | MSG_DONTWAIT) == 0) {
-        return true;
-      }
-    }
-  }
-  return false;
 }

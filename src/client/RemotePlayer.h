@@ -27,21 +27,13 @@ class RemotePlayer : public HumanPlayer {
    * @return The read move.
    */
   Move readMove(GameUI *print);
-  /**
-   * The method reads a move parameter from the socket.
-   * @param print The game UI.
-   * @return The xVal or yVal of the move.
-   */
-  int readSocket(GameUI *print);
-  /**
-   * THe method writes the chosen xVal or yVal of the move to the socket.
-   * @param val The value of the number to be written to the socket.
-   * @param valSize THe size of val.
-   * @param print The game UI.
-   */
-  void writeSocket(int val, size_t valSize, GameUI *print);
 
-  void writeMoveHelper(Move move, GameUI *print);
+  /**
+   *
+   * @param move to write
+   * @param print print to user
+   */
+  void writeMove(Move move, GameUI *print);
  public:
   /**
    * The RemotePlayer's constructor.

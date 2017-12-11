@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <iostream>
 #include <poll.h>
+#include "Point.h"
 
 /**
  * Defining a Server class to transfer information between the Client's.
@@ -31,7 +32,7 @@ class Server {
    * @param sizeBuffer The buffer's size.
    * @return The move value, or end game value.
    */
-  int readMove(int readSocket, int buffer);
+  Point readMove(int readSocket, Point buffer);
   /**
    * The method writes the move to the clients.
    * @param writeSocket The client's socket number.
@@ -39,7 +40,7 @@ class Server {
    * @param sizeBuffer The buffer's size.
    * @return The move value, or the end game value.
    */
-  int writeMove(int writeSocket, int buffer, size_t sizeBuffer);
+  int writeMove(int writeSocket, Point buffer, size_t sizeBuffer);
   /**
    * The method transfer's the move from the readSocket client to the
    * writeSocket client.
@@ -48,20 +49,13 @@ class Server {
    * @param buffer The message being transferred.
    * @return The message value or a value to stp communication.
    */
-  int transferMessage(int readSocket, int writeSocket, int buffer);
+  int transferMessage(int readSocket, int writeSocket, Point buffer);
   /**
    * The method initializes the player who is a client.
    * @param playerSocket The player's socket number.
    * @param playerNum A number to represent the symbol of the player.
    */
   void initializingPlayer(int playerSocket, int playerNum);
-  /**
-   *
-   * @param clientSocket checkes if it closed
-   * @return if closed
-   */
-  bool isClientClosed(int clientSocket);
-
  public:
   /**
    * The Server's constructor.
