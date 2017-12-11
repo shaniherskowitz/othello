@@ -14,7 +14,7 @@ TEST_F (AIPlayerTest, AITest) {
   GameUI *print = new ConsolUI();
   vector<Move> moves = logic->getMovesList(player1.getSymbol(), *board);
 
-  EXPECT_EQ(moves[0].getPoint(), player1.getTurnsMove(moves, print, *board).getPoint());
+  EXPECT_EQ(Move(Point(2, 4)).getPoint(), player1.getTurnsMove(moves, print, *board).getPoint());
   delete board;
   delete print;
 
@@ -87,7 +87,7 @@ TEST_F (AIPlayerTest, AITest6) {
   GameUI *print = new ConsolUI();
   vector<Move> moves = logic->getMovesList(player1.getSymbol(), *board);
 
-  EXPECT_EQ(Move(Point(5, 0)).getPoint(), player1.getTurnsMove(moves, print, *board).getPoint());
+  EXPECT_EQ(Move(Point(4, 6)).getPoint(), player1.getTurnsMove(moves, print, *board).getPoint());
   delete board;
   delete print;
 

@@ -107,7 +107,7 @@ void RegularGameLogic::traverseBoard(Board &gameBoard, Point point, int dir1, in
 }
 
 void RegularGameLogic::flipTiles(Board &board, Tile tile, Point location) const {
-  if (location <= Point(-1, -1)) throw std::out_of_range ("tile location not in range gameLogic/flipTiles");
+  if (location == Point(-1, -1)) throw std::out_of_range ("tile location not in range gameLogic/flipTiles");
   board.setTile(location, tile);
   int i, j;
   for (i = 1; i >= -1; i--) {
