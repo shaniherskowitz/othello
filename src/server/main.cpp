@@ -6,7 +6,7 @@ using namespace std;
 #include <sstream>
 int main() {
   ifstream inFile;
-  inFile.open("../server/serverSettings");
+  inFile.open("serverSettings");
   string x;
   int port = 0;
   if (!inFile) {

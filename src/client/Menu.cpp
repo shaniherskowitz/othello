@@ -36,7 +36,7 @@ int Menu::getUserInput(GameUI *print) {
 }
 Game *Menu::getServerGame(GameUI *print) {
   ifstream inFile;
-  inFile.open("../client/clientSettings");
+  inFile.open("clientSettings");
   string x;
   int port = 0;
   if (!inFile) {
