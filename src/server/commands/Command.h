@@ -13,7 +13,7 @@ using namespace std;
 class Command {
  protected:
     vector<GameRoom> gamesList;
-    GameRoom getGameRoom(string gameName);
+    vector<GameRoom>::iterator getGameRoom(string gameName);
  public:
   explicit Command(vector<GameRoom> gamesList);
   virtual void execute(vector<string> args) = 0;
