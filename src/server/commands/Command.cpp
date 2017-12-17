@@ -3,6 +3,13 @@
 //
 
 #include "Command.h"
-Command::Command(Server &server1) {
-  server = &server1;
+Command::Command(vector<GameRoom> gamesList) {
+  this->gamesList = gamesList;
+}
+
+GameRoom Command::getGameRoom(string gameName) {
+  vector<GameRoom>::iterator it = gamesList.begin();
+  while (it != gamesList.end()) {
+    if
+  }
 }
