@@ -14,7 +14,7 @@
 #include "EndGameCommand.h"
 class CommandsManager {
  public:
-  CommandsManager(Server server);
+  CommandsManager(Server *server);
   ~CommandsManager();
   void executeCommand(string command, vector<string> args);
  private:

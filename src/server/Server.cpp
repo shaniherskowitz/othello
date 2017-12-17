@@ -153,12 +153,12 @@ int Server::sendGamesList(int clientSocket) {
   }
 }
 int Server::newGame(string &gameName, int clientSocket) {
-  int result = inGamesList(gameName);
+  int result = inGamesList(gameName ,clientSocket);
   if (result == FREE_ROOM) gamesList.push_back(GameRoom(clientSocket, gameName));
   return result;
 }
 int Server::joinGame(string &gameName, int clientSocket) {
-  int result = inGamesList(gameName);
+  int result = inGamesList(gameName, clientSocket);
   if (result != FREE_ROOM && result != END_GAME) {
     gamesList[result].connectPlayer2(clientSocket);
     gamesList[result].startGame();
@@ -166,11 +166,11 @@ int Server::joinGame(string &gameName, int clientSocket) {
   return result;
 }
 
-int Server::inGamesList(string &gameName) {
+int Server::inGamesList(string &gameName, int clientSocket) {
   int problem = -1;
   for (int i = 0; i < gamesList.size(); ++i) {
     if (gamesList[i].getName() == gameName) {
-      ssize_t w = write(connectedClient, &problem, sizeof(int));
+      ssize_t w = write(clientSocket, &problem, sizeof(int));
       if (w == -1) {
         cout << "Error writing gamesList to player" << endl;
         return END_GAME;
@@ -185,14 +185,18 @@ int Server::inGamesList(string &gameName) {
   return FREE_ROOM;
 }
 void Server::playMove(string &gameName, int clientSocket, Point move) {
-  int gameToPlay = inGamesList(gameName);
+  int gameToPlay = inGamesList(gameName, clientSocket);
   if (gameToPlay != FREE_ROOM && gameToPlay != END_GAME)
     transferMessage(clientSocket, gamesList[gameToPlay].getOtherSocket(clientSocket), move);
 }
 
 void Server::closeGame(string &gameName) {
-  int gameToClose = inGamesList(gameName);
-  if (gameToClose != FREE_ROOM && gameToClose != END_GAME) gamesList[gameToClose].closeGame();
+  for (int i = 0; i < gamesList.size(); ++i) {
+    if (gamesList[i].getName() == gameName) {
+      gamesList[i].closeGame();
+      return;
+    }
+  }
 }
 
 void Server::stop() {

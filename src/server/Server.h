@@ -78,7 +78,7 @@ class Server {
   int sendGamesList(int clientSocket);
   int newGame(string &gameName, int clientSocket);
   int joinGame(string &gameName, int clientSocket);
-  int inGamesList(string &gameName);
+  int inGamesList(string &gameName, int clientSocket);
   void closeGame(string &gameName);
   void playMove(string &gameName, int clientSocket, Point move);
 };
