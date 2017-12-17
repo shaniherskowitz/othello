@@ -32,19 +32,4 @@ void Client::connectToServer() {
 int Client::getClientSocket() const {
   return clientSocket;
 }
-/*string Client::sendMove() {
-  char buffer[100];
-  bzero(&buffer,sizeof(buffer));
 
-  ssize_t r = read(clientSocket, buffer, 5 *sizeof(char));
-  if (r == -1 || buffer == nullptr) {
-    throw "Error reading result from socket";
-  }
-
-  cout << buffer;
-<<<<<<< HEAD
-}*/
-/*=======
-
-}
->>>>>>> e5fcee56e980f3b0f6cc02343ee3eedb7deceaf6*/

@@ -9,7 +9,9 @@
 #include <unistd.h>
 #include <iostream>
 #include <poll.h>
+#include <vector>
 #include "Point.h"
+#include "GameRoom.h"
 
 /**
  * Defining a Server class to transfer information between the Client's.
@@ -17,14 +19,15 @@
 class Server {
   int port;
   int serverSocket; // the socket's file descriptor
+  vector<GameRoom> gamesList;
+  int connectedClient;
   /**
    * The method handles the client, by calling a function to transfer
    * messages between two client's.
    * @param srcSocket The socket of the client sending the message.
-   * @param dstSocket The socket of the client receiving the message.
    * @return A value to determine the running of the message loop.
    */
-  int handleClient(int srcSocket, int dstSocket);
+  int handleClient(int clientSocket);
   /**
    * The method reads the move from the client.
    * @param readSocket The client's socket number.
@@ -49,7 +52,7 @@ class Server {
    * @param buffer The message being transferred.
    * @return The message value or a value to stp communication.
    */
-  int transferMessage(int readSocket, int writeSocket, Point buffer);
+  int transferMessage(int readSocket, int writeSocket, Point moveVal);
   /**
    * The method initializes the player who is a client.
    * @param playerSocket The player's socket number.
@@ -70,6 +73,13 @@ class Server {
    * The method closes the socket.
    */
   void stop();
+  void connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen);
+  int sendGamesList(int clientSocket);
+  int newGame(string &gameName, int clientSocket);
+  int joinGame(string &gameName, int clientSocket);
+  int inGamesList(string &gameName);
+  void closeGame(string &gameName);
+  void playMove(string &gameName, int clientSocket, Point move);
 };
 
 #endif //OTHELLO_SERVER_H
