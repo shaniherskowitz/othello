@@ -28,6 +28,11 @@ class GameRoom {
   const string &getName() const;
   bool isStarted() const;
   void startGame();
+  /**
+   * The method initializes the player who is a client.
+   * @param playerSocket The player's socket number.
+   * @param playerNum A number to represent the symbol of the player.
+   */
   void initializingPlayer(int playerSocket, int playerNum);
   void closeGame();
   int getOtherSocket(int playerSocket);

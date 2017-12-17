@@ -41,47 +41,14 @@ void Server::start() {
   // Start listening to incoming connections
   listen(serverSocket, MAX_CONNECTED_CLIENTS);
   // Define the client socket's structures
-  struct sockaddr_in playerAddress1;
-  struct sockaddr_in playerAddress2;
-  socklen_t playerAddressLen1 = sizeof((struct sockaddr *) &playerAddress1);
-  socklen_t playerAddressLen2 = sizeof((struct sockaddr *) &playerAddress2);
+  struct sockaddr_in playerAddress;
+  socklen_t playerAddressLen = sizeof((struct sockaddr *) &playerAddress);
 
-
-  /*while (true) {
-    cout << "Waiting for player X to connect..." << endl;
-    // Accept a new client connection
-    int playerSocket1 = accept(serverSocket, (struct sockaddr *) &playerAddress1, &playerAddressLen1);
-    if (playerSocket1 == -1) throw "Error on accept";
-    //Player* player1 = new RemotePlayer(Tile(X), playerSocket1);
-    cout << "Player X connected. Waiting for player O to connect..." << endl;
-    // Accept a new client connection
-    int playerSocket2 = accept(serverSocket, (struct sockaddr *) &playerAddress2, &playerAddressLen2);
-    if (playerSocket2 == -1) throw "Error on accept";
-    cout << "Player O connected." << endl;
-
-    initializingPlayer(playerSocket1, 0);
-    initializingPlayer(playerSocket2, 1);
-
-    int gameStatus = IN_PROGRESS;
-    while (gameStatus != END_GAME) {
-      gameStatus = transferMessage(playerSocket1, playerSocket2);
-      if (gameStatus == END_GAME) break;
-      gameStatus = transferMessage(playerSocket2, playerSocket1);
-    }
-    close(playerSocket1);
-    close(playerSocket2);
-  }*/
+  connectToClient(playerAddress, playerAddressLen);
   close(serverSocket);
 
 }
 
-/*void Server::initializingPlayer(int playerSocket, int playerNum) {
-  ssize_t x = write(playerSocket, &playerNum, sizeof(playerNum));
-  if (x == -1) {
-    cout << "Error writing to socket" << endl;
-    exit(1);
-  }
-}*/
 
 // Handle requests from a specific client
 int Server::handleClient(int clientSocket) {

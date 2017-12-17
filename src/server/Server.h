@@ -54,18 +54,13 @@ class Server {
    * @return The message value or a value to stp communication.
    */
   int transferMessage(int readSocket, int writeSocket, Point moveVal);
-  /**
-   * The method initializes the player who is a client.
-   * @param playerSocket The player's socket number.
-   * @param playerNum A number to represent the symbol of the player.
-   */
-  void initializingPlayer(int playerSocket, int playerNum);
+
  public:
   /**
    * The Server's constructor.
    * @param port The server's port number.
    */
-  Server(int port);
+  explicit Server(int port);
   /**
    * The method opens a socket, and waits for connections.
    */
