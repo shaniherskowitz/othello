@@ -8,7 +8,7 @@
 using namespace std;
 #define MAX_CONNECTED_CLIENTS 2
 
-Server::Server(int port) : port(port), serverSocket(0), connectedClient(0) {}
+Server::Server(int port) : port(port), serverSocket(0), commandsManager(this) {}
 void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen) {
   while (true) {
     cout << "Waiting for  client connections..." << endl;
@@ -16,7 +16,6 @@ void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t player
     int clientSocket = accept(serverSocket, (struct sockaddr *) &playerAddress1, &playerAddressLen);
     if (clientSocket == -1) throw "Error on accept";
     cout << "Client connected" << endl;
-    connectedClient = clientSocket;
     handleClient(clientSocket);
 
     close(clientSocket);
@@ -86,6 +85,21 @@ void Server::start() {
 
 // Handle requests from a specific client
 int Server::handleClient(int clientSocket) {
+  string command, arg;
+  vector<string> args;
+  ssize_t r = read(clientSocket, &command, sizeof(command));
+  if (r == -1) {
+    cout << "Error reading command from player." << endl;
+    return END_GAME;
+  }
+  if (r == 0) {
+    cout << "player disconnected" << endl;
+    return END_GAME;
+  }
+  while (read(clientSocket, &arg, sizeof(arg)) > 0) {
+    args.push_back(arg);
+  }
+  commandsManager.executeCommand(command, args);
 
   return 1;
 }
