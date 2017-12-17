@@ -9,5 +9,5 @@ void JoinGameCommand::execute(vector<string> args) {
   stringstream geek(args[1]);
   int socket = 0;
   geek >> socket;
-  server->joinGame(args[0],socket);
+  //server->joinGame(args[0],socket);
 }

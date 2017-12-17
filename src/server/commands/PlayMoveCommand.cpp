@@ -15,5 +15,5 @@ void PlayMoveCommand::execute(vector<string> args) {
   stringstream geek2(args[2]);
   int y = 0;
   geek2 >> y;
-  server->playMove(args[0],socket, Point(x, y));
+  //server->playMove(args[0],socket, Point(x, y));
 }

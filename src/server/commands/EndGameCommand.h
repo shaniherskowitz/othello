@@ -8,7 +8,7 @@
 #include "Command.h"
 class EndGameCommand: public Command {
  public:
-  explicit EndGameCommand(Server server1): Command(server1){}
+  explicit EndGameCommand(vector<GameRoom> gamesList): Command(gamesList){}
   virtual void execute(vector<string> args);
 
 };
