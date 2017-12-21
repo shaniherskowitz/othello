@@ -1,6 +1,7 @@
 #ifndef OTHELLO_POINT_H
 #define OTHELLO_POINT_H
 #include <ostream>
+
 using namespace std;
 
 /**

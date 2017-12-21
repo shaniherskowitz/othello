@@ -6,7 +6,6 @@
 #define OTHELLO_COMMANDSMANAGER_H
 
 #include <map>
-#include "Command.h"
 #include "StartGameCommand.h"
 #include "ListGamesCommand.h"
 #include "JoinGameCommand.h"

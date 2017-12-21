@@ -93,6 +93,8 @@ class GameUI {
   virtual void waitingForPlayer() const = 0;
   virtual void playerDisconnected() const = 0;
   virtual void waitingForPlayerMove() const = 0;
+  virtual void remotePlayerMenu() const = 0;
+  virtual void printGameRoom(string game) const = 0;
 
 };
 

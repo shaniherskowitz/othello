@@ -14,7 +14,6 @@
 #include <strings.h>
 #define END_GAME -2
 #define FREE_ROOM -5
-#define IN_PROGRESS 0
 
 using namespace std;
 class GameRoom {
@@ -25,7 +24,7 @@ class GameRoom {
  public:
   GameRoom(int playerSocket1, const string &name);
   void connectPlayer2(int playerSocket);
-  const string getName() const;
+  const string &getName() const;
   bool isStarted() const;
   void startGame();
   /**

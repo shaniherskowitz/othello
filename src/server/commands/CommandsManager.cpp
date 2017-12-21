@@ -5,11 +5,11 @@
 #include "CommandsManager.h"
 
 CommandsManager::CommandsManager(Server *server) {
-  commandsMap["start"] = new StartGameCommand(*server);
-  commandsMap["list_games"] = new ListGamesCommand(*server);
-  commandsMap["join"] = new JoinGameCommand(*server);
-  commandsMap["play"] = new PlayMoveCommand(*server);
-  commandsMap["close"] = new EndGameCommand(*server);
+  commandsMap["start"] = new StartGameCommand(server);
+  commandsMap["list_games"] = new ListGamesCommand(server);
+  commandsMap["join"] = new JoinGameCommand(server);
+  commandsMap["play"] = new PlayMoveCommand(server);
+  commandsMap["close"] = new EndGameCommand(server);
 }
 
 void CommandsManager::executeCommand(string command, vector<string> args) {

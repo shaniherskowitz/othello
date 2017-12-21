@@ -12,7 +12,7 @@
 #include <vector>
 #include "Point.h"
 #include "GameRoom.h"
-#include "commands/CommandsManager.h"
+
 
 /**
  * Defining a Server class to transfer information between the Client's.
@@ -21,7 +21,6 @@ class Server {
   int port;
   int serverSocket; // the socket's file descriptor
   vector<GameRoom> gamesList;
-  CommandsManager commandsManager;
   /**
    * The method handles the client, by calling a function to transfer
    * messages between two client's.

@@ -123,3 +123,12 @@ void ConsolUI::waitingForPlayer() const {
 void ConsolUI::waitingForPlayerMove() const {
   cout << "Waiting for other player's move..." << endl;
 }
+
+void ConsolUI::remotePlayerMenu() const {
+  cout << "Please select an option:" << endl;
+  cout << "Option 1 - Start new game" << endl;
+  cout << "Option 2 - Join game" << endl;
+}
+void ConsolUI::printGameRoom(string game) const {
+  cout << game << endl;
+}
