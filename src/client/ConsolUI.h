@@ -31,7 +31,8 @@ class ConsolUI : public GameUI {
   virtual void waitingForPlayer() const;
   virtual void playerDisconnected() const;
   virtual void waitingForPlayerMove() const;
-
+  virtual void remotePlayerMenu() const;
+  virtual void printGameRoom(string game) const;
 };
 
 #endif //OTHELLO_CONSOLUI_H

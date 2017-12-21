@@ -14,7 +14,6 @@
 #include <strings.h>
 #define END_GAME -2
 #define FREE_ROOM -5
-#define IN_PROGRESS 0
 
 using namespace std;
 class GameRoom {

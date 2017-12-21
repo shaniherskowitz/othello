@@ -7,14 +7,13 @@
 #include <vector>
 #include <string>
 #include "../Server.h"
-
 using namespace std;
 
 class Command {
  protected:
   Server *server;
  public:
-  explicit Command(Server &server1);
+  explicit Command(Server *server1);
   virtual void execute(vector<string> args) = 0;
   virtual ~Command() {}
 

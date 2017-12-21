@@ -8,7 +8,7 @@
 #include "Command.h"
 class StartGameCommand : public Command {
  public:
-  explicit StartGameCommand(Server server1) : Command(server1) {}
+  explicit StartGameCommand(Server *server1) : Command(server1) {}
   virtual void execute(vector<string> args);
 };
 

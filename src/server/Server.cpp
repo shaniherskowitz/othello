@@ -4,11 +4,12 @@
 #define END_GAME -2
 #define FREE_ROOM -5
 #define IN_PROGRESS 0
-
+#include "commands/CommandsManager.h"
+#include <sstream>
 using namespace std;
 #define MAX_CONNECTED_CLIENTS 2
 
-Server::Server(int port) : port(port), serverSocket(0), commandsManager(this) {}
+Server::Server(int port) : port(port), serverSocket(0), gamesList() {}
 void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen) {
   while (true) {
     cout << "Waiting for  client connections..." << endl;
@@ -49,27 +50,29 @@ void Server::start() {
 
 }
 
-
 // Handle requests from a specific client
 int Server::handleClient(int clientSocket) {
   string command, arg;
   vector<string> args;
-  ssize_t r = read(clientSocket, &command, sizeof(command));
-  if (r == -1) {
-    cout << "Error reading command from player." << endl;
-    return END_GAME;
+  CommandsManager commandsManager(this);
+  while (true) {
+    ssize_t r = read(clientSocket, &command, sizeof(command));
+    if (r == -1) {
+      cout << "Error reading command from player." << endl;
+      return END_GAME;
+    }
+    if (r == 0) {
+      cout << "player disconnected" << endl;
+      return END_GAME;
+    }
+    istringstream iss(command);
+    copy(istream_iterator<std::string>(iss), istream_iterator<string>(), back_inserter(args));
+    commandsManager.executeCommand(args[0], args);
   }
-  if (r == 0) {
-    cout << "player disconnected" << endl;
-    return END_GAME;
-  }
-  while (read(clientSocket, &arg, sizeof(arg)) > 0) {
-    args.push_back(arg);
-  }
-  commandsManager.executeCommand(command, args);
 
   return 1;
 }
+
 
 int Server::transferMessage(int readSocket, int writeSocket, Point moveVal) {
   Point result = readMove(readSocket, moveVal);
@@ -106,9 +109,14 @@ int Server::writeMove(int writeSocket, Point buffer, size_t sizeBuffer) {
   return (int) w;
 }
 int Server::sendGamesList(int clientSocket) {
-  for (int i = 0; i < gamesList.size(); ++i) {
-    if (gamesList[i].isStarted()) continue;
-    ssize_t w = write(clientSocket, &gamesList[i].getName(), sizeof(gamesList[i].getName()));
+  int size = gamesList.size();
+  ssize_t w;
+  for (int i = -1; i < size; ++i) {
+    if (i == -1) w = write(clientSocket, &size, sizeof(int));
+    else {
+      if (gamesList[i].isStarted()) continue;
+      w = write(clientSocket, &gamesList[i].getName(), sizeof(gamesList[i].getName()));
+    }
     if (w == -1) {
       cout << "Error writing gamesList to player" << endl;
       return END_GAME;
@@ -120,8 +128,11 @@ int Server::sendGamesList(int clientSocket) {
   }
 }
 int Server::newGame(string &gameName, int clientSocket) {
-  int result = inGamesList(gameName ,clientSocket);
-  if (result == FREE_ROOM) gamesList.push_back(GameRoom(clientSocket, gameName));
+  int result = inGamesList(gameName, clientSocket);
+  if (result == FREE_ROOM) {
+    GameRoom *room = new GameRoom(clientSocket, gameName);
+    gamesList.push_back(*room);
+  }
   return result;
 }
 int Server::joinGame(string &gameName, int clientSocket) {
@@ -135,7 +146,8 @@ int Server::joinGame(string &gameName, int clientSocket) {
 
 int Server::inGamesList(string &gameName, int clientSocket) {
   int problem = -1;
-  for (int i = 0; i < gamesList.size(); ++i) {
+  unsigned long size = gamesList.size();
+  for (unsigned long i = 0; i < size; i++) { //not working why??
     if (gamesList[i].getName() == gameName) {
       ssize_t w = write(clientSocket, &problem, sizeof(int));
       if (w == -1) {
