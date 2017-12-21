@@ -4,13 +4,12 @@
 
 #include "CommandsManager.h"
 
-CommandsManager::CommandsManager(vector<GameRoom> gamesList) {
-  this->gamesList = gamesList;
-  commandsMap["start"] = new StartGameCommand(gamesList);
-  commandsMap["list_games"] = new ListGamesCommand(gamesList);
-  commandsMap["join"] = new JoinGameCommand(gamesList);
-  commandsMap["play"] = new PlayMoveCommand(gamesList);
-  commandsMap["close"] = new EndGameCommand(gamesList);
+CommandsManager::CommandsManager(Server *server) {
+  commandsMap["start"] = new StartGameCommand(*server);
+  commandsMap["list_games"] = new ListGamesCommand(*server);
+  commandsMap["join"] = new JoinGameCommand(*server);
+  commandsMap["play"] = new PlayMoveCommand(*server);
+  commandsMap["close"] = new EndGameCommand(*server);
 }
 
 void CommandsManager::executeCommand(string command, vector<string> args) {

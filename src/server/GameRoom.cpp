@@ -3,7 +3,6 @@
 //
 
 #include "GameRoom.h"
-
 GameRoom::GameRoom(int playerSocket1, const string &name)
     : started(false), playerSocket1(playerSocket1), name(name) {}
 

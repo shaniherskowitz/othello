@@ -1,7 +1,6 @@
 #include <limits>
 #include <cstdlib>
 #include "Menu.h"
-#include "../server/commands/CommandsManager.h"
 
 Menu::Menu() {}
 
@@ -35,37 +34,7 @@ int Menu::getUserInput(GameUI *print) {
   return choice;
 
 }
-
 Game *Menu::getServerGame(GameUI *print) {
-  Client client = openSettingsFile();
-  try {
-    client.connectToServer();
-    print->serverConnected();
-  } catch (const char *msg) {
-    print->serverConnectError(msg);
-    exit(-1);
-  }
-  ssize_t n;
-  int player;
-    //CommandsManager commandsManager(client.getClientSocket());
-    cout << "send a command:" << endl;
-
-  print->waitingForPlayer();
-  n = read(client.getClientSocket(), &player, sizeof(int));
-  if (n == -1) {
-    print->socketReadError();
-    exit(-1);
-  }
-
-  if (player == 0)
-    return new Game(new RemotePlayer(Tile(X), client.getClientSocket(), true),
-                    new RemotePlayer(oppositeSymbol(Tile(X)), client.getClientSocket(), false), print, 8);
-  else
-    return new Game(new RemotePlayer(Tile(X), client.getClientSocket(), false),
-                    new RemotePlayer(oppositeSymbol(Tile(X)), client.getClientSocket(), true), print, 8);
-}
-
-Client Menu::openSettingsFile() {
   ifstream inFile;
   inFile.open("clientSettings");
   string x;
@@ -89,7 +58,28 @@ Client Menu::openSettingsFile() {
   inFile.close();
 
   Client client(IP, port);
-  return client;
+  try {
+    client.connectToServer();
+    print->serverConnected();
+  } catch (const char *msg) {
+    print->serverConnectError(msg);
+    exit(-1);
+  }
+  ssize_t n;
+  int player;
+  print->waitingForPlayer();
+  n = read(client.getClientSocket(), &player, sizeof(int));
+  if (n == -1) {
+    print->socketReadError();
+    exit(-1);
+  }
+
+  if (player == 0)
+    return new Game(new RemotePlayer(Tile(X), client.getClientSocket(), true),
+                    new RemotePlayer(oppositeSymbol(Tile(X)), client.getClientSocket(), false), print, 8);
+  else
+    return new Game(new RemotePlayer(Tile(X), client.getClientSocket(), false),
+                    new RemotePlayer(oppositeSymbol(Tile(X)), client.getClientSocket(), true), print, 8);
 }
 
 Tile oppositeSymbol(Tile tile) {

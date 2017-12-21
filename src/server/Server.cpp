@@ -1,17 +1,14 @@
 #include <cstdlib>
 #include <strings.h>
 #include "Server.h"
-#include "commands/CommandsManager.h"
-
 #define END_GAME -2
 #define FREE_ROOM -5
 #define IN_PROGRESS 0
 
 using namespace std;
-#define MAX_CONNECTED_CLIENTS 10
+#define MAX_CONNECTED_CLIENTS 2
 
-Server::Server(int port) : port(port), serverSocket(0) {}
-
+Server::Server(int port) : port(port), serverSocket(0), commandsManager(this) {}
 void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen) {
   while (true) {
     cout << "Waiting for  client connections..." << endl;
@@ -25,7 +22,6 @@ void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t player
 
   }
 }
-
 void Server::start() {
 
   // Create a socket point
@@ -47,13 +43,8 @@ void Server::start() {
   // Define the client socket's structures
   struct sockaddr_in playerAddress;
   socklen_t playerAddressLen = sizeof((struct sockaddr *) &playerAddress);
-  CommandsManager commandsManager = CommandsManager(this->gamesList);
 
-  while (true) {
-    connectToClient(playerAddress, playerAddressLen);
-
-    break;
-  }
+  connectToClient(playerAddress, playerAddressLen);
   close(serverSocket);
 
 }
@@ -75,7 +66,7 @@ int Server::handleClient(int clientSocket) {
   while (read(clientSocket, &arg, sizeof(arg)) > 0) {
     args.push_back(arg);
   }
-  //commandsManager.executeCommand(command, args);
+  commandsManager.executeCommand(command, args);
 
   return 1;
 }

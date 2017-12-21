@@ -17,14 +17,11 @@
 #define IN_PROGRESS 0
 
 using namespace std;
-
 class GameRoom {
-
   bool started;
   int playerSocket1;
   int playerSocket2;
   string name;
-
  public:
   GameRoom(int playerSocket1, const string &name);
   void connectPlayer2(int playerSocket);

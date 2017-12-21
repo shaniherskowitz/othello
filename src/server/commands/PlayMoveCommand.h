@@ -8,7 +8,7 @@
 #include "Command.h"
 class PlayMoveCommand : public Command {
  public:
-  explicit PlayMoveCommand(vector<GameRoom> gamesList): Command(gamesList){}
+  explicit PlayMoveCommand(Server server1): Command(server1){}
   virtual void execute(vector<string> args);
 
 };

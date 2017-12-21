@@ -14,11 +14,10 @@
 #include "EndGameCommand.h"
 class CommandsManager {
  public:
-  CommandsManager(vector<GameRoom> gamesList);
+  CommandsManager(Server *server);
   ~CommandsManager();
   void executeCommand(string command, vector<string> args);
  private:
-    vector<GameRoom> gamesList;
   map<string, Command *> commandsMap;
 };
 

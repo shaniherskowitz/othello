@@ -41,8 +41,6 @@ class Menu {
    */
   int getUserInput(GameUI *print);
 
-    Client openSettingsFile();
-
 };
 
 #endif //OTHELLO_MENU_H

@@ -9,5 +9,5 @@ void ListGamesCommand::execute(vector<string> args) {
   stringstream geek(args[0]);
   int socket = 0;
   geek >> socket;
- // server->sendGamesList(socket);
+  server->sendGamesList(socket);
 }
