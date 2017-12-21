@@ -3,6 +3,7 @@
 //
 
 #include "GameRoom.h"
+
 GameRoom::GameRoom(int playerSocket1, const string &name)
     : started(false), playerSocket1(playerSocket1), name(name) {}
 
@@ -10,7 +11,7 @@ void GameRoom::connectPlayer2(int playerSocket) {
   playerSocket2 = playerSocket;
   started = true;
 }
-const string &GameRoom::getName() const {
+const string GameRoom::getName() const {
   return name;
 }
 bool GameRoom::isStarted() const {
@@ -38,3 +39,4 @@ int GameRoom::getOtherSocket(int playerSocket) {
   if (playerSocket1 == playerSocket) return playerSocket2;
   return playerSocket1;
 }
+

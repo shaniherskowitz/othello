@@ -2,6 +2,7 @@
 // Created by shani herskowitz on 12/17/17.
 //
 
+
 #ifndef OTHELLO_LISTGAMESCOMMAND_H
 #define OTHELLO_LISTGAMESCOMMAND_H
 
