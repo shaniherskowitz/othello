@@ -115,7 +115,8 @@ int Server::sendGamesList(int clientSocket) {
     if (i == -1) w = write(clientSocket, &size, sizeof(int));
     else {
       if (gamesList[i].isStarted()) continue;
-      w = write(clientSocket, &gamesList[i].getName(), sizeof(gamesList[i].getName()));
+      string gameName = gamesList[i].getName();
+      w = write(clientSocket, &gameName, sizeof(gameName));
     }
     if (w == -1) {
       cout << "Error writing gamesList to player" << endl;
