@@ -54,6 +54,10 @@ void Server::start() {
 int Server::handleClient(int clientSocket) {
   string command, arg;
   vector<string> args;
+  stringstream ss;
+  ss << clientSocket;
+  string socketString = ss.str();
+  args.push_back(socketString);
   CommandsManager commandsManager(this);
   while (true) {
     ssize_t r = read(clientSocket, &command, sizeof(command));
@@ -67,7 +71,7 @@ int Server::handleClient(int clientSocket) {
     }
     istringstream iss(command);
     copy(istream_iterator<std::string>(iss), istream_iterator<string>(), back_inserter(args));
-    commandsManager.executeCommand(args[0], args);
+    commandsManager.executeCommand(args[1], args);
   }
 
   return 1;
@@ -109,10 +113,10 @@ int Server::writeMove(int writeSocket, Point buffer, size_t sizeBuffer) {
   return (int) w;
 }
 int Server::sendGamesList(int clientSocket) {
-  int size = gamesList.size();
+  int listSize = gamesList.size();
   ssize_t w;
-  for (int i = -1; i < size; ++i) {
-    if (i == -1) w = write(clientSocket, &size, sizeof(int));
+  for (int i = -1; i < listSize; ++i) {
+    if (i == -1) w = write(clientSocket, &listSize, sizeof(int));
     else {
       if (gamesList[i].isStarted()) continue;
       string gameName = gamesList[i].getName();
@@ -182,3 +186,4 @@ void Server::closeGame(string &gameName) {
 void Server::stop() {
   close(serverSocket);
 }
+

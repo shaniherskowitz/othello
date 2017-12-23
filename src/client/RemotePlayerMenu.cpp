@@ -24,12 +24,12 @@ void RemotePlayerMenu::connectToRoom(int socket) {
     string command = "start";
     string gameName;
     cin >> gameName;
-    sendCommand(socket, command, socketString + " " + gameName);
+    sendCommand(socket, command, gameName);
   } else {
     string command = "list_games";
     string gameName;
     cin >> gameName;
-    sendCommand(socket, command, socketString + " " + gameName);
+    sendCommand(socket, command, gameName);
     getGames(socket);
 
   }
@@ -37,8 +37,8 @@ void RemotePlayerMenu::connectToRoom(int socket) {
 
 void RemotePlayerMenu::getGames(int socket) {
   string game;
-  int size = 0;
-  ssize_t n = read(socket, &size, sizeof(int));
+  int size;
+  ssize_t n = read(socket, &size, sizeof(size));
   if (n == -1) {
     print->socketWriteError();
     exit(1);
