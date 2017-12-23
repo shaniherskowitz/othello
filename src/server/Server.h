@@ -1,3 +1,7 @@
+//
+// Created by liora on 02/12/17.
+//
+
 #ifndef OTHELLO_SERVER_H
 #define OTHELLO_SERVER_H
 #include <sys/socket.h>

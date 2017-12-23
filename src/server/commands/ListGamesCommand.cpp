@@ -1,3 +1,7 @@
+//
+// Created by shani herskowitz on 12/17/17.
+//
+
 #include "ListGamesCommand.h"
 #include <sstream>
 void ListGamesCommand::execute(vector<string> args) {

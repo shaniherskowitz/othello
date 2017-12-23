@@ -1,3 +1,7 @@
+//
+// Created by shani herskowitz on 12/17/17.
+//
+
 #include "JoinGameCommand.h"
 #include <sstream>
 void JoinGameCommand::execute(vector<string> args) {

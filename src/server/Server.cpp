@@ -6,6 +6,8 @@
 #define IN_PROGRESS 0
 #include "commands/CommandsManager.h"
 #include <sstream>
+#include <iterator>
+
 using namespace std;
 #define MAX_CONNECTED_CLIENTS 2
 
@@ -52,14 +54,14 @@ void Server::start() {
 
 // Handle requests from a specific client
 int Server::handleClient(int clientSocket) {
-  string command, arg;
-  vector<string> args;
   stringstream ss;
   ss << clientSocket;
   string socketString = ss.str();
-  args.push_back(socketString);
   CommandsManager commandsManager(this);
   while (true) {
+    string command, arg;
+    vector<string> args;
+    args.push_back(socketString);
     ssize_t r = read(clientSocket, &command, sizeof(command));
     if (r == -1) {
       cout << "Error reading command from player." << endl;
@@ -119,8 +121,7 @@ int Server::sendGamesList(int clientSocket) {
     if (i == -1) w = write(clientSocket, &listSize, sizeof(int));
     else {
       if (gamesList[i].isStarted()) continue;
-      string gameName = gamesList[i].getName();
-      w = write(clientSocket, &gameName, sizeof(gameName));
+      w = write(clientSocket, &gamesList[i].getName(), sizeof(gamesList[i].getName()));
     }
     if (w == -1) {
       cout << "Error writing gamesList to player" << endl;

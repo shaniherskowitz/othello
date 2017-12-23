@@ -20,4 +20,3 @@ class Command {
 };
 
 #endif //OTHELLO_COMMAND_H
-

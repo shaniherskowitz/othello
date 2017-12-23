@@ -14,4 +14,3 @@ class EndGameCommand: public Command {
 };
 
 #endif //OTHELLO_ENDGAMECOMMAND_H
-

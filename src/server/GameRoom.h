@@ -16,18 +16,15 @@
 #define FREE_ROOM -5
 
 using namespace std;
-
 class GameRoom {
-
   bool started;
   int playerSocket1;
   int playerSocket2;
   string name;
-
  public:
   GameRoom(int playerSocket1, const string &name);
   void connectPlayer2(int playerSocket);
-  const string getName() const;
+  const string &getName() const;
   bool isStarted() const;
   void startGame();
   /**
