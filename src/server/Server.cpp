@@ -6,6 +6,8 @@
 #define IN_PROGRESS 0
 #include "commands/CommandsManager.h"
 #include <sstream>
+#include <iterator>
+
 using namespace std;
 #define MAX_CONNECTED_CLIENTS 2
 
