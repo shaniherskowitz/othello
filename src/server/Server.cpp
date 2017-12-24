@@ -214,7 +214,7 @@ int Server::inGamesList(string &gameName, int clientSocket) {
         cout << "Player disconnected" << endl;
         return END_GAME;
       }
-      return i;
+      return (int)i;
     }
   }
   pthread_mutex_unlock(&count_mutex);

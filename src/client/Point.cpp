@@ -2,6 +2,7 @@
 #include <cstring>
 #include <cstdio>
 #include "Point.h"
+#include <sstream>
 
 Point::Point(int xVal, int yVal) {
   x = xVal;
@@ -33,4 +34,9 @@ bool Point::operator!=(const Point &point) const {
 
 bool Point::operator<=(const Point &point) const {
   return !(point.x <= this->x || point.y <= this->y);
+}
+string Point::toString() {
+  std::ostringstream temp;
+  temp << "Point(" << x << ", " << y << ")";
+  return temp.str();
 }

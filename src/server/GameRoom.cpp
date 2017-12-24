@@ -22,7 +22,7 @@ void GameRoom::startGame() {
   initializingPlayer(playerSocket2, 1);
 }
 void GameRoom::initializingPlayer(int playerSocket, int playerNum) {
-  ssize_t x = write(playerSocket, &playerNum, sizeof(playerNum));
+  ssize_t x = write(playerSocket, &playerNum, sizeof(int));
   if (x == -1) {
     cout << "Error writing to socket" << endl;
     exit(1);
