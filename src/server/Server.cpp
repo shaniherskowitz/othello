@@ -78,11 +78,12 @@ void Server::start() {
 
 void *Server::handleClientHelper(void* tempArgs) {
   int clientSocket =  *((int *)tempArgs);
-  return ((Server *)tempArgs)->handleClient(clientSocket);
+  ((Server *)tempArgs)->handleClient(clientSocket);
+  return tempArgs;
 }
 
 // Handle requests from a specific client
-void *Server::handleClient(int clientSocket) {
+int Server::handleClient(int clientSocket) {
   //int clientSocket = *((int *)args);
   pthread_mutex_lock(&count_mutex);
   int s = gamesList.size();
@@ -91,18 +92,27 @@ void *Server::handleClient(int clientSocket) {
   string socketString = ss.str();
   CommandsManager commandsManager(this);
   while (true) {
-    std::string command;
-    string arg;
+    string command, arg;
     vector<string> args;
     args.push_back(socketString);
     command = readString(clientSocket);
     if (command.empty()) return END_GAME;
-    //istringstream iss(command);
-    //copy(istream_iterator<std::string>(iss), istream_iterator<string>(), back_inserter(args));
-    //commandsManager.executeCommand(args[1], args);
+    //ssize_t r = read(clientSocket, &command, sizeof(command));
+    /*if (r == -1) {
+      cout << "Error reading command from player." << endl;
+      //return (void*)END_GAME;
+    }
+    if (r == 0) {
+      cout << "player disconnected" << endl;
+      return (void*)END_GAME;
+    }*/
+    istringstream iss(command);
+    copy(istream_iterator<std::string>(iss), istream_iterator<string>(), back_inserter(args));
+    commandsManager.executeCommand(args[1], args);
+    pthread_mutex_unlock(&count_mutex);
   }
 
-  return 1;
+  //return 1;
 }
 
 string Server::readString(int clientSocket) {
@@ -121,7 +131,6 @@ string Server::readString(int clientSocket) {
     r = read(clientSocket, &buffer[i], sizeof(char));
     if (r == -1) {
       cout << "Error reading command from player." << endl;
-<<<<<<< HEAD
       return "";
     }
     if (r == 0) {
@@ -130,22 +139,8 @@ string Server::readString(int clientSocket) {
     }
   }
   return string(buffer);
-=======
-      //return (void*)END_GAME;
-    }
-    if (r == 0) {
-      cout << "player disconnected" << endl;
-      return (void*)END_GAME;
-    }
-    istringstream iss(command);
-    copy(istream_iterator<std::string>(iss), istream_iterator<string>(), back_inserter(args));
-    commandsManager.executeCommand(args[1], args);
-    pthread_mutex_unlock(&count_mutex);
-  }
-
-  //return 1;
->>>>>>> 284fa3caa8ad6c7230803513ef3ef67a08a8ef1c
 }
+
 
 int Server::transferMessage(int readSocket, int writeSocket, Point moveVal) {
   Point result = readMove(readSocket, moveVal);
@@ -270,4 +265,3 @@ void Server::closeGame(string &gameName) {
 void Server::stop() {
   close(serverSocket);
 }
-

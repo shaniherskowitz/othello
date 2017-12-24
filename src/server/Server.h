@@ -59,7 +59,7 @@ class Server {
   /**
    * The method closes the socket.
    */
-  void *handleClient(int clientSocket);
+  int handleClient(int clientSocket);
   /**
    * The method reads the move from the client.
    * @param readSocket The client's socket number.
@@ -69,7 +69,7 @@ class Server {
    */
   static void *handleClientHelper(void *tempArgs);
   void stop();
-    string readString(int clientSocket);
+    //string readString(int clientSocket);
   void connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen);
   int sendGamesList(int clientSocket);
   int newGame(string &gameName, int clientSocket);
@@ -78,6 +78,7 @@ class Server {
   void closeGame(string &gameName);
   void playMove(string &gameName, int clientSocket, Point move);
   int getAvialbleGames();
+  string readString(int clientSocket);
 };
 
 #endif //OTHELLO_SERVER_H
