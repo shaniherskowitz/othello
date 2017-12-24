@@ -240,8 +240,8 @@ void Server::stop() {
 }
 
 string Server::readString(int clientSocket) {
-  char buffer[50];
   int commandSize;
+  char buffer[50];
   ssize_t r = read(clientSocket, &commandSize, sizeof(int));
   if (r == -1) {
     cout << "Error reading command from player." << endl;
@@ -262,5 +262,6 @@ string Server::readString(int clientSocket) {
       return "";
     }
   }
+  buffer[commandSize] = '\0';
   return string(buffer);
 }
