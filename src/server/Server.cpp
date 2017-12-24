@@ -75,7 +75,7 @@ void Server::start() {
 
 }
 
-void Server::handleClientHelper(void tempArgs) {
+void *Server::handleClientHelper(void *tempArgs) {
   int clientSocket =  *((int *)tempArgs);
   ((Server *)tempArgs)->handleClient(clientSocket);
   return tempArgs;
