@@ -6,7 +6,7 @@ ServerGames::ServerGames() {}
 vector<GameRoom>::iterator ServerGames::getGame(string gameName) {
     vector<GameRoom>::iterator it = this->gamesList.begin();
     while (it != gamesList.end()) {
-        if (strcmp(gameName, it->getName()) == 0) return it;
+       // if (strcmp(gameName, it->getName()) == 0) return it;
         it++;
     }
     return it;
@@ -29,7 +29,8 @@ void ServerGames::eraseGame(string gameName) {
 }
 
 void ServerGames::joinGame(string gameName, int clientSocket) {
-    if (getGame(gameName) != gamesList.end()) {
-
+    vector<GameRoom>::iterator gameRoom = getGame(gameName);
+    if (gameRoom != gamesList.end()) {
+        gameRoom->connectPlayer2(clientSocket);
     }
 }

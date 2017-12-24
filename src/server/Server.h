@@ -68,6 +68,7 @@ class Server {
    * The method closes the socket.
    */
   void stop();
+    string readString(int clientSocket);
   void connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen);
   int sendGamesList(int clientSocket);
   int newGame(string &gameName, int clientSocket);

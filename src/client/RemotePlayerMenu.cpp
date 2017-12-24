@@ -50,14 +50,23 @@ void RemotePlayerMenu::getGames(int socket) {
   }
 }
 
-void RemotePlayerMenu::sendCommand(int socket, string command, string args) {
-  string send = command + " " + args;
-  ssize_t n = write(socket, &send, sizeof(send));
+void RemotePlayerMenu::sendCommand(int serverSocket, string command, string args) {
+  string send = command + " " + args + "\0";
+  unsigned long sendSize = send.size();
+  ssize_t n = write(serverSocket, &sendSize, sizeof(sendSize));
   if (n == -1) {
     print->socketWriteError();
     exit(1);
   }
+  for (int i = 0; i < sendSize; i++) {
+    n = write(serverSocket, &send.at(i), sizeof(char));
+    if (n == -1) {
+      print->socketWriteError();
+      exit(1);
+    }
+  }
 }
+
 
 int RemotePlayerMenu::connectToServer() {
   ifstream inFile;

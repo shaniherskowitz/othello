@@ -1,5 +1,5 @@
 #include <cstdlib>
-#include <strings.h>
+#include <string.h>
 #include "Server.h"
 #define END_GAME -2
 #define FREE_ROOM -5
@@ -19,6 +19,7 @@ void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t player
     int clientSocket = accept(serverSocket, (struct sockaddr *) &playerAddress1, &playerAddressLen);
     if (clientSocket == -1) throw "Error on accept";
     cout << "Client connected" << endl;
+
     handleClient(clientSocket);
 
     close(clientSocket);
@@ -48,7 +49,7 @@ void Server::start() {
   socklen_t playerAddressLen = sizeof((struct sockaddr *) &playerAddress);
 
   connectToClient(playerAddress, playerAddressLen);
-  close(serverSocket);
+//  close(serverSocket);
 
 }
 
@@ -59,26 +60,45 @@ int Server::handleClient(int clientSocket) {
   string socketString = ss.str();
   CommandsManager commandsManager(this);
   while (true) {
-    string command, arg;
+    std::string command;
+    string arg;
     vector<string> args;
     args.push_back(socketString);
-    ssize_t r = read(clientSocket, &command, sizeof(command));
-    if (r == -1) {
-      cout << "Error reading command from player." << endl;
-      return END_GAME;
-    }
-    if (r == 0) {
-      cout << "player disconnected" << endl;
-      return END_GAME;
-    }
-    istringstream iss(command);
-    copy(istream_iterator<std::string>(iss), istream_iterator<string>(), back_inserter(args));
-    commandsManager.executeCommand(args[1], args);
+    command = readString(clientSocket);
+    if (command.empty()) return END_GAME;
+    //istringstream iss(command);
+    //copy(istream_iterator<std::string>(iss), istream_iterator<string>(), back_inserter(args));
+    //commandsManager.executeCommand(args[1], args);
   }
 
   return 1;
 }
 
+string Server::readString(int clientSocket) {
+  char buffer[50];
+  size_t commandSize;
+  ssize_t r = read(clientSocket, &commandSize, sizeof(commandSize));
+  if (r == -1) {
+    cout << "Error reading command from player." << endl;
+    return "";
+  }
+  if (r == 0) {
+    cout << "player disconnected" << endl;
+    return "";
+  }
+  for (int i = 0; i <= commandSize; i++) {
+    r = read(clientSocket, &buffer[i], sizeof(char));
+    if (r == -1) {
+      cout << "Error reading command from player." << endl;
+      return "";
+    }
+    if (r == 0) {
+      cout << "player disconnected" << endl;
+      return "";
+    }
+  }
+  return string(buffer);
+}
 
 int Server::transferMessage(int readSocket, int writeSocket, Point moveVal) {
   Point result = readMove(readSocket, moveVal);
