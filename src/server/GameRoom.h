@@ -35,7 +35,7 @@ class GameRoom {
   void initializingPlayer(int playerSocket, int playerNum);
   void closeGame();
   int getOtherSocket(int playerSocket);
-
+  bool playingInGame(int playerSocket);
 };
 
 #endif //OTHELLO_GAMEROOM_H

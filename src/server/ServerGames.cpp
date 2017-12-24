@@ -35,3 +35,40 @@ void ServerGames::joinGame(string gameName, int clientSocket) {
         gameRoom->startGame();
     }
 }
+
+void ServerGames::sendListGames(int clientSocket) {
+    unsigned long  numWords = gamesList.size();
+    writeInt(clientSocket, numWords);
+    vector<GameRoom>::iterator it = this->gamesList.begin();
+    while (it != gamesList.end()) {
+        string game = it->getName();
+        unsigned long gameSize = game.size();
+        writeInt(clientSocket, gameSize);
+        for (int i = 0; i < gameSize; i++) {
+            ssize_t w = write(clientSocket, &game.at(i), sizeof(char));
+            if (w == -1) {
+                cout << "Error writing gamesList to player" << endl;
+                return;
+            } if (w == 0) {
+                cout << "Player disconnected" << endl;
+                return;
+            }
+        }
+        it++;
+    }
+}
+
+void ServerGames::writeInt(int clientSocket, int num) {
+    ssize_t w = write(clientSocket, &num, sizeof(num));
+    if (w == -1) {
+        cout << "Error writing gamesList to player" << endl;
+        return;
+    } if (w == 0) {
+        cout << "Player disconnected" << endl;
+        return;
+    }
+}
+
+int ServerGames::size() {
+    return gamesList.size();
+}

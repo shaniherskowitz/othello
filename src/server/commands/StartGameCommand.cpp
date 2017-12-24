@@ -10,4 +10,5 @@ void StartGameCommand::execute(vector<string> args) {//need to make sure args no
   int socket = 0;
   geek >> socket;
   server->newGame(args[2], socket);
+  //server->addGame(args[2], socket);
 }

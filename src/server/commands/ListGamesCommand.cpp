@@ -10,4 +10,5 @@ void ListGamesCommand::execute(vector<string> args) {
   int socket = 0;
   geek >> socket;
   server->sendGamesList(socket);
+  //server->sendListGames(socket);
 }

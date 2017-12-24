@@ -1,9 +1,13 @@
+#include "ServerGames.h"
+
 using namespace std;
+
 
 #include <cstdlib>
 #include "Server.h"
 #include <fstream>
 #include <sstream>
+
 int main() {
   ifstream inFile;
   inFile.open("serverSettings");

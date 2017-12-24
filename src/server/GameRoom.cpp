@@ -38,3 +38,7 @@ int GameRoom::getOtherSocket(int playerSocket) {
   if (playerSocket1 == playerSocket) return playerSocket2;
   return playerSocket1;
 }
+
+bool GameRoom::playingInGame(int playerSocket) {
+  return (playerSocket == playerSocket1 || playerSocket == playerSocket2);
+}

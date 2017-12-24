@@ -12,6 +12,9 @@ public:
     void eraseGame(string gameName);
     void addGame(string gameName, int clientSocket);
     void joinGame(string gameName, int clientSocket);
+    void sendListGames(int clientSocket);
+    void writeInt(int clientSocket, int num);
+    int size();
 };
 
 #endif //OTHELLO_SERVERGAMES_H

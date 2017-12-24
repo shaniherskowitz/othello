@@ -28,7 +28,7 @@ void RemotePlayerMenu::connectToRoom(int socket) {
         string command = "list_games";
         string gameName;
         sendCommand(socket, command, "");
-        getGames(socket);
+        getGamesList(socket);
         string command2 = "join";
         cin >> gameName;
         sendCommand(socket, command2, gameName);
@@ -36,24 +36,53 @@ void RemotePlayerMenu::connectToRoom(int socket) {
     }
 }
 
-void RemotePlayerMenu::getGames(int socket) {
-    string game;
-    int size;
-    ssize_t n = read(socket, &size, sizeof(size));
+void RemotePlayerMenu::getGamesList(int socket) {
+    int numGames;
+    ssize_t n = read(socket, &numGames, sizeof(numGames));
     if (n == -1) {
         print->socketWriteError();
         exit(1);
     }
-    if (size == 0) {
+    if (numGames == 0) {
         print->noAvailableGames();
         exit(1);
     }
-    else print->getGames();
-    while (size > 0) {
-        read(socket, &game, sizeof(game));
-        print->printGameRoom(game);
-        size--;
+    string gamesList[numGames];
+    getGamesListHelper(socket, gamesList);
+    print->getGameRooms(gamesList);
+}
+
+void RemotePlayerMenu::getGamesListHelper(int socket, string *gamesList) {
+    for (int i = 0; i < gamesList->size(); i++) {
+        int gameNameSize = readNum(socket);
+        char gameName[gameNameSize];
+        for (int j = 0; j < gameNameSize; j++) {
+            ssize_t n = read(socket, &gameName[i], sizeof(char));
+            if (n == -1) {
+                print->socketWriteError();
+                exit(1);
+            }
+            if (n == 0) {
+                //print->noAvailableGames();
+                exit(1);
+            }
+        }
+        gamesList[i] = string(gameName);
     }
+}
+
+int RemotePlayerMenu::readNum(int socket) {
+    int num;
+    ssize_t n = read(socket, &num, sizeof(num));
+    if (n == -1) {
+        print->socketWriteError();
+        exit(1);
+    }
+    if (num == 0) {
+        //print->noAvailableGames();
+        exit(1);
+    }
+    return num;
 }
 
 void RemotePlayerMenu::sendCommand(int socket, string command, string args) {

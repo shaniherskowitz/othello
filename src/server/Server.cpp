@@ -5,15 +5,19 @@
 #define FREE_ROOM -5
 #define IN_PROGRESS 0
 #include "commands/CommandsManager.h"
+#include "ServerGames.h"
 #include <sstream>
 #include <iterator>
 #include <iostream>
 #include <pthread.h>
 #include <cstdlib>
 #include <cmath>
+#include <cstring>
+
 pthread_mutex_t count_mutex;
 #define THREADS_NUM 10
 vector<GameRoom> gamesList;
+//ServerGames gamesList = ServerGames();
 using namespace std;
 #define MAX_CONNECTED_CLIENTS 2
 
@@ -85,10 +89,11 @@ void *Server::handleClientHelper(void *tempArgs) {
 int Server::handleClient(int clientSocket) {
   //int clientSocket = *((int *)args);
   pthread_mutex_lock(&count_mutex);
-  int s = gamesList.size();
+  //int s = gamesList.size();
   stringstream ss;
   ss << clientSocket;
   string socketString = ss.str();
+  //CommandsManager commandsManager(this);
   CommandsManager commandsManager(this);
   while (true) {
     string command, arg;
@@ -150,25 +155,36 @@ int Server::writeMove(int writeSocket, Point buffer, size_t sizeBuffer) {
   return (int) w;
 }
 int Server::sendGamesList(int clientSocket) {
-  int listSize = getAvialbleGames();
-  ssize_t w;
-  int s = gamesList.size();
-  for (int i = -1; i < s; ++i) {
-    if (i == -1) w = write(clientSocket, &listSize, sizeof(int));
-    else {
-      if (gamesList[i].isStarted()) continue;
-      w = write(clientSocket, &gamesList[i].getName(), sizeof(gamesList[i].getName()));
+  unsigned long  numWords = gamesList.size();
+  writeInt(clientSocket, numWords);
+  vector<GameRoom>::iterator it = gamesList.begin();
+  while (it != gamesList.end()) {
+    string game = it->getName();
+    unsigned long gameSize = game.size();
+    writeInt(clientSocket, gameSize);
+    for (int i = 0; i < gameSize; i++) {
+      ssize_t w = write(clientSocket, &game.at(i), sizeof(char));
+      if (w == -1) {
+        cout << "Error writing gamesList to player" << endl;
+        return END_GAME;
+      } if (w == 0) {
+        cout << "Player disconnected" << endl;
+        return END_GAME;
+      }
     }
-    if (w == -1) {
-      cout << "Error writing gamesList to player" << endl;
-      return END_GAME;
-    }
-    if (w == 0) {
-      cout << "Player disconnected" << endl;
-      return END_GAME;
-    }
+    it++;
   }
 }
+
+vector<GameRoom>::iterator Server::getGame(string gameName) {
+  vector<GameRoom>::iterator it = gamesList.begin();
+  while (it != gamesList.end()) {
+    if (it->getName() == gameName) return it;
+    it++;
+  }
+  return it;
+}
+
 int Server::getAvialbleGames() {
   int count = 0;
   pthread_mutex_lock(&count_mutex);
@@ -179,24 +195,24 @@ int Server::getAvialbleGames() {
   return count;
 }
 int Server::newGame(string &gameName, int clientSocket) {
-  int result = inGamesList(gameName, clientSocket);
-  if (result == FREE_ROOM) {
-    GameRoom *room = new GameRoom(clientSocket, gameName);
-    pthread_mutex_lock(&count_mutex);
-    gamesList.push_back(*room);
-    pthread_mutex_unlock(&count_mutex);
+  if (getGame(gameName) != gamesList.end()) {
+    int gameExists = -1;
+    write(clientSocket, &gameExists, sizeof(gameExists));
   }
-  return result;
+  GameRoom *gameRoom = new GameRoom(clientSocket, gameName);
+  //pthread_mutex_lock(&count_mutex);
+  gamesList.push_back(*gameRoom);
+  //pthread_mutex_unlock(&count_mutex);
 }
+
 int Server::joinGame(string &gameName, int clientSocket) {
-  int result = inGamesList(gameName, clientSocket);
-  if (result != FREE_ROOM && result != END_GAME) {
+  vector<GameRoom>::iterator gameRoom = getGame(gameName);
+  if (gameRoom != gamesList.end() && !gameRoom->isStarted()) {
     pthread_mutex_lock(&count_mutex);
-    gamesList[result].connectPlayer2(clientSocket);
-    gamesList[result].startGame();
+    gameRoom->connectPlayer2(clientSocket);
+    gameRoom->startGame();
     pthread_mutex_unlock(&count_mutex);
   }
-  return result;
 }
 
 int Server::inGamesList(string &gameName, int clientSocket) {
@@ -221,17 +237,20 @@ int Server::inGamesList(string &gameName, int clientSocket) {
   return FREE_ROOM;
 }
 void Server::playMove(string &gameName, int clientSocket, Point move) {
-  int gameToPlay = inGamesList(gameName, clientSocket);
+  vector<GameRoom>::iterator gameRoom = getGame(gameName);
+  if (gameRoom != gamesList.end() && gameRoom->playingInGame(clientSocket)) {
+    transferMessage(clientSocket, gameRoom->getOtherSocket(clientSocket), move);
+  }
+  /*int gameToPlay = inGamesList(gameName, clientSocket);
   if (gameToPlay != FREE_ROOM && gameToPlay != END_GAME)
-    transferMessage(clientSocket, gamesList[gameToPlay].getOtherSocket(clientSocket), move);
+    transferMessage(clientSocket, gamesList[gameToPlay].getOtherSocket(clientSocket), move);*/
 }
 
 void Server::closeGame(string &gameName) {
-  for (int i = 0; i < gamesList.size(); ++i) {
-    if (gamesList[i].getName() == gameName) {
-      gamesList[i].closeGame();
-      return;
-    }
+  vector<GameRoom>::iterator gameRoom = getGame(gameName);
+  if (gameRoom != gamesList.end()) {
+    gameRoom->closeGame();
+    gamesList.erase(gameRoom);
   }
 }
 
@@ -264,4 +283,15 @@ string Server::readString(int clientSocket) {
   }
   buffer[commandSize] = '\0';
   return string(buffer);
+}
+
+void Server::writeInt(int clientSocket, int num) {
+  ssize_t w = write(clientSocket, &num, sizeof(num));
+  if (w == -1) {
+    cout << "Error writing gamesList to player" << endl;
+    return;
+  } if (w == 0) {
+    cout << "Player disconnected" << endl;
+    return;
+  }
 }

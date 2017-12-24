@@ -12,12 +12,14 @@
 #include <vector>
 #include "Point.h"
 #include "GameRoom.h"
+#include "ServerGames.h"
 
 
 /**
  * Defining a Server class to transfer information between the Client's.
  */
 class Server {
+
  protected:
   int port;
   int serverSocket; // the socket's file descriptor
@@ -79,6 +81,9 @@ class Server {
   void playMove(string &gameName, int clientSocket, Point move);
   int getAvialbleGames();
   string readString(int clientSocket);
+    void writeInt(int clientSocket, int num);
+    vector<GameRoom>::iterator getGame(string gameName);
 };
+//ServerGames Server::gamesList = ServerGames();
 
 #endif //OTHELLO_SERVER_H

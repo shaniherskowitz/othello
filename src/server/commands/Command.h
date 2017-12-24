@@ -7,6 +7,7 @@
 #include <vector>
 #include <string>
 #include "../Server.h"
+
 using namespace std;
 
 class Command {
