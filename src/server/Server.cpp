@@ -241,8 +241,8 @@ void Server::stop() {
 
 string Server::readString(int clientSocket) {
   char buffer[50];
-  size_t commandSize;
-  ssize_t r = read(clientSocket, &commandSize, sizeof(commandSize));
+  int commandSize;
+  ssize_t r = read(clientSocket, &commandSize, sizeof(int));
   if (r == -1) {
     cout << "Error reading command from player." << endl;
     return "";
@@ -251,7 +251,7 @@ string Server::readString(int clientSocket) {
     cout << "player disconnected" << endl;
     return "";
   }
-  for (int i = 0; i <= commandSize; i++) {
+  for (int i = 0; i < commandSize; i++) {
     r = read(clientSocket, &buffer[i], sizeof(char));
     if (r == -1) {
       cout << "Error reading command from player." << endl;
