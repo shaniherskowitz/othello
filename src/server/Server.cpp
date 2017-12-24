@@ -1,5 +1,5 @@
 #include <cstdlib>
-#include <string.h>
+#include <strings.h>
 #include "Server.h"
 #define END_GAME -2
 #define FREE_ROOM -5
@@ -42,7 +42,6 @@ void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t player
     int clientSocket = accept(serverSocket, (struct sockaddr *) &playerAddress1, &playerAddressLen);
     if (clientSocket == -1) throw "Error on accept";
     cout << "Client connected" << endl;
-
     handleClient(clientSocket);
 
     close(clientSocket);
@@ -72,11 +71,11 @@ void Server::start() {
   socklen_t playerAddressLen = sizeof((struct sockaddr *) &playerAddress);
 
   connectToClient(playerAddress, playerAddressLen);
-//  close(serverSocket);
+  close(serverSocket);
 
 }
 
-void *Server::handleClientHelper(void* tempArgs) {
+void Server::handleClientHelper(void tempArgs) {
   int clientSocket =  *((int *)tempArgs);
   ((Server *)tempArgs)->handleClient(clientSocket);
   return tempArgs;
@@ -113,32 +112,6 @@ int Server::handleClient(int clientSocket) {
   }
 
   //return 1;
-}
-
-string Server::readString(int clientSocket) {
-  char buffer[50];
-  size_t commandSize;
-  ssize_t r = read(clientSocket, &commandSize, sizeof(commandSize));
-  if (r == -1) {
-    cout << "Error reading command from player." << endl;
-    return "";
-  }
-  if (r == 0) {
-    cout << "player disconnected" << endl;
-    return "";
-  }
-  for (int i = 0; i <= commandSize; i++) {
-    r = read(clientSocket, &buffer[i], sizeof(char));
-    if (r == -1) {
-      cout << "Error reading command from player." << endl;
-      return "";
-    }
-    if (r == 0) {
-      cout << "player disconnected" << endl;
-      return "";
-    }
-  }
-  return string(buffer);
 }
 
 
@@ -200,7 +173,7 @@ int Server::getAvialbleGames() {
   int count = 0;
   pthread_mutex_lock(&count_mutex);
   for (int i = 0; i < gamesList.size(); ++i) {
-      if (!gamesList[i].isStarted()) count++;
+    if (!gamesList[i].isStarted()) count++;
   }
   pthread_mutex_unlock(&count_mutex);
   return count;
@@ -264,4 +237,30 @@ void Server::closeGame(string &gameName) {
 
 void Server::stop() {
   close(serverSocket);
+}
+
+string Server::readString(int clientSocket) {
+  char buffer[50];
+  int commandSize;
+  ssize_t r = read(clientSocket, &commandSize, sizeof(int));
+  if (r == -1) {
+    cout << "Error reading command from player." << endl;
+    return "";
+  }
+  if (r == 0) {
+    cout << "player disconnected" << endl;
+    return "";
+  }
+  for (int i = 0; i < commandSize; i++) {
+    r = read(clientSocket, &buffer[i], sizeof(char));
+    if (r == -1) {
+      cout << "Error reading command from player." << endl;
+      return "";
+    }
+    if (r == 0) {
+      cout << "player disconnected" << endl;
+      return "";
+    }
+  }
+  return string(buffer);
 }

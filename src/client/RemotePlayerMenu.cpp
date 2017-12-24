@@ -1,12 +1,10 @@
 //
 // Created by shani herskowitz on 12/18/17.
 //
+#include "RemotePlayerMenu.h"
 #include "RemotePlayer.h"
 #include <sstream>
 #include "Client.h"
-#include "Game.h"
-#include "RemotePlayerMenu.h"
-
 RemotePlayerMenu::RemotePlayerMenu(GameUI *print1) :print(print1){}
 void RemotePlayerMenu::connectToRoom(int socket) {
     print->remotePlayerMenu();
@@ -65,13 +63,14 @@ void RemotePlayerMenu::sendCommand(int socket, string command, string args) {
       print->socketWriteError();
       exit(1);
     }*/
-    string send = command + " " + args;
-    ssize_t n = write(socket, &send, send.size() + 1);
+    string send = command + " " + args + "\0";
+    int sendSize = send.size();
+    ssize_t n = write(socket, &sendSize, sizeof(int));
     if (n == -1) {
         print->socketWriteError();
         exit(1);
     }
-    for (int i = 0; i < send.size(); i++) {
+    for (int i = 0; i < sendSize; i++) {
         n = write(socket, &send.at(i), sizeof(char));
         if (n == -1) {
             print->socketWriteError();
