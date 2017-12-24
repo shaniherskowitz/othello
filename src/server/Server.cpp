@@ -77,11 +77,12 @@ void Server::start() {
 
 void *Server::handleClientHelper(void* tempArgs) {
   int clientSocket =  *((int *)tempArgs);
-  return ((Server *)tempArgs)->handleClient(clientSocket);
+  ((Server *)tempArgs)->handleClient(clientSocket);
+  return tempArgs;
 }
 
 // Handle requests from a specific client
-void *Server::handleClient(int clientSocket) {
+int Server::handleClient(int clientSocket) {
   //int clientSocket = *((int *)args);
   pthread_mutex_lock(&count_mutex);
   int s = gamesList.size();
@@ -93,15 +94,17 @@ void *Server::handleClient(int clientSocket) {
     string command, arg;
     vector<string> args;
     args.push_back(socketString);
-    ssize_t r = read(clientSocket, &command, sizeof(command));
-    if (r == -1) {
+    command = readString(clientSocket);
+    if (command.empty()) return END_GAME;
+    //ssize_t r = read(clientSocket, &command, sizeof(command));
+    /*if (r == -1) {
       cout << "Error reading command from player." << endl;
       //return (void*)END_GAME;
     }
     if (r == 0) {
       cout << "player disconnected" << endl;
       return (void*)END_GAME;
-    }
+    }*/
     istringstream iss(command);
     copy(istream_iterator<std::string>(iss), istream_iterator<string>(), back_inserter(args));
     commandsManager.executeCommand(args[1], args);
@@ -236,3 +239,28 @@ void Server::stop() {
   close(serverSocket);
 }
 
+string Server::readString(int clientSocket) {
+  char buffer[50];
+  size_t commandSize;
+  ssize_t r = read(clientSocket, &commandSize, sizeof(commandSize));
+  if (r == -1) {
+    cout << "Error reading command from player." << endl;
+    return "";
+  }
+  if (r == 0) {
+    cout << "player disconnected" << endl;
+    return "";
+  }
+  for (int i = 0; i <= commandSize; i++) {
+    r = read(clientSocket, &buffer[i], sizeof(char));
+    if (r == -1) {
+      cout << "Error reading command from player." << endl;
+      return "";
+    }
+    if (r == 0) {
+      cout << "player disconnected" << endl;
+      return "";
+    }
+  }
+  return string(buffer);
+}
