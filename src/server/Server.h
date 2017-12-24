@@ -18,22 +18,14 @@
  * Defining a Server class to transfer information between the Client's.
  */
 class Server {
+ protected:
   int port;
   int serverSocket; // the socket's file descriptor
-  vector<GameRoom> gamesList;
   /**
    * The method handles the client, by calling a function to transfer
    * messages between two client's.
    * @param srcSocket The socket of the client sending the message.
    * @return A value to determine the running of the message loop.
-   */
-  int handleClient(int clientSocket);
-  /**
-   * The method reads the move from the client.
-   * @param readSocket The client's socket number.
-   * @param buffer The buffer to which the move will be read to.
-   * @param sizeBuffer The buffer's size.
-   * @return The move value, or end game value.
    */
   Point readMove(int readSocket, Point buffer);
   /**
@@ -67,6 +59,15 @@ class Server {
   /**
    * The method closes the socket.
    */
+  void *handleClient(int clientSocket);
+  /**
+   * The method reads the move from the client.
+   * @param readSocket The client's socket number.
+   * @param buffer The buffer to which the move will be read to.
+   * @param sizeBuffer The buffer's size.
+   * @return The move value, or end game value.
+   */
+  static void *handleClientHelper(void *tempArgs);
   void stop();
     string readString(int clientSocket);
   void connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen);
@@ -76,6 +77,7 @@ class Server {
   int inGamesList(string &gameName, int clientSocket);
   void closeGame(string &gameName);
   void playMove(string &gameName, int clientSocket, Point move);
+  int getAvialbleGames();
 };
 
 #endif //OTHELLO_SERVER_H

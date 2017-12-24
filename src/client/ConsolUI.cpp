@@ -132,3 +132,11 @@ void ConsolUI::remotePlayerMenu() const {
 void ConsolUI::printGameRoom(string game) const {
   cout << game << endl;
 }
+
+void ConsolUI::noAvailableGames() const {
+  cout << "No avialable games!" << endl;
+}
+
+void ConsolUI::getGames() const {
+  cout << "Please select game room:" << endl;
+}

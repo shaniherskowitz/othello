@@ -32,5 +32,6 @@ void ServerGames::joinGame(string gameName, int clientSocket) {
     vector<GameRoom>::iterator gameRoom = getGame(gameName);
     if (gameRoom != gamesList.end()) {
         gameRoom->connectPlayer2(clientSocket);
+        gameRoom->startGame();
     }
 }
