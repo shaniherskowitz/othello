@@ -12,9 +12,9 @@ using namespace std;
 
 class Command {
  protected:
-  Server *server;
+  ServerGames *server;
  public:
-  explicit Command(Server *server1);
+  explicit Command(ServerGames *server1);
   virtual void execute(vector<string> args) = 0;
   virtual ~Command() {}
 

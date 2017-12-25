@@ -4,7 +4,7 @@
 
 #include "CommandsManager.h"
 
-CommandsManager::CommandsManager(Server *server) {
+CommandsManager::CommandsManager(ServerGames *server) {
   commandsMap["start"] = new StartGameCommand(server);
   commandsMap["list_games"] = new ListGamesCommand(server);
   commandsMap["join"] = new JoinGameCommand(server);

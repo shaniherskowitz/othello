@@ -4,6 +4,6 @@
 
 #include "Command.h"
 
-Command::Command(Server *server1) {
+Command::Command(ServerGames *server1) {
   server = server1;
 }

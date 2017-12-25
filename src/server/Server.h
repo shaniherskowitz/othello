@@ -14,7 +14,6 @@
 #include "GameRoom.h"
 #include "ServerGames.h"
 
-
 /**
  * Defining a Server class to transfer information between the Client's.
  */
@@ -23,14 +22,6 @@ class Server {
  protected:
   int port;
   int serverSocket; // the socket's file descriptor
-  /**
-   * The method writes the move to the clients.
-   * @param writeSocket The client's socket number.
-   * @param buffer The buffer which the move will be written to.
-   * @param sizeBuffer The buffer's size.
-   * @return The move value, or the end game value.
-   */
-  int writeMove(int writeSocket, Point buffer, size_t sizeBuffer);
 
  public:
   /**
@@ -55,19 +46,8 @@ class Server {
    */
   static void *handleClientHelper(void *tempArgs);
   void stop();
-    //string readString(int clientSocket);
   void connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen);
-  int sendGamesList(int clientSocket);
-  int newGame(string &gameName, int clientSocket);
-  int joinGame(string &gameName, int clientSocket);
-  int inGamesList(string &gameName, int clientSocket);
-  void closeGame(string &gameName);
-  void playMove(int clientSocket, Point move);
-  int getAvialbleGames();
   string readString(int clientSocket);
-    void writeInt(int clientSocket, int num);
-    vector<GameRoom>::iterator getGame(string gameName);
 };
-//ServerGames Server::gamesList = ServerGames();
 
 #endif //OTHELLO_SERVER_H
