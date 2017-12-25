@@ -10,13 +10,13 @@ class RemotePlayerMenu {
   GameUI *print;
  public:
   RemotePlayerMenu(GameUI *print1);
-  Game* getGame();
+  Game *getGame();
   int connectToServer();
   void connectToRoom(int socket);
   void sendCommand(int socket, string command, string args);
-  void getGamesListHelper(int socket, string *gamesList);
-    void getGamesList(int socket);
-    int readNum(int socket);
+  void getGamesListHelper(int socket, int size);
+  void getGamesList(int socket);
+  int readNum(int socket);
 };
 
 #endif //OTHELLO_REMOTEPLAYERMENU_H

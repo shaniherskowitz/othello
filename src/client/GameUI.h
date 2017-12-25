@@ -97,7 +97,7 @@ class GameUI {
   virtual void printGameRoom(string game) const = 0;
   virtual void noAvailableGames() const = 0;
   virtual void getGames() const = 0;
-    virtual void getGameRooms(string gamesList[]) const = 0;
+  virtual void getGameRooms(vector<string> gamesList) const = 0;
 
 };
 

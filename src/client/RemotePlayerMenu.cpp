@@ -48,16 +48,17 @@ void RemotePlayerMenu::getGamesList(int socket) {
         exit(1);
     }
     string gamesList[numGames];
-    getGamesListHelper(socket, gamesList);
-    print->getGameRooms(gamesList);
+    getGamesListHelper(socket, numGames);
 }
 
-void RemotePlayerMenu::getGamesListHelper(int socket, string *gamesList) {
-    for (int i = 0; i < gamesList->size(); i++) {
+void RemotePlayerMenu::getGamesListHelper(int socket, int size) {
+    vector<string> gamesList;
+    for (int i = 0; i < size; i++) {
         int gameNameSize = readNum(socket);
-        char gameName[gameNameSize];
+        char gameName[50];
         for (int j = 0; j < gameNameSize; j++) {
-            ssize_t n = read(socket, &gameName[i], sizeof(char));
+            char current;
+            ssize_t n = read(socket, &current, sizeof(char));
             if (n == -1) {
                 print->socketWriteError();
                 exit(1);
@@ -66,9 +67,13 @@ void RemotePlayerMenu::getGamesListHelper(int socket, string *gamesList) {
                 //print->noAvailableGames();
                 exit(1);
             }
+            gameName[j] = current;
         }
-        gamesList[i] = string(gameName);
+        gameName[gameNameSize] = '\0';
+        gamesList.push_back(string(gameName));
     }
+    print->getGames();
+    print->getGameRooms(gamesList);
 }
 
 int RemotePlayerMenu::readNum(int socket) {

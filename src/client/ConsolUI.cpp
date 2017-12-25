@@ -141,8 +141,8 @@ void ConsolUI::getGames() const {
   cout << "Please select game room:" << endl;
 }
 
-void ConsolUI::getGameRooms(string *gamesList) const {
-  for (int i = 0; i < gamesList->size(); i++) {
+void ConsolUI::getGameRooms(vector<string> gamesList) const {
+  for (int i = 0; i < gamesList.size(); i++) {
     printGameRoom(gamesList[i]);
   }
 }

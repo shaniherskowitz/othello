@@ -80,8 +80,8 @@ void Server::start() {
 }
 
 void *Server::handleClientHelper(void *tempArgs) {
-  int clientSocket =  *((int *)tempArgs);
-  ((Server *)tempArgs)->handleClient(clientSocket);
+  int clientSocket = *((int *) tempArgs);
+  ((Server *) tempArgs)->handleClient(clientSocket);
   return tempArgs;
 }
 
@@ -119,7 +119,6 @@ int Server::handleClient(int clientSocket) {
   //return 1;
 }
 
-
 int Server::transferMessage(int readSocket, int writeSocket, Point moveVal) {
   Point result = readMove(readSocket, moveVal);
   int result2 = writeMove(writeSocket, result, sizeof(result));
@@ -155,19 +154,22 @@ int Server::writeMove(int writeSocket, Point buffer, size_t sizeBuffer) {
   return (int) w;
 }
 int Server::sendGamesList(int clientSocket) {
-  unsigned long  numWords = gamesList.size();
+  int numWords = getAvialbleGames();
   writeInt(clientSocket, numWords);
   vector<GameRoom>::iterator it = gamesList.begin();
   while (it != gamesList.end()) {
+    if (it->isStarted()) continue;
     string game = it->getName();
     unsigned long gameSize = game.size();
     writeInt(clientSocket, gameSize);
     for (int i = 0; i < gameSize; i++) {
-      ssize_t w = write(clientSocket, &game.at(i), sizeof(char));
+      char send = game[i];
+      ssize_t w = write(clientSocket, &send, sizeof(char));
       if (w == -1) {
         cout << "Error writing gamesList to player" << endl;
         return END_GAME;
-      } if (w == 0) {
+      }
+      if (w == 0) {
         cout << "Player disconnected" << endl;
         return END_GAME;
       }
@@ -230,7 +232,7 @@ int Server::inGamesList(string &gameName, int clientSocket) {
         cout << "Player disconnected" << endl;
         return END_GAME;
       }
-      return (int)i;
+      return (int) i;
     }
   }
   pthread_mutex_unlock(&count_mutex);
@@ -290,7 +292,8 @@ void Server::writeInt(int clientSocket, int num) {
   if (w == -1) {
     cout << "Error writing gamesList to player" << endl;
     return;
-  } if (w == 0) {
+  }
+  if (w == 0) {
     cout << "Player disconnected" << endl;
     return;
   }
