@@ -189,11 +189,11 @@ vector<GameRoom>::iterator Server::getGame(string gameName) {
 
 int Server::getAvialbleGames() {
   int count = 0;
-  pthread_mutex_lock(&count_mutex);
+  //pthread_mutex_lock(&count_mutex);
   for (int i = 0; i < gamesList.size(); ++i) {
     if (!gamesList[i].isStarted()) count++;
   }
-  pthread_mutex_unlock(&count_mutex);
+ // pthread_mutex_unlock(&count_mutex);
   return count;
 }
 int Server::newGame(string &gameName, int clientSocket) {
