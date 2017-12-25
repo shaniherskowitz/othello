@@ -115,7 +115,10 @@ int Server::sendGamesList(int clientSocket) {
   writeInt(clientSocket, numWords);
   vector<GameRoom>::iterator it = gamesList.begin();
   while (it != gamesList.end()) {
-    if (it->isStarted()) continue;
+    if (it->isStarted()) {
+      it++;
+      continue;
+    }
     string game = it->getName();
     unsigned long gameSize = game.size();
     writeInt(clientSocket, gameSize);
