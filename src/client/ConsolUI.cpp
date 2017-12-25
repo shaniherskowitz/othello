@@ -146,3 +146,15 @@ void ConsolUI::getGameRooms(vector<string> gamesList) const {
     printGameRoom(gamesList[i]);
   }
 }
+
+void ConsolUI::noOpenGames() const {
+  cout << "No open games" << endl;
+}
+
+void ConsolUI::gameExists() const {
+  cout << "Game chosen already exists! Please enter another game:" << endl;
+}
+
+void ConsolUI::gameNotExists() const {
+  cout << "Game Doesn't exists! Please enter another game:" << endl;
+}

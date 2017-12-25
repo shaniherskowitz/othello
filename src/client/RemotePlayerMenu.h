@@ -14,9 +14,14 @@ class RemotePlayerMenu {
   int connectToServer();
   void connectToRoom(int socket);
   void sendCommand(int socket, string command, string args);
-  void getGamesListHelper(int socket, int size);
-  void getGamesList(int socket);
+  void getGamesListHelper(int socket, int size, vector<string> *gamesList);
+  void getGamesList(int socket, vector<string> *gamesList);
   int readNum(int socket);
+    int getChoice();
+    void getAvailableGames(int socket);
+    void sendStartCommand(int socket, vector<string> gamesList);
+    bool isInGamesList(vector<string> gamesList, string gameName);
+    void sendJoinCommand(int socket, vector<string> gamesList);
 };
 
 #endif //OTHELLO_REMOTEPLAYERMENU_H

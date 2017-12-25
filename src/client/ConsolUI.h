@@ -36,6 +36,9 @@ class ConsolUI : public GameUI {
   virtual void noAvailableGames() const;
   virtual void getGames() const;
     virtual void getGameRooms(vector<string> gamesList) const;
+    virtual void noOpenGames() const ;
+    virtual void gameExists() const ;
+    virtual void gameNotExists() const ;
 };
 
 #endif //OTHELLO_CONSOLUI_H
