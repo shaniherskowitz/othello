@@ -54,9 +54,20 @@ void RemotePlayer::writeMove(const Move move, GameUI *print) {
   Point p(x, y);
   string play = "play";
   string command = play + " " + p.toString();
-  ssize_t n = write(socket, &command, sizeof(command));
+  
+  int sendSize = (int)command.size();
+  ssize_t n = write(socket, &sendSize, sizeof(int));
   if (n == -1) {
     print->socketWriteError();
     exit(1);
   }
+  for (int i = 0; i < sendSize; i++) {
+    char c = command[i];
+    n = write(socket, &c, sizeof(char));
+    if (n == -1) {
+      print->socketWriteError();
+      exit(1);
+    }
+  }
 }
+

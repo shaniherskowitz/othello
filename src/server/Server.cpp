@@ -119,7 +119,7 @@ int Server::handleClient(int clientSocket) {
   //return 1;
 }
 
-int Server::transferMessage(int readSocket, int writeSocket, Point moveVal) {
+/*int Server::transferMessage(int readSocket, int writeSocket, Point moveVal) {
   Point result = readMove(readSocket, moveVal);
   int result2 = writeMove(writeSocket, result, sizeof(result));
   if (result.getX() == END_GAME && result2 == END_GAME) return END_GAME;
@@ -138,7 +138,7 @@ Point Server::readMove(int readSocket, Point buffer) {
     return Point(END_GAME, END_GAME);
   }
   return buffer;
-}
+}*/
 
 int Server::writeMove(int writeSocket, Point buffer, size_t sizeBuffer) {
   if (buffer.getX() == END_GAME) return END_GAME;
@@ -238,11 +238,16 @@ int Server::inGamesList(string &gameName, int clientSocket) {
   pthread_mutex_unlock(&count_mutex);
   return FREE_ROOM;
 }
-void Server::playMove(string &gameName, int clientSocket, Point move) {
-  vector<GameRoom>::iterator gameRoom = getGame(gameName);
-  if (gameRoom != gamesList.end() && gameRoom->playingInGame(clientSocket)) {
-    transferMessage(clientSocket, gameRoom->getOtherSocket(clientSocket), move);
+void Server::playMove(int clientSocket, Point move) {
+  //vector<GameRoom>::iterator gameRoom = getGame(gameName);
+  for(int i = 0; i< gamesList.size(); i++) {
+    if(gamesList[i].playingInGame(clientSocket)) {
+      GameRoom *gameRoom = &gamesList[i];
+      writeMove(gameRoom->getOtherSocket(clientSocket), move, sizeof(move));
+      break;
+    }
   }
+
   /*int gameToPlay = inGamesList(gameName, clientSocket);
   if (gameToPlay != FREE_ROOM && gameToPlay != END_GAME)
     transferMessage(clientSocket, gamesList[gameToPlay].getOtherSocket(clientSocket), move);*/

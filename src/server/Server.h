@@ -29,7 +29,7 @@ class Server {
    * @param srcSocket The socket of the client sending the message.
    * @return A value to determine the running of the message loop.
    */
-  Point readMove(int readSocket, Point buffer);
+  //Point readMove(int readSocket, Point buffer);
   /**
    * The method writes the move to the clients.
    * @param writeSocket The client's socket number.
@@ -46,7 +46,7 @@ class Server {
    * @param buffer The message being transferred.
    * @return The message value or a value to stp communication.
    */
-  int transferMessage(int readSocket, int writeSocket, Point moveVal);
+  //int transferMessage(int readSocket, int writeSocket, Point moveVal);
 
  public:
   /**
@@ -78,7 +78,7 @@ class Server {
   int joinGame(string &gameName, int clientSocket);
   int inGamesList(string &gameName, int clientSocket);
   void closeGame(string &gameName);
-  void playMove(string &gameName, int clientSocket, Point move);
+  void playMove(int clientSocket, Point move);
   int getAvialbleGames();
   string readString(int clientSocket);
     void writeInt(int clientSocket, int num);

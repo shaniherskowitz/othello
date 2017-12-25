@@ -37,6 +37,6 @@ bool Point::operator<=(const Point &point) const {
 }
 string Point::toString() {
   std::ostringstream temp;
-  temp << "Point(" << x << ", " << y << ")";
+  temp << "(" << x << ", " << y << ")";
   return temp.str();
 }

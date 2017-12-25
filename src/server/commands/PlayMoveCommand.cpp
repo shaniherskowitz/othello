@@ -6,14 +6,13 @@
 #include <sstream>
 void PlayMoveCommand::execute(vector<string> args) {
   if (args.size() != 4) return;
-  stringstream geek(args[1]);
+  stringstream geek(args[0]);
   int socket = 0;
   geek >> socket;
-  stringstream geek1(args[2]);
-  int x = 0;
-  geek1 >> x;
-  stringstream geek2(args[2]);
-  int y = 0;
-  geek2 >> y;
-  server->playMove(args[0],socket, Point(x, y));
+  char c = args[2][1];
+  int x = c - '0';
+  char c2 = args[3][0];
+  int y = c2 - '0';
+
+  server->playMove(socket, Point(x, y));
 }
