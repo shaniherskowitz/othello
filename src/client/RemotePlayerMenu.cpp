@@ -195,8 +195,8 @@ Game* RemotePlayerMenu::getGame() {
     }
     if (player == 0)
         return new Game(new RemotePlayer(Tile(X), socket, true),
-                        new RemotePlayer(Tile(O), socket, false), print, 8);
+                        new RemotePlayer(Tile(O), socket, false), print, 3);
     else
         return new Game(new RemotePlayer(Tile(X), socket, false),
-                        new RemotePlayer(Tile(O), socket, true), print, 8);
+                        new RemotePlayer(Tile(O), socket, true), print, 3);
 }

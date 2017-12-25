@@ -24,13 +24,6 @@ class Server {
   int port;
   int serverSocket; // the socket's file descriptor
   /**
-   * The method handles the client, by calling a function to transfer
-   * messages between two client's.
-   * @param srcSocket The socket of the client sending the message.
-   * @return A value to determine the running of the message loop.
-   */
-  //Point readMove(int readSocket, Point buffer);
-  /**
    * The method writes the move to the clients.
    * @param writeSocket The client's socket number.
    * @param buffer The buffer which the move will be written to.
@@ -38,15 +31,6 @@ class Server {
    * @return The move value, or the end game value.
    */
   int writeMove(int writeSocket, Point buffer, size_t sizeBuffer);
-  /**
-   * The method transfer's the move from the readSocket client to the
-   * writeSocket client.
-   * @param readSocket The client's of which we're reading from socket
-   * @param writeSocket The client's of which we're writing to socket.
-   * @param buffer The message being transferred.
-   * @return The message value or a value to stp communication.
-   */
-  //int transferMessage(int readSocket, int writeSocket, Point moveVal);
 
  public:
   /**

@@ -13,6 +13,10 @@ void PlayMoveCommand::execute(vector<string> args) {
   int x = c - '0';
   char c2 = args[3][0];
   int y = c2 - '0';
+  if (x > 9 || x < 0 || y > 9 || y < 0) {
+    x = -1;
+    y = -1;
+  }
 
   server->playMove(socket, Point(x, y));
 }
