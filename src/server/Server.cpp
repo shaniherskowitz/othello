@@ -15,7 +15,6 @@
 #include <cstring>
 
 pthread_mutex_t count_mutex;
-#define THREADS_NUM 10
 vector<GameRoom> gamesList;
 //ServerGames gamesList = ServerGames();
 using namespace std;
@@ -23,19 +22,22 @@ using namespace std;
 
 Server::Server(int port) : port(port), serverSocket(0) {}
 void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen) {
-  pthread_t connectionThreads[THREADS_NUM];
+  //pthread_t connectionThreads[THREADS_NUM];
+  vector<pthread_t> connectionThreads;
   //int clientSockets[THREADS_NUM];
-  for (int i = 0; i < THREADS_NUM; i++) {
+  while(true) {
     cout << "Waiting for  client connections..." << endl;
     // Accept a new client connection
     int clientSocket = accept(serverSocket, (struct sockaddr *) &playerAddress1, &playerAddressLen);
     if (clientSocket == -1) throw "Error on accept";
     cout << "Client connected" << endl;
-    int rc = pthread_create(&connectionThreads[i], NULL, &Server::handleClientHelper, &clientSocket);
+    pthread_t currThread;
+    int rc = pthread_create(&currThread, NULL, &Server::handleClientHelper, &clientSocket);
     if (rc != 0) {
       cout << "Error: unable to create thread, " << rc << endl;
       exit(-1);
     }
+    connectionThreads.push_back(currThread);
 
     //close(clientSocket);
   }
@@ -75,7 +77,6 @@ void *Server::handleClientHelper(void *tempArgs) {
 
 // Handle requests from a specific client
 int Server::handleClient(int clientSocket) {
-  pthread_mutex_lock(&count_mutex);
   //int s = gamesList.size();
   stringstream ss;
   ss << clientSocket;
@@ -90,7 +91,6 @@ int Server::handleClient(int clientSocket) {
     istringstream iss(command);
     copy(istream_iterator<std::string>(iss), istream_iterator<string>(), back_inserter(args));
     commandsManager.executeCommand(args[1], args);
-    pthread_mutex_unlock(&count_mutex);
   }
 
   //return 1;
@@ -159,15 +159,15 @@ int Server::newGame(string &gameName, int clientSocket) {
     write(clientSocket, &gameExists, sizeof(gameExists));
   }
   GameRoom *gameRoom = new GameRoom(clientSocket, gameName);
-  //pthread_mutex_lock(&count_mutex);
+  pthread_mutex_trylock(&count_mutex);
   gamesList.push_back(*gameRoom);
-  //pthread_mutex_unlock(&count_mutex);
+  pthread_mutex_unlock(&count_mutex);
 }
 
 int Server::joinGame(string &gameName, int clientSocket) {
   vector<GameRoom>::iterator gameRoom = getGame(gameName);
   if (gameRoom != gamesList.end() && !gameRoom->isStarted()) {
-    pthread_mutex_lock(&count_mutex);
+    pthread_mutex_trylock(&count_mutex);
     gameRoom->connectPlayer2(clientSocket);
     gameRoom->startGame();
     pthread_mutex_unlock(&count_mutex);
@@ -176,7 +176,6 @@ int Server::joinGame(string &gameName, int clientSocket) {
 
 int Server::inGamesList(string &gameName, int clientSocket) {
   int problem = -1;
-  pthread_mutex_lock(&count_mutex);
   unsigned long size = gamesList.size();
   for (unsigned long i = 0; i < size; i++) { //not working why??
     if (gamesList[i].getName() == gameName) {
@@ -192,7 +191,6 @@ int Server::inGamesList(string &gameName, int clientSocket) {
       return (int) i;
     }
   }
-  pthread_mutex_unlock(&count_mutex);
   return FREE_ROOM;
 }
 void Server::playMove(int clientSocket, Point move) {
