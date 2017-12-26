@@ -9,6 +9,16 @@ ServerGames* ServerGames::Instance() {
   return instance;
 }
 
+ServerGames::~ServerGames() {
+  delete instance;
+}
+
+void ServerGames::deleteInstance() {
+  ServerGames* instance = Instance();
+  delete instance;
+  instance = NULL;
+}
+
 vector<GameRoom>::iterator ServerGames::getGame(string gameName) {
   vector<GameRoom>::iterator it = gamesList.begin();
   while (it != gamesList.end()) {
@@ -34,6 +44,14 @@ void ServerGames::eraseGame(string gameName) {
   if (gameRoom != gamesList.end()) {
     gameRoom->closeGame();
     gamesList.erase(gameRoom);
+  }
+}
+
+void ServerGames::closeGames() {
+  vector<GameRoom>::iterator it = gamesList.begin();
+  if (it != gamesList.end()) {
+    it->closeGame();
+    it = gamesList.erase(it);
   }
 }
 

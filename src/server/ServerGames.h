@@ -10,8 +10,11 @@ class ServerGames {
     ServerGames() {};
     ServerGames(ServerGames& serverGames1) {};
     ServerGames& operator=(ServerGames const&){};
+    ~ServerGames();
  public:
   static ServerGames *Instance();
+    static void deleteInstance();
+    void closeGames();
   vector<GameRoom>::iterator getGame(string gameName);
   void eraseGame(string gameName);
   void newGame(string gameName, int clientSocket);
