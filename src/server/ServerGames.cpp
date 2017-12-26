@@ -2,12 +2,10 @@
 #include "ServerGames.h"
 pthread_mutex_t count_mutex;
 
+ServerGames *ServerGames::instance = NULL;
 
-ServerGames::ServerGames() {}
-ServerGames* ServerGames::instance = NULL;
-
-ServerGames* ServerGames::Instance() {
-  if (!instance)   instance = new ServerGames();
+ServerGames *ServerGames::Instance() {
+  if (!instance) instance = new ServerGames();
   return instance;
 }
 
@@ -16,7 +14,7 @@ ServerGames::~ServerGames() {
 }
 
 void ServerGames::deleteInstance() {
-  ServerGames* instance = Instance();
+  ServerGames *instance = Instance();
   delete instance;
   instance = NULL;
 }
@@ -54,6 +52,7 @@ void ServerGames::closeGames() {
   if (it != gamesList.end()) {
     it->closeGame();
     it = gamesList.erase(it);
+    it++;
   }
 }
 
@@ -82,14 +81,7 @@ int ServerGames::sendGamesList(int clientSocket) {
     for (int i = 0; i < gameSize; i++) {
       char send = game[i];
       ssize_t w = write(clientSocket, &send, sizeof(char));
-      if (w == -1) {
-        cout << "Error writing gamesList to player" << endl;
-        return END_GAME;
-      }
-      if (w == 0) {
-        cout << "Player disconnected" << endl;
-        return END_GAME;
-      }
+      checkWriteErrors((int) w, "Error writing gamesList to player");
     }
     it++;
   }
@@ -104,8 +96,8 @@ int ServerGames::getAvailableGames() {
 }
 
 void ServerGames::playMove(int clientSocket, Point move) {
-  for(int i = 0; i < gamesList.size(); i++) {
-    if(gamesList[i].playingInGame(clientSocket)) {
+  for (int i = 0; i < gamesList.size(); i++) {
+    if (gamesList[i].playingInGame(clientSocket)) {
       GameRoom *gameRoom = &gamesList[i];
       writeMove(gameRoom->getOtherSocket(clientSocket), move, sizeof(move));
       break;
@@ -116,29 +108,43 @@ void ServerGames::playMove(int clientSocket, Point move) {
 int ServerGames::writeMove(int writeSocket, Point buffer, size_t sizeBuffer) {
   if (buffer.getX() == END_GAME) return END_GAME;
   ssize_t w = write(writeSocket, &buffer, sizeBuffer);
-  if (w == -1) {
-    cout << "Error getting move from player." << endl;
-    return END_GAME;
-  }
-  if (w == 0) {
-    cout << "Both Players disconnected" << endl;
-    return END_GAME;
-  }
+  checkWriteErrors((int) w, "Error getting move from player");
   return (int) w;
 }
 
 void ServerGames::writeInt(int clientSocket, int num) {
   ssize_t w = write(clientSocket, &num, sizeof(num));
-  if (w == -1) {
-    cout << "Error writing gamesList to player" << endl;
-    return;
-  }
-  if (w == 0) {
-    cout << "Player disconnected" << endl;
-    return;
-  }
+  checkWriteErrors((int) w, "Error writing gamesList to player");
+
 }
 
 int ServerGames::size() {
-  return (int)gamesList.size();
+  return (int) gamesList.size();
+}
+
+int ServerGames::checkWriteErrors(int numCheck, string error) {
+  if (numCheck == -1) {
+    cout << error << endl;
+    return numCheck;
+  }
+  if (numCheck == 0) {
+    cout << "Player disconnected" << endl;
+    return numCheck;
+  }
+}
+
+int ServerGames::getPlayerCount() {
+  int count = 0;
+  for (int i = 0; i < gamesList.size(); ++i) {
+    if (gamesList[i].isStarted()) count += 2;
+    count += 1;
+  }
+  return count;
+}
+
+GameRoom ServerGames::findClientGame(int socket) {
+  for (int i = 0; i < gamesList.size(); ++i) {
+    if (gamesList[i].playingInGame(socket)) return gamesList[i];
+  }
+  //return NULL;
 }

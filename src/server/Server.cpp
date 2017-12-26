@@ -2,8 +2,6 @@
 #include <strings.h>
 #include "Server.h"
 #define END_GAME -2
-#define FREE_ROOM -5
-#define IN_PROGRESS 0
 #include "commands/CommandsManager.h"
 #include "ServerGames.h"
 #include <sstream>
@@ -20,7 +18,6 @@ using namespace std;
 Server::Server(int port) : port(port), serverSocket(0) {}
 void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen) {
   vector<pthread_t> connectionThreads;
-
   while (!exitConnectionThreads()) {
     cout << "Waiting for  client connections..." << endl;
     // Accept a new client connection
@@ -98,30 +95,29 @@ string Server::readString(int clientSocket) {
   int commandSize;
   char buffer[50];
   ssize_t r = read(clientSocket, &commandSize, sizeof(int));
-  if (r == -1) {
-    cout << "Error reading command from player." << endl;
-    return "";
-  }
-  if (r == 0) {
-    cout << "player disconnected" << endl;
-    return "";
-  }
+  int k = readError((int) r);
+  if (k != 1) return "";
+
   for (int i = 0; i < commandSize; i++) {
     r = read(clientSocket, &buffer[i], sizeof(char));
-    if (r == -1) {
-      cout << "Error reading command from player." << endl;
-      return "";
-    }
-    if (r == 0) {
-      cout << "player disconnected" << endl;
-      return "";
-    }
+    int k = readError((int) r);
+    if (k != 1) return "";
   }
   buffer[commandSize] = '\0';
   return string(buffer);
 }
-
-void* Server::exitCondition() {
+int Server::readError(int numCheck) {
+  if (numCheck == -1) {
+    cout << "Error reading command from player." << endl;
+    return numCheck;
+  }
+  if (numCheck == 0) {
+    cout << "player disconnected" << endl;
+    return numCheck;
+  }
+  return 1;
+}
+void *Server::exitCondition() {
   //return false;
 }
 

@@ -23,9 +23,8 @@ void RemotePlayerMenu::checkSocketConnection(ssize_t bytesWritten) {
         print->socketWriteError();
         exit(1);
     }
-    if (bytesWritten == 0) {
-        exit(1);
-    }
+    if (bytesWritten == 0) exit(1);
+
 }
 
 void RemotePlayerMenu::sendStartCommand(int socket, vector<string> gamesList) {
@@ -108,8 +107,8 @@ int RemotePlayerMenu::readNum(int socket) {
 }
 
 void RemotePlayerMenu::sendCommand(int socket, string command, string args) {
-    string send = command + " " + args + "\0";
-    int sendSize = send.size();
+    string send = command + " " + args;
+    int sendSize = (int)send.size();
     ssize_t n = write(socket, &sendSize, sizeof(int));
     checkSocketConnection(n);
     for (int i = 0; i < sendSize; i++) {
@@ -133,9 +132,7 @@ int RemotePlayerMenu::connectToServer() {
             stringstream geek(x); //not sure we are allowed to use
             geek >> port;
         }
-        if (x == "serverIP:") {
-            inFile >> x;
-        }
+        if (x == "serverIP:") inFile >> x;
     }
     const char *IP = x.c_str();
     inFile.close();

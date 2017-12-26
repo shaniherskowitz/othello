@@ -5,16 +5,16 @@
 #include "GameRoom.h"
 
 class ServerGames {
-    static ServerGames *instance;
+  static ServerGames *instance;
   vector<GameRoom> gamesList;
-    ServerGames() {};
-    ServerGames(ServerGames& serverGames1) {};
-    ServerGames& operator=(ServerGames const&){};
-    ~ServerGames();
+  ServerGames() {};
+  ServerGames(ServerGames &serverGames1) {};
+  ServerGames &operator=(ServerGames const &) {};
+  ~ServerGames();
  public:
   static ServerGames *Instance();
-    static void deleteInstance();
-    void closeGames();
+  static void deleteInstance();
+  void closeGames();
   vector<GameRoom>::iterator getGame(string gameName);
   void eraseGame(string gameName);
   void newGame(string gameName, int clientSocket);
@@ -32,6 +32,9 @@ class ServerGames {
   int writeMove(int writeSocket, Point buffer, size_t sizeBuffer);
   int getAvailableGames();
   int size();
+  int checkWriteErrors(int numCheck, string error);
+  int getPlayerCount();
+  GameRoom findClientGame(int socket);
 };
 
 #endif //OTHELLO_SERVERGAMES_H
