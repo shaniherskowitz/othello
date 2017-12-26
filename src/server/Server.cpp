@@ -35,8 +35,8 @@ void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t player
     //close(clientSocket);
     //pthread_exit(exitCondition());
   }
+  stop();
   pthread_exit(NULL);
-
 }
 
 void Server::start() {
