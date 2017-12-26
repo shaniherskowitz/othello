@@ -11,9 +11,10 @@
 #include "JoinGameCommand.h"
 #include "PlayMoveCommand.h"
 #include "EndGameCommand.h"
+#include "ExitServerCommand.h"
 class CommandsManager {
  public:
-  CommandsManager(ServerGames *server);
+  explicit CommandsManager(ServerGames *server);
   ~CommandsManager();
   void executeCommand(string command, vector<string> args);
  private:

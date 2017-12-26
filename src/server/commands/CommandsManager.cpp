@@ -10,6 +10,7 @@ CommandsManager::CommandsManager(ServerGames *server) {
   commandsMap["join"] = new JoinGameCommand(server);
   commandsMap["play"] = new PlayMoveCommand(server);
   commandsMap["close"] = new EndGameCommand(server);
+  commandsMap["exit"] = new ExitServerCommand(server);
 }
 
 void CommandsManager::executeCommand(string command, vector<string> args) {
