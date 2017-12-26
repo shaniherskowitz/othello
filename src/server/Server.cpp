@@ -19,7 +19,8 @@ using namespace std;
 Server::Server(int port) : port(port), serverSocket(0) {}
 void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen) {
   vector<pthread_t> connectionThreads;
-  while (!exitConnectionThreads()) {
+  stopServer = false;
+  while (!stopServer) {
     cout << "Waiting for  client connections..." << endl;
     // Accept a new client connection
     int clientSocket = accept(serverSocket, (struct sockaddr *) &playerAddress1, &playerAddressLen);
@@ -119,8 +120,8 @@ int Server::readError(int numCheck) {
   return 1;
 }
 
-void *Server::exitCondition() {
-  //return false;
+void Server::exitCondition() {
+  stopServer = true;
 }
 
 bool Server::exitConnectionThreads() {

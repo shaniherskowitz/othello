@@ -18,10 +18,10 @@
  * Defining a Server class to transfer information between the Client's.
  */
 class Server {
-
- protected:
+ private:
   int port;
   int serverSocket; // the socket's file descriptor
+  static bool stopServer;
 
  public:
   /**
@@ -45,7 +45,7 @@ class Server {
    * @return The move value, or end game value.
    */
   static void *handleClientHelper(void *tempArgs);
-  static void *exitCondition();
+  static void exitCondition();
   bool exitConnectionThreads();
   void stop();
   void connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen);
