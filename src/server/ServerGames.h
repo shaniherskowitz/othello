@@ -5,9 +5,16 @@
 #include "GameRoom.h"
 
 class ServerGames {
+    static ServerGames *instance;
   vector<GameRoom> gamesList;
+    ServerGames() {};
+    ServerGames(ServerGames& serverGames1) {};
+    ServerGames& operator=(ServerGames const&){};
+    ~ServerGames();
  public:
-  ServerGames();
+  static ServerGames *Instance();
+    static void deleteInstance();
+    void closeGames();
   vector<GameRoom>::iterator getGame(string gameName);
   void eraseGame(string gameName);
   void newGame(string gameName, int clientSocket);
@@ -23,7 +30,7 @@ class ServerGames {
    * @return The move value, or the end game value.
    */
   int writeMove(int writeSocket, Point buffer, size_t sizeBuffer);
-  int getAvialbleGames();
+  int getAvailableGames();
   int size();
 };
 

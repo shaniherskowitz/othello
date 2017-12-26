@@ -4,6 +4,22 @@ pthread_mutex_t count_mutex;
 
 
 ServerGames::ServerGames() {}
+ServerGames* ServerGames::instance = NULL;
+
+ServerGames* ServerGames::Instance() {
+  if (!instance)   instance = new ServerGames();
+  return instance;
+}
+
+ServerGames::~ServerGames() {
+  delete instance;
+}
+
+void ServerGames::deleteInstance() {
+  ServerGames* instance = Instance();
+  delete instance;
+  instance = NULL;
+}
 
 vector<GameRoom>::iterator ServerGames::getGame(string gameName) {
   vector<GameRoom>::iterator it = gamesList.begin();
@@ -33,6 +49,14 @@ void ServerGames::eraseGame(string gameName) {
   }
 }
 
+void ServerGames::closeGames() {
+  vector<GameRoom>::iterator it = gamesList.begin();
+  if (it != gamesList.end()) {
+    it->closeGame();
+    it = gamesList.erase(it);
+  }
+}
+
 void ServerGames::joinGame(string gameName, int clientSocket) {
   vector<GameRoom>::iterator gameRoom = getGame(gameName);
   if (gameRoom != gamesList.end() && !gameRoom->isStarted()) {
@@ -44,7 +68,7 @@ void ServerGames::joinGame(string gameName, int clientSocket) {
 }
 
 int ServerGames::sendGamesList(int clientSocket) {
-  int numWords = getAvialbleGames();
+  int numWords = getAvailableGames();
   writeInt(clientSocket, numWords);
   vector<GameRoom>::iterator it = gamesList.begin();
   while (it != gamesList.end()) {
@@ -71,7 +95,7 @@ int ServerGames::sendGamesList(int clientSocket) {
   }
 }
 
-int ServerGames::getAvialbleGames() {
+int ServerGames::getAvailableGames() {
   int count = 0;
   for (int i = 0; i < gamesList.size(); ++i) {
     if (!gamesList[i].isStarted()) count++;

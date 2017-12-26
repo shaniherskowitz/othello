@@ -45,6 +45,8 @@ class Server {
    * @return The move value, or end game value.
    */
   static void *handleClientHelper(void *tempArgs);
+    static void *exitCondition();
+    bool exitConnectionThreads();
   void stop();
   void connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen);
   string readString(int clientSocket);
