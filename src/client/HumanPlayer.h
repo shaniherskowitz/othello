@@ -15,7 +15,7 @@ class HumanPlayer : public Player {
   * @param gameUI The game gameUI.
   * @return The player's chosen move.
   */
-  Move getUserInput(GameUI *gameUI) const;
+  virtual Move getUserInput(GameUI *gameUI) const;
 
   /**
 * The method checks if the given moves is an optional move.

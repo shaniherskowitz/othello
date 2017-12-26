@@ -63,6 +63,8 @@ class RemotePlayer : public HumanPlayer {
    */
   Move getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board);
 
+    virtual Move getUserInput(GameUI *print) const;
+
 };
 
 #endif //OTHELLO_REMOTEPLAYER_H

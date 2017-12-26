@@ -20,6 +20,10 @@ Move RemotePlayer::readMove(GameUI *print) {
   print->waitingForPlayerMove();
   Point value;
   ssize_t n = read(socket, &value, sizeof(value));
+  if (value == Point(-2, -2)) {
+    print->displayMsg("Server is disconnecting");
+    exit(1);
+  }
   if (n == -1) {
     print->socketReadError();
     exit(1);
@@ -43,7 +47,7 @@ Move RemotePlayer::writeMove(GameUI *print, vector<Move> movesList) {
     print->printMoves(getSymbolMeaning(), movesList);
     move = getUserInput(print);
   }
-  writeMove(move, print);
+  if (move.getPoint() != Point(-2, -2)) writeMove(move, print);
   return move;
 
 }
@@ -51,10 +55,13 @@ Move RemotePlayer::writeMove(GameUI *print, vector<Move> movesList) {
 void RemotePlayer::writeMove(const Move move, GameUI *print) {
   int x = move.getPoint().getX();
   int y = move.getPoint().getY();
+  string command;
   Point p(x, y);
-  string play = "play";
-  string command = play + " " + p.toString();
-  
+  if (p == Point(-2, -2)) command = "exit";
+  else {
+    string play = "play";
+    command = play + " " + p.toString();
+  }
   int sendSize = (int)command.size();
   ssize_t n = write(socket, &sendSize, sizeof(int));
   if (n == -1) {
@@ -69,5 +76,20 @@ void RemotePlayer::writeMove(const Move move, GameUI *print) {
       exit(1);
     }
   }
+}
+
+Move RemotePlayer::getUserInput(GameUI *print) const {
+  print->displayMsg("Please enter your move - row col: (to exit disconnect server enter -1.");
+  int i, j;
+  while (true) {
+    cin >> i;
+    if (i == -1) return Move(Point(-2, -2));
+    cin >> j;
+    if (!cin.fail()) break;
+    print->problemWithInput();
+    cin.clear();
+    cin.ignore(std::numeric_limits<int>::max(), '\n');
+  }
+  return Move(Point(i - 1, j - 1));
 }
 
