@@ -18,6 +18,7 @@ class RemotePlayerMenu {
   void getGamesList(int socket, vector<string> *gamesList);
   int readNum(int socket);
     int getChoice();
+    void checkSocketConnection(ssize_t bytesWritten);
     void getAvailableGames(int socket);
     void sendStartCommand(int socket, vector<string> gamesList);
     bool isInGamesList(vector<string> gamesList, string gameName);

@@ -18,6 +18,16 @@ void RemotePlayerMenu::connectToRoom(int socket) {
     if (choice == 2) sendJoinCommand(socket, gamesList);
 }
 
+void RemotePlayerMenu::checkSocketConnection(ssize_t bytesWritten) {
+    if (bytesWritten == -1) {
+        print->socketWriteError();
+        exit(1);
+    }
+    if (bytesWritten == 0) {
+        exit(1);
+    }
+}
+
 void RemotePlayerMenu::sendStartCommand(int socket, vector<string> gamesList) {
     string command = "start";
     string gameName;
@@ -66,87 +76,45 @@ int RemotePlayerMenu::getChoice() {
     }
     return choice;
 }
-
-void RemotePlayerMenu::getAvailableGames(int socket) {
-
-}
-
 void RemotePlayerMenu::getGamesList(int socket, vector<string> *gamesList) {
     string command = "list_games";
     sendCommand(socket, command, "");
     unsigned numGames;
     ssize_t n = read(socket, &numGames, sizeof(numGames));
-    if (n == -1) {
-        print->socketWriteError();
-        exit(1);
-    }
-    //string gamesList[numGames];
-    //gamesList.reserve(numGames);
+    checkSocketConnection(n);
     getGamesListHelper(socket, numGames, gamesList);
 }
 
 void RemotePlayerMenu::getGamesListHelper(int socket, int size, vector<string> *gamesList) {
-    //vector<string> gamesList;
-    //string tempGameList[size];
     for (int i = 0; i < size; i++) {
         int gameNameSize = readNum(socket);
         char gameName[50];
         for (int j = 0; j < gameNameSize; j++) {
             char current;
             ssize_t n = read(socket, &current, sizeof(char));
-            if (n == -1) {
-                print->socketWriteError();
-                exit(1);
-            }
-            if (n == 0) {
-                //print->noAvailableGames();
-                exit(1);
-            }
+            checkSocketConnection(n);
             gameName[j] = current;
         }
         gameName[gameNameSize] = '\0';
-        //tempGameList[i] = string(gameName);
         gamesList->push_back(string(gameName));
     }
-    //print->getGames();
-    //print->getGameRooms(gamesList);
-    //gamesList.insert(gamesList.begin() , tempGameList , tempGameList + size ) ;
 }
 
 int RemotePlayerMenu::readNum(int socket) {
     int num;
     ssize_t n = read(socket, &num, sizeof(num));
-    if (n == -1) {
-        print->socketWriteError();
-        exit(1);
-    }
-    if (num == 0) {
-        //print->noAvailableGames();
-        exit(1);
-    }
+    checkSocketConnection(n);
     return num;
 }
 
 void RemotePlayerMenu::sendCommand(int socket, string command, string args) {
-    /*string send = command + " " + args;
-    ssize_t n = write(socket, &send, send.size() + 1);
-    if (n == -1) {
-      print->socketWriteError();
-      exit(1);
-    }*/
     string send = command + " " + args + "\0";
     int sendSize = send.size();
     ssize_t n = write(socket, &sendSize, sizeof(int));
-    if (n == -1) {
-        print->socketWriteError();
-        exit(1);
-    }
+    checkSocketConnection(n);
     for (int i = 0; i < sendSize; i++) {
         n = write(socket, &send.at(i), sizeof(char));
-        if (n == -1) {
-            print->socketWriteError();
-            exit(1);
-        }
+        checkSocketConnection(n);
     }
 }
 
@@ -189,10 +157,7 @@ Game* RemotePlayerMenu::getGame() {
     int player;
     print->waitingForPlayer();
     n = read(socket, &player, sizeof(int));
-    if (n == -1) {
-        print->socketReadError();
-        exit(-1);
-    }
+    checkSocketConnection(n);
     if (player == 0)
         return new Game(new RemotePlayer(Tile(X), socket, true),
                         new RemotePlayer(Tile(O), socket, false), print, 3);
