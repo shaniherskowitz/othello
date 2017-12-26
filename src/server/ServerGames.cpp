@@ -2,6 +2,7 @@
 #include "ServerGames.h"
 pthread_mutex_t count_mutex;
 
+
 ServerGames::ServerGames() {}
 
 vector<GameRoom>::iterator ServerGames::getGame(string gameName) {
