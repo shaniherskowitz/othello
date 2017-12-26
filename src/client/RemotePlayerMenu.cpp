@@ -158,7 +158,9 @@ Game* RemotePlayerMenu::getGame() {
     if (player == 0)
         return new Game(new RemotePlayer(Tile(X), socket, true),
                         new RemotePlayer(Tile(O), socket, false), print, 3);
-    else
+    else if (player == 1)
         return new Game(new RemotePlayer(Tile(X), socket, false),
                         new RemotePlayer(Tile(O), socket, true), print, 3);
+    print->displayMsg("Server is disconnecting");
+    exit(1);
 }

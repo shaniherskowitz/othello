@@ -30,6 +30,7 @@ void GameRoom::initializingPlayer(int playerSocket, int playerNum) {
 }
 
 void GameRoom::closeGame() {
+  if (started) {
   Point endGame(-2, -2);
   ssize_t x = write(playerSocket1, &endGame, sizeof(Point));
   if (x == -1) {
@@ -37,13 +38,20 @@ void GameRoom::closeGame() {
     exit(1);
   }
   close(playerSocket1);
-  if (started) {
-    ssize_t x = write(playerSocket2, &endGame, sizeof(Point));
+    x = write(playerSocket2, &endGame, sizeof(Point));
     if (x == -1) {
       cout << "Error writing to socket" << endl;
       exit(1);
     }
     close(playerSocket2);
+  } else {
+    int endGame = -1;
+    ssize_t x = write(playerSocket1, &endGame, sizeof(int));
+    if (x == -1) {
+      cout << "Error writing to socket" << endl;
+      exit(1);
+    }
+    close(playerSocket1);
   }
 }
 

@@ -48,11 +48,14 @@ void ServerGames::eraseGame(string gameName) {
 }
 
 void ServerGames::closeGames() {
-  vector<GameRoom>::iterator it = gamesList.begin();
+  /*vector<GameRoom>::iterator it = gamesList.begin();
   if (it != gamesList.end()) {
     it->closeGame();
-    it = gamesList.erase(it);
+    //it = gamesList.erase(it);
     it++;
+  }*/
+  for (int i = 0; i < gamesList.size(); ++i) {
+    gamesList[i].closeGame();
   }
 }
 

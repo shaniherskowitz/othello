@@ -2,6 +2,7 @@
 #include <strings.h>
 #include "Server.h"
 #define END_GAME -2
+#define SERVER_PLAYING 0
 #include "commands/CommandsManager.h"
 #include "ServerGames.h"
 #include <sstream>
@@ -16,15 +17,15 @@
 using namespace std;
 #define MAX_CONNECTED_CLIENTS 2
 
-Server::Server(int port) : port(port) {}
+Server::Server(int port) : port(port), serverSocket(0) {}
 
-bool Server::stopServer = false;
-int Server::serverSocket = 0;
+int Server::stopServer = SERVER_PLAYING;
 
 void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen) {
   vector<pthread_t> connectionThreads;
-  stopServer = false;
-  while (!stopServer) {
+
+  while (true) {
+   
     cout << "Waiting for  client connections..." << endl;
     // Accept a new client connection
     int clientSocket = accept(serverSocket, (struct sockaddr *) &playerAddress1, &playerAddressLen);
@@ -40,6 +41,7 @@ void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t player
     //close(clientSocket);
     //pthread_exit(exitCondition());
   }
+
   pthread_exit(NULL);
 }
 
@@ -62,12 +64,30 @@ void Server::start() {
   // Start listening to incoming connections
   listen(serverSocket, MAX_CONNECTED_CLIENTS);
   // Define the client socket's structures
+  //socklen_t playerAddressLen = sizeof((struct sockaddr *) &playerAddress);
   struct sockaddr_in playerAddress;
   socklen_t playerAddressLen = sizeof((struct sockaddr *) &playerAddress);
 
-  connectToClient(playerAddress, playerAddressLen);
-  close(serverSocket);
+  /*pthread_t main;
+  int rc = pthread_create(&main, NULL, &Server::connectToClientHeler, NULL);
+  if (rc != 0) {
+    cout << "Error: unable to create thread, " << rc << endl;
+    exit(-1);
+  }*/
+  //stopServer = false;
 
+
+
+  connectToClient(playerAddress, playerAddressLen);
+  //close(serverSocket);
+
+}
+
+void *Server::connectToClientHeler(void *args) {
+  struct sockaddr_in playerAddress;
+  socklen_t playerAddressLen = sizeof((struct sockaddr *) &playerAddress);
+  ((Server *) args)->connectToClient(playerAddress, playerAddressLen);
+  return args;
 }
 
 void *Server::handleClientHelper(void *tempArgs) {
@@ -124,8 +144,7 @@ int Server::readError(int numCheck) {
 }
 
 void Server::exitCondition() {
-  stopServer = true;
-  close(serverSocket);
+  stopServer = 1;
 
 }
 
