@@ -2,7 +2,12 @@
 #include "ServerGames.h"
 pthread_mutex_t count_mutex;
 
-ServerGames::ServerGames() {}
+ServerGames* ServerGames::instance = NULL;
+
+ServerGames* ServerGames::Instance() {
+  if (!instance)   instance = new ServerGames();
+  return instance;
+}
 
 vector<GameRoom>::iterator ServerGames::getGame(string gameName) {
   vector<GameRoom>::iterator it = gamesList.begin();
@@ -43,7 +48,7 @@ void ServerGames::joinGame(string gameName, int clientSocket) {
 }
 
 int ServerGames::sendGamesList(int clientSocket) {
-  int numWords = getAvialbleGames();
+  int numWords = getAvailableGames();
   writeInt(clientSocket, numWords);
   vector<GameRoom>::iterator it = gamesList.begin();
   while (it != gamesList.end()) {
@@ -70,7 +75,7 @@ int ServerGames::sendGamesList(int clientSocket) {
   }
 }
 
-int ServerGames::getAvialbleGames() {
+int ServerGames::getAvailableGames() {
   int count = 0;
   for (int i = 0; i < gamesList.size(); ++i) {
     if (!gamesList[i].isStarted()) count++;

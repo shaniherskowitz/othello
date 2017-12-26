@@ -14,8 +14,6 @@
 #include <cmath>
 #include <cstring>
 
-//vector<GameRoom> gamesList;
-ServerGames *gamesList = new ServerGames();
 using namespace std;
 #define MAX_CONNECTED_CLIENTS 2
 
@@ -78,6 +76,7 @@ int Server::handleClient(int clientSocket) {
   stringstream ss;
   ss << clientSocket;
   string socketString = ss.str();
+  ServerGames *gamesList = ServerGames::Instance();
   CommandsManager commandsManager(gamesList);
   while (true) {
     string command, arg;
