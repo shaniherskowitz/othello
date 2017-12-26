@@ -79,11 +79,11 @@ void RemotePlayer::writeMove(const Move move, GameUI *print) {
 }
 
 Move RemotePlayer::getUserInput(GameUI *print) const {
-  print->displayMsg("Please enter your move - row col: (to exit disconnect server enter -1.");
+  print->displayMsg("Please enter your move - row col: (to exit disconnect server enter -1).");
   int i, j;
   while (true) {
     cin >> i;
-    if (i == -1) return Move(Point(-2, -2));
+    if (i == -1) disconnectServer(print);
     cin >> j;
     if (!cin.fail()) break;
     print->problemWithInput();
@@ -91,5 +91,29 @@ Move RemotePlayer::getUserInput(GameUI *print) const {
     cin.ignore(std::numeric_limits<int>::max(), '\n');
   }
   return Move(Point(i - 1, j - 1));
+}
+
+void RemotePlayer::disconnectServer(GameUI *print) const {
+  print->displayMsg("You are an asshole. Server will be disconnected.");
+  string command = "exit";
+  sendCommand(command, print);
+  exit(1);
+}
+
+void RemotePlayer::sendCommand(string command, GameUI *print) const {
+  int sendSize = (int)command.size();
+  ssize_t n = write(socket, &sendSize, sizeof(int));
+  if (n == -1) {
+    print->socketWriteError();
+    exit(1);
+  }
+  for (int i = 0; i < sendSize; i++) {
+    char c = command[i];
+    n = write(socket, &c, sizeof(char));
+    if (n == -1) {
+      print->socketWriteError();
+      exit(1);
+    }
+  }
 }
 
