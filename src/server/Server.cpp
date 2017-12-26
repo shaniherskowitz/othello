@@ -11,6 +11,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <cstring>
+#define CLOSE_GAME ""
 
 using namespace std;
 #define MAX_CONNECTED_CLIENTS 2
@@ -72,7 +73,7 @@ void *Server::handleClientHelper(void *tempArgs) {
 }
 
 // Handle requests from a specific client
-int Server::handleClient(int clientSocket) {
+void Server::handleClient(int clientSocket) {
   //int s = gamesList.size();
   stringstream ss;
   ss << clientSocket;
@@ -84,7 +85,7 @@ int Server::handleClient(int clientSocket) {
     vector<string> args;
     args.push_back(socketString);
     command = readString(clientSocket);
-    if (command.empty()) return END_GAME;
+    if (command.empty()) return;
     istringstream iss(command);
     copy(istream_iterator<std::string>(iss), istream_iterator<string>(), back_inserter(args));
     commandsManager.executeCommand(args[1], args);
@@ -95,17 +96,17 @@ string Server::readString(int clientSocket) {
   int commandSize;
   char buffer[50];
   ssize_t r = read(clientSocket, &commandSize, sizeof(int));
-  int k = readError((int) r);
-  if (k != 1) return "";
+  if (readError((int) r) != 1) return CLOSE_GAME;
 
   for (int i = 0; i < commandSize; i++) {
     r = read(clientSocket, &buffer[i], sizeof(char));
     int k = readError((int) r);
-    if (k != 1) return "";
+    if (k != 1) return CLOSE_GAME;
   }
   buffer[commandSize] = '\0';
   return string(buffer);
 }
+
 int Server::readError(int numCheck) {
   if (numCheck == -1) {
     cout << "Error reading command from player." << endl;
@@ -117,6 +118,7 @@ int Server::readError(int numCheck) {
   }
   return 1;
 }
+
 void *Server::exitCondition() {
   //return false;
 }

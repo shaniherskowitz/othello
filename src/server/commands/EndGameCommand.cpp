@@ -5,6 +5,9 @@
 #include "EndGameCommand.h"
 void EndGameCommand::execute(vector<string> args) {
   if (args.empty()) return;
-  server->eraseGame(args[0]);
+  server->closeGames();
+  Server::exitCondition();
+  //server->eraseGame(args[0]);
+
   //server->eraseGame(args[0]);
 }

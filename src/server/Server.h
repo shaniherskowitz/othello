@@ -36,7 +36,7 @@ class Server {
   /**
    * The method closes the socket.
    */
-  int handleClient(int clientSocket);
+  void handleClient(int clientSocket);
   /**
    * The method reads the move from the client.
    * @param readSocket The client's socket number.
