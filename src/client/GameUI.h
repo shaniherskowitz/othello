@@ -101,7 +101,7 @@ class GameUI {
     virtual void noOpenGames() const = 0;
     virtual void gameExists() const = 0;
     virtual void gameNotExists() const = 0;
-    virtual void displayMsg(string msg const) const = 0;
+    virtual void displayMsg(string msg) const = 0;
 
 };
 

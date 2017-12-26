@@ -39,7 +39,7 @@ class ConsolUI : public GameUI {
     virtual void noOpenGames() const ;
     virtual void gameExists() const ;
     virtual void gameNotExists() const ;
-    virtual void displayMsg(string msg const) const ;
+    virtual void displayMsg(string msg) const ;
 };
 
 #endif //OTHELLO_CONSOLUI_H

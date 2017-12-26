@@ -159,6 +159,6 @@ void ConsolUI::gameNotExists() const {
   cout << "Game Doesn't exists! Please enter another game:" << endl;
 }
 
-void ConsolUI::displayMsg(string msg const) const {
+void ConsolUI::displayMsg(string msg) const {
   cout << msg << endl;
 }
