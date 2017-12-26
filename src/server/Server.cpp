@@ -16,9 +16,10 @@
 using namespace std;
 #define MAX_CONNECTED_CLIENTS 2
 
-Server::Server(int port) : port(port), serverSocket(0) {}
+Server::Server(int port) : port(port) {}
 
 bool Server::stopServer = false;
+int Server::serverSocket = 0;
 
 void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen) {
   vector<pthread_t> connectionThreads;
@@ -39,7 +40,6 @@ void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t player
     //close(clientSocket);
     //pthread_exit(exitCondition());
   }
-  stop();
   pthread_exit(NULL);
 }
 
@@ -125,6 +125,8 @@ int Server::readError(int numCheck) {
 
 void Server::exitCondition() {
   stopServer = true;
+  close(serverSocket);
+
 }
 
 bool Server::exitConnectionThreads() {
