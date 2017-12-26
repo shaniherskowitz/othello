@@ -17,6 +17,9 @@ using namespace std;
 #define MAX_CONNECTED_CLIENTS 2
 
 Server::Server(int port) : port(port), serverSocket(0) {}
+
+bool Server::stopServer = false;
+
 void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen) {
   vector<pthread_t> connectionThreads;
   stopServer = false;
