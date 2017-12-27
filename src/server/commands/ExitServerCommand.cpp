@@ -6,5 +6,4 @@
 void ExitServerCommand::execute(vector<string> args) {
   if (args.empty()) return;
   server->closeGames();
-  Server::exitCondition();
 }

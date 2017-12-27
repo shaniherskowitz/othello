@@ -20,7 +20,7 @@
 class Server {
  private:
   int port;
-  static int serverSocket; // the socket's file descriptor
+  int serverSocket; // the socket's file descriptor
   static bool stopServer;
 
  public:
@@ -45,12 +45,12 @@ class Server {
    * @return The move value, or end game value.
    */
   static void *handleClientHelper(void *tempArgs);
-  static void exitCondition();
-  bool exitConnectionThreads();
+  static void *waitForExit(void *args);
   void stop();
   void connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen);
   string readString(int clientSocket);
   int readError(int numCheck);
+  void stopserver();
 };
 
 #endif //OTHELLO_SERVER_H
