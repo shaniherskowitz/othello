@@ -15,52 +15,56 @@
 #define CLOSE_GAME ""
 
 using namespace std;
-#define MAX_CONNECTED_CLIENTS 2
+#define MAX_CONNECTED_CLIENTS 10
 
-Server::Server(int port) : port(port), serverSocket(0) {}
+Server::Server(int port) : port(port) {}
 
 bool Server::stopServer = false;
 
+int Server::serverSocket = 0;
 
-void Server::connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen) {
+void *Server::connectToClient(void *args) {
   vector<pthread_t> connectionThreads;
-  bool stopServer = false;
+  // Start listening to incoming connections
+  listen(serverSocket, MAX_CONNECTED_CLIENTS);
+  // Define the client socket's structures
+  struct sockaddr_in playerAddress;
+  socklen_t playerAddressLen = sizeof((struct sockaddr *) &playerAddress);
+  /*bool stopServer = false;
   pthread_t firstThread;
   int rc = pthread_create(&firstThread, NULL, &Server::waitForExit, NULL);
   if (rc != 0) {
     cout << "Error: unable to create thread, " << rc << endl;
     exit(-1);
   }
-  connectionThreads.push_back(firstThread);
-
+  connectionThreads.push_back(firstThread);*/
   while (!stopServer) {
     cout << "Waiting for  client connections..." << endl;
     // Accept a new client connection
-    int clientSocket = accept(serverSocket, (struct sockaddr *) &playerAddress1, &playerAddressLen);
+    int clientSocket = accept(serverSocket, (struct sockaddr *) &playerAddress, &playerAddressLen);
 
     if (clientSocket == -1) throw "Error on accept";
     cout << "Client connected" << endl;
     pthread_t currThread;
-    rc = pthread_create(&currThread, NULL, &Server::handleClientHelper, &clientSocket);
+    int rc = pthread_create(&currThread, NULL, &Server::handleClientHelper, &clientSocket);
     if (rc != 0) {
       cout << "Error: unable to create thread, " << rc << endl;
       exit(-1);
     }
     connectionThreads.push_back(currThread);
   }
-
-  pthread_exit(NULL);
+  //pthread_exit(NULL);
 }
 
 void* Server::waitForExit(void *args) {
   string exitServer;
-  while(exitServer.compare("yes") != 0) {
-    cout << "do you want to exit server? (yes/no)" << endl;
+  while(exitServer != "exit") {
+    cout << "To disconnect the server at any stage please enter exit:" << endl;
 
     cin >> exitServer;
   }
-  ((Server *) args)->stopserver();
-  return  args;
+  ((Server *) args)->stop();
+  //return  args;
 }
 
 void Server::start() {
@@ -75,18 +79,24 @@ void Server::start() {
   serverAddress.sin_family = AF_INET;
   serverAddress.sin_addr.s_addr = INADDR_ANY;
   serverAddress.sin_port = htons(port);
-  if (bind(serverSocket, (struct sockaddr *) &serverAddress, sizeof(serverAddress)) == -1) {
+  if (bind(serverSocket, (struct sockaddr *) &serverAddress, sizeof(serverAddress)) == -1)
     throw "Error on binding";
+
+  pthread_t mainThreads[1];
+  /*int rc = pthread_create(&mainThreads[0], NULL, &Server::waitForExit, NULL);
+  if (rc != 0) {
+    cout << "Error: unable to create thread, " << rc << endl;
+    exit(-1);
+  }*/
+  int rc = pthread_create(&mainThreads[0], NULL, &Server::connectToClient, NULL);
+  if (rc != 0) {
+    cout << "Error: unable to create thread, " << rc << endl;
+    exit(-1);
   }
+  waitForExit(NULL);
+  pthread_exit(NULL);
 
-  // Start listening to incoming connections
-  listen(serverSocket, MAX_CONNECTED_CLIENTS);
-  // Define the client socket's structures
-  struct sockaddr_in playerAddress;
-  socklen_t playerAddressLen = sizeof((struct sockaddr *) &playerAddress);
-
-
-  connectToClient(playerAddress, playerAddressLen);
+  //connectToClient(playerAddress, playerAddressLen);
 }
 
 void *Server::handleClientHelper(void *tempArgs) {
@@ -143,8 +153,10 @@ int Server::readError(int numCheck) {
 }
 
 void Server::stop() {
+  stopServer = true;
   close(serverSocket);
 }
+
 void Server::stopserver() {
   stopServer = true;
 }

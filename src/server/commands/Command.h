@@ -33,7 +33,7 @@ class Command {
     /**
      * The Command destructor.
      */
-  virtual ~Command() {}
+  ~Command();
 };
 
 #endif //OTHELLO_COMMAND_H

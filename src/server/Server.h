@@ -20,7 +20,7 @@
 class Server {
  private:
   int port;
-  int serverSocket; // the socket's file descriptor
+  static int serverSocket; // the socket's file descriptor
   static bool stopServer;
 
  public:
@@ -47,7 +47,7 @@ class Server {
   static void *handleClientHelper(void *tempArgs);
   static void *waitForExit(void *args);
   void stop();
-  void connectToClient(struct sockaddr_in playerAddress1, socklen_t playerAddressLen);
+  static void *connectToClient(void *args);
   string readString(int clientSocket);
   int readError(int numCheck);
   void stopserver();

@@ -9,5 +9,6 @@ Command::Command(ServerGames *server1) {
 }
 
 Command::~Command() {
-  delete(server);
+  //delete(server);
+  ServerGames::deleteInstance();
 }
