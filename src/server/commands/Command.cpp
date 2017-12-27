@@ -7,3 +7,7 @@
 Command::Command(ServerGames *server1) {
   server = server1;
 }
+
+Command::~Command() {
+  delete(server);
+}

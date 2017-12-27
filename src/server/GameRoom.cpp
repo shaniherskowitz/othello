@@ -21,6 +21,7 @@ void GameRoom::startGame() {
   initializingPlayer(playerSocket1, 0);
   initializingPlayer(playerSocket2, 1);
 }
+
 void GameRoom::initializingPlayer(int playerSocket, int playerNum) {
   ssize_t x = write(playerSocket, &playerNum, sizeof(int));
   if (x == -1) {
