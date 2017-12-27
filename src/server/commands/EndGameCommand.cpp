@@ -6,8 +6,5 @@
 void EndGameCommand::execute(vector<string> args) {
   if (args.empty()) return;
   server->closeGames();
-  Server::exitCondition();
-  //server->eraseGame(args[0]);
 
-  //server->eraseGame(args[0]);
 }
