@@ -14,10 +14,7 @@ void RemotePlayerMenu::connectToRoom(int socket) {
     string socketString = ss.str();
     vector<string> gamesList;
     getGamesList(socket, &gamesList);
-    if (choice == 1)  {
-        print->displayMsg("Please enter a game name:");
-        sendStartCommand(socket, gamesList);
-    }
+    if (choice == 1)  sendStartCommand(socket, gamesList);
     if (choice == 2) sendJoinCommand(socket, gamesList);
 }
 
@@ -31,11 +28,12 @@ void RemotePlayerMenu::checkSocketConnection(ssize_t bytesWritten) {
 }
 
 void RemotePlayerMenu::sendStartCommand(int socket, vector<string> gamesList) {
+    print->displayMsg("Please enter a game name:");
     string command = "start";
     string gameName;
     cin >> gameName;
     while (isInGamesList(gamesList, gameName)) {
-        print->gameExists();
+        print->displayMsg("Game already exist!");
         cin >> gameName;
     }
     sendCommand(socket, command, gameName);
