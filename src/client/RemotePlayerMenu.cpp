@@ -36,6 +36,13 @@ void RemotePlayerMenu::sendStartCommand(int socket, vector<string> gamesList) {
         cin >> gameName;
     }
     sendCommand(socket, command, gameName);
+    int gameCreated;
+    ssize_t r = read(socket, &gameCreated, sizeof(gameCreated));
+    checkSocketConnection(r);
+    if (!gameCreated) {
+        print->gameExists();
+        sendStartCommand(socket, gamesList);
+    }
 }
 
 bool RemotePlayerMenu::isInGamesList(vector<string> gamesList, string gameName) {

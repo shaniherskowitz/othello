@@ -30,9 +30,12 @@ vector<GameRoom>::iterator ServerGames::getGame(string gameName) {
 
 void ServerGames::newGame(string gameName, int clientSocket) {
   if (getGame(gameName) != gamesList.end()) {
-    int gameExists = -1;
+    bool gameExists = 0;
     write(clientSocket, &gameExists, sizeof(gameExists));
+    writeInt(clientSocket, gameExists);
+    return;
   }
+  writeInt(clientSocket, 1);
   GameRoom *gameRoom = new GameRoom(clientSocket, gameName);
   pthread_mutex_trylock(&count_mutex);
   gamesList.push_back(*gameRoom);
