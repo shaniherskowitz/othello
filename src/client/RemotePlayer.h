@@ -62,9 +62,8 @@ class RemotePlayer : public HumanPlayer {
    * @return The player's move.
    */
   Move getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board);
-    void disconnectServer(GameUI *print) const ;
-    void sendCommand(string command, GameUI *print) const ;
-    virtual Move getUserInput(GameUI *print) const;
+  void sendCommand(string command, GameUI *print) const;
+  virtual Move getUserInput(GameUI *print) const;
 
 };
 

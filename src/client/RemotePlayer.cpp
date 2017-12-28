@@ -20,13 +20,10 @@ Move RemotePlayer::readMove(GameUI *print) {
   print->waitingForPlayerMove();
   Point value;
   ssize_t n = read(socket, &value, sizeof(value));
-  if (value == Point(-2, -2)) {
+  if (n == -1 || n == 0) {
     print->displayMsg("Server is disconnecting");
-    exit(1);
-  }
-  if (n == -1) {
-    print->socketReadError();
-    exit(1);
+    return Move(Point(-2, -2));
+    //exit(1);
   }
   if (value.getX() == -1) print->movesListIsEmpty();
 
@@ -47,7 +44,8 @@ Move RemotePlayer::writeMove(GameUI *print, vector<Move> movesList) {
     print->printMoves(getSymbolMeaning(), movesList);
     move = getUserInput(print);
   }
-  if (move.getPoint() != Point(-2, -2)) writeMove(move, print);
+
+  writeMove(move, print);
   return move;
 
 }
@@ -57,25 +55,25 @@ void RemotePlayer::writeMove(const Move move, GameUI *print) {
   int y = move.getPoint().getY();
   string command;
   Point p(x, y);
-  if (p == Point(-2, -2)) command = "exit";
-  else {
-    string play = "play";
-    command = play + " " + p.toString();
-  }
-  int sendSize = (int)command.size();
-  ssize_t n = write(socket, &sendSize, sizeof(int));
-  if (n == -1) {
-    print->displayMsg("Server is disconnecting");
-    exit(1);
-  }
-  for (int i = 0; i < sendSize; i++) {
-    char c = command[i];
-    n = write(socket, &c, sizeof(char));
-    if (n == -1) {
+  string play = "play";
+  command = play + " " + p.toString();
+
+  int sendSize = (int) command.size();
+  try {
+    ssize_t n = write(socket, &sendSize, sizeof(int));
+    if (n == -1 || n == 0) {
       print->displayMsg("Server is disconnecting");
-      exit(1);
+      return;
     }
-  }
+    for (int i = 0; i < sendSize; i++) {
+      char c = command[i];
+      n = write(socket, &c, sizeof(char));
+      if (n == -1) {
+        print->displayMsg("Server is disconnecting");
+        return;
+      }
+    }
+  } catch (exception e) { print->displayMsg("Server is disconnecting"); }
 }
 
 Move RemotePlayer::getUserInput(GameUI *print) const {
@@ -83,7 +81,6 @@ Move RemotePlayer::getUserInput(GameUI *print) const {
   int i, j;
   while (true) {
     cin >> i;
-    if (i == -1) disconnectServer(print);
     cin >> j;
     if (!cin.fail()) break;
     print->problemWithInput();
@@ -93,19 +90,13 @@ Move RemotePlayer::getUserInput(GameUI *print) const {
   return Move(Point(i - 1, j - 1));
 }
 
-void RemotePlayer::disconnectServer(GameUI *print) const {
-  print->displayMsg("Server will be disconnected.");
-  string command = "exit";
-  sendCommand(command, print);
-  exit(1);
-}
 
 void RemotePlayer::sendCommand(string command, GameUI *print) const {
-  int sendSize = (int)command.size();
+  int sendSize = (int) command.size();
   ssize_t n = write(socket, &sendSize, sizeof(int));
   if (n == -1) {
     print->displayMsg("Server is disconnecting");
-    exit(1);
+    //exit(1);
   }
   for (int i = 0; i < sendSize; i++) {
     char c = command[i];

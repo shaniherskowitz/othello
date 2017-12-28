@@ -8,6 +8,7 @@ GameStatus RegularGameLogic::turn(Player &player, Board &board, GameUI *gameUI) 
   vector<Move> movesList = getMovesList(player.getSymbol(), board);
   Move move = player.getTurnsMove(movesList, gameUI, board);
   if (move.getPoint() == Point(-1, -1)) return HAS_NO_MOVES;
+  if (move.getPoint() == Point(-2, -2)) return FULL_BOARD;
   flipTiles(board, player.getSymbol(), move.getPoint());
   gameUI->played(move.getPoint(), player.getSymbolMeaning());
   if (board.boardFull()) return FULL_BOARD;
