@@ -36,13 +36,10 @@ void Server::connectToClient(sockaddr_in playerAddress, socklen_t playerAddressL
     cout << "Waiting for  client connections..." << endl;
     // Accept a new client connection
     int clientSocket = accept(serverSocket, (struct sockaddr *) &playerAddress, &playerAddressLen);
-    if (serverSocket <= 0) {
-      closeThreads(connectionThreads);
-      pthread_exit(NULL);
-    }
     if (clientSocket == -1) {
       cout << "Server Disconnecting" << endl;
-      return;
+      closeThreads(connectionThreads);
+      pthread_exit(NULL);
     }
    // if (clientSocket == -1) throw "Error on accept";
     cout << "Client connected" << endl;
