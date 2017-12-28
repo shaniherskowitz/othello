@@ -9,17 +9,18 @@ ServerGames *ServerGames::Instance() {
   return instance;
 }
 
-ServerGames::~ServerGames() { 
-  cout << "closing" << endl;
-  if (!instance)
-    return;
- // delete instance;
+ServerGames::~ServerGames() {
+  instance = NULL;
 }
 
 void ServerGames::deleteInstance() {
   //ServerGames *instance = Instance();
-  //delete instance;
-  instance = NULL;
+ // delete instance;
+  if(!instance) {
+    instance = NULL;
+    return;
+  }
+  delete instance;
 }
 
 vector<GameRoom>::iterator ServerGames::getGame(string gameName) {
@@ -43,9 +44,9 @@ void ServerGames::newGame(string gameName, int clientSocket) {
     return;
   }
   writeInt(clientSocket, 1);
-  GameRoom *gameRoom = new GameRoom(clientSocket, gameName);
+  GameRoom gameRoom(clientSocket, gameName);
   pthread_mutex_trylock(&count_mutex);
-  gamesList.push_back(*gameRoom);
+  gamesList.push_back(gameRoom);
   pthread_mutex_unlock(&count_mutex);
 }
 
@@ -58,12 +59,6 @@ void ServerGames::eraseGame(string gameName) {
 }
 
 void ServerGames::closeGames() {
-  /*vector<GameRoom>::iterator it = gamesList.begin();
-  if (it != gamesList.end()) {
-    it->closeGame();
-    //it = gamesList.erase(it);
-    it++;
-  }*/
   for (int i = 0; i < gamesList.size(); ++i) {
     gamesList[i].closeGame();
   }
@@ -79,7 +74,7 @@ void ServerGames::joinGame(string gameName, int clientSocket) {
   }
 }
 
-int ServerGames::sendGamesList(int clientSocket) {
+void ServerGames::sendGamesList(int clientSocket) {
   int numWords = getAvailableGames();
   writeInt(clientSocket, numWords);
   vector<GameRoom>::iterator it = gamesList.begin();
@@ -90,7 +85,7 @@ int ServerGames::sendGamesList(int clientSocket) {
     }
     string game = it->getName();
     unsigned long gameSize = game.size();
-    writeInt(clientSocket, gameSize);
+    writeInt(clientSocket, (int)gameSize);
     for (int i = 0; i < gameSize; i++) {
       char send = game[i];
       ssize_t w = write(clientSocket, &send, sizeof(char));
@@ -139,12 +134,11 @@ int ServerGames::size() {
 int ServerGames::checkWriteErrors(ssize_t numCheck, string error) {
   if (numCheck == -1) {
     cout << error << endl;
-    return numCheck;
   }
   if (numCheck == 0) {
     cout << "Player disconnected" << endl;
-    return numCheck;
   }
+  return (int)numCheck;
 }
 
 int ServerGames::getPlayerCount() {
@@ -156,12 +150,7 @@ int ServerGames::getPlayerCount() {
   return count;
 }
 
-GameRoom ServerGames::findClientGame(int socket) {
-  for (int i = 0; i < gamesList.size(); ++i) {
-    if (gamesList[i].playingInGame(socket)) return gamesList[i];
-  }
-  //return NULL;
-}
+
 
 bool ServerGames::gameExists(string gameName) {
   vector<GameRoom>::iterator it = gamesList.begin();

@@ -23,6 +23,7 @@ class GameRoom {
   string name;
  public:
   GameRoom(int playerSocket1, const string &name);
+  ~GameRoom();
   void connectPlayer2(int playerSocket);
   const string &getName() const;
   bool isStarted() const;
@@ -36,7 +37,7 @@ class GameRoom {
   void closeGame();
   int getOtherSocket(int playerSocket);
   bool playingInGame(int playerSocket);
-    void checkSocketConnection(ssize_t n, string msg);
+  void checkSocketConnection(ssize_t n, string msg);
 };
 
 #endif //OTHELLO_GAMEROOM_H

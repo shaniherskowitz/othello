@@ -56,12 +56,12 @@ void Server::connectToClient(sockaddr_in playerAddress, socklen_t playerAddressL
 void *Server::waitForExit(void *args) {
   string exitServer;
   while (exitServer != "exit") {
-    cout << "To disconnect the server at any stage please enter exit:" << endl;
+    cout << "To disconnect the server at any stage please enter exit:" << endl << endl;
 
     cin >> exitServer;
   }
   ((Server *) args)->stop();
-  //return  args;
+  return  args;
 }
 
 void Server::start() {
@@ -136,7 +136,7 @@ string Server::readString(int clientSocket) {
 int Server::readError(int numCheck) {
   if (serverSocket == 0) return 0;
   if (numCheck == -1) {
-    cout << "Error reading command from player." << endl;
+    //cout << "Error reading command from player." << endl;
     return numCheck;
   }
   if (numCheck == 0) {

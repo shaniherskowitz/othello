@@ -9,7 +9,7 @@ class ServerGames {
   vector<GameRoom> gamesList;
   ServerGames() {};
   ServerGames(ServerGames &serverGames1) {};
-  ServerGames &operator=(ServerGames const &) {};
+  ServerGames &operator=(ServerGames const &);
   ~ServerGames();
  public:
   static ServerGames *Instance();
@@ -19,7 +19,7 @@ class ServerGames {
   void eraseGame(string gameName);
   void newGame(string gameName, int clientSocket);
   void joinGame(string gameName, int clientSocket);
-  int sendGamesList(int clientSocket);
+  void sendGamesList(int clientSocket);
   void writeInt(int clientSocket, int num);
   void playMove(int clientSocket, Point move);
   /**
@@ -34,8 +34,7 @@ class ServerGames {
   int size();
   int checkWriteErrors(ssize_t numCheck, string error);
   int getPlayerCount();
-  GameRoom findClientGame(int socket);
-    bool gameExists(string gameName);
+  bool gameExists(string gameName);
 };
 
 #endif //OTHELLO_SERVERGAMES_H

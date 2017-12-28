@@ -20,7 +20,7 @@ void RemotePlayerMenu::connectToRoom(int socket) {
 
 void RemotePlayerMenu::checkSocketConnection(ssize_t bytesWritten) {
     if (bytesWritten == -1) {
-        print->socketWriteError();
+        print->displayMsg("Server is disconnecting");
         exit(1);
     }
     if (bytesWritten == 0) exit(1);

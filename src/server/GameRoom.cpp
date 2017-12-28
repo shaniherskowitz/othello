@@ -5,6 +5,9 @@
 #include "GameRoom.h"
 GameRoom::GameRoom(int playerSocket1, const string &name)
     : started(false), playerSocket1(playerSocket1), name(name) {}
+GameRoom::~GameRoom() {
+
+}
 
 void GameRoom::connectPlayer2(int playerSocket) {
   playerSocket2 = playerSocket;
@@ -28,7 +31,7 @@ void GameRoom::initializingPlayer(int playerSocket, int playerNum) {
   /*if (x == -1) {
     //checkSocketConnection(x, "Error initializing player");
     //return;
-    /*cout << "Error initializing play" << endl;
+    cout << "Error initializing play" << endl;
     cout << "Socket disconnecting" << endl;
     exit(1);*/
 }
