@@ -24,10 +24,13 @@ void GameRoom::startGame() {
 
 void GameRoom::initializingPlayer(int playerSocket, int playerNum) {
   ssize_t x = write(playerSocket, &playerNum, sizeof(int));
-  if (x == -1) {
-    cout << "Error writing to socket" << endl;
-    exit(1);
-  }
+  checkSocketConnection(x, "Error initializing player");
+  /*if (x == -1) {
+    //checkSocketConnection(x, "Error initializing player");
+    //return;
+    /*cout << "Error initializing play" << endl;
+    cout << "Socket disconnecting" << endl;
+    exit(1);*/
 }
 
 void GameRoom::closeGame() {
@@ -35,22 +38,28 @@ void GameRoom::closeGame() {
   Point endGame(-2, -2);
   ssize_t x = write(playerSocket1, &endGame, sizeof(Point));
   if (x == -1) {
-    cout << "Error writing to socket" << endl;
-    exit(1);
+    checkSocketConnection(x, "Error closing gameRoom game");
+    return;
+    /*cout << "Error writing to socket" << endl;
+    exit(1);*/
   }
   close(playerSocket1);
     x = write(playerSocket2, &endGame, sizeof(Point));
     if (x == -1) {
-      cout << "Error writing to socket" << endl;
-      exit(1);
+      checkSocketConnection(x, "Error closing gameRoom game");
+      return;
+      /*cout << "Error writing to socket" << endl;
+      exit(1);*/
     }
     close(playerSocket2);
   } else {
     int endGame = -1;
     ssize_t x = write(playerSocket1, &endGame, sizeof(int));
     if (x == -1) {
-      cout << "Error writing to socket" << endl;
-      exit(1);
+      checkSocketConnection(x, "Error closing gameRoom game");
+      return;
+      /*cout << "Error writing to socket" << endl;
+      exit(1);*/
     }
     close(playerSocket1);
   }
@@ -63,4 +72,12 @@ int GameRoom::getOtherSocket(int playerSocket) {
 
 bool GameRoom::playingInGame(int playerSocket) {
   return (playerSocket == playerSocket1 || playerSocket == playerSocket2);
+}
+
+void GameRoom::checkSocketConnection(ssize_t n, string msg) {
+  if (n == -1) {
+    cout << msg << endl;
+    cout << "Socket disconnecting" << endl;
+    //exit(1);
+  }
 }

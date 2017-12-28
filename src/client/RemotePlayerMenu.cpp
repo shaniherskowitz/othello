@@ -14,7 +14,10 @@ void RemotePlayerMenu::connectToRoom(int socket) {
     string socketString = ss.str();
     vector<string> gamesList;
     getGamesList(socket, &gamesList);
-    if (choice == 1) sendStartCommand(socket, gamesList);
+    if (choice == 1)  {
+        print->displayMsg("Please enter a game name:");
+        sendStartCommand(socket, gamesList);
+    }
     if (choice == 2) sendJoinCommand(socket, gamesList);
 }
 

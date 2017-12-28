@@ -32,7 +32,7 @@ class ServerGames {
   int writeMove(int writeSocket, Point buffer, size_t sizeBuffer);
   int getAvailableGames();
   int size();
-  int checkWriteErrors(int numCheck, string error);
+  int checkWriteErrors(ssize_t numCheck, string error);
   int getPlayerCount();
   GameRoom findClientGame(int socket);
 };

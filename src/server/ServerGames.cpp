@@ -10,7 +10,7 @@ ServerGames *ServerGames::Instance() {
 }
 
 ServerGames::~ServerGames() { 
-  cout <<"closeing";
+  cout << "closing" << endl;
   if (!instance)
     return;
  // delete instance;
@@ -90,7 +90,7 @@ int ServerGames::sendGamesList(int clientSocket) {
     for (int i = 0; i < gameSize; i++) {
       char send = game[i];
       ssize_t w = write(clientSocket, &send, sizeof(char));
-      checkWriteErrors((int) w, "Error writing gamesList to player");
+      checkWriteErrors(w, "Error writing gamesList to player");
     }
     it++;
   }
@@ -122,7 +122,8 @@ int ServerGames::writeMove(int writeSocket, Point buffer, size_t sizeBuffer) {
 }
 
 void ServerGames::writeInt(int clientSocket, int num) {
-  ssize_t w = write(clientSocket, &num, sizeof(num));
+  int send = num;
+  ssize_t w = write(clientSocket, &send, sizeof(send));
   checkWriteErrors((int) w, "Error writing gamesList to player");
 
 }
@@ -131,7 +132,7 @@ int ServerGames::size() {
   return (int) gamesList.size();
 }
 
-int ServerGames::checkWriteErrors(int numCheck, string error) {
+int ServerGames::checkWriteErrors(ssize_t numCheck, string error) {
   if (numCheck == -1) {
     cout << error << endl;
     return numCheck;
