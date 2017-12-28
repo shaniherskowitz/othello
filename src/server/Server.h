@@ -47,10 +47,11 @@ class Server {
   static void *handleClientHelper(void *tempArgs);
   static void *waitForExit(void *args);
   void stop();
-  static void *connectToClient(void *args);
+  void connectToClient(sockaddr_in playerAddress, socklen_t playerAddressLen);
   string readString(int clientSocket);
   int readError(int numCheck);
   void stopserver();
+  void closeThreads(vector<pthread_t> threads);
 };
 
 #endif //OTHELLO_SERVER_H

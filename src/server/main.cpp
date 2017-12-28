@@ -30,7 +30,6 @@ int main() {
     cout << "Cannot start server. Reason: " << msg << endl;
     exit(-1);
   }
-  server.stop();
 
   return 0;
 }

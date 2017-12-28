@@ -9,13 +9,16 @@ ServerGames *ServerGames::Instance() {
   return instance;
 }
 
-ServerGames::~ServerGames() {
-  delete instance;
+ServerGames::~ServerGames() { 
+  cout <<"closeing";
+  if (!instance)
+    return;
+ // delete instance;
 }
 
 void ServerGames::deleteInstance() {
-  ServerGames *instance = Instance();
-  delete instance;
+  //ServerGames *instance = Instance();
+  //delete instance;
   instance = NULL;
 }
 
