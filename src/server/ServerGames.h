@@ -35,6 +35,7 @@ class ServerGames {
   int checkWriteErrors(ssize_t numCheck, string error);
   int getPlayerCount();
   GameRoom findClientGame(int socket);
+    bool gameExists(string gameName);
 };
 
 #endif //OTHELLO_SERVERGAMES_H

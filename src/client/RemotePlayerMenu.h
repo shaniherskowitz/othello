@@ -6,6 +6,8 @@
 #define OTHELLO_REMOTEPLAYERMENU_H
 
 #include "Game.h"
+#include "Client.h"
+
 class RemotePlayerMenu {
   GameUI *print;
  public:
@@ -23,6 +25,8 @@ class RemotePlayerMenu {
     void sendStartCommand(int socket, vector<string> gamesList);
     bool isInGamesList(vector<string> gamesList, string gameName);
     void sendJoinCommand(int socket, vector<string> gamesList);
+    Client *openFile();
+    void getGameName();
 };
 
 #endif //OTHELLO_REMOTEPLAYERMENU_H

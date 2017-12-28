@@ -32,10 +32,14 @@ vector<GameRoom>::iterator ServerGames::getGame(string gameName) {
 }
 
 void ServerGames::newGame(string gameName, int clientSocket) {
+ /* if (gameExists(gameName)) {
+    writeInt(clientSocket, 0);
+    return;
+  }*/
   if (getGame(gameName) != gamesList.end()) {
-    bool gameExists = 0;
-    write(clientSocket, &gameExists, sizeof(gameExists));
-    writeInt(clientSocket, gameExists);
+    int gameExists = 0;
+    //write(clientSocket, &gameExists, sizeof(gameExists));
+    writeInt(clientSocket, 0);
     return;
   }
   writeInt(clientSocket, 1);
@@ -117,14 +121,14 @@ void ServerGames::playMove(int clientSocket, Point move) {
 int ServerGames::writeMove(int writeSocket, Point buffer, size_t sizeBuffer) {
   if (buffer.getX() == END_GAME) return END_GAME;
   ssize_t w = write(writeSocket, &buffer, sizeBuffer);
-  checkWriteErrors((int) w, "Error getting move from player");
+  checkWriteErrors(w, "Error getting move from player");
   return (int) w;
 }
 
 void ServerGames::writeInt(int clientSocket, int num) {
   int send = num;
   ssize_t w = write(clientSocket, &send, sizeof(send));
-  checkWriteErrors((int) w, "Error writing gamesList to player");
+  checkWriteErrors(w, "Error writing gamesList to player");
 
 }
 
@@ -157,4 +161,13 @@ GameRoom ServerGames::findClientGame(int socket) {
     if (gamesList[i].playingInGame(socket)) return gamesList[i];
   }
   //return NULL;
+}
+
+bool ServerGames::gameExists(string gameName) {
+  vector<GameRoom>::iterator it = gamesList.begin();
+  while (it != gamesList.end()) {
+    if (it->getName() == gameName && it->isStarted()) return true;
+    it++;
+  }
+  return false;
 }

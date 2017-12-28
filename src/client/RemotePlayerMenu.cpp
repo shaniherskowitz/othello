@@ -48,6 +48,10 @@ void RemotePlayerMenu::sendStartCommand(int socket, vector<string> gamesList) {
     }
 }
 
+void RemotePlayerMenu::getGameName() {
+    
+}
+
 bool RemotePlayerMenu::isInGamesList(vector<string> gamesList, string gameName) {
     vector<string>::iterator it = gamesList.begin();
     while (it != gamesList.end()) {
@@ -60,7 +64,13 @@ bool RemotePlayerMenu::isInGamesList(vector<string> gamesList, string gameName) 
 void RemotePlayerMenu::sendJoinCommand(int socket, vector<string> gamesList) {
     if (gamesList.empty()) {
         print->noAvailableGames();
-        exit(1);
+        print->displayMsg("To start a new game please enter start, to quit press any key:");
+        string option;
+        cin >> option;
+        if (option != "start") exit(1);
+        sendStartCommand(socket, gamesList);
+        return;
+        //exit(1);
     }
     print->getGames();
     print->getGameRooms(gamesList);
@@ -128,6 +138,7 @@ void RemotePlayerMenu::sendCommand(int socket, string command, string args) {
 }
 
 int RemotePlayerMenu::connectToServer() {
+    //Client *client = openFile();
     ifstream inFile;
     inFile.open("clientSettings");
     string x;
@@ -155,9 +166,12 @@ int RemotePlayerMenu::connectToServer() {
         exit(-1);
     }
     connectToRoom(client.getClientSocket());
-    return client.getClientSocket();
-
+    int clientSocket = client.getClientSocket();
+   // delete(client);
+    return clientSocket;
+    //return client->getClientSocket();
 }
+
 Game* RemotePlayerMenu::getGame() {
     int socket = connectToServer();
     ssize_t n;
@@ -173,4 +187,26 @@ Game* RemotePlayerMenu::getGame() {
                         new RemotePlayer(Tile(O), socket, true), print, 3);
     print->displayMsg("Server is disconnecting");
     exit(1);
+}
+
+Client* RemotePlayerMenu::openFile() {
+    ifstream inFile;
+    inFile.open("clientSettings");
+    string x;
+    int port = 0;
+    if (!inFile) {
+        cerr << "Unable to open file";
+        exit(1);   // call system to stop
+    }
+    while (inFile >> x) {
+        if (x == "serverPort:") {
+            inFile >> x;
+            stringstream geek(x); //not sure we are allowed to use
+            geek >> port;
+        }
+        if (x == "serverIP:") inFile >> x;
+    }
+    const char *IP = x.c_str();
+    inFile.close();
+    return new Client(IP, port);
 }
