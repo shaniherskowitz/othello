@@ -61,14 +61,13 @@ class Point {
    */
   bool operator!=(const Point &point) const;
 
-    /**
-     * The method overrides the <= operator.
-     * @param point The other point that i sbeing compared.
-     * @return True if the at least on of the point's values are smaller than
-     * the current point's values.
-     */
-    bool operator<=(const Point &point) const;
-
+  /**
+   * The method overrides the <= operator.
+   * @param point The other point that i sbeing compared.
+   * @return True if the at least on of the point's values are smaller than
+   * the current point's values.
+   */
+  bool operator<=(const Point &point) const;
 
 };
 

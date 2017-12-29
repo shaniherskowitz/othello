@@ -9,7 +9,7 @@
 #include "Tile.h"
 #include "Point.h"
 #include <fstream>
-#define DEF_SIZE 3
+#define DEF_SIZE 8
 
 using namespace std;
 

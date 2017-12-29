@@ -67,11 +67,11 @@ class RemotePlayer : public HumanPlayer {
    */
   Move getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board);
 
-    /**
-     * The method gets the user's move.
-     * @param print The gameUI.
-     * @return The player's move.
-     */
+  /**
+   * The method gets the user's move.
+   * @param print The gameUI.
+   * @return The player's move.
+   */
   virtual Move getUserInput(GameUI *print) const;
 
 };
