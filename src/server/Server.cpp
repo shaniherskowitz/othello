@@ -57,7 +57,7 @@ void *Server::waitForExit(void *args) {
   }
   ((Server *) args)->stop();
   pthread_detach(pthread_self());
-  return  args;
+  return args;
 }
 
 void Server::start() {
@@ -140,6 +140,8 @@ void Server::stop() {
   ServerGames *gamesList = ServerGames::Instance();
   CommandsManager commandsManager(gamesList);
   commandsManager.executeCommand("exit", args);
+  ServerGames::lastCall = true;
+  ServerGames::deleteInstance();
   shutdown(serverSocket, SHUT_RDWR);
   close(serverSocket);
 }

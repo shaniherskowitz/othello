@@ -6,7 +6,7 @@ Point::Point(int xVal, int yVal) {
   y = yVal;
 }
 
-Point::Point() { 
+Point::Point() {
   x = -1;
   y = -1;
 }

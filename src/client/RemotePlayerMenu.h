@@ -11,7 +11,7 @@
 class RemotePlayerMenu {
   GameUI *print;
  public:
-  RemotePlayerMenu(GameUI *print1);
+  explicit RemotePlayerMenu(GameUI *print1);
   Game *getGame();
   int connectToServer();
   void connectToRoom(int socket);

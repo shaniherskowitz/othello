@@ -93,7 +93,6 @@ Move RemotePlayer::getUserInput(GameUI *print) const {
   return Move(Point(i - 1, j - 1));
 }
 
-
 void RemotePlayer::sendCommand(string command, GameUI *print) const {
   int sendSize = (int) command.size();
   ssize_t n = write(socket, &sendSize, sizeof(int));

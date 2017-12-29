@@ -25,13 +25,13 @@ void GameRoom::initializingPlayer(int playerSocket, int playerNum) {
 
 void GameRoom::closeGame() {
   if (started) {
-  Point endGame(-2, -2);
-  ssize_t x = write(playerSocket1, &endGame, sizeof(Point));
-  if (x == -1) {
-    checkSocketConnection(x, "Error closing gameRoom game");
-    return;
-  }
-  close(playerSocket1);
+    Point endGame(-2, -2);
+    ssize_t x = write(playerSocket1, &endGame, sizeof(Point));
+    if (x == -1) {
+      checkSocketConnection(x, "Error closing gameRoom game");
+      return;
+    }
+    close(playerSocket1);
     x = write(playerSocket2, &endGame, sizeof(Point));
     if (x == -1) {
       checkSocketConnection(x, "Error closing gameRoom game");
