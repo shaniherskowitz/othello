@@ -9,13 +9,9 @@ ServerGames *ServerGames::Instance() {
   return instance;
 }
 
-ServerGames::~ServerGames() {
-  instance = NULL;
-}
+ServerGames::~ServerGames() { instance = NULL; }
 
 void ServerGames::deleteInstance() {
-  //ServerGames *instance = Instance();
- // delete instance;
   if(!instance) {
     instance = NULL;
     return;
@@ -33,13 +29,7 @@ vector<GameRoom>::iterator ServerGames::getGame(string gameName) {
 }
 
 void ServerGames::newGame(string gameName, int clientSocket) {
- /* if (gameExists(gameName)) {
-    writeInt(clientSocket, 0);
-    return;
-  }*/
   if (getGame(gameName) != gamesList.end()) {
-    int gameExists = 0;
-    //write(clientSocket, &gameExists, sizeof(gameExists));
     writeInt(clientSocket, 0);
     return;
   }
@@ -48,14 +38,6 @@ void ServerGames::newGame(string gameName, int clientSocket) {
   pthread_mutex_trylock(&count_mutex);
   gamesList.push_back(gameRoom);
   pthread_mutex_unlock(&count_mutex);
-}
-
-void ServerGames::eraseGame(string gameName) {
-  vector<GameRoom>::iterator gameRoom = getGame(gameName);
-  if (gameRoom != gamesList.end()) {
-    gameRoom->closeGame();
-    gamesList.erase(gameRoom);
-  }
 }
 
 void ServerGames::closeGames() {
@@ -124,39 +106,12 @@ void ServerGames::writeInt(int clientSocket, int num) {
   int send = num;
   ssize_t w = write(clientSocket, &send, sizeof(send));
   checkWriteErrors(w, "Error writing gamesList to player");
-
 }
 
-int ServerGames::size() {
-  return (int) gamesList.size();
-}
+int ServerGames::size() { return (int) gamesList.size(); }
 
-int ServerGames::checkWriteErrors(ssize_t numCheck, string error) {
-  if (numCheck == -1) {
-    cout << error << endl;
-  }
-  if (numCheck == 0) {
-    cout << "Player disconnected" << endl;
-  }
-  return (int)numCheck;
-}
-
-int ServerGames::getPlayerCount() {
-  int count = 0;
-  for (int i = 0; i < gamesList.size(); ++i) {
-    if (gamesList[i].isStarted()) count += 2;
-    count += 1;
-  }
-  return count;
-}
-
-
-
-bool ServerGames::gameExists(string gameName) {
-  vector<GameRoom>::iterator it = gamesList.begin();
-  while (it != gamesList.end()) {
-    if (it->getName() == gameName && it->isStarted()) return true;
-    it++;
-  }
-  return false;
+ssize_t ServerGames::checkWriteErrors(ssize_t numCheck, string error) {
+  if (numCheck == -1) cout << error << endl;
+  if (numCheck == 0) cout << "Player disconnected" << endl;
+  return numCheck;
 }

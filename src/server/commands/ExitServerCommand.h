@@ -1,7 +1,3 @@
-//
-// Created by shani herskowitz on 12/26/17.
-//
-
 #ifndef OTHELLO_EXITSERVERCOMMAND_H
 #define OTHELLO_EXITSERVERCOMMAND_H
 

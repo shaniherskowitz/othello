@@ -1,24 +1,17 @@
-//
-// Created by shani herskowitz on 12/17/17.
-//
-
 #include "GameRoom.h"
+
 GameRoom::GameRoom(int playerSocket1, const string &name)
     : started(false), playerSocket1(playerSocket1), name(name) {}
-GameRoom::~GameRoom() {
 
-}
+GameRoom::~GameRoom() {}
 
 void GameRoom::connectPlayer2(int playerSocket) {
   playerSocket2 = playerSocket;
   started = true;
 }
-const string &GameRoom::getName() const {
-  return name;
-}
-bool GameRoom::isStarted() const {
-  return started;
-}
+const string &GameRoom::getName() const { return name; }
+
+bool GameRoom::isStarted() const { return started; }
 
 void GameRoom::startGame() {
   initializingPlayer(playerSocket1, 0);
@@ -28,12 +21,6 @@ void GameRoom::startGame() {
 void GameRoom::initializingPlayer(int playerSocket, int playerNum) {
   ssize_t x = write(playerSocket, &playerNum, sizeof(int));
   checkSocketConnection(x, "Error initializing player");
-  /*if (x == -1) {
-    //checkSocketConnection(x, "Error initializing player");
-    //return;
-    cout << "Error initializing play" << endl;
-    cout << "Socket disconnecting" << endl;
-    exit(1);*/
 }
 
 void GameRoom::closeGame() {
@@ -43,16 +30,12 @@ void GameRoom::closeGame() {
   if (x == -1) {
     checkSocketConnection(x, "Error closing gameRoom game");
     return;
-    /*cout << "Error writing to socket" << endl;
-    exit(1);*/
   }
   close(playerSocket1);
     x = write(playerSocket2, &endGame, sizeof(Point));
     if (x == -1) {
       checkSocketConnection(x, "Error closing gameRoom game");
       return;
-      /*cout << "Error writing to socket" << endl;
-      exit(1);*/
     }
     close(playerSocket2);
   } else {
@@ -61,8 +44,6 @@ void GameRoom::closeGame() {
     if (x == -1) {
       checkSocketConnection(x, "Error closing gameRoom game");
       return;
-      /*cout << "Error writing to socket" << endl;
-      exit(1);*/
     }
     close(playerSocket1);
   }
@@ -81,6 +62,5 @@ void GameRoom::checkSocketConnection(ssize_t n, string msg) {
   if (n == -1) {
     cout << msg << endl;
     cout << "Socket disconnecting" << endl;
-    //exit(1);
   }
 }

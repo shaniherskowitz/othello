@@ -19,14 +19,12 @@ int main() {
   }
   while (inFile >> x) if (x == "serverPort:") inFile >> x;
 
-  stringstream geek(x); //not sure we are allowed to use
+  stringstream geek(x);
   geek >> port;
 
   inFile.close();
   Server server(port);
-  try {
-    server.start();
-  } catch (const char *msg) {
+  try { server.start(); } catch (const char *msg) {
     cout << "Cannot start server. Reason: " << msg << endl;
     exit(-1);
   }

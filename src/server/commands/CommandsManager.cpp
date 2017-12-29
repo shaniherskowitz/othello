@@ -1,7 +1,3 @@
-//
-// Created by shani herskowitz on 12/17/17.
-//
-
 #include "CommandsManager.h"
 
 CommandsManager::CommandsManager(ServerGames *server) {

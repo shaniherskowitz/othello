@@ -1,6 +1,4 @@
 #include <iostream>
-#include <cstring>
-#include <cstdio>
 #include "Point.h"
 
 Point::Point(int xVal, int yVal) {

@@ -1,7 +1,3 @@
-//
-// Created by shani herskowitz on 12/17/17.
-//
-
 #ifndef OTHELLO_COMMAND_H
 #define OTHELLO_COMMAND_H
 #include <vector>

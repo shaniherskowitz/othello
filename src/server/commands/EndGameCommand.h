@@ -1,7 +1,3 @@
-//
-// Created by shani herskowitz on 12/17/17.
-//
-
 #ifndef OTHELLO_ENDGAMECOMMAND_H
 #define OTHELLO_ENDGAMECOMMAND_H
 

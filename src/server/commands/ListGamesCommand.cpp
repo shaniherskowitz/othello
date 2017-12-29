@@ -1,7 +1,3 @@
-//
-// Created by shani herskowitz on 12/17/17.
-//
-
 #include "ListGamesCommand.h"
 #include <sstream>
 void ListGamesCommand::execute(vector<string> args) {
@@ -10,5 +6,4 @@ void ListGamesCommand::execute(vector<string> args) {
   int socket = 0;
   geek >> socket;
   server->sendGamesList(socket);
-  //server->sendListGames(socket);
 }
