@@ -5,18 +5,18 @@
 /**
  * Defining an ExitServerCommand class to close the connection with the server.
  */
-class ExitServerCommand: public Command {
+class ExitServerCommand : public Command {
  public:
-    /**
-     * The ExitServerCommand disconnect the connection with all sockets.
-     * @param server1 The game server.
-     */
-  explicit ExitServerCommand(ServerGames *server1): Command(server1){}
+  /**
+   * The ExitServerCommand disconnect the connection with all sockets.
+   * @param server1 The game server.
+   */
+  explicit ExitServerCommand(ServerGames *server1) : Command(server1) {}
 
-    /**
-     * The method executes the exit server command to disconnect all sockets.
-     * @param args
-     */
+  /**
+   * The method executes the exit server command to disconnect all sockets.
+   * @param args
+   */
   virtual void execute(vector<string> args);
 
 };

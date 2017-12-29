@@ -19,20 +19,20 @@ using namespace std;
  * Defining a Client class to exchange information with the server.
  */
 class Client {
-    const char *serverIP;
-    int serverPort;
-    int clientSocket;
-public:
-    /**
-     * The Client's constructor.
-     * @param serverIP The Server's IP address.
-     * @param serverPort The Server's port number.
-     */
+  const char *serverIP;
+  int serverPort;
+  int clientSocket;
+ public:
+  /**
+   * The Client's constructor.
+   * @param serverIP The Server's IP address.
+   * @param serverPort The Server's port number.
+   */
   Client(const char *serverIP, int serverPort);
-    /**
-     * The method opens a socket from the Client's side to establish a
-     * communication with the server.
-     */
+  /**
+   * The method opens a socket from the Client's side to establish a
+   * communication with the server.
+   */
   void connectToServer();
   /**
    * The method returns the Client's socket number.

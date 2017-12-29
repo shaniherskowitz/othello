@@ -13,22 +13,22 @@ class Command {
  protected:
   ServerGames *server;
  public:
-    /**
-     * The Command's constructor.
-     * @param server1 The serverGames object which performs the command on the
-     * list of games.
-     */
+  /**
+   * The Command's constructor.
+   * @param server1 The serverGames object which performs the command on the
+   * list of games.
+   */
   explicit Command(ServerGames *server1);
 
-    /**
-     * The method execute the command with the given arguments.
-     * @param args The arguent to the function presented as strings.
-     */
+  /**
+   * The method execute the command with the given arguments.
+   * @param args The arguent to the function presented as strings.
+   */
   virtual void execute(vector<string> args) = 0;
 
-    /**
-     * The Command destructor.
-     */
+  /**
+   * The Command destructor.
+   */
   ~Command();
 };
 

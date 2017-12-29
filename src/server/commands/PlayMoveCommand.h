@@ -8,17 +8,17 @@
  */
 class PlayMoveCommand : public Command {
  public:
-    /**
-     * The PlayMoveCommand constructor.
-     * @param server1 The game server.
-     */
-  explicit PlayMoveCommand(ServerGames *server1): Command(server1){}
+  /**
+   * The PlayMoveCommand constructor.
+   * @param server1 The game server.
+   */
+  explicit PlayMoveCommand(ServerGames *server1) : Command(server1) {}
 
-    /**
-     * The method executes the playMove command to send a game move to the
-     * other player.
-     * @param args The execute func's arguments.
-     */
+  /**
+   * The method executes the playMove command to send a game move to the
+   * other player.
+   * @param args The execute func's arguments.
+   */
   virtual void execute(vector<string> args);
 
 };

@@ -8,16 +8,16 @@
  */
 class StartGameCommand : public Command {
  public:
-    /**
-     * The StartGameCommand constructor.
-     * @param server1 The game server.
-     */
+  /**
+   * The StartGameCommand constructor.
+   * @param server1 The game server.
+   */
   explicit StartGameCommand(ServerGames *server1) : Command(server1) {}
 
-    /**
-     * The method executes the startGame command 
-     * @param args
-     */
+  /**
+   * The method executes the startGame command
+   * @param args
+   */
   virtual void execute(vector<string> args);
 };
 

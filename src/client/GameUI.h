@@ -98,10 +98,10 @@ class GameUI {
   virtual void noAvailableGames() const = 0;
   virtual void getGames() const = 0;
   virtual void getGameRooms(vector<string> gamesList) const = 0;
-    virtual void noOpenGames() const = 0;
-    virtual void gameExists() const = 0;
-    virtual void gameNotExists() const = 0;
-    virtual void displayMsg(string msg) const = 0;
+  virtual void noOpenGames() const = 0;
+  virtual void gameExists() const = 0;
+  virtual void gameNotExists() const = 0;
+  virtual void displayMsg(string msg) const = 0;
 
 };
 

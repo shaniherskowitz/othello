@@ -59,12 +59,12 @@ class Move {
    */
   bool operator==(const Move &move) const;
 
-    /**
-     * The method overloads the "smaller than" operator.
-     * @param move The move to be compared with.
-     * @return True if other move is smaller, else false.
-     */
-    bool operator<(const Move &move) const;
+  /**
+   * The method overloads the "smaller than" operator.
+   * @param move The move to be compared with.
+   * @return True if other move is smaller, else false.
+   */
+  bool operator<(const Move &move) const;
 };
 
 #endif //OTHELLO_MOVE_H

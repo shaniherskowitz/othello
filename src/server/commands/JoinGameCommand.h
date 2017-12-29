@@ -8,17 +8,17 @@
  */
 class JoinGameCommand : public Command {
  public:
-    /**
-     * The JoinGameCommand constructor.
-     * @param server1 The game server.
-     */
-  explicit JoinGameCommand(ServerGames *server1): Command(server1){}
+  /**
+   * The JoinGameCommand constructor.
+   * @param server1 The game server.
+   */
+  explicit JoinGameCommand(ServerGames *server1) : Command(server1) {}
 
-    /**
-     * The method executes the join game command to add a player to an
-     * un-started game.
-     * @param args The execute func's arguments.
-     */
+  /**
+   * The method executes the join game command to add a player to an
+   * un-started game.
+   * @param args The execute func's arguments.
+   */
   virtual void execute(vector<string> args);
 
 };

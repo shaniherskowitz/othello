@@ -14,22 +14,22 @@
  * Command.
  */
 class CommandsManager {
-    map<string, Command *> commandsMap;
+  map<string, Command *> commandsMap;
  public:
-    /**
-     * The CommandsManager constructor.
-     * @param server The game server.
-     */
+  /**
+   * The CommandsManager constructor.
+   * @param server The game server.
+   */
   explicit CommandsManager(ServerGames *server);
-    /**
-     * The CommandManager's destructor.
-     */
+  /**
+   * The CommandManager's destructor.
+   */
   ~CommandsManager();
-    /**
-     * The method calls to execute the right command.
-     * @param command The user's command.
-     * @param args The execute func's arguments.
-     */
+  /**
+   * The method calls to execute the right command.
+   * @param command The user's command.
+   * @param args The execute func's arguments.
+   */
   void executeCommand(string command, vector<string> args);
 };
 
