@@ -34,6 +34,7 @@ class RemotePlayer : public HumanPlayer {
    * @param print print to user
    */
   void writeMove(Move move, GameUI *print);
+
  public:
   /**
    * The RemotePlayer's constructor.
@@ -43,6 +44,7 @@ class RemotePlayer : public HumanPlayer {
    * turn, or the remote player's turn.
    */
   RemotePlayer(Tile tile, int socket, bool localTurn1);
+
   /**
    * The RemotePlayer's constructor.
    * @param tile The Player's symbol.
@@ -50,10 +52,12 @@ class RemotePlayer : public HumanPlayer {
    * turn, or the remote player's turn.
    */
   RemotePlayer(Tile tile, bool localTurn1);
+
   /**
    * The RemotePlayer's destructor.
    */
   ~RemotePlayer();
+
   /**
    * The method returns the player's move.
    * @param movesList The possible moves list.
@@ -62,7 +66,12 @@ class RemotePlayer : public HumanPlayer {
    * @return The player's move.
    */
   Move getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board);
-  void sendCommand(string command, GameUI *print) const;
+
+    /**
+     * The method gets the user's move.
+     * @param print The gameUI.
+     * @return The player's move.
+     */
   virtual Move getUserInput(GameUI *print) const;
 
 };

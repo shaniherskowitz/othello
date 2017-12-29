@@ -3,7 +3,6 @@
 pthread_mutex_t count_mutex;
 
 ServerGames *ServerGames::instance = NULL;
-bool ServerGames::lastCall = false;
 
 ServerGames *ServerGames::Instance() {
   if (!instance) instance = new ServerGames();
@@ -13,11 +12,11 @@ ServerGames *ServerGames::Instance() {
 ServerGames::~ServerGames() { instance = NULL; }
 
 void ServerGames::deleteInstance() {
-  if (!instance) {
+  if(!instance) {
     instance = NULL;
     return;
   }
-  if (lastCall) delete instance;
+  delete instance;
 }
 
 vector<GameRoom>::iterator ServerGames::getGame(string gameName) {
@@ -68,7 +67,7 @@ void ServerGames::sendGamesList(int clientSocket) {
     }
     string game = it->getName();
     unsigned long gameSize = game.size();
-    writeInt(clientSocket, (int) gameSize);
+    writeInt(clientSocket, (int)gameSize);
     for (int i = 0; i < gameSize; i++) {
       char send = game[i];
       ssize_t w = write(clientSocket, &send, sizeof(char));

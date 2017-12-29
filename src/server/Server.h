@@ -23,20 +23,20 @@ class Server {
   static int serverSocket; // the socket's file descriptor
   static bool stopServer;
 
-  /**
-   * The method is a static helper function for HandleClient.
-   * @param tempArgs HandleClient's arguments.
-   * @return void* so can be sent to pthread_t create.
-   */
-  static void *handleClientHelper(void *tempArgs);
+    /**
+     * The method is a static helper function for HandleClient.
+     * @param tempArgs HandleClient's arguments.
+     * @return void* so can be sent to pthread_t create.
+     */
+    static void *handleClientHelper(void *tempArgs);
 
-  /**
-  * The method is a static helper function to listen for commands to shut the
-  * server.
-  * @param args The method gets no args-there for convention.
-  * @return void* so can be sent to pthread_t create.
-  */
-  static void *waitForExit(void *args);
+    /**
+    * The method is a static helper function to listen for commands to shut the
+    * server.
+    * @param args The method gets no args-there for convention.
+    * @return void* so can be sent to pthread_t create.
+    */
+    static void *waitForExit(void *args);
 
  public:
 
@@ -57,37 +57,37 @@ class Server {
    */
   void handleClient(int clientSocket);
 
-  /**
-   * The method stops the incoming connections, disconnects the existing
-   * connections from the server socket, and disconnecting the server.
-   */
+    /**
+     * The method stops the incoming connections, disconnects the existing
+     * connections from the server socket, and disconnecting the server.
+     */
   void stop();
 
-  /**
-   * The method listens for client connection and accepts them.
-   * @param playerAddress The player address.
-   * @param playerAddressLen The length of the player address.
-   */
+    /**
+     * The method listens for client connection and accepts them.
+     * @param playerAddress The player address.
+     * @param playerAddressLen The length of the player address.
+     */
   void connectToClient(sockaddr_in playerAddress, socklen_t playerAddressLen);
 
-  /**
-   * The method reads a string from the socket.
-   * @param clientSocket The client ocket.
-   * @return The sent string.
-   */
+    /**
+     * The method reads a string from the socket.
+     * @param clientSocket The client ocket.
+     * @return The sent string.
+     */
   string readString(int clientSocket);
 
-  /**
-   * The method checks if an error was made while read/write from socket.
-   * @param numCheck The read/write method return parameter.
-   * @return The check/mistake.
-   */
+    /**
+     * The method checks if an error was made while read/write from socket.
+     * @param numCheck The read/write method return parameter.
+     * @return The check/mistake.
+     */
   ssize_t readError(ssize_t numCheck);
 
-  /**
-   * The method closes all threads from the pthread vector.
-   * @param threads The pthread_t vector.
-   */
+    /**
+     * The method closes all threads from the pthread vector.
+     * @param threads The pthread_t vector.
+     */
   void closeThreads(vector<pthread_t> threads);
 };
 
