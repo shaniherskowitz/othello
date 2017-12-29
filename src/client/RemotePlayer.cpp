@@ -3,6 +3,7 @@
 #include <string>
 #include <cstdlib>
 #include "RemotePlayer.h"
+#include <signal.h>
 
 RemotePlayer::RemotePlayer(Tile symbol, int socket, bool localTurn1) :
     HumanPlayer(symbol), socket(socket), localTurn(localTurn1) {}
@@ -26,6 +27,7 @@ Move RemotePlayer::readMove(GameUI *print) {
     //exit(1);
   }
   if (value.getX() == -1) print->movesListIsEmpty();
+  if (value.getX() == -2) print->displayMsg("Server is disconnecting");
 
   return Move(Point(value.getX(), value.getY()));
 }
@@ -60,6 +62,7 @@ void RemotePlayer::writeMove(const Move move, GameUI *print) {
 
   int sendSize = (int) command.size();
   try {
+    signal(SIGPIPE, SIG_IGN);
     ssize_t n = write(socket, &sendSize, sizeof(int));
     if (n == -1 || n == 0) {
       print->displayMsg("Server is disconnecting");
@@ -73,7 +76,7 @@ void RemotePlayer::writeMove(const Move move, GameUI *print) {
         return;
       }
     }
-  } catch (exception e) { print->displayMsg("Server is disconnecting"); }
+  } catch (exception &e) { print->displayMsg("Server is disconnecting"); }
 }
 
 Move RemotePlayer::getUserInput(GameUI *print) const {
