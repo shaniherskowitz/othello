@@ -56,6 +56,7 @@ void *Server::waitForExit(void *args) {
     cin >> exitServer;
   }
   ((Server *) args)->stop();
+  pthread_detach(pthread_self());
   return  args;
 }
 
@@ -86,6 +87,7 @@ void Server::start() {
 void *Server::handleClientHelper(void *tempArgs) {
   int clientSocket = *((int *) tempArgs);
   ((Server *) tempArgs)->handleClient(clientSocket);
+  pthread_detach(pthread_self());
   return tempArgs;
 }
 
@@ -144,6 +146,7 @@ void Server::stop() {
 
 void Server::closeThreads(vector<pthread_t> threads) {
   for (int i = 0; i < threads.size(); ++i) {
+    pthread_detach(threads[i]);
     pthread_cancel(threads[i]);
   }
 }
