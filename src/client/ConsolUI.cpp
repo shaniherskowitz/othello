@@ -99,24 +99,13 @@ void ConsolUI::played(Point p, char player) const {
   cout << player << " played: (" << p.getX() + 1 << "," << p.getY() + 1 << ")" << endl;
 }
 
-void ConsolUI::playerConnected(char tile) const {
-  cout << "Player " << tile << " connected." << endl;
-}
-void ConsolUI::playerDisconnected() const {
-  cout << "Player disconnected" << endl;
-}
 void ConsolUI::serverConnected() const {
   cout << "Connected to server" << endl;
 }
 void ConsolUI::serverConnectError(const char *msg) const {
   cout << "Failed to connect to server. Reason:" << msg << endl;
 }
-void ConsolUI::socketReadError() const {
-  cout << "Error reading move from player." << endl;
-}
-void ConsolUI::socketWriteError() const {
-  cout << "Error writing to socket" << endl;
-}
+
 void ConsolUI::waitingForPlayer() const {
   cout << "Waiting for other player to connect..." << endl;
 }
@@ -129,6 +118,7 @@ void ConsolUI::remotePlayerMenu() const {
   cout << "Option 1 - Start new game" << endl;
   cout << "Option 2 - Join game" << endl;
 }
+
 void ConsolUI::printGameRoom(string game) const {
   cout << game << endl;
 }
@@ -145,10 +135,6 @@ void ConsolUI::getGameRooms(vector<string> gamesList) const {
   for (int i = 0; i < gamesList.size(); i++) {
     printGameRoom(gamesList[i]);
   }
-}
-
-void ConsolUI::noOpenGames() const {
-  cout << "No open games" << endl;
 }
 
 void ConsolUI::gameExists() const {

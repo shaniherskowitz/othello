@@ -1,7 +1,3 @@
-//
-// Created by shani herskowitz on 12/2/17.
-//
-
 #ifndef OTHELLO_CLIENT_H
 #define OTHELLO_CLIENT_H
 #include <iostream>
