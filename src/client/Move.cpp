@@ -14,18 +14,14 @@ Move::Move(Point move, int counter) {
   this->scoreCounter = counter;
 }
 
-void Move::updateCounter(int counter) {
-  this->scoreCounter += counter;
-}
-int Move::getScoreCounter() const {
-  return scoreCounter;
-}
-Point Move::getPoint() const {
-  return move;
-}
-void Move::mergeMove(Move other) {
-  this->scoreCounter += other.scoreCounter;
-}
+void Move::updateCounter(int counter) { this->scoreCounter += counter; }
+
+int Move::getScoreCounter() const { return scoreCounter; }
+
+Point Move::getPoint() const { return move; }
+
+void Move::mergeMove(Move other) { this->scoreCounter += other.scoreCounter; }
+
 bool Move::operator==(const Move &move) const {
   return (this->move == move.move && this->scoreCounter == move.scoreCounter);
 }

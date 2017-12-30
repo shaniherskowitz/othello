@@ -9,6 +9,7 @@
 class Move {
   Point move;
   int scoreCounter;
+
  public:
   /**
    * The Move's constructor.

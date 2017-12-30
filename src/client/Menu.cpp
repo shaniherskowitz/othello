@@ -6,7 +6,6 @@
 Menu::Menu() {}
 
 Menu::~Menu() {}
-Tile oppositeSymbol(Tile tile);
 
 void Menu::showMenu() {
   Game *game;
@@ -20,8 +19,8 @@ void Menu::showMenu() {
   print->gameStart(choice);
   game->run();
   delete game;
-
 }
+
 int Menu::getUserInput(GameUI *print) {
   int choice = 0;
   print->showMenu();
@@ -33,15 +32,9 @@ int Menu::getUserInput(GameUI *print) {
     cin.ignore(std::numeric_limits<int>::max(), '\n');
   }
   return choice;
-
 }
+
 Game *Menu::getServerGame(GameUI *print) {
   RemotePlayerMenu menu(print);
   return menu.getGame();
-}
-
-Tile oppositeSymbol(Tile tile) {
-  if (tile == X) return O;
-  if (tile == O) return X;
-  return EMPTY;
 }

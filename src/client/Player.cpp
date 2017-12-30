@@ -1,14 +1,10 @@
 #include "Player.h"
-Player::Player(Tile name) {
-  this->symbol = name;
-}
-Player::~Player() {
 
-}
+Player::Player(Tile name) { this->symbol = name; }
 
-Tile Player::getSymbol() const {
-  return symbol;
-}
+Player::~Player() {}
+
+Tile Player::getSymbol() const { return symbol; }
 
 char Player::getSymbolMeaning() const {
   if (symbol == Tile(O)) return 'O';

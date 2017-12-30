@@ -20,7 +20,7 @@
 class Server {
  private:
   int port;
-  static int serverSocket; // the socket's file descriptor
+  static int serverSocket;
   static bool stopServer;
 
   /**

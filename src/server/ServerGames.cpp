@@ -3,6 +3,7 @@
 pthread_mutex_t count_mutex;
 
 ServerGames *ServerGames::instance = NULL;
+
 bool ServerGames::lastCall = false;
 
 ServerGames *ServerGames::Instance() {
@@ -36,7 +37,7 @@ void ServerGames::newGame(string gameName, int clientSocket) {
   }
   writeInt(clientSocket, 1);
   GameRoom gameRoom(clientSocket, gameName);
-  pthread_mutex_trylock(&count_mutex);
+  pthread_mutex_trylock(count_mutex);
   gamesList.push_back(gameRoom);
   pthread_mutex_unlock(&count_mutex);
 }

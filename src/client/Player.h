@@ -11,6 +11,7 @@
 class Player {
  protected:
   Tile symbol;
+
  public:
   /**
    * The Player's construcotr.

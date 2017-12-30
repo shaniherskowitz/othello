@@ -8,11 +8,16 @@ class Score {
 
  public:
   /**
-   *
-   * @param board1 to check the score of the game.
+   * The Score's constructor.
+   * @param board1 To check the score of the game.
    */
   explicit Score(Board &board1);
+
+    /**
+     * The Score's destructor.
+     */
   ~Score();
+
   /**
    *
    * @param player1 symbol

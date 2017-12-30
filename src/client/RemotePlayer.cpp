@@ -8,10 +8,13 @@
 RemotePlayer::RemotePlayer(Tile symbol, int socket, bool localTurn1) :
     HumanPlayer(symbol), socket(socket), localTurn(localTurn1) {}
 
-RemotePlayer::RemotePlayer(Tile symbol, bool localTurn1) : HumanPlayer(symbol), localTurn(localTurn1) {}
+RemotePlayer::RemotePlayer(Tile symbol, bool localTurn1) : HumanPlayer(symbol),
+                                                           localTurn(localTurn1) {}
+
 RemotePlayer::~RemotePlayer() {}
 
-Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print, Board &board) {
+Move RemotePlayer::getTurnsMove(std::vector<Move> movesList, GameUI *print,
+                                Board &board) {
   print->printBoard(board);
   if (localTurn) return writeMove(print, movesList);
   return readMove(print);
@@ -46,10 +49,8 @@ Move RemotePlayer::writeMove(GameUI *print, vector<Move> movesList) {
     print->printMoves(getSymbolMeaning(), movesList);
     move = getUserInput(print);
   }
-
   writeMove(move, print);
   return move;
-
 }
 
 void RemotePlayer::writeMove(const Move move, GameUI *print) {

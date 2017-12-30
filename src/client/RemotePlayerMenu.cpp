@@ -7,6 +7,7 @@
 #include "Client.h"
 #include <signal.h>
 RemotePlayerMenu::RemotePlayerMenu(GameUI *print1) : print(print1) {}
+
 void RemotePlayerMenu::connectToRoom(int socket) {
   print->remotePlayerMenu();
   int choice = getChoice();
@@ -25,7 +26,6 @@ void RemotePlayerMenu::checkSocketConnection(ssize_t bytesWritten) {
     exit(1);
   }
   if (bytesWritten == 0) exit(1);
-
 }
 
 void RemotePlayerMenu::sendStartCommand(int socket, vector<string> gamesList) {
