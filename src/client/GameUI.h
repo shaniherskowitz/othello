@@ -85,68 +85,68 @@ class GameUI {
    */
   virtual void played(Point p, char player) const = 0;
 
-    /**
-     * The method prints an error message when player can"t connect to server.
-     * @param msg The error message to print.
-     */
+  /**
+   * The method prints an error message when player can"t connect to server.
+   * @param msg The error message to print.
+   */
   virtual void serverConnectError(const char *msg) const = 0;
 
-    /**
-     * The message prints that the server is connected.
-     */
+  /**
+   * The message prints that the server is connected.
+   */
   virtual void serverConnected() const = 0;
 
-    /**
-     * The method print that the player is waiting for other player to connect.
-     */
+  /**
+   * The method print that the player is waiting for other player to connect.
+   */
   virtual void waitingForPlayer() const = 0;
 
-    /**
-     * The method print that the player is waiting for the other player"s move.
-     */
+  /**
+   * The method print that the player is waiting for the other player"s move.
+   */
   virtual void waitingForPlayerMove() const = 0;
 
-    /**
-     * The method prints the menu for the remote player.
-     */
+  /**
+   * The method prints the menu for the remote player.
+   */
   virtual void remotePlayerMenu() const = 0;
 
-    /**
-     * The method prints the given gameRoom's name.
-     * @param game The given gameRoom's name.
-     */
+  /**
+   * The method prints the given gameRoom's name.
+   * @param game The given gameRoom's name.
+   */
   virtual void printGameRoom(string game) const = 0;
 
-    /**
-     * The method prints that there are no more available games.
-     */
+  /**
+   * The method prints that there are no more available games.
+   */
   virtual void noAvailableGames() const = 0;
 
-    /**
-     * The method prints to choose a game.
-     */
+  /**
+   * The method prints to choose a game.
+   */
   virtual void getGames() const = 0;
 
-    /**
-     * The method prints the available games from the given gameList.
-     * @param gamesList The gamesList.
-     */
+  /**
+   * The method prints the available games from the given gameList.
+   * @param gamesList The gamesList.
+   */
   virtual void getGameRooms(vector<string> gamesList) const = 0;
 
-    /**
-     * The method prints that the current game already exists.
-     */
+  /**
+   * The method prints that the current game already exists.
+   */
   virtual void gameExists() const = 0;
 
-    /**
-     * The method prints that the current game doesn't exist.
-     */
+  /**
+   * The method prints that the current game doesn't exist.
+   */
   virtual void gameNotExists() const = 0;
 
-    /**
-     * The method prints the given message.
-     * @param msg The given message.
-     */
+  /**
+   * The method prints the given message.
+   * @param msg The given message.
+   */
   virtual void displayMsg(string msg) const = 0;
 
 };

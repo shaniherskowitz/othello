@@ -13,9 +13,9 @@ class Score {
    */
   explicit Score(Board &board1);
 
-    /**
-     * The Score's destructor.
-     */
+  /**
+   * The Score's destructor.
+   */
   ~Score();
 
   /**

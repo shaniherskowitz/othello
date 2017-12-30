@@ -68,10 +68,10 @@ class Point {
    */
   bool operator<=(const Point &point) const;
 
-    /**
-     * The method returns the string representation of a Point.
-     * @return The string representation of a Point.
-     */
+  /**
+   * The method returns the string representation of a Point.
+   * @return The string representation of a Point.
+   */
   string toString();
 
 };
