@@ -106,7 +106,7 @@ class RemotePlayerMenu {
    * accordingly.
    * @return The initialized client.
    */
-  Client *openFile();
+  Client openFile();
 };
 
 #endif //OTHELLO_REMOTEPLAYERMENU_H

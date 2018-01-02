@@ -177,15 +177,16 @@ Game *RemotePlayerMenu::getGame() {
   checkSocketConnection(n);
   if (player == 0)
     return new Game(new RemotePlayer(Tile(X), socket, true),
-                    new RemotePlayer(Tile(O), socket, false), print, 3);
+                    new RemotePlayer(Tile(O), socket, false), print, 8);
   else if (player == 1)
     return new Game(new RemotePlayer(Tile(X), socket, false),
-                    new RemotePlayer(Tile(O), socket, true), print, 3);
+                    new RemotePlayer(Tile(O), socket, true), print, 8);
   print->displayMsg("Server is disconnecting");
+  delete print;
   exit(1);
 }
 
-Client *RemotePlayerMenu::openFile() {
+Client RemotePlayerMenu::openFile() {
   ifstream inFile;
   inFile.open("clientSettings");
   string x;
@@ -204,5 +205,5 @@ Client *RemotePlayerMenu::openFile() {
   }
   const char *IP = x.c_str();
   inFile.close();
-  return new Client(IP, port);
+  return Client(IP, port);
 }

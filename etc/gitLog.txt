@@ -1,3 +1,561 @@
+commit 50067820a694023ed6337b20238b9efc8c933a22 (HEAD -> master, origin/master)
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 30 23:39:16 2017 +0200
+
+    created exe files
+
+commit 89ae35f93507e5e2dc36cc2d35b27d08033cf3af
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 30 23:23:46 2017 +0200
+
+    stupid change
+
+commit 29b474e8f662d9a875be66531d213f36ef0ea331
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 30 23:20:16 2017 +0200
+
+    reformated lines
+
+commit 1c34df8016a93f4a8a7f6eda8503917625a5e559
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 30 23:15:10 2017 +0200
+
+    finished comments
+:...skipping...
+commit 50067820a694023ed6337b20238b9efc8c933a22 (HEAD -> master, origin/master)
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 30 23:39:16 2017 +0200
+
+    created exe files
+
+commit 89ae35f93507e5e2dc36cc2d35b27d08033cf3af
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 30 23:23:46 2017 +0200
+
+    stupid change
+
+commit 29b474e8f662d9a875be66531d213f36ef0ea331
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 30 23:20:16 2017 +0200
+
+    reformated lines
+
+commit 1c34df8016a93f4a8a7f6eda8503917625a5e559
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 30 23:15:10 2017 +0200
+
+    finished comments
+
+commit f7772c385ff1f892f6acc41962857ba8989316f8
+Author: LioraZ <liorazr@gmail.com>
+:...skipping...
+commit 50067820a694023ed6337b20238b9efc8c933a22 (HEAD -> master, origin/master)
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 30 23:39:16 2017 +0200
+
+    created exe files
+
+commit 89ae35f93507e5e2dc36cc2d35b27d08033cf3af
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 30 23:23:46 2017 +0200
+
+    stupid change
+
+commit 29b474e8f662d9a875be66531d213f36ef0ea331
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 30 23:20:16 2017 +0200
+
+    reformated lines
+
+commit 1c34df8016a93f4a8a7f6eda8503917625a5e559
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 30 23:15:10 2017 +0200
+
+    finished comments
+
+commit f7772c385ff1f892f6acc41962857ba8989316f8
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 30 19:40:23 2017 +0200
+
+    consule ui comments
+
+commit f1c835f33210a91c9ee6f7ffb55902e8e902bed8
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Fri Dec 29 16:01:06 2017 +0200
+
+    reformated
+
+commit 7649bb89fdd36bf8c1d2ea637cb64751e8a31168
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Fri Dec 29 15:55:08 2017 +0200
+
+    went back to what was
+
+commit c1ea1feb464785828435ad66bd1e63c30f37f546
+Author: LioraZ <liorazr@gmail.com>
+Date:   Fri Dec 29 15:11:24 2017 +0200
+
+    more comments
+
+commit 18040f2b3c0d64efbad38481b2729195eb86f3da
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Fri Dec 29 14:25:00 2017 +0200
+
+    removed some files
+
+commit ab2a09b28e44582c79575a4212d1e556e7fb014b
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Fri Dec 29 14:12:12 2017 +0200
+
+    -
+
+commit a926bf0f1b8d34be279aa1f880b722270f84f5d0
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Fri Dec 29 13:09:21 2017 +0200
+
+    bug fix to servergames
+
+commit f818e2f319ed9a679804b6b823ce979ce79de52e
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Fri Dec 29 10:07:33 2017 +0200
+
+    -
+
+commit b026efdd4d6ba0af9a8dcce3f023885cbf622a30
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Fri Dec 29 10:06:59 2017 +0200
+
+    minor mem fixes
+
+commit 2b17dae920d93d68ce955b81ce782b7953cdd97e
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Fri Dec 29 09:50:00 2017 +0200
+
+    fixed mem leaks
+
+commit 62beb037fdf212d6a58835aa457b30ccde5705a3
+Author: LioraZ <liorazr@gmail.com>
+Date:   Fri Dec 29 04:11:23 2017 +0200
+
+    finished all comments and cleaned up code for server folder
+
+commit 7120a4669533c6bbfa0b25e93c0c5cb2d8c08d2a
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Fri Dec 29 00:44:05 2017 +0200
+
+    some problems
+
+commit 01b6d2d30e4c48f7df4c42b1098ce968e678070a
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Thu Dec 28 22:42:36 2017 +0200
+
+    fixed some memory leaks
+
+commit c86ae31ba6c307f772ae2481db74554e0139ca1f
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 28 18:12:31 2017 +0200
+
+    fixed bugs
+
+commit 33bff752c27167fe94beeed23b744a18df0af697
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 28 17:42:02 2017 +0200
+
+    made start game loop work
+
+commit c3af5efe8fb0adedb8bbc6d7f655ffe692c7576e
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 28 15:19:45 2017 +0200
+
+    some changes code isnt working perfectly
+
+commit 86d0e8cf0253ad836ec45ecb54b5188c3a73fddf
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Thu Dec 28 14:13:30 2017 +0200
+
+    exit threads first
+
+commit 38185786ca95836663401831d3e3ebb0023d094c
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 28 14:00:16 2017 +0200
+
+    fixed socket exit error
+
+commit 494e88748b4d14f446d4eb255f6bf2edc9ceec6a
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Thu Dec 28 10:57:56 2017 +0200
+
+    made changes to end game
+
+commit f6f4e6b084a05bb7926cb217903b4a711805ccd3
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 28 02:02:17 2017 +0200
+
+    changes with bugs
+
+commit 12f66e01a6ba75bec6be5b9e6c96072f188f5ce5
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 28 01:38:26 2017 +0200
+
+    attemp to exit server-does not work!
+
+commit 8afe2a566dc4f3f58dc25e64779fc9bb4b151ef8
+Merge: ffef410 cced509
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 28 00:15:07 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit ffef41075b82bf797a57dce29c4f9fd4de64f148
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 28 00:15:01 2017 +0200
+
+    committing comments
+
+commit cced50938d61dfe9a52705ca5c311f04e2c3c215
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Wed Dec 27 21:43:41 2017 +0200
+
+    still trying to close server
+
+commit 2854525967f90330a29489b687792605c239269f
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Wed Dec 27 00:02:55 2017 +0200
+
+    -
+
+commit daa35d8ffc5a29b820eb04b45fbfd2710db2de2f
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Tue Dec 26 20:31:53 2017 +0200
+
+    still trying to end game
+
+commit 649a4e20cf6d4d954a6855d860eefc27dd362ad4
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Dec 26 20:09:08 2017 +0200
+
+    more changes in remote player
+
+commit 419ad699f6ac81f046e3f8e7405bc470d50c8ed8
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Dec 26 19:53:02 2017 +0200
+
+    minor change in server
+
+commit b1e5d89a346d9f873ddee446e20da019b315c1bb
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Dec 26 19:48:35 2017 +0200
+
+    just
+
+commit 56d8828ae8b6c69efbe1d5254d4aa45c25030295
+Merge: c55a48e 1d9cc80
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Dec 26 19:45:04 2017 +0200
+
+    Merge branch 'master' of https://github.com/shaniherskowitz/othello
+
+commit c55a48eac84af856fbd118009de4ffad87dda993
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Dec 26 19:44:58 2017 +0200
+
+    updated remoted player to exit when server disconnects
+
+commit 1d9cc8048aa46b8b175f5a87a6ff7ab4070c047a
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Tue Dec 26 19:39:10 2017 +0200
+
+    made changes to server to end server
+
+commit cdd533a0ab78f6f28c44a1b3db7a4c389c918e11
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Dec 26 19:14:25 2017 +0200
+
+    stupid line
+
+commit 2719f21c57739700705df31866ec4bdd6abe7a9d
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Dec 26 18:56:28 2017 +0200
+
+    plain stuff
+
+commit 8cff239f69329e05cf3e16adcb852e174dd29a50
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Tue Dec 26 15:04:02 2017 +0200
+
+    added some funcs for shorter code
+
+commit af39f639e12f355a5d95947d158761e6125fdfd4
+Merge: 5fb9661 e0ef9fc
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Tue Dec 26 11:41:31 2017 +0200
+
+    -
+
+commit 5fb96618a25f8f030451d717c6df50cc725de1da
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Tue Dec 26 11:40:13 2017 +0200
+
+    -
+
+commit e0ef9fccaf1a7df1c7f0d3644efff98056bffc4c
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Dec 26 11:37:10 2017 +0200
+
+    added some functions but didnt yet change and incorporate them into the code
+
+commit 6c9cda5a48adf87ffa41157f63a8e2b434438c51
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Dec 26 09:55:41 2017 +0200
+
+    added a function to check socket connection
+
+commit f2cd72d35160e92cfafd6562360f3b5a045f72f2
+Author: LioraZ <liorazr@gmail.com>
+Date:   Tue Dec 26 08:55:19 2017 +0200
+
+    made ServerGames singleton
+
+commit b0956871152a30aad02f7ca42b1586b2433d6e86
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 25 23:13:55 2017 +0200
+
+    linked servergames to server
+
+commit 6f85c6feed7e4466f5b5b0d6c630cd89a5663787
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 25 22:44:30 2017 +0200
+
+    fixed bug
+
+commit 01bf29273e6656b5fc85a85b61784db92f3dd3a5
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 25 22:19:21 2017 +0200
+
+    added mutex
+
+commit 5053b6fdaaff29be331e9cb35575b92ce2cee4a3
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 25 21:38:10 2017 +0200
+
+    fixed end game
+
+commit dffa1c31446dd17dc05f05ee482aa2af36de420d
+Author: LioraZ <liorazr@gmail.com>
+Date:   Mon Dec 25 20:58:51 2017 +0200
+
+    changed remote player menu
+
+commit bb8f90bf3c882f3eca4f7a70bc28ef905dfd40fb
+Author: LioraZ <liorazr@gmail.com>
+Date:   Mon Dec 25 13:40:53 2017 +0200
+
+    removed mutex
+
+commit c23fa63a3db650b2ffbe55b5c509df932dba4cdb
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 25 11:44:19 2017 +0200
+
+    made game work
+
+commit 8bdde052a670cd0f5aaaf1e32c7b24885476b818
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 25 10:39:26 2017 +0200
+
+    fixed bug with sending chars
+
+commit c3db109f92176806d6f0073166b0c307d6dad674
+Author: LioraZ <liorazr@gmail.com>
+Date:   Mon Dec 25 01:39:41 2017 +0200
+
+    made changes
+
+commit 8db24a2b62ffa3d22c6bb8d29843203d1078feb9
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 24 22:33:46 2017 +0200
+
+    write move in string
+
+commit 8a5a36d80236bcbd680fba97edb7cf3308bda2c7
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 24 21:41:02 2017 +0200
+
+    fixed null terminator issue
+
+commit 4beec063c439622ca09b558613212db9c94fd894
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 24 21:07:22 2017 +0200
+
+    -
+
+commit d730cd1af36f75578c2f2c32e2cfd795ebfd2d0d
+Merge: 4a46aa0 9923b4f
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sun Dec 24 21:00:45 2017 +0200
+
+    merging conflicys
+
+commit 9923b4f98e3bbdcf0a63dd26c3f058b43607c015
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 24 20:55:21 2017 +0200
+
+    changes to string
+
+commit 4a46aa0435d49a8a7c90796e47af995af4765c15
+Merge: 52429e2 b58469c
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sun Dec 24 20:54:36 2017 +0200
+
+    m
+
+commit 52429e23fd9fa5ffcc7b97513bdb6ecc318d87ba
+Merge: 5486e70 284fa3c
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sun Dec 24 20:37:25 2017 +0200
+
+    m
+
+commit b58469c4413d2d7fd772c79fb6093d1369d7c5dd
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 24 20:36:41 2017 +0200
+
+    -
+
+commit 5486e704bd9dbb6fa9555c634012a422487d3e90
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sun Dec 24 20:19:57 2017 +0200
+
+    fixed string sending bug
+
+commit 284fa3caa8ad6c7230803513ef3ef67a08a8ef1c
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 24 20:15:49 2017 +0200
+
+    added prints, fixed bug with gameslist
+
+commit c41a5fbae5b67112241f8e89a17b585cb77a579f
+Merge: 680c700 d5ede76
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 23 20:12:39 2017 +0200
+
+    -
+
+commit 680c70089afbd26205f6af3e88366fb5619d9033
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sat Dec 23 20:01:32 2017 +0200
+
+    -
+
+commit d5ede7697303e3da624994e235951b24a51fcc26
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sat Dec 23 20:00:49 2017 +0200
+
+    made ServerGames
+
+commit 3e6c5c251bd554f5c801d077bf199f540ed8fad7
+Merge: e964630 25dd8bc
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 21 22:07:46 2017 +0200
+
+    n
+
+commit 25dd8bc27e0e8376cbec2796b3f2040988843ca9
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Thu Dec 21 22:02:52 2017 +0200
+
+    -
+
+commit e964630c63ec558c6328248eec8cf23e8f569bec
+Author: LioraZ <liorazr@gmail.com>
+Date:   Thu Dec 21 21:58:32 2017 +0200
+
+    nthing
+
+commit 10d6fa550d4b4dde2befcc2304a2b5f6fa2cbc14
+Merge: ad8e916 aa416e5
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Thu Dec 21 21:54:46 2017 +0200
+
+    -
+
+commit ad8e91680f94a46e289fe5e406728130e5792c65
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Thu Dec 21 21:43:50 2017 +0200
+
+    -
+
+commit a6932200e99ad3dd6c2faf4e10e3c0f07f9225a0
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sun Dec 17 22:27:24 2017 +0200
+
+    implemented EndGameCommand
+
+commit aa416e50ffba7d876c40883e42a5f03172d1491a
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sun Dec 17 22:15:50 2017 +0200
+
+    more changes
+
+commit 9b6cfdf60a6beda4e648020f6562b605bc05bb27
+Author: LioraZ <liorazr@gmail.com>
+Date:   Sun Dec 17 21:58:50 2017 +0200
+
+    made structual changes in Command so will hold gamesList insead of server
+
+commit aebc4d5fbedc1b2c7b1799af2ca2f6b61dd95da3
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 17 16:09:48 2017 +0200
+
+    -
+
+commit 02a4d78dd4721f015ff2259bf035494a3d36f6a5
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 17 15:36:08 2017 +0200
+
+    -
+
+commit de76012c4673f566fa56b8c77ae764bd3f1f821d
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 17 15:31:19 2017 +0200
+
+    -
+
+commit 22efcf5fcf0d6feb60e2f60ddf01fae946aa918e
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Sun Dec 17 14:46:30 2017 +0200
+
+    start of ex5
+
+commit 44bccffc1c1c89b786a17b60e2c0b941a6be01f7
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 11 23:23:32 2017 +0200
+
+    changed to point
+
+commit 656f28879b9d89b520e39183ad07cf3a54c9c071
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 11 15:42:38 2017 +0200
+
+    git log
+
+commit 59a0ab88d6a9437ab381c26f5ee6a9c3f57f0008
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 11 15:37:07 2017 +0200
+
+    made server dissconnect
+
+commit 561ea0c3d87b352b5647efc87602d8c9c3dbfe7c
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 11 13:14:40 2017 +0200
+
+    fixed tests
+
+commit 25fa5f4496b98c6d9fe6a5e4b175c7d4366a0e09
+Author: Shani Herskowitz <shanizoe@gmail.com>
+Date:   Mon Dec 11 12:39:10 2017 +0200
+
+    final changes
+
 commit 59a0ab88d6a9437ab381c26f5ee6a9c3f57f0008 (HEAD -> master, origin/master)
 Author: Shani Herskowitz <shanizoe@gmail.com>
 Date:   Mon Dec 11 15:37:07 2017 +0200

@@ -64,6 +64,7 @@ void Server::start() {
   // Create a socket point
   serverSocket = socket(AF_INET, SOCK_STREAM, 0);
   if (serverSocket == -1) throw "Error opening socket";
+  int d = serverSocket;
 
   // Assign a local address to the socket
   struct sockaddr_in serverAddress;
