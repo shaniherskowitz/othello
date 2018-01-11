@@ -2,6 +2,8 @@
 #include "Server.h"
 #define END_GAME -2
 #include "commands/CommandsManager.h"
+#include "Task.h"
+#include "ThreadPool.h"
 #include <sstream>
 #include <iterator>
 #include <cmath>
@@ -18,47 +20,33 @@ bool Server::stopServer = false;
 int Server::serverSocket = 0;
 
 void Server::connectToClient(sockaddr_in playerAddress, socklen_t playerAddressLen) {
-  vector<pthread_t> connectionThreads;
-  pthread_t firstThread;
+  ThreadPool pool = ThreadPool(5);
 
-  int rc = pthread_create(&firstThread, NULL, &Server::waitForExit, NULL);
-  if (rc != 0) {
-    cout << "Error: unable to create thread, " << rc << endl;
-    exit(-1);
-  }
+  Task one = Task(-1, (void*)&Server::waitForExit);
+  //pool.addTask(one);
 
-  connectionThreads.push_back(firstThread);
   while (!stopServer) {
     cout << "Waiting for  client connections..." << endl;
     int clientSocket = accept(serverSocket, (struct sockaddr *) &playerAddress, &playerAddressLen);
     if (clientSocket == -1) {
       cout << "Server Disconnecting" << endl;
-      closeThreads(connectionThreads);
+
       pthread_exit(NULL);
     }
 
     cout << "Client connected" << endl;
-    pthread_t currThread;
-    int rc = pthread_create(&currThread, NULL, &Server::handleClientHelper, &clientSocket);
-    if (rc != 0) {
-      cout << "Error: unable to create thread, " << rc << endl;
-      exit(-1);
-    }
-    connectionThreads.push_back(currThread);
+    Task task = Task(clientSocket, (void*)&Server::handleClientHelper);
+    pool.addTask(task);
+
+
   }
 }
 
 void *Server::waitForExit(void *args) {
-  string exitServer;
-  while (exitServer != "exit") {
-    cout << "To disconnect the server at any stage please enter exit:" << endl << endl;
-
-    cin >> exitServer;
-  }
   ((Server *) args)->stop();
-  pthread_detach(pthread_self());
   return args;
 }
+
 
 void Server::start() {
   // Create a socket point
@@ -88,7 +76,6 @@ void Server::start() {
 void *Server::handleClientHelper(void *tempArgs) {
   int clientSocket = *((int *) tempArgs);
   ((Server *) tempArgs)->handleClient(clientSocket);
-  pthread_detach(pthread_self());
   return tempArgs;
 }
 
@@ -136,6 +123,12 @@ ssize_t Server::readError(ssize_t numCheck) {
 }
 
 void Server::stop() {
+  string exitServer;
+  while (exitServer != "exit") {
+    cout << "To disconnect the server at any stage please enter exit:" << endl << endl;
+
+    cin >> exitServer;
+  }
   stopServer = true;
   vector<string> args;
   ServerGames *gamesList = ServerGames::Instance();
@@ -145,11 +138,4 @@ void Server::stop() {
   ServerGames::deleteInstance();
   shutdown(serverSocket, SHUT_RDWR);
   close(serverSocket);
-}
-
-void Server::closeThreads(vector<pthread_t> threads) {
-  for (int i = 0; i < threads.size(); ++i) {
-    pthread_detach(threads[i]);
-    pthread_cancel(threads[i]);
-  }
 }

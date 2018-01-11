@@ -12,7 +12,7 @@ void Menu::showMenu() {
   GameUI *print = new ConsolUI();
   int choice = getUserInput(print);
 
-  if (choice == 1) game = new Game(new HumanPlayer(Tile(X)), new HumanPlayer(Tile(O)), print, DEF_SIZE);
+  if (choice == 1) game = new Game(new HumanPlayer(Tile(X)), new HumanPlayer(Tile(O)), print, 3);
   else if (choice == 2) game = new Game(new HumanPlayer(Tile(X)), new AIPlayer(Tile(O)), print, DEF_SIZE);
   else if (choice == 3) game = getServerGame(print);
 
