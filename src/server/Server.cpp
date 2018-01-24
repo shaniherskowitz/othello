@@ -18,12 +18,13 @@ Server::Server(int port) : port(port) {}
 bool Server::stopServer = false;
 
 int Server::serverSocket = 0;
+ThreadPool pool(5);
 
 void Server::connectToClient(sockaddr_in playerAddress, socklen_t playerAddressLen) {
-  ThreadPool pool = ThreadPool(5);
-
-  Task one = Task(-1, (void*)&Server::waitForExit);
-  //pool.addTask(one);
+  //ThreadPool pool = ThreadPool(2);
+  int i = 1;
+  Task *task1 = new Task(waitForExit, (void *)i);
+  pool.addTask(task1);
 
   while (!stopServer) {
     cout << "Waiting for  client connections..." << endl;
@@ -35,8 +36,9 @@ void Server::connectToClient(sockaddr_in playerAddress, socklen_t playerAddressL
     }
 
     cout << "Client connected" << endl;
-    Task task = Task(clientSocket, (void*)&Server::handleClientHelper);
+    Task *task = new Task(handleClientHelper, (void *)clientSocket);
     pool.addTask(task);
+
 
 
   }
@@ -52,7 +54,8 @@ void Server::start() {
   // Create a socket point
   serverSocket = socket(AF_INET, SOCK_STREAM, 0);
   if (serverSocket == -1) throw "Error opening socket";
-  int d = serverSocket;
+  int enable = 1;
+  if (setsockopt(serverSocket, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int)) < 0) throw("setsockopt(SO_REUSEADDR) failed");
 
   // Assign a local address to the socket
   struct sockaddr_in serverAddress;
@@ -74,8 +77,8 @@ void Server::start() {
 }
 
 void *Server::handleClientHelper(void *tempArgs) {
-  int clientSocket = *((int *) tempArgs);
-  ((Server *) tempArgs)->handleClient(clientSocket);
+  long clientSocket = (long)tempArgs;
+  ((Server *) tempArgs)->handleClient((int)clientSocket);
   return tempArgs;
 }
 
@@ -86,7 +89,7 @@ void Server::handleClient(int clientSocket) {
   string socketString = ss.str();
   ServerGames *gamesList = ServerGames::Instance();
   CommandsManager commandsManager(gamesList);
-  while (true) {
+  //while (true) {
     string command, arg;
     vector<string> args;
     args.push_back(socketString);
@@ -95,7 +98,9 @@ void Server::handleClient(int clientSocket) {
     istringstream iss(command);
     copy(istream_iterator<std::string>(iss), istream_iterator<string>(), back_inserter(args));
     commandsManager.executeCommand(args[1], args);
-  }
+    pool.addTask(new Task(handleClientHelper, (void *)clientSocket));
+    //sleep(1);
+  //}
 }
 
 string Server::readString(int clientSocket) {
@@ -138,4 +143,5 @@ void Server::stop() {
   ServerGames::deleteInstance();
   shutdown(serverSocket, SHUT_RDWR);
   close(serverSocket);
+  pool.terminate();
 }

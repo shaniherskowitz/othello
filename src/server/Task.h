@@ -7,15 +7,26 @@
 
 class Task {
  public:
-  Task(int clientSocket, void* start);
-  int getClientSocket() const;
-  void *getStart() const;
-  bool isTaken() const;
-  void setTaken(bool taken);
+  /**
+   * creates new task with function to execute.
+   * @param func  to execute in task
+   * @param arg for the function.
+   */
+  Task(void * (*func)(void *arg), void* arg) :
+      func(func), arg(arg) {}
+  /**
+   * executes tasks function.
+   */
+  void execute() {
+    func(arg);
+  }
+  /**
+   * tasks destructor.
+   */
+  virtual ~Task() {}
  private:
-  int clientSocket;
-  void* start;
-  bool taken;
+  void * (*func)(void *arg);
+  void *arg;
 
 
 };

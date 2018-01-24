@@ -6,14 +6,34 @@
 #define OTHELLO_THREADPOOL_H
 #include <vector>
 #include "Task.h"
+#include <queue>
 class ThreadPool {
  public:
-  ThreadPool(int threadCount);
-  void closeThreads();
-  static void *startTask(void *args);
-  void addTask(Task task);
+  /**
+   * creates pool with specific amount of threads.
+   * @param threadsNum
+   */
+  ThreadPool(int threadsNum);
+  /**
+   *
+   * @param task adds tak for pool to handel.
+   */
+  void addTask(Task *task);
+  /**
+   * delete all threads in pool.
+   */
+  void terminate();
+  /**
+   * The ThredPool's destructor.
+   */
+  virtual ~ThreadPool();
  private:
-  std::vector<pthread_t> listOfThreads;
+  std::queue<Task *> tasksQueue;
+  pthread_t* threads;
+  void executeTasks();
+  bool stopped;
+  pthread_mutex_t lock;
+  static void *execute(void *arg);
 
 
 };
