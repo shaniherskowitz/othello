@@ -22,8 +22,7 @@ int Server::serverSocket = 0;
 ThreadPool pool(MAX_CONNECTED_CLIENTS);
 
 void Server::connectToClient(sockaddr_in playerAddress, socklen_t playerAddressLen) {
-  int i = 1;
-  Task *task = new Task(waitForExit, (void *)i);
+  Task *task = new Task(waitForExit, NULL);
   pool.addTask(task);
 
   while (!stopServer) {
@@ -34,7 +33,7 @@ void Server::connectToClient(sockaddr_in playerAddress, socklen_t playerAddressL
       pthread_exit(NULL);
     } else{
       cout << "Client connected" << endl;
-      task = new Task(handleClientHelper, (void *)clientSocket);
+      task = new Task(handleClientHelper, (void *)&clientSocket);
       pool.addTask(task);
     }
   }
@@ -73,9 +72,13 @@ void Server::start() {
 }
 
 void *Server::handleClientHelper(void *tempArgs) {
-  long clientSocket = (long)tempArgs;
-  ((Server *) tempArgs)->handleClient((int)clientSocket);
+  int clientSocket = *((int *) tempArgs);
+  ((Server *) tempArgs)->handleClient(clientSocket);
+  pthread_detach(pthread_self());
   return tempArgs;
+  /*long clientSocket = (long)tempArgs;
+  ((Server *) tempArgs)->handleClient((int)clientSocket);
+  return tempArgs;*/
 }
 
 // Handle requests from a specific client
@@ -93,7 +96,7 @@ void Server::handleClient(int clientSocket) {
   istringstream iss(command);
   copy(istream_iterator<std::string>(iss), istream_iterator<string>(), back_inserter(args));
   commandsManager.executeCommand(args[1], args);
-  pool.addTask(new Task(handleClientHelper, (void *)clientSocket));
+  pool.addTask(new Task(handleClientHelper, (void *)&clientSocket));
 }
 
 string Server::readString(int clientSocket) {
