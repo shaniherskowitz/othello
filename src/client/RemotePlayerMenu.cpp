@@ -34,7 +34,7 @@ void RemotePlayerMenu::sendStartCommand(int socket, vector<string> gamesList) {
   string gameName;
   cin >> gameName;
   while (isInGamesList(gamesList, gameName)) {
-    print->displayMsg("Game already exist!");
+    print->gameExists();
     cin >> gameName;
   }
   sendCommand(socket, command, gameName);
@@ -65,7 +65,6 @@ void RemotePlayerMenu::sendJoinCommand(int socket, vector<string> gamesList) {
     if (option != "start") exit(1);
     sendStartCommand(socket, gamesList);
     return;
-    //exit(1);
   }
   print->getGames();
   print->getGameRooms(gamesList);

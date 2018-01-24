@@ -50,7 +50,6 @@ void ConsolUI::printBoard(Board &board) const {
 void ConsolUI::declareWinner(Board &board, GameStatus gameStatus) const {
   if (gameStatus == HAS_NO_MOVES) {
     cout << "GAME OVER" << endl << "NO MOVES LEFT FOR BOTH PLAYERS..." << endl;
-    //return;
   }
   if (board.isTie()) {
     cout << "It's a tie!!!" << endl;
@@ -124,7 +123,7 @@ void ConsolUI::printGameRoom(string game) const {
 }
 
 void ConsolUI::noAvailableGames() const {
-  cout << "No avialable games!" << endl;
+  cout << "No available games!" << endl;
 }
 
 void ConsolUI::getGames() const {

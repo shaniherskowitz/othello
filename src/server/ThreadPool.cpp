@@ -28,11 +28,13 @@ void ThreadPool::executeTasks() {
   while (!stopped) {
     pthread_mutex_lock(&lock);
     if (!tasksQueue.empty()) {
-      Task *task = tasksQueue.front();
+      Task* task = tasksQueue.front();
       tasksQueue.pop();
       pthread_mutex_unlock(&lock);
       task->execute();
-    } else {
+      delete(task);
+    }
+    else {
       pthread_mutex_unlock(&lock);
       sleep(1);
     }
@@ -41,6 +43,11 @@ void ThreadPool::executeTasks() {
 
 void ThreadPool::terminate() {
   pthread_mutex_destroy(&lock);
+  while (!tasksQueue.empty()) {
+    Task* task = tasksQueue.front();
+    tasksQueue.pop();
+    delete(task);
+  }
   stopped = true;
 }
 

@@ -18,29 +18,25 @@ Server::Server(int port) : port(port) {}
 bool Server::stopServer = false;
 
 int Server::serverSocket = 0;
-ThreadPool pool(5);
+
+ThreadPool pool(MAX_CONNECTED_CLIENTS);
 
 void Server::connectToClient(sockaddr_in playerAddress, socklen_t playerAddressLen) {
-  //ThreadPool pool = ThreadPool(2);
   int i = 1;
-  Task *task1 = new Task(waitForExit, (void *)i);
-  pool.addTask(task1);
+  Task *task = new Task(waitForExit, (void *)i);
+  pool.addTask(task);
 
   while (!stopServer) {
     cout << "Waiting for  client connections..." << endl;
     int clientSocket = accept(serverSocket, (struct sockaddr *) &playerAddress, &playerAddressLen);
     if (clientSocket == -1) {
       cout << "Server Disconnecting" << endl;
-
       pthread_exit(NULL);
+    } else{
+      cout << "Client connected" << endl;
+      task = new Task(handleClientHelper, (void *)clientSocket);
+      pool.addTask(task);
     }
-
-    cout << "Client connected" << endl;
-    Task *task = new Task(handleClientHelper, (void *)clientSocket);
-    pool.addTask(task);
-
-
-
   }
 }
 
@@ -89,18 +85,15 @@ void Server::handleClient(int clientSocket) {
   string socketString = ss.str();
   ServerGames *gamesList = ServerGames::Instance();
   CommandsManager commandsManager(gamesList);
-  //while (true) {
-    string command, arg;
-    vector<string> args;
-    args.push_back(socketString);
-    command = readString(clientSocket);
-    if (command.empty()) return;
-    istringstream iss(command);
-    copy(istream_iterator<std::string>(iss), istream_iterator<string>(), back_inserter(args));
-    commandsManager.executeCommand(args[1], args);
-    pool.addTask(new Task(handleClientHelper, (void *)clientSocket));
-    //sleep(1);
-  //}
+  string command, arg;
+  vector<string> args;
+  args.push_back(socketString);
+  command = readString(clientSocket);
+  if (command.empty()) return;
+  istringstream iss(command);
+  copy(istream_iterator<std::string>(iss), istream_iterator<string>(), back_inserter(args));
+  commandsManager.executeCommand(args[1], args);
+  pool.addTask(new Task(handleClientHelper, (void *)clientSocket));
 }
 
 string Server::readString(int clientSocket) {
@@ -131,7 +124,6 @@ void Server::stop() {
   string exitServer;
   while (exitServer != "exit") {
     cout << "To disconnect the server at any stage please enter exit:" << endl << endl;
-
     cin >> exitServer;
   }
   stopServer = true;
@@ -141,7 +133,7 @@ void Server::stop() {
   commandsManager.executeCommand("exit", args);
   ServerGames::lastCall = true;
   ServerGames::deleteInstance();
+  pool.terminate();
   shutdown(serverSocket, SHUT_RDWR);
   close(serverSocket);
-  pool.terminate();
 }
